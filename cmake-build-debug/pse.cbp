@@ -1,0 +1,267 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6"/>
+	<Project>
+		<Option title="pse"/>
+		<Option makefile_is_custom="1"/>
+		<Option compiler="gcc"/>
+		<Option virtualFolders="CMake Files\;"/>
+		<Build>
+			<Target title="all">
+				<Option working_dir="/home/uauser/Desktop/Finished_PSE10/PSE10/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/uauser/Desktop/Finished_PSE10/PSE10/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/uauser/Desktop/Finished_PSE10/PSE10/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/uauser/Desktop/Finished_PSE10/PSE10/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/uauser/Desktop/Finished_PSE10/PSE10/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="edit_cache">
+				<Option working_dir="/home/uauser/Desktop/Finished_PSE10/PSE10/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/uauser/Desktop/Finished_PSE10/PSE10/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/uauser/Desktop/Finished_PSE10/PSE10/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/uauser/Desktop/Finished_PSE10/PSE10/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/uauser/Desktop/Finished_PSE10/PSE10/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="rebuild_cache">
+				<Option working_dir="/home/uauser/Desktop/Finished_PSE10/PSE10/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/uauser/Desktop/Finished_PSE10/PSE10/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/uauser/Desktop/Finished_PSE10/PSE10/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/uauser/Desktop/Finished_PSE10/PSE10/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/uauser/Desktop/Finished_PSE10/PSE10/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="pse_debug">
+				<Option output="/home/uauser/Desktop/Finished_PSE10/PSE10/cmake-build-debug/pse_debug" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/uauser/Desktop/Finished_PSE10/PSE10/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/home/uauser/Desktop/Finished_PSE10/PSE10/gtest/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include-fixed"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+					<Add directory="/usr/include/c++/7"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/7"/>
+					<Add directory="/usr/include/c++/7/backward"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/uauser/Desktop/Finished_PSE10/PSE10/cmake-build-debug/Makefile&quot;  VERBOSE=1 pse_debug"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/uauser/Desktop/Finished_PSE10/PSE10/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/uauser/Desktop/Finished_PSE10/PSE10/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/uauser/Desktop/Finished_PSE10/PSE10/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="pse_debug/fast">
+				<Option output="/home/uauser/Desktop/Finished_PSE10/PSE10/cmake-build-debug/pse_debug" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/uauser/Desktop/Finished_PSE10/PSE10/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/home/uauser/Desktop/Finished_PSE10/PSE10/gtest/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include-fixed"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+					<Add directory="/usr/include/c++/7"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/7"/>
+					<Add directory="/usr/include/c++/7/backward"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/uauser/Desktop/Finished_PSE10/PSE10/cmake-build-debug/Makefile&quot;  VERBOSE=1 pse_debug/fast"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/uauser/Desktop/Finished_PSE10/PSE10/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/uauser/Desktop/Finished_PSE10/PSE10/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/uauser/Desktop/Finished_PSE10/PSE10/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="pse">
+				<Option output="/home/uauser/Desktop/Finished_PSE10/PSE10/cmake-build-debug/pse" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/uauser/Desktop/Finished_PSE10/PSE10/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/home/uauser/Desktop/Finished_PSE10/PSE10/gtest/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include-fixed"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+					<Add directory="/usr/include/c++/7"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/7"/>
+					<Add directory="/usr/include/c++/7/backward"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/uauser/Desktop/Finished_PSE10/PSE10/cmake-build-debug/Makefile&quot;  VERBOSE=1 pse"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/uauser/Desktop/Finished_PSE10/PSE10/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/uauser/Desktop/Finished_PSE10/PSE10/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/uauser/Desktop/Finished_PSE10/PSE10/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="pse/fast">
+				<Option output="/home/uauser/Desktop/Finished_PSE10/PSE10/cmake-build-debug/pse" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/uauser/Desktop/Finished_PSE10/PSE10/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/home/uauser/Desktop/Finished_PSE10/PSE10/gtest/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include-fixed"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+					<Add directory="/usr/include/c++/7"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/7"/>
+					<Add directory="/usr/include/c++/7/backward"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/uauser/Desktop/Finished_PSE10/PSE10/cmake-build-debug/Makefile&quot;  VERBOSE=1 pse/fast"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/uauser/Desktop/Finished_PSE10/PSE10/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/uauser/Desktop/Finished_PSE10/PSE10/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/uauser/Desktop/Finished_PSE10/PSE10/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+		</Build>
+		<Unit filename="/home/uauser/Desktop/Finished_PSE10/PSE10/Airplane.cpp">
+			<Option target="pse_debug"/>
+			<Option target="pse"/>
+		</Unit>
+		<Unit filename="/home/uauser/Desktop/Finished_PSE10/PSE10/Airplane.h">
+			<Option target="pse_debug"/>
+			<Option target="pse"/>
+		</Unit>
+		<Unit filename="/home/uauser/Desktop/Finished_PSE10/PSE10/AirplaneTest.cpp">
+			<Option target="pse_debug"/>
+		</Unit>
+		<Unit filename="/home/uauser/Desktop/Finished_PSE10/PSE10/Airport.cpp">
+			<Option target="pse_debug"/>
+			<Option target="pse"/>
+		</Unit>
+		<Unit filename="/home/uauser/Desktop/Finished_PSE10/PSE10/Airport.h">
+			<Option target="pse_debug"/>
+			<Option target="pse"/>
+		</Unit>
+		<Unit filename="/home/uauser/Desktop/Finished_PSE10/PSE10/AirportTest.cpp">
+			<Option target="pse_debug"/>
+		</Unit>
+		<Unit filename="/home/uauser/Desktop/Finished_PSE10/PSE10/AirportUtils.cpp">
+			<Option target="pse_debug"/>
+		</Unit>
+		<Unit filename="/home/uauser/Desktop/Finished_PSE10/PSE10/AirportUtils.h">
+			<Option target="pse_debug"/>
+		</Unit>
+		<Unit filename="/home/uauser/Desktop/Finished_PSE10/PSE10/DesignByContract.h">
+			<Option target="pse_debug"/>
+		</Unit>
+		<Unit filename="/home/uauser/Desktop/Finished_PSE10/PSE10/Gates.cpp">
+			<Option target="pse_debug"/>
+			<Option target="pse"/>
+		</Unit>
+		<Unit filename="/home/uauser/Desktop/Finished_PSE10/PSE10/Gates.h">
+			<Option target="pse_debug"/>
+			<Option target="pse"/>
+		</Unit>
+		<Unit filename="/home/uauser/Desktop/Finished_PSE10/PSE10/GatesTest.cpp">
+			<Option target="pse_debug"/>
+		</Unit>
+		<Unit filename="/home/uauser/Desktop/Finished_PSE10/PSE10/LuchthavenParserTest.cpp">
+			<Option target="pse_debug"/>
+		</Unit>
+		<Unit filename="/home/uauser/Desktop/Finished_PSE10/PSE10/Parsers/AirplaneParser.cpp">
+			<Option target="pse_debug"/>
+			<Option target="pse"/>
+		</Unit>
+		<Unit filename="/home/uauser/Desktop/Finished_PSE10/PSE10/Parsers/AirplaneParser.h">
+			<Option target="pse_debug"/>
+			<Option target="pse"/>
+		</Unit>
+		<Unit filename="/home/uauser/Desktop/Finished_PSE10/PSE10/Parsers/AirportParser.cpp">
+			<Option target="pse_debug"/>
+			<Option target="pse"/>
+		</Unit>
+		<Unit filename="/home/uauser/Desktop/Finished_PSE10/PSE10/Parsers/AirportParser.h">
+			<Option target="pse_debug"/>
+			<Option target="pse"/>
+		</Unit>
+		<Unit filename="/home/uauser/Desktop/Finished_PSE10/PSE10/Parsers/LuchthavenParser.cpp">
+			<Option target="pse_debug"/>
+			<Option target="pse"/>
+		</Unit>
+		<Unit filename="/home/uauser/Desktop/Finished_PSE10/PSE10/Parsers/LuchthavenParser.h">
+			<Option target="pse_debug"/>
+			<Option target="pse"/>
+		</Unit>
+		<Unit filename="/home/uauser/Desktop/Finished_PSE10/PSE10/Parsers/Parser.cpp">
+			<Option target="pse_debug"/>
+			<Option target="pse"/>
+		</Unit>
+		<Unit filename="/home/uauser/Desktop/Finished_PSE10/PSE10/Parsers/Parser.h">
+			<Option target="pse_debug"/>
+			<Option target="pse"/>
+		</Unit>
+		<Unit filename="/home/uauser/Desktop/Finished_PSE10/PSE10/Parsers/RunwayParser.cpp">
+			<Option target="pse_debug"/>
+			<Option target="pse"/>
+		</Unit>
+		<Unit filename="/home/uauser/Desktop/Finished_PSE10/PSE10/Parsers/RunwayParser.h">
+			<Option target="pse_debug"/>
+			<Option target="pse"/>
+		</Unit>
+		<Unit filename="/home/uauser/Desktop/Finished_PSE10/PSE10/Runway.cpp">
+			<Option target="pse_debug"/>
+			<Option target="pse"/>
+		</Unit>
+		<Unit filename="/home/uauser/Desktop/Finished_PSE10/PSE10/Runway.h">
+			<Option target="pse_debug"/>
+			<Option target="pse"/>
+		</Unit>
+		<Unit filename="/home/uauser/Desktop/Finished_PSE10/PSE10/RunwayTest.cpp">
+			<Option target="pse_debug"/>
+		</Unit>
+		<Unit filename="/home/uauser/Desktop/Finished_PSE10/PSE10/TestMain.cpp">
+			<Option target="pse_debug"/>
+		</Unit>
+		<Unit filename="/home/uauser/Desktop/Finished_PSE10/PSE10/TinyXML/tinystr.cpp">
+			<Option target="pse_debug"/>
+			<Option target="pse"/>
+		</Unit>
+		<Unit filename="/home/uauser/Desktop/Finished_PSE10/PSE10/TinyXML/tinystr.h">
+			<Option target="pse_debug"/>
+			<Option target="pse"/>
+		</Unit>
+		<Unit filename="/home/uauser/Desktop/Finished_PSE10/PSE10/TinyXML/tinyxml.cpp">
+			<Option target="pse_debug"/>
+			<Option target="pse"/>
+		</Unit>
+		<Unit filename="/home/uauser/Desktop/Finished_PSE10/PSE10/TinyXML/tinyxml.h">
+			<Option target="pse_debug"/>
+			<Option target="pse"/>
+		</Unit>
+		<Unit filename="/home/uauser/Desktop/Finished_PSE10/PSE10/TinyXML/tinyxmlerror.cpp">
+			<Option target="pse_debug"/>
+			<Option target="pse"/>
+		</Unit>
+		<Unit filename="/home/uauser/Desktop/Finished_PSE10/PSE10/TinyXML/tinyxmlparser.cpp">
+			<Option target="pse_debug"/>
+			<Option target="pse"/>
+		</Unit>
+		<Unit filename="/home/uauser/Desktop/Finished_PSE10/PSE10/main.cpp">
+			<Option target="pse"/>
+		</Unit>
+		<Unit filename="/home/uauser/Desktop/Finished_PSE10/PSE10/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\"/>
+		</Unit>
+	</Project>
+</CodeBlocks_project_file>

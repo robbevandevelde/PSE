@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6"/>
+	<Project>
+		<Option title="Project_Software_Engineering"/>
+		<Option makefile_is_custom="1"/>
+		<Option compiler="gcc"/>
+		<Option virtualFolders="CMake Files\;"/>
+		<Build>
+			<Target title="all">
+				<Option working_dir="C:/Users/robbe/Desktop/pse/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/robbe/Desktop/pse/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/robbe/Desktop/pse/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/robbe/Desktop/pse/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/robbe/Desktop/pse/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="Project_Software_Engineering">
+				<Option output="C:/Users/robbe/Desktop/pse/cmake-build-debug/Project_Software_Engineering.exe" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="C:/Users/robbe/Desktop/pse/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="c:\mingw\bin\../lib/gcc/mingw32/6.3.0/include/c++"/>
+					<Add directory="c:\mingw\bin\../lib/gcc/mingw32/6.3.0/include/c++/mingw32"/>
+					<Add directory="c:\mingw\bin\../lib/gcc/mingw32/6.3.0/include/c++/backward"/>
+					<Add directory="c:\mingw\bin\../lib/gcc/mingw32/6.3.0/include"/>
+					<Add directory="c:\mingw\bin\../lib/gcc/mingw32/6.3.0/../../../../include"/>
+					<Add directory="c:\mingw\bin\../lib/gcc/mingw32/6.3.0/include-fixed"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/robbe/Desktop/pse/cmake-build-debug/Makefile&quot;  VERBOSE=1 Project_Software_Engineering"/>
+					<CompileFile command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/robbe/Desktop/pse/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/robbe/Desktop/pse/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/robbe/Desktop/pse/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="Project_Software_Engineering/fast">
+				<Option output="C:/Users/robbe/Desktop/pse/cmake-build-debug/Project_Software_Engineering.exe" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="C:/Users/robbe/Desktop/pse/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="c:\mingw\bin\../lib/gcc/mingw32/6.3.0/include/c++"/>
+					<Add directory="c:\mingw\bin\../lib/gcc/mingw32/6.3.0/include/c++/mingw32"/>
+					<Add directory="c:\mingw\bin\../lib/gcc/mingw32/6.3.0/include/c++/backward"/>
+					<Add directory="c:\mingw\bin\../lib/gcc/mingw32/6.3.0/include"/>
+					<Add directory="c:\mingw\bin\../lib/gcc/mingw32/6.3.0/../../../../include"/>
+					<Add directory="c:\mingw\bin\../lib/gcc/mingw32/6.3.0/include-fixed"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/robbe/Desktop/pse/cmake-build-debug/Makefile&quot;  VERBOSE=1 Project_Software_Engineering/fast"/>
+					<CompileFile command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/robbe/Desktop/pse/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/robbe/Desktop/pse/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/robbe/Desktop/pse/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="edit_cache">
+				<Option working_dir="C:/Users/robbe/Desktop/pse/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/robbe/Desktop/pse/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/robbe/Desktop/pse/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/robbe/Desktop/pse/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/robbe/Desktop/pse/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="rebuild_cache">
+				<Option working_dir="C:/Users/robbe/Desktop/pse/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/robbe/Desktop/pse/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/robbe/Desktop/pse/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/robbe/Desktop/pse/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/robbe/Desktop/pse/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+		</Build>
+		<Unit filename="C:/Users/robbe/Desktop/pse/Airplane.cpp">
+			<Option target="Project_Software_Engineering"/>
+		</Unit>
+		<Unit filename="C:/Users/robbe/Desktop/pse/Airplane.h">
+			<Option target="Project_Software_Engineering"/>
+		</Unit>
+		<Unit filename="C:/Users/robbe/Desktop/pse/Airport.cpp">
+			<Option target="Project_Software_Engineering"/>
+		</Unit>
+		<Unit filename="C:/Users/robbe/Desktop/pse/Airport.h">
+			<Option target="Project_Software_Engineering"/>
+		</Unit>
+		<Unit filename="C:/Users/robbe/Desktop/pse/Gates.cpp">
+			<Option target="Project_Software_Engineering"/>
+		</Unit>
+		<Unit filename="C:/Users/robbe/Desktop/pse/Gates.h">
+			<Option target="Project_Software_Engineering"/>
+		</Unit>
+		<Unit filename="C:/Users/robbe/Desktop/pse/Parsers/AirplaneParser.cpp">
+			<Option target="Project_Software_Engineering"/>
+		</Unit>
+		<Unit filename="C:/Users/robbe/Desktop/pse/Parsers/AirplaneParser.h">
+			<Option target="Project_Software_Engineering"/>
+		</Unit>
+		<Unit filename="C:/Users/robbe/Desktop/pse/Parsers/AirportParser.cpp">
+			<Option target="Project_Software_Engineering"/>
+		</Unit>
+		<Unit filename="C:/Users/robbe/Desktop/pse/Parsers/AirportParser.h">
+			<Option target="Project_Software_Engineering"/>
+		</Unit>
+		<Unit filename="C:/Users/robbe/Desktop/pse/Parsers/LuchthavenParser.cpp">
+			<Option target="Project_Software_Engineering"/>
+		</Unit>
+		<Unit filename="C:/Users/robbe/Desktop/pse/Parsers/LuchthavenParser.h">
+			<Option target="Project_Software_Engineering"/>
+		</Unit>
+		<Unit filename="C:/Users/robbe/Desktop/pse/Parsers/Parser.cpp">
+			<Option target="Project_Software_Engineering"/>
+		</Unit>
+		<Unit filename="C:/Users/robbe/Desktop/pse/Parsers/Parser.h">
+			<Option target="Project_Software_Engineering"/>
+		</Unit>
+		<Unit filename="C:/Users/robbe/Desktop/pse/Parsers/RunwayParser.cpp">
+			<Option target="Project_Software_Engineering"/>
+		</Unit>
+		<Unit filename="C:/Users/robbe/Desktop/pse/Parsers/RunwayParser.h">
+			<Option target="Project_Software_Engineering"/>
+		</Unit>
+		<Unit filename="C:/Users/robbe/Desktop/pse/Runway.cpp">
+			<Option target="Project_Software_Engineering"/>
+		</Unit>
+		<Unit filename="C:/Users/robbe/Desktop/pse/Runway.h">
+			<Option target="Project_Software_Engineering"/>
+		</Unit>
+		<Unit filename="C:/Users/robbe/Desktop/pse/Simulatie.xml">
+			<Option target="Project_Software_Engineering"/>
+		</Unit>
+		<Unit filename="C:/Users/robbe/Desktop/pse/TinyXML/tinystr.cpp">
+			<Option target="Project_Software_Engineering"/>
+		</Unit>
+		<Unit filename="C:/Users/robbe/Desktop/pse/TinyXML/tinystr.h">
+			<Option target="Project_Software_Engineering"/>
+		</Unit>
+		<Unit filename="C:/Users/robbe/Desktop/pse/TinyXML/tinyxml.cpp">
+			<Option target="Project_Software_Engineering"/>
+		</Unit>
+		<Unit filename="C:/Users/robbe/Desktop/pse/TinyXML/tinyxml.h">
+			<Option target="Project_Software_Engineering"/>
+		</Unit>
+		<Unit filename="C:/Users/robbe/Desktop/pse/TinyXML/tinyxmlerror.cpp">
+			<Option target="Project_Software_Engineering"/>
+		</Unit>
+		<Unit filename="C:/Users/robbe/Desktop/pse/TinyXML/tinyxmlparser.cpp">
+			<Option target="Project_Software_Engineering"/>
+		</Unit>
+		<Unit filename="C:/Users/robbe/Desktop/pse/luchthaven.xml">
+			<Option target="Project_Software_Engineering"/>
+		</Unit>
+		<Unit filename="C:/Users/robbe/Desktop/pse/main.cpp">
+			<Option target="Project_Software_Engineering"/>
+		</Unit>
+		<Unit filename="C:/Users/robbe/Desktop/pse/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\"/>
+		</Unit>
+	</Project>
+</CodeBlocks_project_file>
