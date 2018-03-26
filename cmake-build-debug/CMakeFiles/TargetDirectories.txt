@@ -1,4 +1,4 @@
-/home/uauser/Desktop/Finished_PSE10/PSE10/cmake-build-debug/CMakeFiles/edit_cache.dir
-/home/uauser/Desktop/Finished_PSE10/PSE10/cmake-build-debug/CMakeFiles/rebuild_cache.dir
-/home/uauser/Desktop/Finished_PSE10/PSE10/cmake-build-debug/CMakeFiles/pse_debug.dir
-/home/uauser/Desktop/Finished_PSE10/PSE10/cmake-build-debug/CMakeFiles/pse.dir
+/home/uauser/Desktop/PSE/cmake-build-debug/CMakeFiles/edit_cache.dir
+/home/uauser/Desktop/PSE/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/home/uauser/Desktop/PSE/cmake-build-debug/CMakeFiles/pse_debug.dir
+/home/uauser/Desktop/PSE/cmake-build-debug/CMakeFiles/pse.dir

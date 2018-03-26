@@ -8,11 +8,10 @@
 #define PARSER_RUNWAYPARSER_H
 #include <string>
 #include "../Runway.h"
-#include "Parser.h"
 #include "../TinyXML/tinyxml.h"
 using namespace std;
 
-class RunwayParser: public Parser {
+class RunwayParser{
 private:
 
     string readElement(TiXmlElement* elem, const char* tag);

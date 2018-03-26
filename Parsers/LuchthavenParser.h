@@ -17,11 +17,14 @@
 #include "../Airplane.h"
 #include "../Airport.h"
 
-class LuchthavenParser: public Parser {
+class LuchthavenParser{
 private:
     vector<Runway*> runways;
     vector<Airplane*> airplanes;
     vector<Airport*> airports;
+    TiXmlDocument doc;
+    TiXmlElement * root;
+
 public:
     void isRunAirEqual(vector<Runway*> runwaysVect, vector<Airport*> airportsVect);
     vector<Runway*> getRunways() const;
@@ -38,6 +41,11 @@ public:
 
     void writeToFile(vector<Runway*> runwaysVect, vector<Airport*> airportsVect, vector<Airplane*> airplanesVect);
 
+    bool loadFile(string filename);
+
+    TiXmlElement *getRoot() const;
+
+    void setRoot(TiXmlElement *root);
 };
 
 

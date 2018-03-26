@@ -101,3 +101,26 @@ void LuchthavenParser::writeToFile(vector<Runway *> runwaysVect, vector<Airport 
 
 }
 
+bool LuchthavenParser::loadFile(string filename) {
+    if(!doc.LoadFile(filename.c_str())){
+        cerr << doc.ErrorDesc() << endl;
+        return false;
+    }
+
+    root = doc.FirstChildElement();
+    if(root == NULL){
+        cerr << "Failed to load file: No root element." << endl;
+        doc.Clear();
+        return false;
+    }
+    return true;
+}
+
+TiXmlElement *LuchthavenParser::getRoot() const {
+    return root;
+}
+
+void LuchthavenParser::setRoot(TiXmlElement *root) {
+    LuchthavenParser::root = root;
+}
+

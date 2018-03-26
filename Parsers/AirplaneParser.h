@@ -7,11 +7,10 @@
 #define PARSER_AIRPLANEPARSER_H
 #include <string>
 #include "../Airplane.h"
-#include "Parser.h"
 #include "../TinyXML/tinyxml.h"
 using namespace std;
 
-class AirplaneParser: public Parser {
+class AirplaneParser{
 private:
 
     string readElement(TiXmlElement* elem, const char* tag);

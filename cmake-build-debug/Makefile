@@ -48,10 +48,10 @@ RM = /opt/clion-2016.3.2/bin/cmake/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/uauser/Desktop/Finished_PSE10/PSE10
+CMAKE_SOURCE_DIR = /home/uauser/Desktop/PSE
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/uauser/Desktop/Finished_PSE10/PSE10/cmake-build-debug
+CMAKE_BINARY_DIR = /home/uauser/Desktop/PSE/cmake-build-debug
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -80,9 +80,9 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/uauser/Desktop/Finished_PSE10/PSE10/cmake-build-debug/CMakeFiles /home/uauser/Desktop/Finished_PSE10/PSE10/cmake-build-debug/CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/uauser/Desktop/PSE/cmake-build-debug/CMakeFiles /home/uauser/Desktop/PSE/cmake-build-debug/CMakeFiles/progress.marks
 	$(MAKE) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/uauser/Desktop/Finished_PSE10/PSE10/cmake-build-debug/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/uauser/Desktop/PSE/cmake-build-debug/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -451,36 +451,6 @@ Parsers/LuchthavenParser.cpp.s:
 	$(MAKE) -f CMakeFiles/pse.dir/build.make CMakeFiles/pse.dir/Parsers/LuchthavenParser.cpp.s
 .PHONY : Parsers/LuchthavenParser.cpp.s
 
-Parsers/Parser.o: Parsers/Parser.cpp.o
-
-.PHONY : Parsers/Parser.o
-
-# target to build an object file
-Parsers/Parser.cpp.o:
-	$(MAKE) -f CMakeFiles/pse_debug.dir/build.make CMakeFiles/pse_debug.dir/Parsers/Parser.cpp.o
-	$(MAKE) -f CMakeFiles/pse.dir/build.make CMakeFiles/pse.dir/Parsers/Parser.cpp.o
-.PHONY : Parsers/Parser.cpp.o
-
-Parsers/Parser.i: Parsers/Parser.cpp.i
-
-.PHONY : Parsers/Parser.i
-
-# target to preprocess a source file
-Parsers/Parser.cpp.i:
-	$(MAKE) -f CMakeFiles/pse_debug.dir/build.make CMakeFiles/pse_debug.dir/Parsers/Parser.cpp.i
-	$(MAKE) -f CMakeFiles/pse.dir/build.make CMakeFiles/pse.dir/Parsers/Parser.cpp.i
-.PHONY : Parsers/Parser.cpp.i
-
-Parsers/Parser.s: Parsers/Parser.cpp.s
-
-.PHONY : Parsers/Parser.s
-
-# target to generate assembly for a file
-Parsers/Parser.cpp.s:
-	$(MAKE) -f CMakeFiles/pse_debug.dir/build.make CMakeFiles/pse_debug.dir/Parsers/Parser.cpp.s
-	$(MAKE) -f CMakeFiles/pse.dir/build.make CMakeFiles/pse.dir/Parsers/Parser.cpp.s
-.PHONY : Parsers/Parser.cpp.s
-
 Parsers/RunwayParser.o: Parsers/RunwayParser.cpp.o
 
 .PHONY : Parsers/RunwayParser.o
@@ -785,9 +755,6 @@ help:
 	@echo "... Parsers/LuchthavenParser.o"
 	@echo "... Parsers/LuchthavenParser.i"
 	@echo "... Parsers/LuchthavenParser.s"
-	@echo "... Parsers/Parser.o"
-	@echo "... Parsers/Parser.i"
-	@echo "... Parsers/Parser.s"
 	@echo "... Parsers/RunwayParser.o"
 	@echo "... Parsers/RunwayParser.i"
 	@echo "... Parsers/RunwayParser.s"

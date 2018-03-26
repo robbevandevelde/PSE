@@ -18,8 +18,6 @@ set(SOURCE_FILES
         Parsers/AirportParser.h
         Parsers/LuchthavenParser.cpp
         Parsers/LuchthavenParser.h
-        Parsers/Parser.cpp
-        Parsers/Parser.h
         Parsers/RunwayParser.cpp
         Parsers/RunwayParser.h
         TinyXML/tinystr.cpp
@@ -45,8 +43,6 @@ set(DEBUG_SOURCE_FILES
         Parsers/AirportParser.h
         Parsers/LuchthavenParser.cpp
         Parsers/LuchthavenParser.h
-        Parsers/Parser.cpp
-        Parsers/Parser.h
         Parsers/RunwayParser.cpp
         Parsers/RunwayParser.h
         TinyXML/tinystr.cpp
