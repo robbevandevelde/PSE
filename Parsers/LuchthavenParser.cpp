@@ -21,7 +21,9 @@ vector<Airport *> LuchthavenParser::getAirports() const {
 
 //Default constructor
 LuchthavenParser::LuchthavenParser() {
-
+    runways = vector<Runway*>();
+    airplanes= vector<Airplane*>();
+    airports = vector<Airport*>();
 }
 
 //Default destructor
@@ -49,28 +51,33 @@ void LuchthavenParser::isRunAirEqual(vector<Runway*> runwaysVect, vector<Airport
  *@return niks void functie
  */
 void LuchthavenParser::parseItems(TiXmlElement *elem) {
-    for(TiXmlElement* e = elem->FirstChildElement(); e != NULL; e = e->NextSiblingElement()) {
-        string elemName = e->Value();
-        if (elemName == "RUNWAY") {
-            RunwayParser rwp;
-            Runway* rw = rwp.parseRunway(e);
-            //if(rw->isConsistent()){
+    successEnum= Success;
+    if (elem != NULL) {
+        for (TiXmlElement *e = elem->FirstChildElement(); e != NULL; e = e->NextSiblingElement()) {
+            string elemName = e->Value();
+            if (elemName == "RUNWAY") {
+                RunwayParser rwp;
+                Runway *rw = rwp.parseRunway(e);
+                //if(rw->isConsistent()){
                 runways.push_back(rw);
-            //}
-        }
-        if (elemName == "AIRPLANE") {
-            AirplaneParser aplp;
-            Airplane* apl= aplp.parseAirplane(e);
-            //if(apl->isConsistent()){
+                //}
+            }
+            if (elemName == "AIRPLANE") {
+                AirplaneParser aplp;
+                Airplane *apl = aplp.parseAirplane(e);
+                //if(apl->isConsistent()){
                 airplanes.push_back(apl);
-            //}
-        }
-        if (elemName == "AIRPORT") {
-            AirportParser apop;
-            Airport* apo= apop.parseAirport(e);
-            //if(apo->isConsistent()){
+                //}
+            }
+            if (elemName == "AIRPORT") {
+                AirportParser apop;
+                Airport *apo = apop.parseAirport(e);
+                //if(apo->isConsistent()){
                 airports.push_back(apo);
-            //}
+                //}
+            } else {
+                successEnum = ImportAborted;
+            }
         }
     }
 }
@@ -122,5 +129,13 @@ TiXmlElement *LuchthavenParser::getRoot() const {
 
 void LuchthavenParser::setRoot(TiXmlElement *root) {
     LuchthavenParser::root = root;
+}
+
+SuccessEnum LuchthavenParser::getSuccessEnum() const {
+    return successEnum;
+}
+
+void LuchthavenParser::setSuccessEnum(SuccessEnum successEnum) {
+    LuchthavenParser::successEnum = successEnum;
 }
 

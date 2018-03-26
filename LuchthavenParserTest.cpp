@@ -34,19 +34,25 @@ protected:
 // Tests the default constructor.
 TEST_F(LuchthavenParserTest, InputHappyday) {
 //    ASSERT_TRUE(DirectoryExists("testInput"));
-
+    SuccessEnum yes= PartialImport;
+    testParser.setSuccessEnum(yes);
     ofstream myfile;
-//    enum importResult;
-//    myfile.open("testInput/Input01.xml");
-//    myfile << "<?xml version=\"1.0\" ?>" << endl
-//           << "<SIMULATIE>" << endl
-//           << "\t<AIRPORT>" << endl
-//           << "\t\t<name>Antwerp International Airport</name>" << endl
-//           << "\t\t<iata>ANR</iata>" << endl
-//           << "\t\t<callsign>Antwerp Tower</callsign>" << endl
-//           << "\t\t<gates>10</gates>" << endl
-//            << "\t</AIRPORT>" << endl
-//            << "</SIMULATIE>" << endl;
-//    myfile.close();
-//    myfile.open("testInput/zzzError.txt");
+    myfile.open("testInput/Input01.xml");
+    myfile << "<?xml version=\"1.0\" ?>" << endl
+           << "<SIMULATIE>" << endl
+           << "\t<AIRPORT>" << endl
+           << "\t\t<name>Antwerp International Airport</name>" << endl
+           << "\t\t<iata>ANR</iata>" << endl
+           << "\t\t<callsign>Antwerp Tower</callsign>" << endl
+           << "\t\t<gates>10</gates>" << endl
+            << "\t</AIRPORT>" << endl
+            << "</SIMULATIE>" << endl;
+    myfile.close();
+    myfile.open("testInput/zzzError.txt");
+    testParser.loadFile("testInput/Input01.xml");
+    testParser.parseItems(testParser.getRoot());
+    EXPECT_TRUE(testParser.getSuccessEnum() == Success);
+
 }
+//    if(parser.loadFile("luchthaven.xml")){
+//parser.parseItems(parser.getRoot());

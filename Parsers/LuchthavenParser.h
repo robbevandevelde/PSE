@@ -16,6 +16,7 @@
 #include "../Runway.h"
 #include "../Airplane.h"
 #include "../Airport.h"
+enum SuccessEnum {ImportAborted, PartialImport, Success};
 
 class LuchthavenParser{
 private:
@@ -24,6 +25,7 @@ private:
     vector<Airport*> airports;
     TiXmlDocument doc;
     TiXmlElement * root;
+    SuccessEnum successEnum;
 
 public:
     void isRunAirEqual(vector<Runway*> runwaysVect, vector<Airport*> airportsVect);
@@ -46,6 +48,10 @@ public:
     TiXmlElement *getRoot() const;
 
     void setRoot(TiXmlElement *root);
+
+    SuccessEnum getSuccessEnum() const;
+
+    void setSuccessEnum(SuccessEnum successEnum);
 };
 
 
