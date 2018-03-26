@@ -18,6 +18,7 @@ private:
     string model;
     string status;
     int passengers;
+    int fuel;
 
 public:
     Airplane();
@@ -47,6 +48,9 @@ public:
 
     void setStatus(const string &status);
 
+    int getFuel() const;
+
+    void setFuel(int fuel);
 
 };
 

@@ -29,6 +29,10 @@ Airplane *AirplaneParser::parseAirplane(TiXmlElement *elem) {
     airplane->setCallsign(Callsign);
     string Status = readElement(elem, "status");
     airplane->setStatus(Status);
+    string passengers = readElement(elem, "passengers");
+    airplane->setPassengers(atoi(passengers.c_str()));
+    string fuel = readElement(elem, "fuel");
+    airplane->setFuel(atoi(fuel.c_str()));
     return airplane;}
 
 Airplane *AirplaneParser::getAirplane() {

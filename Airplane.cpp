@@ -118,3 +118,11 @@ Airplane::Airplane() {
     status = "";
     passengers = 0;
 }
+
+int Airplane::getFuel() const {
+    return fuel;
+}
+
+void Airplane::setFuel(int fuel) {
+    Airplane::fuel = fuel;
+}

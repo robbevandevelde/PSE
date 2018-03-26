@@ -44,6 +44,8 @@ int main() {
             cout << airplanesVect[itAPL]->getCallsign() << endl;
             cout << airplanesVect[itAPL]->getModel() << endl;
             cout << airplanesVect[itAPL]->getStatus() << endl;
+            cout <<"Max Fuel: " << airplanesVect[itAPL]->getFuel() << endl;
+            cout << "Max passengers: "<<airplanesVect[itAPL]->getPassengers() << endl;
         }
         cout << "------------------------------------------\n" << endl;
         airportsVect[0]->Landingprotocol(*airplanesVect[0]);

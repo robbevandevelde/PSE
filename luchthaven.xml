@@ -15,5 +15,7 @@
         <callsign>Cessna 842</callsign>
         <model>Cessna 340</model>
         <status>Approaching</status>
+        <passengers>112</passengers>
+        <fuel>5420</fuel>
     </AIRPLANE>
 </SIMULATIE>
