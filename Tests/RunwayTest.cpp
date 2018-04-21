@@ -4,7 +4,7 @@
 
 
 #include <gtest/gtest.h>
-#include "Runway.h"
+#include "../Runway.h"
 
 class RunwayTest: public ::testing::Test {
 protected:

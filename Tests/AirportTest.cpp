@@ -3,7 +3,7 @@
 //
 
 #include <gtest/gtest.h>
-#include "Airport.h"
+#include "../Airport.h"
 
 class AirportTest: public ::testing::Test {
 protected:

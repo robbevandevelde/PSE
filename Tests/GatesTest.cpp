@@ -3,7 +3,7 @@
 //
 
 #include <gtest/gtest.h>
-#include "Gates.h"
+#include "../Gates.h"
 
 class GatesTest: public ::testing::Test {
 protected:

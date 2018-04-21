@@ -12,7 +12,7 @@ using namespace std;
 
 class Airplane {
 private:
-    Airplane* _initCheck;
+    //Airplane* _initCheck;
     string number;
     string callsign;
     string model;
