@@ -59,7 +59,7 @@ set(DEBUG_SOURCE_FILES
         Gates.h
         TestMain.cpp
         Runway.cpp
-        Runway.h Tests/RunwayTest.cpp Tests/AirplaneTest.cpp Tests/AirportTest.cpp Tests/GatesTest.cpp DesignByContract.h Tests/LuchthavenParserTest.cpp AirportUtils.cpp AirportUtils.h)
+        Runway.h Tests/RunwayTest.cpp Tests/AirplaneTest.cpp Tests/AirportTest.cpp Tests/GatesTest.cpp DesignByContract.h Tests/LuchthavenParserTest.cpp AirportUtils.cpp AirportUtils.h Taxiroute.cpp Taxiroute.h)
 
 add_executable(pse ${SOURCE_FILES})
 

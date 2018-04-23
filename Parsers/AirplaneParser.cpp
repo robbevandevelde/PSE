@@ -33,6 +33,12 @@ Airplane *AirplaneParser::parseAirplane(TiXmlElement *elem) {
     airplane->setPassengers(atoi(passengers.c_str()));
     string fuel = readElement(elem, "fuel");
     airplane->setFuel(atoi(fuel.c_str()));
+    string Type = readElement(elem, "type");
+    airplane->setType(Type);
+    string Engine = readElement(elem, "engine");
+    airplane->setEngine(Engine);
+    string size = readElement(elem, "size");
+    airplane->setSize(size);
     return airplane;}
 
 Airplane *AirplaneParser::getAirplane() {

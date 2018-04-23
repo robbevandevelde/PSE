@@ -9,8 +9,10 @@
 #define PARSER_RUNWAY_H
 #include <string>
 #include <iostream>
+#include <vector>
 #include <algorithm>
 #include "Airplane.h"
+#include "Taxiroute.h"
 #include "DesignByContract.h"
 using namespace std;
 
@@ -20,10 +22,27 @@ private:
     string Name;
     string Airport;
     bool status; //True als vliegtuig, false als leeg
+    string type;
+    int length;
+    vector <Taxiroute*> taxiRoute;
     Runway* _initCheck;
-
 public:
+    const vector<Taxiroute *> &getTaxiRoute() const;
+
+    void setTaxiRoute(const vector<Taxiroute *> &taxiRoute);
+
+    void pushbackTaxi(Taxiroute* taxiroute);
+
+    const string &getType() const;
+
+    void setType(const string &type);
+
+    int getLength() const;
+
+    void setLength(int length);
+
     bool properlyInitialiazed();
+
     bool getStatus() const;
 
     void setStatus(bool status);
@@ -33,8 +52,11 @@ public:
     Airplane getAirplane() const;
 
     void setAirplane(Airplane &airplane);
+
     void removeAirplane();
+
     Runway();
+
     virtual ~Runway();
 
     const string& getName() const;

@@ -87,4 +87,33 @@ bool Runway::properlyInitialiazed() {
     return _initCheck == this;
 }
 
+const string &Runway::getType() const {
+    return type;
+}
+
+void Runway::setType(const string &type) {
+    Runway::type = type;
+}
+
+int Runway::getLength() const {
+    return length;
+}
+
+void Runway::setLength(int length) {
+    Runway::length = length;
+}
+
+const vector<Taxiroute *> &Runway::getTaxiRoute() const {
+    return taxiRoute;
+}
+
+void Runway::setTaxiRoute(const vector<Taxiroute *> &taxiRoute) {
+    Runway::taxiRoute = taxiRoute;
+}
+
+void Runway::pushbackTaxi(Taxiroute *taxiroute) {
+    taxiRoute.push_back(taxiroute);
+
+}
+
 

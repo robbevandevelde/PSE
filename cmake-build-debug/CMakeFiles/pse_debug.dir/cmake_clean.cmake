@@ -18,6 +18,7 @@ file(REMOVE_RECURSE
   "CMakeFiles/pse_debug.dir/Tests/GatesTest.cpp.o"
   "CMakeFiles/pse_debug.dir/Tests/LuchthavenParserTest.cpp.o"
   "CMakeFiles/pse_debug.dir/AirportUtils.cpp.o"
+  "CMakeFiles/pse_debug.dir/Taxiroute.cpp.o"
   "pse_debug.pdb"
   "pse_debug"
 )

@@ -17,10 +17,24 @@ private:
     string callsign;
     string model;
     string status;
+    string type;
+    string engine;
+    string size;
     int passengers;
     int fuel;
-
 public:
+    const string &getType() const;
+
+    void setType(const string &type);
+
+    const string &getEngine() const;
+
+    void setEngine(const string &engine);
+
+    const string &getSize() const;
+
+    void setSize(const string &size);
+
     Airplane();
 
     Airplane(const string &number, const string &callsign, const string &model, const string &status, int passengers);

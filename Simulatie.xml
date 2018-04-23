@@ -7,8 +7,10 @@
     </AIRPORT>
 
     <RUNWAY>
-        <name>11R</name>
+        <name>11R</naam>
         <airport>ANR</airport>
+        <type>asphalt</type>
+        <length>1510</length>
     </RUNWAY>
 
     <AIRPLANE>
