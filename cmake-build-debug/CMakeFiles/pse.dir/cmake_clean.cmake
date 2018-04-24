@@ -12,6 +12,7 @@ file(REMOVE_RECURSE
   "CMakeFiles/pse.dir/Gates.cpp.o"
   "CMakeFiles/pse.dir/main.cpp.o"
   "CMakeFiles/pse.dir/Runway.cpp.o"
+  "CMakeFiles/pse.dir/Parsers/FlightplanParser.cpp.o"
   "pse.pdb"
   "pse"
 )

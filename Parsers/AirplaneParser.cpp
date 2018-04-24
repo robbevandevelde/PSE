@@ -2,7 +2,9 @@
 // Created by Robbe Van de Velde on 7/03/18.
 //
 
+#include <iostream>
 #include "AirplaneParser.h"
+#include "FlightplanParser.h"
 
 string AirplaneParser::readElement(TiXmlElement *elem, const char *tag) {
     TiXmlElement* e = elem->FirstChildElement(tag);
@@ -39,6 +41,16 @@ Airplane *AirplaneParser::parseAirplane(TiXmlElement *elem) {
     airplane->setEngine(Engine);
     string size = readElement(elem, "size");
     airplane->setSize(size);
+
+    for (TiXmlElement *p = elem->FirstChildElement(); p != NULL; p = p->NextSiblingElement()) {
+        string elemName = p->Value();
+        if (elemName == "FLIGHTPLAN") {
+            FlightplanParser fpp;
+            Flightplan *fp = fpp.parseFlightplan(p);
+            airplane->setFlightplan(fp);
+        }
+    }
+
     return airplane;}
 
 Airplane *AirplaneParser::getAirplane() {

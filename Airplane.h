@@ -8,6 +8,8 @@
 
 #include <string>
 #include <algorithm>
+#include "Flightplan.h"
+
 using namespace std;
 
 class Airplane {
@@ -22,7 +24,13 @@ private:
     string size;
     int passengers;
     int fuel;
+    Flightplan* flightplan;
+
 public:
+    Flightplan *getFlightplan() const;
+
+    void setFlightplan(Flightplan *flightplan);
+
     const string &getType() const;
 
     void setType(const string &type);

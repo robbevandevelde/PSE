@@ -150,3 +150,11 @@ const string &Airplane::getSize() const {
 void Airplane::setSize(const string &size) {
     Airplane::size = size;
 }
+
+Flightplan *Airplane::getFlightplan() const {
+    return flightplan;
+}
+
+void Airplane::setFlightplan(Flightplan *flightplan) {
+    Airplane::flightplan = flightplan;
+}

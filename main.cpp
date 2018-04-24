@@ -30,6 +30,13 @@ int main() {
             cout << "------------------------------------------\n";
             cout << runwaysVect[itRW]->getName() << endl;
             cout << runwaysVect[itRW]->getAirport() << endl;
+//            for (unsigned int taxIT=0 ; itRW < runwaysVect[itRW]->getTaxiRoute().size(); itRW++) {
+//
+//                cout << runwaysVect[itRW]->getTaxiRoute()[taxIT] << endl;
+//            }
+            cout << runwaysVect[itRW]->getLength() << endl;
+            cout << runwaysVect[itRW]->getType() << endl;
+//            runwaysVect[itRW]->getTaxiRoute()[0];
         }
         for (unsigned int itAPO=0 ; itAPO < airportsVect.size(); itAPO++) {
             cout << "------------------------------------------\n";
@@ -44,12 +51,20 @@ int main() {
             cout << airplanesVect[itAPL]->getCallsign() << endl;
             cout << airplanesVect[itAPL]->getModel() << endl;
             cout << airplanesVect[itAPL]->getStatus() << endl;
-            cout <<"Max Fuel: " << airplanesVect[itAPL]->getFuel() << endl;
+            cout << "Type: " <<airplanesVect[itAPL]->getType() << endl;
+            cout << "Engine: " <<airplanesVect[itAPL]->getEngine() << endl;
+            cout << "Size: " << airplanesVect[itAPL]->getSize() << endl;
+            cout << "Max Fuel: " << airplanesVect[itAPL]->getFuel() << endl;
             cout << "Max passengers: "<<airplanesVect[itAPL]->getPassengers() << endl;
+            cout << "Flightplan: "<<endl;
+//            cout << "\tDeparture: "<<airplanesVect[itAPL]->getFlightplan()->getDeparture()<<endl;
+//            cout << "\tDest: "<<airplanesVect[itAPL]->getFlightplan()->getDestination()<<endl;
+//            cout << "\tArrival: "<<airplanesVect[itAPL]->getFlightplan()->getArrival()<<endl;
+//            cout << "\tInterval: "<<airplanesVect[itAPL]->getFlightplan()->getInterval()<<endl;
         }
         cout << "------------------------------------------\n" << endl;
-        airportsVect[0]->Landingprotocol(*airplanesVect[0]);
-        airportsVect[0]->StandingAtGateprotocol(*airplanesVect[0]);
+//        airportsVect[0]->Landingprotocol(*airplanesVect[0]);
+//        airportsVect[0]->StandingAtGateprotocol(*airplanesVect[0]);
     }else{
         cout<< "unable to parse file" << endl;
     }
