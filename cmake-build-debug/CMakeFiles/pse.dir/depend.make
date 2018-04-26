@@ -78,6 +78,12 @@ CMakeFiles/pse.dir/TinyXML/tinyxmlparser.cpp.o: ../TinyXML/tinyxmlparser.cpp
 CMakeFiles/pse.dir/main.cpp.o: ../Airplane.h
 CMakeFiles/pse.dir/main.cpp.o: ../Airport.h
 CMakeFiles/pse.dir/main.cpp.o: ../DesignByContract.h
+CMakeFiles/pse.dir/main.cpp.o: ../Parsers/AirplaneParser.h
+CMakeFiles/pse.dir/main.cpp.o: ../Parsers/AirportParser.h
+CMakeFiles/pse.dir/main.cpp.o: ../Parsers/LuchthavenParser.h
+CMakeFiles/pse.dir/main.cpp.o: ../Parsers/RunwayParser.h
 CMakeFiles/pse.dir/main.cpp.o: ../Runway.h
+CMakeFiles/pse.dir/main.cpp.o: ../TinyXML/tinystr.h
+CMakeFiles/pse.dir/main.cpp.o: ../TinyXML/tinyxml.h
 CMakeFiles/pse.dir/main.cpp.o: ../main.cpp
 

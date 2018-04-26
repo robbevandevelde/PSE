@@ -20,6 +20,7 @@ public:
     virtual ~AirplaneParser();
     Airplane* parseAirplane(TiXmlElement* elem);
     Airplane* getAirplane();
+    unsigned int Statuscheck(string St);
 };
 
 

@@ -8,13 +8,20 @@
  *@param string number, string callsign, int passengers, string model, string status
  *@return niks constructor
  */
-Airplane::Airplane(std::string number,std::string callsign, std::string model, unsigned int status) {
+Airplane::Airplane(std::string number,std::string callsign, std::string model,
+                   unsigned int status, unsigned int passengers, unsigned int fuel,
+                   std::string type, std::string engine, std::string size) {
 
     _initcheck = this;
     _number = number;
     _callsign = callsign;
     _model = model;
     _status = status;
+    _fuel = fuel;
+    _passengers = passengers;
+    _type = type;
+    _size = size;
+    _engine = engine;
     if(_status == Approaching){
         _height = 10000;
     }

@@ -79,5 +79,11 @@ CMakeFiles/pse.dir/main.cpp.o
  /home/uauser/Desktop/PSE/Airplane.h
  /home/uauser/Desktop/PSE/Airport.h
  /home/uauser/Desktop/PSE/DesignByContract.h
+ /home/uauser/Desktop/PSE/Parsers/AirplaneParser.h
+ /home/uauser/Desktop/PSE/Parsers/AirportParser.h
+ /home/uauser/Desktop/PSE/Parsers/LuchthavenParser.h
+ /home/uauser/Desktop/PSE/Parsers/RunwayParser.h
  /home/uauser/Desktop/PSE/Runway.h
+ /home/uauser/Desktop/PSE/TinyXML/tinystr.h
+ /home/uauser/Desktop/PSE/TinyXML/tinyxml.h
  /home/uauser/Desktop/PSE/main.cpp

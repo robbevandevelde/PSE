@@ -215,10 +215,16 @@ windows.h
 /home/uauser/Desktop/PSE/main.cpp
 iostream
 -
-Airplane.h
-/home/uauser/Desktop/PSE/Airplane.h
+TinyXML/tinyxml.h
+/home/uauser/Desktop/PSE/TinyXML/tinyxml.h
+string
+-
 Runway.h
 /home/uauser/Desktop/PSE/Runway.h
 Airport.h
 /home/uauser/Desktop/PSE/Airport.h
+Airplane.h
+/home/uauser/Desktop/PSE/Airplane.h
+Parsers/LuchthavenParser.h
+/home/uauser/Desktop/PSE/Parsers/LuchthavenParser.h
 
