@@ -1,72 +1,77 @@
-/*Dit is de airport, dit bevat runways en gates en deze kunnen vliegtuig bevatten.
- *Airport heeft 3 belangrijke functies en dat zijn landing take off en gate protocols.
- *@Author: Thimoty
- *@Date: 06/03/2018
+//
+// Created by uauser on 4/23/18.
+//
+
+#ifndef PSE_AIRPORT_H
+#define PSE_AIRPORT_H
+
+#include <vector>
+#include <sstream>
+#include <iostream>
+#include "Airplane.h"
+
+class Gate;
+class Runway;
+class DesignByContract;
+
+
+/*
+ *
+ * REQUIRES EN ENSURES IN HEADERS ZETTE ALS COMMENT
+ *
+ *
+ *
  */
 
-#ifndef PARSER_AIRPORT_H
-#define PARSER_AIRPORT_H
-
-#include <string>
-#include <algorithm>
-#include <vector>
-#include "Airplane.h"
-#include "Gates.h"
-#include "Runway.h"
-
-using namespace std;
-class Airport {
+class AirTrafficController;
+class Airport
+{
 private:
-    string Name;
-    string iata;
-    string callsign;
-    int gate;
-    int runws;
-    bool isValidString(const string& str);
-    vector<Gates> gates;
-    vector<Runway> runways;
+    Airport* _initcheck;
+
+    std::vector<Gate*> _gates;
+    std::vector<Runway*> _runways;
+
+    unsigned int _gatesize;
+    unsigned int _amountRunways;
+
+    std::string _name;
+    std::string _iata;
+    std::string _callsign;
+
+    void addAirplaneToGate(Airplane* airplane);
+    void addAirplaneToRunway(Airplane* airplane);
+    void removeAirplaneOfGate(Airplane* airplane);
+    void removeAirplaneOfRunway(Airplane* airplane);
+
 
 public:
+    Airport(unsigned int _gatesize, const std::string &_name, const std::string &_iata,
+            const std::string &_callsign);
 
-    void setAmountOfGates(int amount);
-    const vector<Runway> &getRunways() const;
+    bool properlyInitialised();
 
-    int getRunws() const;
-    void addRunway( Runway & runway);
-    void setRunws(int runws);
-    void StandingAtGateprotocol(Airplane & airplane);
-    bool Landingprotocol(Airplane& airplane);
+    void gateprotocol(Airplane* airplane, unsigned int passengers);
 
-    void TakeOffprotocol(Airplane& airplane);
+    const std::string &get_name() const;
+    const std::string &get_iata() const;
+    const std::string &get_callsign() const;
 
-    bool isGateEmpty();
-    bool isRunwayEmpty();
+    unsigned int get_gatesize() const;
 
-    Airport();
+    //
+    void landingprotocol(Airplane* airplane);
+    void takeoffprotocol(Airplane* airplane);
+    void set_callsign(const std::string &_callsign);
+    void set_iata(const std::string &_iata);
+    void set_name(const std::string &_name);
+    void set_gatesize(unsigned int _gatesize);
 
-    Airport(string airportname);
-
-    ~Airport();
-
-    const string &getName() const;
-
-    void setName(const string &Name);
-
-    const string &getIata() const;
-
-    void setIata(const string &iata);
-
-    const string &getCallsign() const;
-
-    void setCallsign(const string &callsign);
-
-    int getGates() const;
-
-    void setGates(int gates);
+    void addRunway(Runway* runway);
 
 
 
 };
 
 
-#endif //PARSER_AIRPORT_H
+#endif //PSE_AIRPORT_H

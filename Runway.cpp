@@ -1,106 +1,106 @@
+//
+// Created by uauser on 4/23/18.
+//
 
 #include "Runway.h"
+#include "Airplane.h"
+#include "Taxiroute.h"
 
-//Lege constructor
-Runway::Runway() {
-    _initCheck = this;
-    status = false;
-    ENSURE(properlyInitialiazed(),"constructor must end");
+Runway::Runway(int _length, const std::string &_name, const std::string &_type, const std::string &_airport) : _length(
+        _length), _name(_name), _type(_type), _airport(_airport) {
+
+    _initcheck = this;
+    _status = false;
+    _airplane = NULL;
+    ENSURE(properlyInitialised(), "Constructor must end");
+    ENSURE(!_status, "Status must be false after initialising");
+    ENSURE(_airplane == NULL, "Airplane must point to a nullptr after initialising");
 }
 
-/*@Constructor
- *@param string voor de naam en string voor de airport
- *@return niks constructor
- */
-Runway::Runway(const string &Name, const string &Airport) : Name(Name), Airport(Airport) {
-    _initCheck = this;
-    status = false;
-    ENSURE(properlyInitialiazed(),"constructor must end");
+
+bool Runway::properlyInitialised() {
+    return _initcheck == this;
 }
 
-//Deconstructor
-Runway::~Runway() {
+void Runway::addAirplane(Airplane *airplane) {
+    REQUIRE(this->properlyInitialised(), "Runway wasn't initialised when calling addAirplane()");
+    REQUIRE(!_status, "Status must be false");
+    REQUIRE(_airplane == NULL, "Airplane must point to a nullptr");
 
-}
+    _airplane = airplane;
+    _status = true;
 
-//Delete een airplane van de runway (vervangt airplane met een lege airplane en zet status op false)
-void Runway::removeAirplane()
-{
-    //REQUIRE(properlyInitialiazed(),"Runway isn't properly initiliazed when calling removeAirplane");
-    airplane = Airplane();
-    status = false;
-}
-//return de airplane
-Airplane Runway::getAirplane() const {
-    //REQUIRE(properlyInitialiazed(),"Runway isn't properly initiliazed when calling getAirplane");
-    return airplane;
-}
+    _airplane->set_height(0);
+    ENSURE(_airplane->get_height() == 0, "Added airplane's height isn't set to 0");
 
-/*@Set de airplane
- *@param airplane
- *@return niks void functie
- */
-void Runway::setAirplane(Airplane &airplane) {
+    ENSURE(_airplane->get_model() == airplane->get_model() && _airplane->get_number() == airplane->get_number() &&
+           _airplane->get_callsign() == airplane->get_callsign(), "Added airplane doesn't match airplane");
 
-    Runway::airplane = airplane;
-    status = true;
-}
-//return de Name van de runway
-const string &Runway::getName() const {
-    return Name;
+    ENSURE(get_airplane() == airplane, "Airplane must point to the given airplane");
+    ENSURE(_status,"Status must be true after adding an airplane");
 }
 
-/*@Set de name van de runway
- *@param een string met de naam
- *@return niks void functie
- */
-void Runway::setName(const string &newName) {
-    Name= newName;
+void Runway::removeAirplane() {
+    REQUIRE(this->properlyInitialised(), "Runway wasn't initialised when calling removeAirplane()");
+    REQUIRE(_airplane != NULL, "Airplane must point to an airplane and not a nullptr");
+    REQUIRE(_status, "Status must be true because the space is occupied");
+
+    _airplane = NULL;
+    _status = false;
+
+    ENSURE(_airplane == NULL, "Airplane must point to a nullptr after removing a plane");
+    ENSURE(!_status,"Status must be false after removing a plane");
+}
+const std::string &Runway::get_name() {
+    REQUIRE(this->properlyInitialised(), "Runway wasn't initialised when calling get_name()");
+    return _name;
 }
 
-//return de airport
-const string &Runway::getAirport() const {
-    return Airport;
-}
-/*@Set de airport
- *@param een airport
- *return niks void functie
- */
-void Runway::setAirport(const string &newAirport) {
-    Airport=newAirport;
+void Runway::set_name(const std::string &_name) {
+    REQUIRE(this->properlyInitialised(), "Runway wasn't initialised when calling set_name()");
+    Runway::_name = _name;
+    ENSURE(get_name() == _name, "set_name() failure");
 }
 
-bool Runway::getStatus() const {
-    return status;
+const std::string &Runway::get_type() {
+    REQUIRE(this->properlyInitialised(), "Runway wasn't initialised when calling get_type()");
+    return _type;
 }
 
-/* @Set de status
- * @param status bool
- * @return niks void functie
- */
-void Runway::setStatus(bool status) {
-    Runway::status = status;
+void Runway::set_type(const std::string &_type) {
+    REQUIRE(this->properlyInitialised(), "Runway wasn't initialised when calling set_type()");
+    Runway::_type = _type;
+    ENSURE(get_type() == _type, "set_type() failure");
 }
 
-//Checkt voor de initialisatie
-bool Runway::properlyInitialiazed() {
-    return _initCheck == this;
+const std::string &Runway::get_airport() {
+    REQUIRE(this->properlyInitialised(), "Runway wasn't initialised when calling get_airport()");
+    return _airport;
 }
 
-const string &Runway::getType() const {
-    return type;
+void Runway::set_airport(const std::string &_airport) {
+    Runway::_airport = _airport;
 }
 
-void Runway::setType(const string &type) {
-    Runway::type = type;
+unsigned int Runway::get_length() {
+    REQUIRE(this->properlyInitialised(), "Runway wasn't initialised when calling get_length()");
+    return _length;
 }
 
-int Runway::getLength() const {
-    return length;
+void Runway::set_length(unsigned int _length) {
+    REQUIRE(this->properlyInitialised(), "Runway wasn't initialised when calling set_length()");
+    Runway::_length = _length;
+    ENSURE(get_length() == _length, "set_length() failure");
 }
 
-void Runway::setLength(int length) {
-    Runway::length = length;
+Airplane *Runway::get_airplane(){
+    REQUIRE(this->properlyInitialised(), "Runway wasn't initialised when calling get_airplane()");
+    return _airplane;
+}
+
+bool Runway::is_status(){
+    REQUIRE(this->properlyInitialised(), "Runway wasn't initialised when calling get_status()");
+    return _status;
 }
 
 const vector<Taxiroute *> &Runway::getTaxiRoute() const {

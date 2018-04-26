@@ -9,7 +9,6 @@ file(REMOVE_RECURSE
   "CMakeFiles/pse_debug.dir/TinyXML/tinyxmlparser.cpp.o"
   "CMakeFiles/pse_debug.dir/Airplane.cpp.o"
   "CMakeFiles/pse_debug.dir/Airport.cpp.o"
-  "CMakeFiles/pse_debug.dir/Gates.cpp.o"
   "CMakeFiles/pse_debug.dir/TestMain.cpp.o"
   "CMakeFiles/pse_debug.dir/Runway.cpp.o"
   "CMakeFiles/pse_debug.dir/Tests/RunwayTest.cpp.o"
@@ -20,6 +19,7 @@ file(REMOVE_RECURSE
   "CMakeFiles/pse_debug.dir/AirportUtils.cpp.o"
   "CMakeFiles/pse_debug.dir/Taxiroute.cpp.o"
   "CMakeFiles/pse_debug.dir/Flightplan.cpp.o"
+  "CMakeFiles/pse_debug.dir/Gate.cpp.o"
   "pse_debug.pdb"
   "pse_debug"
 )

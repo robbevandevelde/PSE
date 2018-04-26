@@ -11,62 +11,47 @@
 #include <iostream>
 #include <vector>
 #include <algorithm>
-#include "Airplane.h"
-#include "Taxiroute.h"
-#include "DesignByContract.h"
-using namespace std;
+
+class Taxiroute;
+class Airplane;
 
 class Runway {
 private:
-    Airplane airplane;
-    string Name;
-    string Airport;
-    bool status; //True als vliegtuig, false als leeg
-    string type;
-    int length;
-    vector <Taxiroute*> taxiRoute;
-    Runway* _initCheck;
+    Runway* _initcheck;
+
+    Airplane* _airplane;
+
+    unsigned int _length;
+
+    bool _status;
+
+    std::string _name;
+    std::string _type;
+    std::string _airport;
+
+    std::vector <Taxiroute*> taxiRoute;
 public:
-    const vector<Taxiroute *> &getTaxiRoute() const;
 
-    void setTaxiRoute(const vector<Taxiroute *> &taxiRoute);
+    Runway(int _length, const std::string &_name, const std::string &_type, const std::string &_airport);
+    bool properlyInitialised();
 
+    bool is_status();
+    unsigned int get_length();
+    Airplane *get_airplane();
+    const std::string &get_name();
+    const std::string &get_type();
+    const std::string &get_airport();
+    const std::vector<Taxiroute *> &getTaxiRoute() const;
+
+
+    void set_length(unsigned int _length);
+    void set_name(const std::string &_name);
+    void set_type(const std::string &_type);
+    void set_airport(const std::string &_airport);
     void pushbackTaxi(Taxiroute* taxiroute);
-
-    const string &getType() const;
-
-    void setType(const string &type);
-
-    int getLength() const;
-
-    void setLength(int length);
-
-    bool properlyInitialiazed();
-
-    bool getStatus() const;
-
-    void setStatus(bool status);
-
-    Runway(const string &Name, const string &Airport);
-
-    Airplane getAirplane() const;
-
-    void setAirplane(Airplane &airplane);
-
+    void setTaxiRoute(const std::vector<Taxiroute *> &taxiRoute);
+    void addAirplane(Airplane* airplane);
     void removeAirplane();
-
-    Runway();
-
-    virtual ~Runway();
-
-    const string& getName() const;
-
-    void setName(const string& newName);
-
-    const string& getAirport() const;
-
-    void setAirport(const string& newAirport);
-
 
 };
 

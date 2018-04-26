@@ -38,9 +38,9 @@ LuchthavenParser::~LuchthavenParser() {
 void LuchthavenParser::isRunAirEqual(vector<Runway*> runwaysVect, vector<Airport*> airportsVect){
     for(unsigned int RW = 0; RW < runwaysVect.size(); RW++){
         for(unsigned int AIR = 0; AIR < airportsVect.size(); AIR++){
-            if (runwaysVect[RW]->getAirport() == airportsVect[AIR]->getIata())
+            if (runwaysVect[RW]->get_airport() == airportsVect[AIR]->get_iata())
             {
-                airportsVect[AIR]->addRunway(*runwaysVect[RW]);
+                airportsVect[AIR]->addRunway(runwaysVect[RW]);
             }
         }
     }
@@ -92,16 +92,16 @@ void LuchthavenParser::writeToFile(vector<Runway *> runwaysVect, vector<Airport 
     myfile.open ("Simulation.txt");
     for (unsigned int itAPO=0 ; itAPO < airportsVect.size(); itAPO++) {
         myfile << "\n";
-        myfile << "Airport: "<<airportsVect[itAPO]->getName() << " (" << airportsVect[itAPO]->getIata()<<")"<< endl;
-        myfile <<"-> gates: "<<  airportsVect[itAPO]->getGates() << endl;
+        myfile << "Airport: "<<airportsVect[itAPO]->get_name() << " (" << airportsVect[itAPO]->get_iata()<<")"<< endl;
+        myfile <<"-> gates: "<<  airportsVect[itAPO]->get_gatesize() << endl;
         myfile <<"-> runways: "<<  runwaysVect.size() << endl;
     }
 
 
     for (unsigned int itAPL=0 ; itAPL < airplanesVect.size(); itAPL++) {
         myfile << "\n";
-        myfile << "Airplane: "<< airplanesVect[itAPL]->getCallsign() << " (" << airplanesVect[itAPL]->getNumber()<<")"<< endl;
-        myfile <<"-> model: "<<  airplanesVect[itAPL]->getModel() << endl;
+        myfile << "Airplane: "<< airplanesVect[itAPL]->get_callsign() << " (" << airplanesVect[itAPL]->get_number()<<")"<< endl;
+        myfile <<"-> model: "<<  airplanesVect[itAPL]->get_model() << endl;
     }
 
     myfile.close();

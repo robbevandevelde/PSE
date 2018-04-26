@@ -12,7 +12,6 @@ string AirportParser::readElement(TiXmlElement *elem, const char *tag) {
 }
 
 AirportParser::AirportParser() {
-    airport= new Airport();
 }
 
 AirportParser::~AirportParser() {
@@ -21,14 +20,11 @@ AirportParser::~AirportParser() {
 
 Airport *AirportParser::parseAirport(TiXmlElement *elem) {
     string Iata = readElement(elem, "iata");
-    airport->setIata(Iata);
     string Name = readElement(elem, "name");
-    airport->setName(Name);
     string Callsign = readElement(elem, "callsign");
-    airport->setCallsign(Callsign);
-    string Gates = readElement(elem, "gates");
-    airport->setGates(atoi(Gates.c_str()));
-    airport->setAmountOfGates(atoi(Gates.c_str()));
+    unsigned int Gates = atoi(readElement(elem, "gates").c_str());
+
+     Airport* airport = new Airport(Gates, Name, Iata, Callsign);
     return airport;
 }
 

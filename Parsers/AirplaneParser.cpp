@@ -14,7 +14,6 @@ string AirplaneParser::readElement(TiXmlElement *elem, const char *tag) {
 }
 
 AirplaneParser::AirplaneParser() {
-    airplane= new Airplane();
 
 }
 
@@ -24,32 +23,32 @@ AirplaneParser::~AirplaneParser() {
 
 Airplane *AirplaneParser::parseAirplane(TiXmlElement *elem) {
     string Number = readElement(elem, "number");
-    airplane->setNumber(Number);
+    airplane->set_number(Number);
     string Model = readElement(elem, "model");
-    airplane->setModel(Model);
+    airplane->set_model(Model);
     string Callsign = readElement(elem, "callsign");
-    airplane->setCallsign(Callsign);
+    airplane->set_callsign(Callsign);
     string Status = readElement(elem, "status");
-    airplane->setStatus(Status);
+    airplane->set_status(atoi(Status.c_str()));
     string passengers = readElement(elem, "passengers");
-    airplane->setPassengers(atoi(passengers.c_str()));
+    airplane->set_passengers(atoi(passengers.c_str()));
     string fuel = readElement(elem, "fuel");
-    airplane->setFuel(atoi(fuel.c_str()));
+    airplane->set_fuel(atoi(fuel.c_str()));
     string Type = readElement(elem, "type");
-    airplane->setType(Type);
+    airplane->set_type(Type);
     string Engine = readElement(elem, "engine");
-    airplane->setEngine(Engine);
+    airplane->set_engine(Engine);
     string size = readElement(elem, "size");
-    airplane->setSize(size);
+    airplane->set_size(size);
 
-    for (TiXmlElement *p = elem->FirstChildElement(); p != NULL; p = p->NextSiblingElement()) {
-        string elemName = p->Value();
-        if (elemName == "FLIGHTPLAN") {
-            FlightplanParser fpp;
-            Flightplan *fp = fpp.parseFlightplan(p);
-            airplane->setFlightplan(fp);
-        }
-    }
+//    for (TiXmlElement *p = elem->FirstChildElement(); p != NULL; p = p->NextSiblingElement()) {
+//        string elemName = p->Value();
+//        if (elemName == "FLIGHTPLAN") {
+//            FlightplanParser fpp;
+//            Flightplan *fp = fpp.parseFlightplan(p);
+//            airplane->setFlightplan(fp);
+//        }
+//    }
 
     return airplane;}
 

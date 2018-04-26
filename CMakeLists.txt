@@ -30,11 +30,14 @@ set(SOURCE_FILES
         Airplane.h
         Airport.cpp
         Airport.h
-        Gates.cpp
-        Gates.h
+        Gate.cpp
+        Gate.h
         main.cpp
         Runway.cpp
-        Runway.h Parsers/FlightplanParser.cpp Parsers/FlightplanParser.h)
+        Runway.h
+        Parsers/FlightplanParser.cpp
+        Parsers/FlightplanParser.h
+        )
 
 set(DEBUG_SOURCE_FILES
         Parsers/AirplaneParser.cpp
@@ -55,11 +58,14 @@ set(DEBUG_SOURCE_FILES
         Airplane.h
         Airport.cpp
         Airport.h
-        Gates.cpp
-        Gates.h
         TestMain.cpp
         Runway.cpp
-        Runway.h Tests/RunwayTest.cpp Tests/AirplaneTest.cpp Tests/AirportTest.cpp Tests/GatesTest.cpp DesignByContract.h Tests/LuchthavenParserTest.cpp AirportUtils.cpp AirportUtils.h Taxiroute.cpp Taxiroute.h Flightplan.cpp Flightplan.h)
+        Runway.h Tests/RunwayTest.cpp
+        Tests/AirplaneTest.cpp Tests/AirportTest.cpp
+        Tests/GatesTest.cpp DesignByContract.h
+        Tests/LuchthavenParserTest.cpp AirportUtils.cpp
+        AirportUtils.h Taxiroute.cpp Taxiroute.h Flightplan.cpp
+        Flightplan.h Gate.cpp Gate.h)
 
 add_executable(pse ${SOURCE_FILES})
 

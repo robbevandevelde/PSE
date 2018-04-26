@@ -6,73 +6,53 @@
 #ifndef PARSER_AIRPLANE_H
 #define PARSER_AIRPLANE_H
 
-#include <string>
-#include <algorithm>
-#include "Flightplan.h"
+#include "DesignByContract.h"
+#include <iostream>
 
-using namespace std;
+enum Status {JustLanded, StandingAtGate, Departure, InTheAir, Approaching};
 
 class Airplane {
 private:
     //Airplane* _initCheck;
-    string number;
-    string callsign;
-    string model;
-    string status;
-    string type;
-    string engine;
-    string size;
-    int passengers;
-    int fuel;
-    Flightplan* flightplan;
+    Airplane* _initcheck;
 
+    unsigned int _status;
+    unsigned int _fuel;
+    unsigned int _height;
+    unsigned int _passengers;
+
+    std::string _model;
+    std::string _number;
+    std::string _callsign;
+    std::string _type;
+    std::string _engine;
+    std::string _size;
 public:
-    Flightplan *getFlightplan() const;
+    Airplane(std::string number,std::string callsign, std::string model, unsigned int status);
 
-    void setFlightplan(Flightplan *flightplan);
+    bool properlyInitialised();
 
-    const string &getType() const;
+    unsigned int get_fuel();
+    unsigned int get_status();
+    unsigned int get_height();
+    unsigned int get_passengers();
+    const std::string &get_model();
+    const std::string &get_number();
+    const std::string &get_callsign();
+    const std::string &get_size() const;
+    const std::string &get_type() const;
+    const std::string &get_engine() const;
 
-    void setType(const string &type);
-
-    const string &getEngine() const;
-
-    void setEngine(const string &engine);
-
-    const string &getSize() const;
-
-    void setSize(const string &size);
-
-    Airplane();
-
-    Airplane(const string &number, const string &callsign, const string &model, const string &status, int passengers);
-
-    void TakeOff();
-    void Landing();
-
-    int getPassengers() const;
-
-    void setPassengers(int passengers);
-
-    string getNumber() const;
-
-    void setNumber(string number);
-
-    const string &getCallsign() const;
-
-    void setCallsign(const string &callsign);
-
-    const string &getModel() const;
-
-    void setModel(const string &model);
-
-    const string &getStatus() const;
-
-    void setStatus(const string &status);
-
-    int getFuel() const;
-
-    void setFuel(int fuel);
+    void set_fuel(unsigned int _fuel);
+    void set_status(unsigned int _status);
+    void set_height(unsigned int _height);
+    void set_passengers(unsigned int _passengers);
+    void set_model(const std::string &_model);
+    void set_number(const std::string &_number);
+    void set_callsign(const std::string &_callsign);
+    void set_size(const std::string &size);
+    void set_engine(const std::string &engine);
+    void set_type(const std::string &type);
 
 };
 

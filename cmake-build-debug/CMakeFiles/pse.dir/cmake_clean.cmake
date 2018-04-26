@@ -9,7 +9,7 @@ file(REMOVE_RECURSE
   "CMakeFiles/pse.dir/TinyXML/tinyxmlparser.cpp.o"
   "CMakeFiles/pse.dir/Airplane.cpp.o"
   "CMakeFiles/pse.dir/Airport.cpp.o"
-  "CMakeFiles/pse.dir/Gates.cpp.o"
+  "CMakeFiles/pse.dir/Gate.cpp.o"
   "CMakeFiles/pse.dir/main.cpp.o"
   "CMakeFiles/pse.dir/Runway.cpp.o"
   "CMakeFiles/pse.dir/Parsers/FlightplanParser.cpp.o"
