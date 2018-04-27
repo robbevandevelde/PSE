@@ -1,4 +1,4 @@
-#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
 
 #IncludeRegexScan: ^.*$
 
@@ -6,27 +6,27 @@
 
 #IncludeRegexTransform: 
 
-/home/uauser/Desktop/PSE/Airplane.cpp
+/Users/robbe/Desktop/PSE/Airplane.cpp
 Airplane.h
-/home/uauser/Desktop/PSE/Airplane.h
+/Users/robbe/Desktop/PSE/Airplane.h
 
-/home/uauser/Desktop/PSE/Airplane.h
+/Users/robbe/Desktop/PSE/Airplane.h
 DesignByContract.h
-/home/uauser/Desktop/PSE/DesignByContract.h
+/Users/robbe/Desktop/PSE/DesignByContract.h
 iostream
 -
 
-/home/uauser/Desktop/PSE/Airport.cpp
+/Users/robbe/Desktop/PSE/Airport.cpp
 Gate.h
-/home/uauser/Desktop/PSE/Gate.h
+/Users/robbe/Desktop/PSE/Gate.h
 Runway.h
-/home/uauser/Desktop/PSE/Runway.h
+/Users/robbe/Desktop/PSE/Runway.h
 DesignByContract.h
-/home/uauser/Desktop/PSE/DesignByContract.h
+/Users/robbe/Desktop/PSE/DesignByContract.h
 Airport.h
-/home/uauser/Desktop/PSE/Airport.h
+/Users/robbe/Desktop/PSE/Airport.h
 
-/home/uauser/Desktop/PSE/Airport.h
+/Users/robbe/Desktop/PSE/Airport.h
 vector
 -
 sstream
@@ -34,71 +34,71 @@ sstream
 iostream
 -
 Airplane.h
-/home/uauser/Desktop/PSE/Airplane.h
+/Users/robbe/Desktop/PSE/Airplane.h
 
-/home/uauser/Desktop/PSE/DesignByContract.h
+/Users/robbe/Desktop/PSE/DesignByContract.h
 assert.h
 -
 
-/home/uauser/Desktop/PSE/Flightplan.h
+/Users/robbe/Desktop/PSE/Flightplan.h
 string
 -
 
-/home/uauser/Desktop/PSE/Gate.cpp
+/Users/robbe/Desktop/PSE/Gate.cpp
 Gate.h
-/home/uauser/Desktop/PSE/Gate.h
-Airplane.h
-/home/uauser/Desktop/PSE/Airplane.h
+/Users/robbe/Desktop/PSE/Gate.h
 
-/home/uauser/Desktop/PSE/Gate.h
+/Users/robbe/Desktop/PSE/Gate.h
 iostream
 -
+Airplane.h
+/Users/robbe/Desktop/PSE/Airplane.h
 
-/home/uauser/Desktop/PSE/Parsers/AirplaneParser.cpp
+/Users/robbe/Desktop/PSE/Parsers/AirplaneParser.cpp
 iostream
 -
 AirplaneParser.h
-/home/uauser/Desktop/PSE/Parsers/AirplaneParser.h
+/Users/robbe/Desktop/PSE/Parsers/AirplaneParser.h
 FlightplanParser.h
-/home/uauser/Desktop/PSE/Parsers/FlightplanParser.h
+/Users/robbe/Desktop/PSE/Parsers/FlightplanParser.h
 
-/home/uauser/Desktop/PSE/Parsers/AirplaneParser.h
+/Users/robbe/Desktop/PSE/Parsers/AirplaneParser.h
 string
 -
 ../Airplane.h
-/home/uauser/Desktop/PSE/Airplane.h
+/Users/robbe/Desktop/PSE/Airplane.h
 ../TinyXML/tinyxml.h
-/home/uauser/Desktop/PSE/TinyXML/tinyxml.h
+/Users/robbe/Desktop/PSE/TinyXML/tinyxml.h
 
-/home/uauser/Desktop/PSE/Parsers/AirportParser.cpp
+/Users/robbe/Desktop/PSE/Parsers/AirportParser.cpp
 AirportParser.h
-/home/uauser/Desktop/PSE/Parsers/AirportParser.h
+/Users/robbe/Desktop/PSE/Parsers/AirportParser.h
 
-/home/uauser/Desktop/PSE/Parsers/AirportParser.h
+/Users/robbe/Desktop/PSE/Parsers/AirportParser.h
 string
 -
 ../Airport.h
-/home/uauser/Desktop/PSE/Airport.h
+/Users/robbe/Desktop/PSE/Airport.h
 ../TinyXML/tinyxml.h
-/home/uauser/Desktop/PSE/TinyXML/tinyxml.h
+/Users/robbe/Desktop/PSE/TinyXML/tinyxml.h
 
-/home/uauser/Desktop/PSE/Parsers/FlightplanParser.cpp
+/Users/robbe/Desktop/PSE/Parsers/FlightplanParser.cpp
 
-/home/uauser/Desktop/PSE/Parsers/FlightplanParser.h
+/Users/robbe/Desktop/PSE/Parsers/FlightplanParser.h
 string
 -
 AirplaneParser.h
-/home/uauser/Desktop/PSE/Parsers/AirplaneParser.h
+/Users/robbe/Desktop/PSE/Parsers/AirplaneParser.h
 ../TinyXML/tinyxml.h
-/home/uauser/Desktop/PSE/TinyXML/tinyxml.h
+/Users/robbe/Desktop/PSE/TinyXML/tinyxml.h
 ../Flightplan.h
-/home/uauser/Desktop/PSE/Flightplan.h
+/Users/robbe/Desktop/PSE/Flightplan.h
 
-/home/uauser/Desktop/PSE/Parsers/LuchthavenParser.cpp
+/Users/robbe/Desktop/PSE/Parsers/LuchthavenParser.cpp
 LuchthavenParser.h
-/home/uauser/Desktop/PSE/Parsers/LuchthavenParser.h
+/Users/robbe/Desktop/PSE/Parsers/LuchthavenParser.h
 
-/home/uauser/Desktop/PSE/Parsers/LuchthavenParser.h
+/Users/robbe/Desktop/PSE/Parsers/LuchthavenParser.h
 vector
 -
 string
@@ -106,41 +106,41 @@ string
 fstream
 -
 AirplaneParser.h
-/home/uauser/Desktop/PSE/Parsers/AirplaneParser.h
+/Users/robbe/Desktop/PSE/Parsers/AirplaneParser.h
 AirportParser.h
-/home/uauser/Desktop/PSE/Parsers/AirportParser.h
+/Users/robbe/Desktop/PSE/Parsers/AirportParser.h
 RunwayParser.h
-/home/uauser/Desktop/PSE/Parsers/RunwayParser.h
+/Users/robbe/Desktop/PSE/Parsers/RunwayParser.h
 ../TinyXML/tinyxml.h
-/home/uauser/Desktop/PSE/TinyXML/tinyxml.h
+/Users/robbe/Desktop/PSE/TinyXML/tinyxml.h
 ../Runway.h
-/home/uauser/Desktop/PSE/Runway.h
+/Users/robbe/Desktop/PSE/Runway.h
 ../Airplane.h
-/home/uauser/Desktop/PSE/Airplane.h
+/Users/robbe/Desktop/PSE/Airplane.h
 ../Airport.h
-/home/uauser/Desktop/PSE/Airport.h
+/Users/robbe/Desktop/PSE/Airport.h
 
-/home/uauser/Desktop/PSE/Parsers/RunwayParser.cpp
+/Users/robbe/Desktop/PSE/Parsers/RunwayParser.cpp
 RunwayParser.h
-/home/uauser/Desktop/PSE/Parsers/RunwayParser.h
+/Users/robbe/Desktop/PSE/Parsers/RunwayParser.h
 
-/home/uauser/Desktop/PSE/Parsers/RunwayParser.h
+/Users/robbe/Desktop/PSE/Parsers/RunwayParser.h
 string
 -
 ../Runway.h
-/home/uauser/Desktop/PSE/Runway.h
+/Users/robbe/Desktop/PSE/Runway.h
 ../TinyXML/tinyxml.h
-/home/uauser/Desktop/PSE/TinyXML/tinyxml.h
+/Users/robbe/Desktop/PSE/TinyXML/tinyxml.h
 
-/home/uauser/Desktop/PSE/Runway.cpp
+/Users/robbe/Desktop/PSE/Runway.cpp
 Runway.h
-/home/uauser/Desktop/PSE/Runway.h
+/Users/robbe/Desktop/PSE/Runway.h
 Airplane.h
-/home/uauser/Desktop/PSE/Airplane.h
+/Users/robbe/Desktop/PSE/Airplane.h
 Taxiroute.h
-/home/uauser/Desktop/PSE/Taxiroute.h
+/Users/robbe/Desktop/PSE/Taxiroute.h
 
-/home/uauser/Desktop/PSE/Runway.h
+/Users/robbe/Desktop/PSE/Runway.h
 string
 -
 iostream
@@ -150,7 +150,7 @@ vector
 algorithm
 -
 
-/home/uauser/Desktop/PSE/Taxiroute.h
+/Users/robbe/Desktop/PSE/Taxiroute.h
 string
 -
 iostream
@@ -158,17 +158,17 @@ iostream
 algorithm
 -
 
-/home/uauser/Desktop/PSE/TinyXML/tinystr.cpp
+/Users/robbe/Desktop/PSE/TinyXML/tinystr.cpp
 tinystr.h
-/home/uauser/Desktop/PSE/TinyXML/tinystr.h
+/Users/robbe/Desktop/PSE/TinyXML/tinystr.h
 
-/home/uauser/Desktop/PSE/TinyXML/tinystr.h
+/Users/robbe/Desktop/PSE/TinyXML/tinystr.h
 assert.h
 -
 string.h
 -
 
-/home/uauser/Desktop/PSE/TinyXML/tinyxml.cpp
+/Users/robbe/Desktop/PSE/TinyXML/tinyxml.cpp
 ctype.h
 -
 sstream
@@ -176,9 +176,9 @@ sstream
 iostream
 -
 tinyxml.h
-/home/uauser/Desktop/PSE/TinyXML/tinyxml.h
+/Users/robbe/Desktop/PSE/TinyXML/tinyxml.h
 
-/home/uauser/Desktop/PSE/TinyXML/tinyxml.h
+/Users/robbe/Desktop/PSE/TinyXML/tinyxml.h
 ctype.h
 -
 stdio.h
@@ -196,35 +196,35 @@ iostream
 sstream
 -
 tinystr.h
-/home/uauser/Desktop/PSE/TinyXML/tinystr.h
+/Users/robbe/Desktop/PSE/TinyXML/tinystr.h
 
-/home/uauser/Desktop/PSE/TinyXML/tinyxmlerror.cpp
+/Users/robbe/Desktop/PSE/TinyXML/tinyxmlerror.cpp
 tinyxml.h
-/home/uauser/Desktop/PSE/TinyXML/tinyxml.h
+/Users/robbe/Desktop/PSE/TinyXML/tinyxml.h
 
-/home/uauser/Desktop/PSE/TinyXML/tinyxmlparser.cpp
+/Users/robbe/Desktop/PSE/TinyXML/tinyxmlparser.cpp
 ctype.h
 -
 stddef.h
 -
 tinyxml.h
-/home/uauser/Desktop/PSE/TinyXML/tinyxml.h
+/Users/robbe/Desktop/PSE/TinyXML/tinyxml.h
 windows.h
 -
 
-/home/uauser/Desktop/PSE/main.cpp
+/Users/robbe/Desktop/PSE/main.cpp
 iostream
 -
 TinyXML/tinyxml.h
-/home/uauser/Desktop/PSE/TinyXML/tinyxml.h
+/Users/robbe/Desktop/PSE/TinyXML/tinyxml.h
 string
 -
 Runway.h
-/home/uauser/Desktop/PSE/Runway.h
+/Users/robbe/Desktop/PSE/Runway.h
 Airport.h
-/home/uauser/Desktop/PSE/Airport.h
+/Users/robbe/Desktop/PSE/Airport.h
 Airplane.h
-/home/uauser/Desktop/PSE/Airplane.h
+/Users/robbe/Desktop/PSE/Airplane.h
 Parsers/LuchthavenParser.h
-/home/uauser/Desktop/PSE/Parsers/LuchthavenParser.h
+/Users/robbe/Desktop/PSE/Parsers/LuchthavenParser.h
 
