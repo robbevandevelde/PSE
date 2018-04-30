@@ -161,8 +161,6 @@ string
 -
 iostream
 -
-algorithm
--
 
 /Users/robbe/Desktop/PSE/TinyXML/tinystr.cpp
 tinystr.h
