@@ -29,21 +29,21 @@ class Airport
 private:
     Airport* _initcheck;
 
-    std::vector<Gate*> _gates;
-    std::vector<Runway*> _runways;
+    std::vector<Gate*> gates;
+    std::vector<Runway*> runways;
 
-    AirTrafficController* _controller;
+    AirTrafficController* controller;
 
-    Airplane* _waitpoint1;
+    Airplane* waitpoint1;
 
-    Airplane* _waitpoint2;
+    Airplane* waitpoint2;
 
-    unsigned int _gatesize;
-    unsigned int _amountRunways;
+    unsigned int gatesize;
+    unsigned int amountRunways;
 
-    std::string _name;
-    std::string _iata;
-    std::string _callsign;
+    std::string name;
+    std::string iata;
+    std::string callsign;
 
     void addAirplaneToGate(Airplane* airplane);
     void addAirplaneToRunway(Airplane* airplane);
@@ -58,10 +58,10 @@ public:
 
     void gateprotocol(Airplane* airplane, unsigned int passengers);
 
-    const std::string &get_name();
-    const std::string &get_iata();
-    unsigned int get_gatesize();
-    const std::string &get_callsign();
+    const std::string &getName();
+    const std::string &getIata();
+    unsigned int getGatesize();
+    const std::string &getCallsign();
 
 
     void completeLandingSequence(Airplane *airplane);
@@ -70,10 +70,10 @@ public:
     void TakeOffprotocol(Airplane* airplane);
     void Landingprotocol(Airplane* airplane);
 
-    void set_callsign(const std::string &_callsign);
-    void set_iata(const std::string &_iata);
-    void set_name(const std::string &_name);
-    void set_gatesize(unsigned int _gatesize);
+    void setCallsign(const std::string &_callsign);
+    void setIata(const std::string &_iata);
+    void setName(const std::string &_name);
+    void setGatesize(unsigned int _gatesize);
 
     void addRunway(Runway* runway);
 
