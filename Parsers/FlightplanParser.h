@@ -6,9 +6,10 @@
 #define PSE_FLIGHTPLANPARSER_H
 
 #include <string>
-#include "AirplaneParser.h"
 #include "../TinyXML/tinyxml.h"
 #include "../Flightplan.h"
+
+
 using namespace std;
 
 class FlightplanParser {

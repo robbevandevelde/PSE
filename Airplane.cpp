@@ -3,6 +3,7 @@
 //
 
 #include "Airplane.h"
+//#include "Flightplan.h"
 
 /*Constructor
  *@param string number, string callsign, int passengers, string model, string status
@@ -10,7 +11,7 @@
  */
 Airplane::Airplane(std::string number,std::string callsign, std::string model,
                    unsigned int status, unsigned int passengers, unsigned int fuel,
-                   std::string type, std::string engine, std::string size) {
+                   std::string type, std::string engine, std::string size, Flightplan* flightp) {
 
     _initcheck = this;
     _number = number;
@@ -22,6 +23,7 @@ Airplane::Airplane(std::string number,std::string callsign, std::string model,
     _type = type;
     _size = size;
     _engine = engine;
+    _flightplan = flightp;
     if(_status == Approaching){
         _height = 10000;
     }
@@ -196,5 +198,13 @@ const std::string &Airplane::get_size() const {
 
 void Airplane::set_size(const std::string &size) {
     Airplane::_size = size;
+}
+
+Flightplan *Airplane::get_Flightplan() const {
+    return _flightplan;
+}
+
+void Airplane::set_Flightplan(Flightplan *flightplan) {
+    Airplane::_flightplan = flightplan;
 }
 

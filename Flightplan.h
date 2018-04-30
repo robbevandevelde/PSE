@@ -11,27 +11,25 @@ using namespace std;
 class Flightplan {
 private:
     string destination;
-    int departure;
-    int arrival;
-    int interval;
+    unsigned int departure;
+    unsigned int arrival;
+    unsigned int interval;
+
 public:
 
-    Flightplan(string dest, int dep, int arr, int inter){destination = dest, departure=dep, arrival= arr, interval=inter;};
-    const string &getDestination() const;
-    Flightplan();
     void setDestination(const string &destination);
+    void setDeparture(unsigned int departure);
+    void setArrival(unsigned int arrival);
+    void setInterval(unsigned int interval);
 
-    int getDeparture() const;
+    unsigned int getArrival() const;
+    unsigned int getInterval() const;
+    unsigned int getDeparture() const;
+    const string &getDestination() const;
 
-    void setDeparture(int departure);
 
-    int getArrival() const;
+    Flightplan(string& dest, unsigned int dep, unsigned int arr, unsigned int inter);
 
-    void setArrival(int arrival);
-
-    int getInterval() const;
-
-    void setInterval(int interval);
 
 };
 

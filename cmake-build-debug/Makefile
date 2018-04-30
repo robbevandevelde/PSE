@@ -230,6 +230,7 @@ Flightplan.o: Flightplan.cpp.o
 # target to build an object file
 Flightplan.cpp.o:
 	$(MAKE) -f CMakeFiles/pse_debug.dir/build.make CMakeFiles/pse_debug.dir/Flightplan.cpp.o
+	$(MAKE) -f CMakeFiles/pse.dir/build.make CMakeFiles/pse.dir/Flightplan.cpp.o
 .PHONY : Flightplan.cpp.o
 
 Flightplan.i: Flightplan.cpp.i
@@ -239,6 +240,7 @@ Flightplan.i: Flightplan.cpp.i
 # target to preprocess a source file
 Flightplan.cpp.i:
 	$(MAKE) -f CMakeFiles/pse_debug.dir/build.make CMakeFiles/pse_debug.dir/Flightplan.cpp.i
+	$(MAKE) -f CMakeFiles/pse.dir/build.make CMakeFiles/pse.dir/Flightplan.cpp.i
 .PHONY : Flightplan.cpp.i
 
 Flightplan.s: Flightplan.cpp.s
@@ -248,6 +250,7 @@ Flightplan.s: Flightplan.cpp.s
 # target to generate assembly for a file
 Flightplan.cpp.s:
 	$(MAKE) -f CMakeFiles/pse_debug.dir/build.make CMakeFiles/pse_debug.dir/Flightplan.cpp.s
+	$(MAKE) -f CMakeFiles/pse.dir/build.make CMakeFiles/pse.dir/Flightplan.cpp.s
 .PHONY : Flightplan.cpp.s
 
 Gate.o: Gate.cpp.o

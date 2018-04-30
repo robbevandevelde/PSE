@@ -35,6 +35,8 @@ set(SOURCE_FILES
         main.cpp
         Runway.cpp
         Runway.h
+        Flightplan.h
+        Flightplan.cpp
         Parsers/FlightplanParser.cpp
         Parsers/FlightplanParser.h
         )

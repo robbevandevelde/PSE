@@ -7,14 +7,17 @@
 #define PARSER_AIRPLANE_H
 
 #include "DesignByContract.h"
+#include "Flightplan.h"
 #include <iostream>
+//class Flightplan;
+
 
 enum Status {JustLanded, StandingAtGate, Departure, InTheAir, Approaching};
-
 class Airplane {
 private:
     //Airplane* _initCheck;
     Airplane* _initcheck;
+    Flightplan* _flightplan;
 
     unsigned int _status;
     unsigned int _fuel;
@@ -30,8 +33,10 @@ private:
 public:
     Airplane(std::string number,std::string callsign, std::string model,
              unsigned int status, unsigned int passengers, unsigned int fuel,
-             std::string type, std::string engine, std::string size);
+             std::string type, std::string engine, std::string size, Flightplan* flightp);
     bool properlyInitialised();
+
+    Flightplan *get_Flightplan() const;
 
     unsigned int get_fuel();
     unsigned int get_status();
@@ -54,6 +59,7 @@ public:
     void set_size(const std::string &size);
     void set_engine(const std::string &engine);
     void set_type(const std::string &type);
+    void set_Flightplan(Flightplan *flightplan);
 
 };
 

@@ -57,10 +57,11 @@ int main() {
             cout << "Max Fuel: " << airplanesVect[itAPL]->get_fuel() << endl;
             cout << "Max passengers: "<<airplanesVect[itAPL]->get_passengers() << endl;
             cout << "Flightplan: "<<endl;
-//            cout << "\tDeparture: "<<airplanesVect[itAPL]->getFlightplan()->getDeparture()<<endl;
-//            cout << "\tDest: "<<airplanesVect[itAPL]->getFlightplan()->getDestination()<<endl;
-//            cout << "\tArrival: "<<airplanesVect[itAPL]->getFlightplan()->getArrival()<<endl;
-//            cout << "\tInterval: "<<airplanesVect[itAPL]->getFlightplan()->getInterval()<<endl;
+            cout << "\tDeparture: "<<airplanesVect[itAPL]->get_Flightplan()->getDeparture()<<endl;
+            cout << "\tDest: "<<airplanesVect[itAPL]->get_Flightplan()->getDestination()<<endl;
+            cout << "\tArrival: "<<airplanesVect[itAPL]->get_Flightplan()->getArrival()<<endl;
+            cout << "\tInterval: "<<airplanesVect[itAPL]->get_Flightplan()->getInterval()<<endl;
+
         }
         cout << "------------------------------------------\n" << endl;
         airportsVect[0]->landingprotocol(airplanesVect[0]);

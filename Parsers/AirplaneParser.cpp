@@ -31,16 +31,17 @@ Airplane *AirplaneParser::parseAirplane(TiXmlElement *elem) {
     string Type = readElement(elem, "type");
     string Engine = readElement(elem, "engine");
     string Size = readElement(elem, "size");
+    Flightplan* fp;
 
-    Airplane* airplane = new Airplane(Number, Callsign, Model, Statuscheck(Status), Passengers, Fuel, Type, Engine, Size);
-//    for (TiXmlElement *p = elem->FirstChildElement(); p != NULL; p = p->NextSiblingElement()) {
-//        string elemName = p->Value();
-//        if (elemName == "FLIGHTPLAN") {
-//            FlightplanParser fpp;
-//            Flightplan *fp = fpp.parseFlightplan(p);
-//            airplane->setFlightplan(fp);
-//        }
-//    }
+    for (TiXmlElement *p = elem->FirstChildElement(); p != NULL; p = p->NextSiblingElement()) {
+        string elemName = p->Value();
+        if (elemName == "FLIGHTPLAN") {
+            FlightplanParser fpp;
+            fp = fpp.parseFlightplan(p);
+        }
+    }
+    Airplane* airplane = new Airplane(Number, Callsign, Model, Statuscheck(Status), Passengers, Fuel, Type, Engine, Size, fp);
+
 
     return airplane;}
 

@@ -12,30 +12,31 @@ void Flightplan::setDestination(const string &destination) {
     Flightplan::destination = destination;
 }
 
-int Flightplan::getDeparture() const {
+unsigned int Flightplan::getDeparture() const {
     return departure;
 }
 
-void Flightplan::setDeparture(int departure) {
+void Flightplan::setDeparture(unsigned int departure) {
     Flightplan::departure = departure;
 }
 
-int Flightplan::getArrival() const {
+unsigned int Flightplan::getArrival() const {
     return arrival;
 }
 
-void Flightplan::setArrival(int arrival) {
+void Flightplan::setArrival(unsigned int arrival) {
     Flightplan::arrival = arrival;
 }
 
-int Flightplan::getInterval() const {
+unsigned int Flightplan::getInterval() const {
     return interval;
 }
 
-void Flightplan::setInterval(int interval) {
+void Flightplan::setInterval(unsigned int interval) {
     Flightplan::interval = interval;
 }
 
-Flightplan::Flightplan() {
+Flightplan::Flightplan(string &dest, unsigned int dep, unsigned int arr, unsigned int inter) {
+    destination = dest, departure=dep, arrival= arr, interval=inter;
 
 }

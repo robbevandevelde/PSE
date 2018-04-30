@@ -157,9 +157,11 @@
 		</Unit>
 		<Unit filename="/Users/robbe/Desktop/PSE/Flightplan.cpp">
 			<Option target="pse_debug"/>
+			<Option target="pse"/>
 		</Unit>
 		<Unit filename="/Users/robbe/Desktop/PSE/Flightplan.h">
 			<Option target="pse_debug"/>
+			<Option target="pse"/>
 		</Unit>
 		<Unit filename="/Users/robbe/Desktop/PSE/Gate.cpp">
 			<Option target="pse_debug"/>
