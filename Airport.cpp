@@ -196,42 +196,42 @@ void Airport::removeAirplaneOfRunway(Airplane *airplane) {
     }
 }
 
-const std::string &Airport::get_name(){
+const std::string &Airport::getName(){
     REQUIRE(this->properlyInitialised(), "Airport wasn't properly initialised when calling getGatesize");
     return _name;
 }
 
-void Airport::set_name(const std::string &_name) {
+void Airport::setName(const std::string &_name) {
     REQUIRE(this->properlyInitialised(), "Airport wasn't properly initialised when calling getGatesize");
     Airport::_name = _name;
 }
 
-const std::string &Airport::get_iata(){
+const std::string &Airport::getIata(){
     REQUIRE(this->properlyInitialised(), "Airport wasn't properly initialised when calling getGatesize");
     return _iata;
 }
 
-void Airport::set_iata(const std::string &_iata) {
+void Airport::setIata(const std::string &_iata) {
     REQUIRE(this->properlyInitialised(), "Airport wasn't properly initialised when calling getGatesize");
     Airport::_iata = _iata;
 }
 
-const std::string &Airport::get_callsign(){
+const std::string &Airport::getCallsign(){
     REQUIRE(this->properlyInitialised(), "Airport wasn't properly initialised when calling getGatesize");
     return _callsign;
 }
 
-void Airport::set_callsign(const std::string &_callsign) {
+void Airport::setCallsign(const std::string &_callsign) {
     REQUIRE(this->properlyInitialised(), "Airport wasn't properly initialised when calling getGatesize");
     Airport::_callsign = _callsign;
 }
 
-unsigned int Airport::get_gatesize() {
+unsigned int Airport::getGatesize() {
     REQUIRE(this->properlyInitialised(), "Airport wasn't properly initialised when calling getGatesize");
     return _gatesize;
 }
 
-void Airport::set_gatesize(unsigned int _gatesize) {
+void Airport::setGatesize(unsigned int _gatesize) {
     REQUIRE(this->properlyInitialised(), "Airport wasn't properly initialised when calling setGatesize");
     Airport::_gatesize = _gatesize;
 }

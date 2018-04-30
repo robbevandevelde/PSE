@@ -13,7 +13,6 @@
  *
  * Als dit klaart is: TODO: (robbe) isConsistent van airport en runway in orde maken!!!
  */
-
 using namespace std;
 //int main() {
 //    LuchthavenParser parser;
@@ -107,8 +106,8 @@ int main() {
 //    airplane->setStatus(Approaching);
 //    airplane->setHeight(10000);
     airport->completeLandingSequence(airplane);
-    AirTrafficController* John = new AirTrafficController(airport,"John");
-    airport->assignController(John);
+//    AirTrafficController* John = new AirTrafficController(airport,"John");
+//    airport->assignController(John);
 
     return 0;
 }

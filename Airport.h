@@ -29,21 +29,21 @@ class Airport
 private:
     Airport* _initcheck;
 
-    std::vector<Gate*> gates;
-    std::vector<Runway*> runways;
+    std::vector<Gate*> _gates;
+    std::vector<Runway*> _runways;
 
-    AirTrafficController* controller;
+    AirTrafficController* _controller;
 
-    Airplane* waitpoint1;
+    Airplane* _waitpoint1;
 
-    Airplane* waitpoint2;
+    Airplane* _waitpoint2;
 
-    unsigned int gatesize;
-    unsigned int amountRunways;
+    unsigned int _gatesize;
+    unsigned int _amountRunways;
 
-    std::string name;
-    std::string iata;
-    std::string callsign;
+    std::string _name;
+    std::string _iata;
+    std::string _callsign;
 
     void addAirplaneToGate(Airplane* airplane);
     void addAirplaneToRunway(Airplane* airplane);
