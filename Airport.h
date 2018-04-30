@@ -62,6 +62,10 @@ public:
     //
     void completeLandingSequence(Airplane *airplane);
     void completeTakeOffsequence(Airplane *airplane);
+
+    void TakeOffprotocol(Airplane* airplane);
+    void Landingprotocol(Airplane* airplane);
+
     void set_callsign(const std::string &_callsign);
     void set_iata(const std::string &_iata);
     void set_name(const std::string &_name);
@@ -69,8 +73,8 @@ public:
 
     void addRunway(Runway* runway);
 
-
-
+    void TaxiToRunway(Airplane* airplane);
+    void TaxiToGate(Airplane* airplane);
 };
 
 

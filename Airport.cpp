@@ -11,7 +11,7 @@ Airport::Airport(unsigned int gatesize, const std::string &name,
                  const std::string &iata, const std::string &callsign) : _gatesize(gatesize), _name(name),
                                                                          _iata(iata), _callsign(callsign) {
     _initcheck = this;
-
+    _amountRunways = 0;
     for(unsigned int x = 0;x < Airport::_gatesize;x++){
         Gate* gate = new Gate(x+1);
         _gates.push_back(gate);
@@ -23,9 +23,26 @@ Airport::Airport(unsigned int gatesize, const std::string &name,
 bool Airport::properlyInitialised() {
     return _initcheck == this;
 }
+void Airport::TakeOffprotocol(Airplane *airplane) {
+    REQUIRE(this->properlyInitialised(),"Airport wasn't properly initialised when calling TakeOffProtocol");
+    REQUIRE(airplane->get_height() == 0, "Airplane must be on the ground");
 
-void Airport::completeLandingSequence(Airplane *airplane) {
-    REQUIRE(this->properlyInitialised(), "Airport wasn't properly initialised when calling completeLandingSequence()");
+    unsigned int preheight = airplane->get_height();
+
+    while(airplane->get_height() < 5000){
+        unsigned int postheight =  airplane->get_height() + 1000;
+        std::cout << airplane->get_callsign() <<  " ascended to " << postheight << " ft. " << std::endl;
+        airplane->set_height(postheight);
+        ENSURE(preheight < postheight,"Take off failure");
+    }
+    removeAirplaneOfRunway(airplane);
+    airplane->set_status(Approaching);
+    airplane->set_height(10000);
+    std::cout << airplane->get_callsign() << " has left " << _name << std::endl;
+}
+
+void Airport::Landingprotocol(Airplane *airplane) {
+    REQUIRE(this->properlyInitialised(), "Airpower wasn't properly initialised when calling Landingprotocol");
     REQUIRE(airplane->get_status() == Approaching, "Airplane must be approaching in order to land");
     unsigned int preheight = airplane->get_height();
 
@@ -43,10 +60,25 @@ void Airport::completeLandingSequence(Airplane *airplane) {
     }
 
     ENSURE(airplane->get_height() == 1000, "Airplane must be at 1000 ft");
+}
 
+void Airport::completeLandingSequence(Airplane *airplane) {
+    REQUIRE(this->properlyInitialised(), "Airport wasn't properly initialised when calling completeLandingSequence()");
+
+    Landingprotocol(airplane);
     addAirplaneToRunway(airplane);
     gateprotocol(airplane,0);
-    addAirplaneToGate(airplane);
+    TaxiToGate(airplane);
+    std::cout << "---------------------------------------------------------------------------------------" << std::endl;
+}
+
+void Airport::completeTakeOffsequence(Airplane *airplane) {
+    REQUIRE(this->properlyInitialised(),"Airport wasn't initialised when calling completeTakeOffsequence()");
+
+    TaxiToRunway(airplane);
+
+    TakeOffprotocol(airplane);
+
     std::cout << "---------------------------------------------------------------------------------------" << std::endl;
 }
 
@@ -76,35 +108,11 @@ void Airport::gateprotocol(Airplane *airplane, unsigned int passengers) {
         }
     }
 }
-void Airport::completeTakeOffsequence(Airplane *airplane) {
-    REQUIRE(this->properlyInitialised(),"Airport wasn't initialised when calling completeTakeOffsequence()");
-    REQUIRE(airplane->get_status() == StandingAtGate, "Airplane must be at gate");
-    REQUIRE(airplane->get_height() == 0, "Airplane must be on the ground");
-
-    removeAirplaneOfGate(airplane);
-    addAirplaneToRunway(airplane);
-    unsigned int preheight = airplane->get_height();
-
-    while(airplane->get_height() < 5000){
-        unsigned int postheight =  airplane->get_height() + 1000;
-        std::cout << airplane->get_callsign() <<  " ascended to " << postheight << " ft. " << std::endl;
-        airplane->set_height(postheight);
-        ENSURE(preheight < postheight,"Taking off failure");
-    }
-    removeAirplaneOfRunway(airplane);
-    airplane->set_status(Approaching);
-    airplane->set_height(10000);
-    std::cout << airplane->get_callsign() << " has left " << _name << std::endl;
-    std::cout << "---------------------------------------------------------------------------------------" << std::endl;
-}
-
 
 void Airport::addAirplaneToGate(Airplane *airplane) {
     REQUIRE(this->properlyInitialised(),"Airport wasn't initialised when calling addAirplaneToGate()");
     REQUIRE(airplane->get_status() == JustLanded, "Airplane has to be standing at the runway in order to taxi");
     REQUIRE(_gates.size() <= _gatesize, "Amount of gates don't match with the given amount of gates");
-
-    removeAirplaneOfRunway(airplane);
 
     for(unsigned int x = 0; x < _gates.size();x++){
         if(!_gates[x]->is_occupied()){
@@ -218,3 +226,14 @@ void Airport::addRunway(Runway *runway) {
     _amountRunways+=1;
 
 }
+
+void Airport::TaxiToRunway(Airplane *airplane) {
+    removeAirplaneOfGate(airplane);
+    addAirplaneToRunway(airplane);
+}
+
+void Airport::TaxiToGate(Airplane *airplane) {
+    removeAirplaneOfRunway(airplane);
+    addAirplaneToGate(airplane);
+}
+
