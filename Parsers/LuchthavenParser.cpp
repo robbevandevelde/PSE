@@ -100,11 +100,11 @@ void LuchthavenParser::writeToFile(vector<Runway *> runwaysVect, vector<Airport 
 
     for (unsigned int itAPL=0 ; itAPL < airplanesVect.size(); itAPL++) {
         myfile << "\n";
-        myfile << "Airplane: "<< airplanesVect[itAPL]->get_callsign() << " (" << airplanesVect[itAPL]->get_number()<<")"<< endl;
-        myfile <<"-> model: "<<  airplanesVect[itAPL]->get_model() << endl;
-        myfile <<"-> type: "<<  airplanesVect[itAPL]->get_type() << endl;
-        myfile <<"-> engine: "<<  airplanesVect[itAPL]->get_engine() << endl;
-        myfile <<"-> size: "<<  airplanesVect[itAPL]->get_size() << endl;
+        myfile << "Airplane: "<< airplanesVect[itAPL]->getCallsign() << " (" << airplanesVect[itAPL]->getNumber()<<")"<< endl;
+        myfile <<"-> model: "<< airplanesVect[itAPL]->getModel() << endl;
+        myfile <<"-> type: "<< airplanesVect[itAPL]->getType() << endl;
+        myfile <<"-> engine: "<< airplanesVect[itAPL]->getEngine() << endl;
+        myfile <<"-> size: "<< airplanesVect[itAPL]->getSize() << endl;
     }
 
     myfile.close();

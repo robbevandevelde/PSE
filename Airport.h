@@ -10,6 +10,7 @@
 #include <iostream>
 #include "Airplane.h"
 #include "AirTrafficController.h"
+
 class Gate;
 class Runway;
 class DesignByContract;
@@ -23,7 +24,6 @@ class DesignByContract;
  *
  */
 
-class AirTrafficController;
 class Airport
 {
 private:

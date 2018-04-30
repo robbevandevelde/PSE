@@ -11,7 +11,8 @@
  */
 Airplane::Airplane(std::string number,std::string callsign, std::string model,
                    unsigned int status, unsigned int passengers, unsigned int fuel,
-                   std::string type, std::string engine, std::string size, Flightplan* flightp) {
+                   std::string type, std::string engine, std::string size, Flightplan* flightp)
+{
 
     _initcheck = this;
     _number = number;
@@ -39,7 +40,8 @@ Airplane::Airplane(std::string number,std::string callsign, std::string model,
  *@param geen param
  *@return true als waar, false als niet waar
  */
-bool Airplane::properlyInitialised() {
+bool Airplane::properlyInitialised()
+{
     return _initcheck == this;
 }
 
@@ -47,8 +49,9 @@ bool Airplane::properlyInitialised() {
  *@param string status
  *@return niks void functie
  */
-unsigned int Airplane::get_fuel(){
-    REQUIRE(this->properlyInitialised(),"Airplane wasn't initialised when calling get_fuel()");
+unsigned int Airplane::getFuel()
+{
+    REQUIRE(this->properlyInitialised(),"Airplane wasn't initialised when calling getFuel()");
     return _fuel;
 }
 
@@ -56,18 +59,20 @@ unsigned int Airplane::get_fuel(){
  *@param string status
  *@return niks void functie
  */
-void Airplane::set_fuel(unsigned int _fuel) {
-    REQUIRE(this->properlyInitialised(),"Airplane wasn't initialised when calling set_fuel()");
+void Airplane::setFuel(unsigned int _fuel)
+{
+    REQUIRE(this->properlyInitialised(),"Airplane wasn't initialised when calling setFuel()");
     Airplane::_fuel = _fuel;
-    ENSURE(get_fuel() == _fuel, "set_fuel() failure");
+    ENSURE(getFuel() == _fuel, "setFuel() failure");
 }
 
 /*Get de passengers van de airplane
  *@param geen
  *@return int hoeveelheid passengers in de airplane
  */
-unsigned int Airplane::get_passengers() {
-    REQUIRE(this->properlyInitialised(),"Airplane wasn't initialised when calling get_passengers()");
+unsigned int Airplane::getPassengers()
+{
+    REQUIRE(this->properlyInitialised(),"Airplane wasn't initialised when calling getPassengers()");
     return _passengers;
 }
 
@@ -75,18 +80,20 @@ unsigned int Airplane::get_passengers() {
  *@param string status
  *@return niks void functie
  */
-void Airplane::set_passengers(unsigned int _passengers) {
-    REQUIRE(this->properlyInitialised(),"Airplane wasn't initialised when calling set_passengers()");
+void Airplane::setPassengers(unsigned int _passengers)
+{
+    REQUIRE(this->properlyInitialised(),"Airplane wasn't initialised when calling setPassengers()");
     Airplane::_passengers = _passengers;
-    ENSURE(get_passengers() == _passengers, "set_passengers() failure");
+    ENSURE(getPassengers() == _passengers, "setPassengers() failure");
 }
 
 /*Get de number van de airplane
  *@param string number
  *@return string number van de airplane
  */
-const std::string &Airplane::get_number() {
-    REQUIRE(this->properlyInitialised(),"Airplane wasn't initialised when calling get_number()");
+const std::string &Airplane::getNumber()
+{
+    REQUIRE(this->properlyInitialised(),"Airplane wasn't initialised when calling getNumber()");
     return _number;
 }
 
@@ -94,18 +101,20 @@ const std::string &Airplane::get_number() {
  *@param string number
  *@return niks void functie
  */
-void Airplane::set_number(const std::string &_number) {
-    REQUIRE(this->properlyInitialised(),"Airplane wasn't initialised when calling set_number()");
+void Airplane::setNumber(const std::string &_number)
+{
+    REQUIRE(this->properlyInitialised(),"Airplane wasn't initialised when calling setNumber()");
     Airplane::_number = _number;
-    ENSURE(get_number() == _number, "set_number() failure");
+    ENSURE(getNumber() == _number, "setNumber() failure");
 }
 
 /*Get de de callsign
  *@param geen
  *@return string callsign van de airplane
  */
-const std::string &Airplane::get_callsign() {
-    REQUIRE(this->properlyInitialised(),"Airplane wasn't initialised when calling get_callsign()");
+const std::string &Airplane::getCallsign()
+{
+    REQUIRE(this->properlyInitialised(),"Airplane wasn't initialised when calling getCallsign()");
     return _callsign;
 }
 
@@ -113,18 +122,20 @@ const std::string &Airplane::get_callsign() {
  *@param string callsign
  *@return niks void functie
  */
-void Airplane::set_callsign(const std::string &_callsign) {
-    REQUIRE(this->properlyInitialised(),"Airplane wasn't initialised when calling set_callsign()");
+void Airplane::setCallsign(const std::string &_callsign)
+{
+    REQUIRE(this->properlyInitialised(),"Airplane wasn't initialised when calling setCallsign()");
     Airplane::_callsign = _callsign;
-    ENSURE(get_callsign() == _callsign, "set_callsign() failure");
+    ENSURE(getCallsign() == _callsign, "setCallsign() failure");
 }
 
 /*Get de model van de airplane
  *@param geen
  *@return string model van de airplane
  */
-const std::string &Airplane::get_model() {
-    REQUIRE(this->properlyInitialised(),"Airplane wasn't initialised when calling get_model()");
+const std::string &Airplane::getModel()
+{
+    REQUIRE(this->properlyInitialised(),"Airplane wasn't initialised when calling getModel()");
     return _model;
 }
 
@@ -132,18 +143,20 @@ const std::string &Airplane::get_model() {
  *@param string model
  *@return niks void functie
  */
-void Airplane::set_model(const std::string &_model) {
-    REQUIRE(this->properlyInitialised(),"Airplane wasn't initialised when calling set_model()");
+void Airplane::setModel(const std::string &_model)
+{
+    REQUIRE(this->properlyInitialised(),"Airplane wasn't initialised when calling setModel()");
     Airplane::_model = _model;
-    ENSURE(get_model() == _model, "set_model() failure");
+    ENSURE(getModel() == _model, "setModel() failure");
 }
 
 /*Get de status van de airplane
  *@param geen
  *@return int status van de airplane (enumerator)
  */
-unsigned int Airplane::get_status() {
-    REQUIRE(this->properlyInitialised(),"Airplane wasn't initialised when calling get_status()");
+unsigned int Airplane::getStatus()
+{
+    REQUIRE(this->properlyInitialised(),"Airplane wasn't initialised when calling getStatus()");
     return _status;
 }
 
@@ -151,18 +164,20 @@ unsigned int Airplane::get_status() {
  *@param string status
  *@return niks void functie
  */
-void Airplane::set_status(unsigned int _status) {
-    REQUIRE(this->properlyInitialised(),"Airplane wasn't initialised when calling set_status()");
+void Airplane::setStatus(unsigned int _status)
+{
+    REQUIRE(this->properlyInitialised(),"Airplane wasn't initialised when calling setStatus()");
     Airplane::_status = _status;
-    ENSURE(get_status() == _status, "set_status() failure");
+    ENSURE(getStatus() == _status, "setStatus() failure");
 }
 
 /*Get de height van de airplane
  *@param geen
  *@return int height van de airplane
  */
-unsigned int Airplane::get_height() {
-    REQUIRE(this->properlyInitialised(),"Airplane wasn't initialised when calling get_height()");
+unsigned int Airplane::getHeight()
+{
+    REQUIRE(this->properlyInitialised(),"Airplane wasn't initialised when calling getHeight()");
     return _height;
 }
 
@@ -170,41 +185,51 @@ unsigned int Airplane::get_height() {
  *@param int height
  *@return niks void functie
  */
-void Airplane::set_height(unsigned int _height) {
-    REQUIRE(this->properlyInitialised(),"Airplane wasn't initialised when calling set_height()");
+void Airplane::setHeight(unsigned int _height)
+{
+    REQUIRE(this->properlyInitialised(),"Airplane wasn't initialised when calling setHeight()");
     Airplane::_height = _height;
-    ENSURE(get_height() == _height,"set_height() failure");
+    ENSURE(getHeight() == _height,"setHeight() failure");
 }
 
-const std::string &Airplane::get_type() const {
+const std::string &Airplane::getType() const
+{
     return _type;
 }
 
-void Airplane::set_type(const std::string &type) {
+void Airplane::setType(const std::string &type)
+{
     Airplane::_type = type;
 }
 
-const std::string &Airplane::get_engine() const {
+const std::string &Airplane::getEngine() const
+{
     return _engine;
 }
 
-void Airplane::set_engine(const std::string &engine) {
+void Airplane::setEngine(const std::string &engine)
+{
     Airplane::_engine = engine;
 }
 
-const std::string &Airplane::get_size() const {
+const std::string &Airplane::getSize() const
+{
     return _size;
 }
 
-void Airplane::set_size(const std::string &size) {
+void Airplane::setSize(const std::string &size)
+{
     Airplane::_size = size;
 }
 
-Flightplan *Airplane::get_Flightplan() const {
+Flightplan *Airplane::getFlightplan() const
+{
     return _flightplan;
 }
 
-void Airplane::set_Flightplan(Flightplan *flightplan) {
+void Airplane::setFlightplan(Flightplan *flightplan)
+{
+    REQUIRE(this->properlyInitialised(), "Airplane wasn't properly initialised when calling ");
     Airplane::_flightplan = flightplan;
 }
 

@@ -227,6 +227,12 @@
 			<Option target="pse_debug"/>
 			<Option target="pse"/>
 		</Unit>
+		<Unit filename="/home/thimoty/Downloads/PSE/Simulator.cpp">
+			<Option target="pse_debug"/>
+		</Unit>
+		<Unit filename="/home/thimoty/Downloads/PSE/Simulator.h">
+			<Option target="pse_debug"/>
+		</Unit>
 		<Unit filename="/home/thimoty/Downloads/PSE/Taxiroute.cpp">
 			<Option target="pse_debug"/>
 		</Unit>

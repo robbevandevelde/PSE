@@ -487,6 +487,33 @@ Runway.cpp.s:
 	$(MAKE) -f CMakeFiles/pse.dir/build.make CMakeFiles/pse.dir/Runway.cpp.s
 .PHONY : Runway.cpp.s
 
+Simulator.o: Simulator.cpp.o
+
+.PHONY : Simulator.o
+
+# target to build an object file
+Simulator.cpp.o:
+	$(MAKE) -f CMakeFiles/pse_debug.dir/build.make CMakeFiles/pse_debug.dir/Simulator.cpp.o
+.PHONY : Simulator.cpp.o
+
+Simulator.i: Simulator.cpp.i
+
+.PHONY : Simulator.i
+
+# target to preprocess a source file
+Simulator.cpp.i:
+	$(MAKE) -f CMakeFiles/pse_debug.dir/build.make CMakeFiles/pse_debug.dir/Simulator.cpp.i
+.PHONY : Simulator.cpp.i
+
+Simulator.s: Simulator.cpp.s
+
+.PHONY : Simulator.s
+
+# target to generate assembly for a file
+Simulator.cpp.s:
+	$(MAKE) -f CMakeFiles/pse_debug.dir/build.make CMakeFiles/pse_debug.dir/Simulator.cpp.s
+.PHONY : Simulator.cpp.s
+
 Taxiroute.o: Taxiroute.cpp.o
 
 .PHONY : Taxiroute.o
@@ -869,6 +896,9 @@ help:
 	@echo "... Runway.o"
 	@echo "... Runway.i"
 	@echo "... Runway.s"
+	@echo "... Simulator.o"
+	@echo "... Simulator.i"
+	@echo "... Simulator.s"
 	@echo "... Taxiroute.o"
 	@echo "... Taxiroute.i"
 	@echo "... Taxiroute.s"

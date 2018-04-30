@@ -36,31 +36,30 @@ public:
              std::string type, std::string engine, std::string size, Flightplan* flightp);
     bool properlyInitialised();
 
-    Flightplan *get_Flightplan() const;
+    Flightplan *getFlightplan() const;
 
-    unsigned int get_fuel();
-    unsigned int get_status();
-    unsigned int get_height();
-    unsigned int get_passengers();
-    const std::string &get_model();
-    const std::string &get_number();
-    const std::string &get_callsign();
-    const std::string &get_size() const;
-    const std::string &get_type() const;
-    const std::string &get_engine() const;
+    unsigned int getFuel();
+    unsigned int getStatus();
+    unsigned int getHeight();
+    unsigned int getPassengers();
+    const std::string &getModel();
+    const std::string &getNumber();
+    const std::string &getCallsign();
+    const std::string &getSize() const;
+    const std::string &getType() const;
+    const std::string &getEngine() const;
 
-    void set_fuel(unsigned int _fuel);
-    void set_status(unsigned int _status);
-    void set_height(unsigned int _height);
-    void set_passengers(unsigned int _passengers);
-    void set_model(const std::string &_model);
-    void set_number(const std::string &_number);
-    void set_callsign(const std::string &_callsign);
-    void set_size(const std::string &size);
-    void set_engine(const std::string &engine);
-    void set_type(const std::string &type);
-    void set_Flightplan(Flightplan *flightplan);
-
+    void setFuel(unsigned int _fuel);
+    void setStatus(unsigned int _status);
+    void setHeight(unsigned int _height);
+    void setPassengers(unsigned int _passengers);
+    void setModel(const std::string &_model);
+    void setNumber(const std::string &_number);
+    void setCallsign(const std::string &_callsign);
+    void setSize(const std::string &size);
+    void setEngine(const std::string &engine);
+    void setType(const std::string &type);
+    void setFlightplan(Flightplan *flightplan);
 };
 
 

@@ -20,10 +20,10 @@ bool Gate::properlyInitialised() {
 void Gate::addAirplane(Airplane *airplane) {
     REQUIRE(this->properlyInitialised(), "Gate wasn't initialised when calling addAirplane()");
     _airplane = airplane;
-    ENSURE(_airplane->get_callsign() == airplane->get_callsign() && _airplane->get_model() == airplane->get_model()&&
-           _airplane->get_number() == airplane->get_number(), "addAirplane failure");
-    _airplane->set_status(StandingAtGate);
-    ENSURE(_airplane->get_status() == StandingAtGate, "addAirplane failure");
+    ENSURE(_airplane->getCallsign() == airplane->getCallsign() && _airplane->getModel() == airplane->getModel()&&
+                   _airplane->getNumber() == airplane->getNumber(), "addAirplane failure");
+    _airplane->setStatus(StandingAtGate);
+    ENSURE(_airplane->getStatus() == StandingAtGate, "addAirplane failure");
     _occupied = true;
     ENSURE(_occupied, "Occupied must be true");
 }

@@ -8,6 +8,7 @@
 #include <iostream>
 #include "DesignByContract.h"
 class Airport;
+class Airplane;
 
 class AirTrafficController {
 private:

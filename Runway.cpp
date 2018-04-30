@@ -30,11 +30,11 @@ void Runway::addAirplane(Airplane *airplane) {
     _airplane = airplane;
     _status = true;
 
-    _airplane->set_height(0);
-    ENSURE(_airplane->get_height() == 0, "Added airplane's height isn't set to 0");
+    _airplane->setHeight(0);
+    ENSURE(_airplane->getHeight() == 0, "Added airplane's height isn't set to 0");
 
-    ENSURE(_airplane->get_model() == airplane->get_model() && _airplane->get_number() == airplane->get_number() &&
-           _airplane->get_callsign() == airplane->get_callsign(), "Added airplane doesn't match airplane");
+    ENSURE(_airplane->getModel() == airplane->getModel() && _airplane->getNumber() == airplane->getNumber() &&
+                   _airplane->getCallsign() == airplane->getCallsign(), "Added airplane doesn't match airplane");
 
     ENSURE(get_airplane() == airplane, "Airplane must point to the given airplane");
     ENSURE(_status,"Status must be true after adding an airplane");
@@ -63,14 +63,14 @@ void Runway::set_name(const std::string &_name) {
 }
 
 const std::string &Runway::get_type() {
-    REQUIRE(this->properlyInitialised(), "Runway wasn't initialised when calling get_type()");
+    REQUIRE(this->properlyInitialised(), "Runway wasn't initialised when calling getType()");
     return _type;
 }
 
 void Runway::set_type(const std::string &_type) {
-    REQUIRE(this->properlyInitialised(), "Runway wasn't initialised when calling set_type()");
+    REQUIRE(this->properlyInitialised(), "Runway wasn't initialised when calling setType()");
     Runway::_type = _type;
-    ENSURE(get_type() == _type, "set_type() failure");
+    ENSURE(get_type() == _type, "setType() failure");
 }
 
 const std::string &Runway::get_airport() {
@@ -99,7 +99,7 @@ Airplane *Runway::get_airplane(){
 }
 
 bool Runway::is_status(){
-    REQUIRE(this->properlyInitialised(), "Runway wasn't initialised when calling get_status()");
+    REQUIRE(this->properlyInitialised(), "Runway wasn't initialised when calling getStatus()");
     return _status;
 }
 
