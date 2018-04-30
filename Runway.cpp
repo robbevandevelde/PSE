@@ -52,14 +52,14 @@ void Runway::removeAirplane() {
     ENSURE(!_status,"Status must be false after removing a plane");
 }
 const std::string &Runway::get_name() {
-    REQUIRE(this->properlyInitialised(), "Runway wasn't initialised when calling get_name()");
+    REQUIRE(this->properlyInitialised(), "Runway wasn't initialised when calling getName()");
     return _name;
 }
 
 void Runway::set_name(const std::string &_name) {
-    REQUIRE(this->properlyInitialised(), "Runway wasn't initialised when calling set_name()");
+    REQUIRE(this->properlyInitialised(), "Runway wasn't initialised when calling setName()");
     Runway::_name = _name;
-    ENSURE(get_name() == _name, "set_name() failure");
+    ENSURE(get_name() == _name, "setName() failure");
 }
 
 const std::string &Runway::get_type() {

@@ -105,7 +105,7 @@ void Airplane::set_number(const std::string &_number) {
  *@return string callsign van de airplane
  */
 const std::string &Airplane::get_callsign() {
-    REQUIRE(this->properlyInitialised(),"Airplane wasn't initialised when calling get_callsign()");
+    REQUIRE(this->properlyInitialised(),"Airplane wasn't initialised when calling getCallsign()");
     return _callsign;
 }
 
@@ -114,9 +114,9 @@ const std::string &Airplane::get_callsign() {
  *@return niks void functie
  */
 void Airplane::set_callsign(const std::string &_callsign) {
-    REQUIRE(this->properlyInitialised(),"Airplane wasn't initialised when calling set_callsign()");
+    REQUIRE(this->properlyInitialised(),"Airplane wasn't initialised when calling setCallsign()");
     Airplane::_callsign = _callsign;
-    ENSURE(get_callsign() == _callsign, "set_callsign() failure");
+    ENSURE(get_callsign() == _callsign, "setCallsign() failure");
 }
 
 /*Get de model van de airplane

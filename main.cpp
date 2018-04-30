@@ -28,7 +28,7 @@ using namespace std;
 //
 //        for (unsigned int itRW=0 ; itRW < runwaysVect.size(); itRW++) {
 //            cout << "------------------------------------------\n";
-//            cout << runwaysVect[itRW]->get_name() << endl;
+//            cout << runwaysVect[itRW]->getName() << endl;
 //            cout << runwaysVect[itRW]->get_airport() << endl;
 ////            for (unsigned int taxIT=0 ; itRW < runwaysVect[itRW]->getTaxiRoute().size(); itRW++) {
 ////
@@ -40,15 +40,15 @@ using namespace std;
 //        }
 //        for (unsigned int itAPO=0 ; itAPO < airportsVect.size(); itAPO++) {
 //            cout << "------------------------------------------\n";
-//            cout << airportsVect[itAPO]->get_name() << endl;
-//            cout << airportsVect[itAPO]->get_iata() << endl;
-//            cout << airportsVect[itAPO]->get_callsign() << endl;
-//            cout << airportsVect[itAPO]->get_gatesize() << endl;
+//            cout << airportsVect[itAPO]->getName() << endl;
+//            cout << airportsVect[itAPO]->getIata() << endl;
+//            cout << airportsVect[itAPO]->getCallsign() << endl;
+//            cout << airportsVect[itAPO]->getGatesize() << endl;
 //        }
 //        for (unsigned int itAPL=0 ; itAPL < airplanesVect.size(); itAPL++) {
 //            cout << "------------------------------------------\n";
 //            cout << airplanesVect[itAPL]->get_number() << endl;
-//            cout << airplanesVect[itAPL]->get_callsign() << endl;
+//            cout << airplanesVect[itAPL]->getCallsign() << endl;
 //            cout << airplanesVect[itAPL]->get_model() << endl;
 //            cout << airplanesVect[itAPL]->get_status() << endl;
 //            cout << "Type: " <<airplanesVect[itAPL]->get_type() << endl;
@@ -92,7 +92,7 @@ int main() {
 //    runway.removeAirplane();
 //    std::cout<< runway.get_type() << std::endl;
 //    std::cout<< runway.get_airport() << std::endl;
-//    std::cout<< runway.get_name() << std::endl;
+//    std::cout<< runway.getName() << std::endl;
 //    std::cout<< runway.get_length() << std::endl;
 //    std::cout<< runway.get_airplane() << std::endl;
 

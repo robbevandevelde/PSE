@@ -41,7 +41,7 @@ bool Gate::is_occupied(){
 }
 
 int Gate::get_name(){
-    REQUIRE(this->properlyInitialised(), "Gate wasn't initialised when calling get_name()");
+    REQUIRE(this->properlyInitialised(), "Gate wasn't initialised when calling getName()");
     return _name;
 }
 

@@ -20,8 +20,8 @@ bool AirTrafficController::landingprotocol(Airplane *airplane) {
     REQUIRE(this->properlyInitialised(), "AirTrafficController wasn't properly initialised when calling landingprotocol()");
     if(airplane->get_height() == 10000){
         REQUIRE(airplane->get_height() == 10000, "Airplane must be at 10000 ft");
-        std::cout << airplane->get_callsign() << " is asking permission to land in " << _airport->get_name() << std::cout;
-        std::cout << "This is" << _name << " from " << _airport->get_name() << " you have permission to descend to 5000 ft"
+        std::cout << airplane->get_callsign() << " is asking permission to land in " << _airport->getName() << std::cout;
+        std::cout << "This is" << _name << " from " << _airport->getName() << " you have permission to descend to 5000 ft"
                                                                                << std::cout;
         return  true;
     }
@@ -51,7 +51,7 @@ bool AirTrafficController::landingprotocol(Airplane *airplane) {
 bool AirTrafficController::takeoffprotocol(Airplane *airplane) {
     REQUIRE(this->properlyInitialised(), "AirTrafficController wasn't properly initialised when calling takeoffprotocol");
     if(airplane->get_status() == StandingAtGate){
-        std::cout << airplane->get_callsign() << " is asking permission to leave " << _airport->get_name() << std::endl;
+        std::cout << airplane->get_callsign() << " is asking permission to leave " << _airport->getName() << std::endl;
         std::cout << "This is" << _name << " you have permission to leave the gate" << std::endl;
         return true;
     } else if(airplane->get_status() == Departure) {
@@ -59,7 +59,7 @@ bool AirTrafficController::takeoffprotocol(Airplane *airplane) {
         return true;
     } else if(airplane->get_status() == StandingAtRunway){
         if(_airport->isRunwayEmpty()){
-            std::cout << "You have permission to leave " << _airport->get_name() << std::endl;
+            std::cout << "You have permission to leave " << _airport->getName() << std::endl;
             return true;
         } else {
             std::cout << "You have to wait a few minutes for a clear runway" << std::endl;
