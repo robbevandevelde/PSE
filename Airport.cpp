@@ -12,12 +12,19 @@ Airport::Airport(unsigned int gatesize, const std::string &name,
                                                                          _iata(iata), _callsign(callsign) {
     _initcheck = this;
     _amountRunways = 0;
+
+    _waitpoint1 = NULL;
+    _waitpoint2 = NULL;
+    _controller = NULL;
+
     for(unsigned int x = 0;x < Airport::_gatesize;x++){
         Gate* gate = new Gate(x+1);
         _gates.push_back(gate);
     }
     ENSURE(properlyInitialised(), "Constructor must end");
     ENSURE(_gates.size() == _gatesize, "Gates has to be initialised correctly");
+    ENSURE(_waitpoint1 == NULL && _waitpoint2 == NULL && _controller == NULL, "Values must point to NULL");
+    ENSURE(_amountRunways == 0, "Amount of runways must be zero");
 }
 
 bool Airport::properlyInitialised() {
@@ -53,7 +60,7 @@ void Airport::Landingprotocol(Airplane *airplane) {
     }
     ENSURE(airplane->get_height() == 10000, "Airplane must be at 10000 ft in order to land");
 
-    std::cout << airplane->get_callsign() << " is approaching " << _name << " at " << airplane->get_height() << std::endl;
+    std::cout << airplane->get_callsign() << " is approaching " << _name << " at " << airplane->get_height() << " ft. "<< std::endl;
     while(airplane->get_height() > 1000){
         airplane->set_height(airplane->get_height() - 1000);
         std::cout<< airplane->get_callsign() << " descended to " << airplane->get_height() << std::endl;
@@ -189,51 +196,100 @@ void Airport::removeAirplaneOfRunway(Airplane *airplane) {
     }
 }
 
-const std::string &Airport::get_name() const {
+const std::string &Airport::get_name(){
+    REQUIRE(this->properlyInitialised(), "Airport wasn't properly initialised when calling getGatesize");
     return _name;
 }
 
 void Airport::set_name(const std::string &_name) {
+    REQUIRE(this->properlyInitialised(), "Airport wasn't properly initialised when calling getGatesize");
     Airport::_name = _name;
 }
 
-const std::string &Airport::get_iata() const {
+const std::string &Airport::get_iata(){
+    REQUIRE(this->properlyInitialised(), "Airport wasn't properly initialised when calling getGatesize");
     return _iata;
 }
 
 void Airport::set_iata(const std::string &_iata) {
+    REQUIRE(this->properlyInitialised(), "Airport wasn't properly initialised when calling getGatesize");
     Airport::_iata = _iata;
 }
 
-const std::string &Airport::get_callsign() const {
+const std::string &Airport::get_callsign(){
+    REQUIRE(this->properlyInitialised(), "Airport wasn't properly initialised when calling getGatesize");
     return _callsign;
 }
 
 void Airport::set_callsign(const std::string &_callsign) {
+    REQUIRE(this->properlyInitialised(), "Airport wasn't properly initialised when calling getGatesize");
     Airport::_callsign = _callsign;
 }
 
-unsigned int Airport::get_gatesize() const {
+unsigned int Airport::get_gatesize() {
+    REQUIRE(this->properlyInitialised(), "Airport wasn't properly initialised when calling getGatesize");
     return _gatesize;
 }
 
 void Airport::set_gatesize(unsigned int _gatesize) {
+    REQUIRE(this->properlyInitialised(), "Airport wasn't properly initialised when calling setGatesize");
     Airport::_gatesize = _gatesize;
 }
 
 void Airport::addRunway(Runway *runway) {
+    REQUIRE(this->properlyInitialised(), "Airport wasn't properly initialised when calling addRunway");
     _runways.push_back(runway);
     _amountRunways+=1;
 
 }
 
 void Airport::TaxiToRunway(Airplane *airplane) {
+    REQUIRE(this->properlyInitialised(), "Airport wasn't properly initialised when calling TaxiToRunway");
     removeAirplaneOfGate(airplane);
     addAirplaneToRunway(airplane);
 }
 
 void Airport::TaxiToGate(Airplane *airplane) {
+    REQUIRE(this->properlyInitialised(), "Airport wasn't properly initialised when calling TaxiToGate");
     removeAirplaneOfRunway(airplane);
     addAirplaneToGate(airplane);
+}
+
+bool Airport::isRunwayEmpty() {
+    REQUIRE(this->properlyInitialised(), "Airport wasn't properly initialised when calling isRunwayEmpty");
+    for(unsigned int x = 0; x < _runways.size(); x++){
+        if(!_runways[x]->is_status()){
+            return true;
+        }
+    }
+    return false;
+}
+
+Airplane *Airport::getWaitpoint1() const {
+    return _waitpoint1;
+}
+
+void Airport::setWaitpoint1(Airplane *waitpoint1) {
+    Airport::_waitpoint1 = waitpoint1;
+}
+
+Airplane *Airport::getWaitpoint2() const {
+    return _waitpoint2;
+}
+
+void Airport::setWaitpoint2(Airplane *waitpoint2) {
+    Airport::_waitpoint2 = waitpoint2;
+}
+
+void Airport::assignController(AirTrafficController *_controller) {
+    Airport::_controller = _controller;
+}
+
+void Airport::removeWaitpoint1() {
+    setWaitpoint1(NULL);
+}
+
+void Airport::removeWaitpoint2() {
+    setWaitpoint2(NULL);
 }
 

@@ -134,6 +134,12 @@
 				</MakeCommands>
 			</Target>
 		</Build>
+		<Unit filename="/home/thimoty/Downloads/PSE/AirTrafficController.cpp">
+			<Option target="pse_debug"/>
+		</Unit>
+		<Unit filename="/home/thimoty/Downloads/PSE/AirTrafficController.h">
+			<Option target="pse_debug"/>
+		</Unit>
 		<Unit filename="/home/thimoty/Downloads/PSE/Airplane.cpp">
 			<Option target="pse_debug"/>
 			<Option target="pse"/>

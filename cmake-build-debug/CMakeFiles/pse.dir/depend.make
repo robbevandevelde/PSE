@@ -6,6 +6,7 @@ CMakeFiles/pse.dir/Airplane.cpp.o: ../Airplane.h
 CMakeFiles/pse.dir/Airplane.cpp.o: ../DesignByContract.h
 CMakeFiles/pse.dir/Airplane.cpp.o: ../Flightplan.h
 
+CMakeFiles/pse.dir/Airport.cpp.o: ../AirTrafficController.h
 CMakeFiles/pse.dir/Airport.cpp.o: ../Airplane.h
 CMakeFiles/pse.dir/Airport.cpp.o: ../Airport.cpp
 CMakeFiles/pse.dir/Airport.cpp.o: ../Airport.h
@@ -32,6 +33,7 @@ CMakeFiles/pse.dir/Parsers/AirplaneParser.cpp.o: ../Parsers/FlightplanParser.h
 CMakeFiles/pse.dir/Parsers/AirplaneParser.cpp.o: ../TinyXML/tinystr.h
 CMakeFiles/pse.dir/Parsers/AirplaneParser.cpp.o: ../TinyXML/tinyxml.h
 
+CMakeFiles/pse.dir/Parsers/AirportParser.cpp.o: ../AirTrafficController.h
 CMakeFiles/pse.dir/Parsers/AirportParser.cpp.o: ../Airplane.h
 CMakeFiles/pse.dir/Parsers/AirportParser.cpp.o: ../Airport.h
 CMakeFiles/pse.dir/Parsers/AirportParser.cpp.o: ../DesignByContract.h
@@ -47,6 +49,7 @@ CMakeFiles/pse.dir/Parsers/FlightplanParser.cpp.o: ../Parsers/FlightplanParser.h
 CMakeFiles/pse.dir/Parsers/FlightplanParser.cpp.o: ../TinyXML/tinystr.h
 CMakeFiles/pse.dir/Parsers/FlightplanParser.cpp.o: ../TinyXML/tinyxml.h
 
+CMakeFiles/pse.dir/Parsers/LuchthavenParser.cpp.o: ../AirTrafficController.h
 CMakeFiles/pse.dir/Parsers/LuchthavenParser.cpp.o: ../Airplane.h
 CMakeFiles/pse.dir/Parsers/LuchthavenParser.cpp.o: ../Airport.h
 CMakeFiles/pse.dir/Parsers/LuchthavenParser.cpp.o: ../DesignByContract.h
@@ -88,6 +91,7 @@ CMakeFiles/pse.dir/TinyXML/tinyxmlparser.cpp.o: ../TinyXML/tinystr.h
 CMakeFiles/pse.dir/TinyXML/tinyxmlparser.cpp.o: ../TinyXML/tinyxml.h
 CMakeFiles/pse.dir/TinyXML/tinyxmlparser.cpp.o: ../TinyXML/tinyxmlparser.cpp
 
+CMakeFiles/pse.dir/main.cpp.o: ../AirTrafficController.h
 CMakeFiles/pse.dir/main.cpp.o: ../Airplane.h
 CMakeFiles/pse.dir/main.cpp.o: ../Airport.h
 CMakeFiles/pse.dir/main.cpp.o: ../DesignByContract.h

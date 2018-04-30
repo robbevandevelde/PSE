@@ -136,6 +136,33 @@ pse/fast:
 	$(MAKE) -f CMakeFiles/pse.dir/build.make CMakeFiles/pse.dir/build
 .PHONY : pse/fast
 
+AirTrafficController.o: AirTrafficController.cpp.o
+
+.PHONY : AirTrafficController.o
+
+# target to build an object file
+AirTrafficController.cpp.o:
+	$(MAKE) -f CMakeFiles/pse_debug.dir/build.make CMakeFiles/pse_debug.dir/AirTrafficController.cpp.o
+.PHONY : AirTrafficController.cpp.o
+
+AirTrafficController.i: AirTrafficController.cpp.i
+
+.PHONY : AirTrafficController.i
+
+# target to preprocess a source file
+AirTrafficController.cpp.i:
+	$(MAKE) -f CMakeFiles/pse_debug.dir/build.make CMakeFiles/pse_debug.dir/AirTrafficController.cpp.i
+.PHONY : AirTrafficController.cpp.i
+
+AirTrafficController.s: AirTrafficController.cpp.s
+
+.PHONY : AirTrafficController.s
+
+# target to generate assembly for a file
+AirTrafficController.cpp.s:
+	$(MAKE) -f CMakeFiles/pse_debug.dir/build.make CMakeFiles/pse_debug.dir/AirTrafficController.cpp.s
+.PHONY : AirTrafficController.cpp.s
+
 Airplane.o: Airplane.cpp.o
 
 .PHONY : Airplane.o
@@ -806,6 +833,9 @@ help:
 	@echo "... pse_debug"
 	@echo "... rebuild_cache"
 	@echo "... pse"
+	@echo "... AirTrafficController.o"
+	@echo "... AirTrafficController.i"
+	@echo "... AirTrafficController.s"
 	@echo "... Airplane.o"
 	@echo "... Airplane.i"
 	@echo "... Airplane.s"

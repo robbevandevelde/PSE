@@ -6,6 +6,12 @@
 
 #IncludeRegexTransform: 
 
+/home/thimoty/Downloads/PSE/AirTrafficController.h
+iostream
+-
+DesignByContract.h
+/home/thimoty/Downloads/PSE/DesignByContract.h
+
 /home/thimoty/Downloads/PSE/Airplane.cpp
 Airplane.h
 /home/thimoty/Downloads/PSE/Airplane.h
@@ -37,6 +43,8 @@ iostream
 -
 Airplane.h
 /home/thimoty/Downloads/PSE/Airplane.h
+AirTrafficController.h
+/home/thimoty/Downloads/PSE/AirTrafficController.h
 
 /home/thimoty/Downloads/PSE/DesignByContract.h
 assert.h

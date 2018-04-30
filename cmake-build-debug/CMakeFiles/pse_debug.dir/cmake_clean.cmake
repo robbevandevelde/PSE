@@ -20,6 +20,7 @@ file(REMOVE_RECURSE
   "CMakeFiles/pse_debug.dir/Taxiroute.cpp.o"
   "CMakeFiles/pse_debug.dir/Flightplan.cpp.o"
   "CMakeFiles/pse_debug.dir/Gate.cpp.o"
+  "CMakeFiles/pse_debug.dir/AirTrafficController.cpp.o"
   "pse_debug.pdb"
   "pse_debug"
 )

@@ -9,7 +9,7 @@
 #include <sstream>
 #include <iostream>
 #include "Airplane.h"
-
+#include "AirTrafficController.h"
 class Gate;
 class Runway;
 class DesignByContract;
@@ -32,6 +32,12 @@ private:
     std::vector<Gate*> _gates;
     std::vector<Runway*> _runways;
 
+    AirTrafficController* _controller;
+
+    Airplane* _waitpoint1;
+
+    Airplane* _waitpoint2;
+
     unsigned int _gatesize;
     unsigned int _amountRunways;
 
@@ -44,7 +50,6 @@ private:
     void removeAirplaneOfGate(Airplane* airplane);
     void removeAirplaneOfRunway(Airplane* airplane);
 
-
 public:
     Airport(unsigned int _gatesize, const std::string &_name, const std::string &_iata,
             const std::string &_callsign);
@@ -53,13 +58,12 @@ public:
 
     void gateprotocol(Airplane* airplane, unsigned int passengers);
 
-    const std::string &get_name() const;
-    const std::string &get_iata() const;
-    const std::string &get_callsign() const;
+    const std::string &get_name();
+    const std::string &get_iata();
+    unsigned int get_gatesize();
+    const std::string &get_callsign();
 
-    unsigned int get_gatesize() const;
 
-    //
     void completeLandingSequence(Airplane *airplane);
     void completeTakeOffsequence(Airplane *airplane);
 
@@ -75,6 +79,21 @@ public:
 
     void TaxiToRunway(Airplane* airplane);
     void TaxiToGate(Airplane* airplane);
+
+    bool isRunwayEmpty();
+
+    Airplane *getWaitpoint1() const;
+
+    void setWaitpoint1(Airplane *waitpoint1);
+
+    Airplane *getWaitpoint2() const;
+
+    void setWaitpoint2(Airplane *waitpoint2);
+
+    void removeWaitpoint1();
+    void removeWaitpoint2();
+
+    void assignController(AirTrafficController *_controller);
 };
 
 
