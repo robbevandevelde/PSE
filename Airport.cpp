@@ -16,12 +16,7 @@ Airport::Airport(unsigned int gatesize, const std::string &name,
         Gate* gate = new Gate(x+1);
         _gates.push_back(gate);
     }
-    for(unsigned int x = 0; x < Airport::_amountRunways;x++){
-        Runway* runway = new Runway(400,"moo","R11",_name);
-        _runways.push_back(runway);
-    }
     ENSURE(properlyInitialised(), "Constructor must end");
-    ENSURE(_runways.size() == _amountRunways, "Runways has to be initialised correctly");
     ENSURE(_gates.size() == _gatesize, "Gates has to be initialised correctly");
 }
 
@@ -29,8 +24,8 @@ bool Airport::properlyInitialised() {
     return _initcheck == this;
 }
 
-void Airport::landingprotocol(Airplane *airplane) {
-    REQUIRE(this->properlyInitialised(), "Airport wasn't properly initialised when calling landingprotocol()");
+void Airport::completeLandingSequence(Airplane *airplane) {
+    REQUIRE(this->properlyInitialised(), "Airport wasn't properly initialised when calling completeLandingSequence()");
     REQUIRE(airplane->get_status() == Approaching, "Airplane must be approaching in order to land");
     unsigned int preheight = airplane->get_height();
 
@@ -81,8 +76,8 @@ void Airport::gateprotocol(Airplane *airplane, unsigned int passengers) {
         }
     }
 }
-void Airport::takeoffprotocol(Airplane *airplane) {
-    REQUIRE(this->properlyInitialised(),"Airport wasn't initialised when calling takeoffprotocol()");
+void Airport::completeTakeOffsequence(Airplane *airplane) {
+    REQUIRE(this->properlyInitialised(),"Airport wasn't initialised when calling completeTakeOffsequence()");
     REQUIRE(airplane->get_status() == StandingAtGate, "Airplane must be at gate");
     REQUIRE(airplane->get_height() == 0, "Airplane must be on the ground");
 
@@ -128,7 +123,6 @@ void Airport::addAirplaneToGate(Airplane *airplane) {
 
 void Airport::addAirplaneToRunway(Airplane *airplane) {
     REQUIRE(this->properlyInitialised(),"Airport wasn't initialised when calling addAirplaneToRunway");
-    REQUIRE(_runways.size() == _amountRunways, "Amount of runways don't match with the given amount of runways");
     for(unsigned int x = 0; x < _runways.size(); x++){
         if(!_runways[x]->is_status()){
             if(airplane->get_status() == Approaching){

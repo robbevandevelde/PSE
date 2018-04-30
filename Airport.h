@@ -60,8 +60,8 @@ public:
     unsigned int get_gatesize() const;
 
     //
-    void landingprotocol(Airplane* airplane);
-    void takeoffprotocol(Airplane* airplane);
+    void completeLandingSequence(Airplane *airplane);
+    void completeTakeOffsequence(Airplane *airplane);
     void set_callsign(const std::string &_callsign);
     void set_iata(const std::string &_iata);
     void set_name(const std::string &_name);

@@ -31,7 +31,7 @@ Airplane *AirplaneParser::parseAirplane(TiXmlElement *elem) {
     string Type = readElement(elem, "type");
     string Engine = readElement(elem, "engine");
     string Size = readElement(elem, "size");
-    Flightplan* fp;
+    Flightplan* fp = NULL;
 
     for (TiXmlElement *p = elem->FirstChildElement(); p != NULL; p = p->NextSiblingElement()) {
         string elemName = p->Value();

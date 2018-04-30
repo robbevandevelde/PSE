@@ -10,7 +10,7 @@ using namespace std;
 
 class Flightplan {
 private:
-    string destination;
+    std::string destination;
     unsigned int departure;
     unsigned int arrival;
     unsigned int interval;
@@ -28,7 +28,7 @@ public:
     const string &getDestination() const;
 
 
-    Flightplan(string& dest, unsigned int dep, unsigned int arr, unsigned int inter);
+    Flightplan(std::string& dest, unsigned int dep, unsigned int arr, unsigned int inter);
 
 
 };
