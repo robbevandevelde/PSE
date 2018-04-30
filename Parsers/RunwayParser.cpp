@@ -24,9 +24,24 @@ Runway *RunwayParser::parseRunway(TiXmlElement *elem) {
     string Type = readElement(elem, "type");
     unsigned int Length = atoi(readElement(elem, "length").c_str());
     Runway* runway = new Runway(Length, Name, Type, Airport);
-//    for (TiXmlElement *e = elem->FirstChildElement(); e != NULL; e = e->NextSiblingElement()) {
-//        string elemName = e->Value();
+    for (TiXmlElement *e = elem->FirstChildElement(); e != NULL; e = e->NextSiblingElement()) {
+        string elemName = e->Value();
 //        if (elemName == "TAXIROUTE") {
+//            for(TiXmlElement * p = e->FirstChildElement(); p != NULL; p = e->NextSiblingElement()){
+//                string elnm = e->Value();
+//                string txpt;
+//                string crs;
+//                if (elnm == "taxipoint"){
+//                    txpt = readElement(e, "taxipoint");
+//                    cout<< elnm<<"!!fefefefe"<<endl;
+//                }
+//                if (elnm == "crossing"){
+//                    crs = readElement(e, "crossing");
+//                    cout<<crs<< "111111111111"<<endl;
+//                }
+////                Taxiroute *taxiroute = new Taxiroute(txpt, crs);
+//
+//            }
 //            vector <Taxiroute*> taxi;
 //            string taxipoint1 = readElement(e, "taxipoint");
 //            string crossing = readElement(e, "crossing");
@@ -38,7 +53,7 @@ Runway *RunwayParser::parseRunway(TiXmlElement *elem) {
 //            taxi.push_back(taxiroute);
 //            runway->setTaxiRoute(taxi);
 //        }
-//    }
+    }
     return runway;}
 
 Runway *RunwayParser::getRunway() {

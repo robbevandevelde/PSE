@@ -14,8 +14,7 @@ protected:
     // should define it if you need to initialize the variables.
     // Otherwise, this can be skipped.
     virtual void SetUp() {
-        testAirport = Airport();
-        testAirport2 = Airport("ANR");
+        testAirport = Airport(10, "Antwerp Airport", "ANR", "callsign");
 
     }
 

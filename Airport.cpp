@@ -66,7 +66,7 @@ void Airport::gateprotocol(Airplane *airplane, unsigned int passengers) {
                           _runways[x]->get_name() << " of " << _name << std::endl;
                 airplane->set_passengers(0);
                 ENSURE(airplane->get_passengers() == 0, "Passenger exit failure");
-                std::cout<< airplane->get_callsign() << " has been chacked for technical malfunctions " << std::endl;
+                std::cout<< airplane->get_callsign() << " has been checked for technical malfunctions " << std::endl;
                 break;
             }
         }
