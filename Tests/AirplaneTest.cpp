@@ -32,19 +32,18 @@ protected:
     Flightplan* testFlightplan;
 };
 
-TEST_F(AirplaneTest, DefaultConstructor) {
+TEST_F(AirplaneTest, InitTest) {
+    EXPECT_TRUE(testAirplane->properlyInitialised());
+    //EXPECT_TRUE(testFlightplan->properlyInitialised());
+
+}
+TEST_F(AirplaneTest, DefaultconstructorTests) {
     EXPECT_EQ(testAirplane->getStatus(), 5);
     EXPECT_EQ(testAirplane->getPassengers(), 110);
-}
-TEST_F(AirplaneTest, NonDefaultConstructor) {
-    EXPECT_EQ(testAirplane->getStatus(), 5);
     testAirplane->setStatus(1);
-    EXPECT_EQ(testAirplane->getStatus(), 1);
+    EXPECT_EQ(testAirplane->getStatus(), StandingAtGate);
 }
-TEST_F(AirplaneTest, TakeoffLanding) {
-    testAirplane->setStatus(2);
-    EXPECT_EQ(testAirplane->getStatus(), 2);
-}
+
 TEST_F(AirplaneTest, gettersEnSetters) {
     testAirplane->setStatus(0);
     testAirplane->setModel("model");

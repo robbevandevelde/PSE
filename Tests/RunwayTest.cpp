@@ -17,7 +17,7 @@ protected:
 	// should define it if you need to initialize the variables.
 	// Otherwise, this can be skipped.
 	virtual void SetUp() {
-        testRunway = new Runway(3, "R11", "ANR", "ANR");
+        testRunway = new Runway(3, "R11", "FLAT", "ANR");
 
     }
 
@@ -35,17 +35,34 @@ protected:
 
 // Tests the "happy day" scenario
 
+
+////
+TEST_F(RunwayTest, Initcheck){
+    EXPECT_TRUE(testRunway->properlyInitialised());
+    EXPECT_EQ(3, testRunway->get_length());
+    EXPECT_EQ("R11", testRunway->get_name());
+    EXPECT_EQ("FLAT", testRunway->get_type());
+    EXPECT_EQ("ANR", testRunway->get_airport());
+}
+
 TEST_F(RunwayTest, aiport) {
     EXPECT_EQ(testRunway->get_airport(), "ANR");
     testRunway->set_airport("newairport");
     EXPECT_EQ(testRunway->get_airport(), "newairport");
 }
+TEST_F(RunwayTest, airplanetest) {
+    string name = "LAX";
+    Flightplan* testFlightplan = new Flightplan(name, 15, 45, 1);
+    Airplane* testAirplane = new Airplane("32", "callsign", "model", 0, 110, 5000, "militairy", "jet", "small", testFlightplan);
+    testRunway->set_airplane(testAirplane);
+    EXPECT_EQ(testRunway->get_airplane()->getFlightplan()->getArrival(), 45);
+    EXPECT_EQ(testRunway->get_airplane()->getFlightplan()->getDestination(), "LAX");
+    EXPECT_EQ(testRunway->get_airplane()->getHeight(), 0);
+    testRunway->get_airplane()->setStatus(4);
+    EXPECT_EQ(testRunway->get_airplane()->getStatus(), InTheAir);
+}
 
-////
-//TEST_F(RunwayTest, airplane){
-//    Flightplan* testFlightplan = new Flightplan("LAX", 15, 45, 1);
-//    Airplane* testAirplane = Airplane("32", "callsign", "model", "status", 110, 5000, "militairy", "jet", "small", testFlightplan);    testRunway.setAirplane(airplane);
-//
+
 //
 //
 //

@@ -29,10 +29,10 @@ protected:
 };
 
 // Tests the default constructor.
-TEST_F(AirportTest, DefaultConstructor){
-    EXPECT_EQ(testAirport->getName(),"Antwerp Airport");
+TEST_F(AirportTest, InitTest){
+    EXPECT_TRUE(testAirport->properlyInitialised());
 }
-TEST_F(AirportTest, NonDefaultConstructor){
+TEST_F(AirportTest, DefaultConstructorTest){
     EXPECT_EQ(testAirport->getName(),"Antwerp Airport");
 }
 TEST_F(AirportTest, gettersEnSetters){
@@ -45,15 +45,35 @@ TEST_F(AirportTest, gettersEnSetters){
     EXPECT_EQ(testAirport->getCallsign(),"callsign");
     EXPECT_EQ(testAirport->getIata(),"IATA");
 }
-//TEST_F(AirportTest, Protocols){
-//    Runway testRunway("11R", "ANR");
-//    testAirport->addRunway(testRunway);
-//    Airplane testAirplane("32", "testplane", "model", "Approaching", 110);
-//    Airplane testAirplane2("32", "testplane", "model", "Standing at gate", 110);
-//    testAirport->setAmountOfGates(3);
-//    EXPECT_EQ(testAirport->isGateEmpty(),true);
-//    testAirport->Landingprotocol(testAirplane);
-//    EXPECT_EQ(testAirport->getRunways()[0].getName(), "11R");
-//    testAirport->TakeOffprotocol(testAirplane2);
-//    EXPECT_EQ(testAirplane->getStatus(),"Approaching");
-//}
+TEST_F(AirportTest, LandingProtocols){
+    string name = "LAX";
+    Flightplan* testFlightplan = new Flightplan(name, 15, 45, 1);
+    Airplane* testAirplane = new Airplane("32", "callsign", "model", Approaching, 110, 5000, "militairy", "jet", "small", testFlightplan);
+    EXPECT_EQ(testAirplane->getHeight(), 10000);
+    testAirport->Landingprotocol(testAirplane);
+    EXPECT_EQ(testAirplane->getHeight(), 1000);
+}
+TEST_F(AirportTest, FinishedLanding){
+    string name = "LAX";
+    //Runway* testRunway = new Runway(3, name, name, name);
+
+    Flightplan* testFlightplan = new Flightplan(name, 15, 45, 1);
+    Airplane* testAirplane = new Airplane("32", "callsign", "model", Approaching, 110, 5000, "militairy", "jet", "small", testFlightplan);
+    EXPECT_EQ(testAirplane->getHeight(), 10000);
+//    testAirport->completeLandingSequence(testAirplane);
+//    EXPECT_EQ(testAirplane->getHeight(), 0);
+    testAirplane->setHeight(0);
+
+}
+TEST_F(AirportTest, GateProtocol){
+    string name = "LAX";
+    Flightplan* testFlightplan = new Flightplan(name, 15, 45, 1);
+    Airplane* testAirplane = new Airplane("32", "callsign", "model", JustLanded, 110, 5000, "militairy", "jet", "small", testFlightplan);
+    EXPECT_EQ(testAirplane->getHeight(), 0);
+    testAirport->gateprotocol(testAirplane, 110);
+    string name1= "R11";
+    string name2= "FLAT";
+    string name3= "ANR";
+    EXPECT_EQ(testAirplane->getPassengers(), 110);
+
+}
