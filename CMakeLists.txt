@@ -3,7 +3,7 @@ project(pse)
 
 set(CMAKE_CXX_STANDARD 98)
 set(CMAKE_CXX_FLAGS "-Wall -Werror -O2")
-set(CMAKE_EXE_LINKER_FLAGS -pthread) #add -pthread on windows/ unix
+set(CMAKE_EXE_LINKER_FLAGS) #add -pthread on windows/ unix
 
 # Set include dir
 include_directories(gtest/include)
@@ -50,6 +50,8 @@ set(DEBUG_SOURCE_FILES
         Parsers/LuchthavenParser.h
         Parsers/RunwayParser.cpp
         Parsers/RunwayParser.h
+        Parsers/FlightplanParser.cpp
+        Parsers/FlightplanParser.h
         TinyXML/tinystr.cpp
         TinyXML/tinystr.h
         TinyXML/tinyxml.cpp

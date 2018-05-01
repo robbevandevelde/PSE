@@ -19,6 +19,8 @@ class Runway {
 private:
     Runway* _initcheck;
 
+    std::vector <Taxiroute*> taxiRoute;
+
     Airplane* _airplane;
 
     unsigned int _length;
@@ -28,9 +30,8 @@ private:
     std::string _name;
     std::string _type;
     std::string _airport;
-
-    std::vector <Taxiroute*> taxiRoute;
 public:
+
 
     Runway(int _length, const std::string &_name, const std::string &_type, const std::string &_airport);
     bool properlyInitialised();
@@ -52,6 +53,10 @@ public:
     void setTaxiRoute(const std::vector<Taxiroute *> &taxiRoute);
     void addAirplane(Airplane* airplane);
     void removeAirplane();
+    void set_status(bool _status);
+    void set_airplane(Airplane *_airplane);
+
+
 
 };
 

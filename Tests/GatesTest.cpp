@@ -3,7 +3,7 @@
 //
 
 #include <gtest/gtest.h>
-#include "../Gates.h"
+#include "../Gate.h"
 
 class GatesTest: public ::testing::Test {
 protected:
@@ -14,7 +14,7 @@ protected:
     // should define it if you need to initialize the variables.
     // Otherwise, this can be skipped.
     virtual void SetUp() {
-        testGate = Gates(5);
+        testGate = new Gate(1);
     }
 
     // virtual void TearDown() will be called after each test is run.
@@ -24,7 +24,7 @@ protected:
     }
 
     // Declares the variables your tests want to use.
-    Gates testGate;
+    Gate* testGate;
 };
 
 // Tests the default constructor.

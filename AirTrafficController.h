@@ -19,7 +19,7 @@ private:
     std::string _name;
 
 public:
-    AirTrafficController(Airport *_airport, const string &_name);
+    AirTrafficController(Airport *_airport, const std::string &_name);
 
     bool properlyInitialised();
 

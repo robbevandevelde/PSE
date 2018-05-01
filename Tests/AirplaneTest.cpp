@@ -5,7 +5,6 @@
 
 #include <gtest/gtest.h>
 #include "../Airplane.h"
-#include "../Flightplan.h"
 
 class AirplaneTest: public ::testing::Test {
 protected:
@@ -16,8 +15,9 @@ protected:
     // should define it if you need to initialize the variables.
     // Otherwise, this can be skipped.
     virtual void SetUp() {
-        testFlightplan = Flightplan("LAX", 15, 45, 1);
-        testAirplane = Airplane("32", "callsign", "model", "status", 110, 5000, "militairy", "jet", "small", testFlightplan);
+        string name = "LAX";
+        testFlightplan = new Flightplan(name, 15, 45, 1);
+        testAirplane = new Airplane("32", "callsign", "model", 5, 110, 5000, "militairy", "jet", "small", testFlightplan);
 
     }
 
@@ -28,34 +28,32 @@ protected:
     }
 
     // Declares the variables your tests want to use.
-    Airplane testAirplane;
+    Airplane* testAirplane;
     Flightplan* testFlightplan;
 };
 
 TEST_F(AirplaneTest, DefaultConstructor) {
-    EXPECT_EQ(testAirplane.getStatus(), "");
-    EXPECT_EQ(testAirplane.getPassengers(), 0);
+    EXPECT_EQ(testAirplane->getStatus(), 5);
+    EXPECT_EQ(testAirplane->getPassengers(), 110);
 }
 TEST_F(AirplaneTest, NonDefaultConstructor) {
-    EXPECT_EQ(testAirplane.getStatus(), "status");
-    testAirplane.setStatus("newstatus");
-    EXPECT_EQ(testAirplane.getStatus(), "newstatus");
+    EXPECT_EQ(testAirplane->getStatus(), 5);
+    testAirplane->setStatus(1);
+    EXPECT_EQ(testAirplane->getStatus(), 1);
 }
 TEST_F(AirplaneTest, TakeoffLanding) {
-    testAirplane.setStatus("Standing at gate");
-    testAirplane.();
-    EXPECT_EQ(testAirplane.getStatus(), "Approaching");
-    EXPECT_EQ(testAirplane.getStatus(), "Standing at gate");
+    testAirplane->setStatus(2);
+    EXPECT_EQ(testAirplane->getStatus(), 2);
 }
 TEST_F(AirplaneTest, gettersEnSetters) {
-    testAirplane.setStatus("status");
-    testAirplane.setModel("model");
-    testAirplane.setNumber("32");
-    testAirplane.setCallsign("callsign");
-    testAirplane.setPassengers(110);
-    EXPECT_EQ(testAirplane.getStatus(), "status");
-    EXPECT_EQ(testAirplane.getNumber(), "32");
-    EXPECT_EQ(testAirplane.getCallsign(), "callsign");
-    EXPECT_EQ(testAirplane.getModel(), "model");
-    EXPECT_EQ(testAirplane.getPassengers(), 110);
+    testAirplane->setStatus(0);
+    testAirplane->setModel("model");
+    testAirplane->setNumber("32");
+    testAirplane->setCallsign("callsign");
+    testAirplane->setPassengers(110);
+    EXPECT_EQ(testAirplane->getStatus(), 0);
+    EXPECT_EQ(testAirplane->getNumber(), "32");
+    EXPECT_EQ(testAirplane->getCallsign(), "callsign");
+    EXPECT_EQ(testAirplane->getModel(), "model");
+    EXPECT_EQ(testAirplane->getPassengers(), 110);
 }

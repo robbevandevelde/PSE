@@ -5,6 +5,8 @@
 
 #include <gtest/gtest.h>
 #include "../Runway.h"
+#include "../Flightplan.h"
+#include "../Airplane.h"
 
 class RunwayTest: public ::testing::Test {
 protected:
@@ -15,8 +17,7 @@ protected:
 	// should define it if you need to initialize the variables.
 	// Otherwise, this can be skipped.
 	virtual void SetUp() {
-        testRunway = Runway();
-        testRunway2 = Runway("R11", "ANR");
+        testRunway = new Runway(3, "R11", "ANR", "ANR");
 
     }
 
@@ -27,45 +28,32 @@ protected:
 	}
 
 	// Declares the variables your tests want to use.
-    Runway testRunway;
-    Runway testRunway2;
+    Runway* testRunway;
 };
 
-// Tests the default constructor.
-TEST_F(RunwayTest, DefaultConstructor) {
-    EXPECT_EQ(testRunway.getName(), "");
-}
+
 
 // Tests the "happy day" scenario
-TEST_F(RunwayTest, Status) {
-    EXPECT_EQ(testRunway.getStatus(), false);
-    testRunway.setStatus(true);
-    EXPECT_EQ(testRunway.getStatus(), true);
-    testRunway.setStatus(false);
-    EXPECT_EQ(testRunway.getStatus(), false);
-
-}
 
 TEST_F(RunwayTest, aiport) {
-    EXPECT_EQ(testRunway.getAirport(), "");
-    testRunway.setAirport("newairport");
-    EXPECT_EQ(testRunway.getAirport(), "newairport");
+    EXPECT_EQ(testRunway->get_airport(), "ANR");
+    testRunway->set_airport("newairport");
+    EXPECT_EQ(testRunway->get_airport(), "newairport");
 }
 
+////
+//TEST_F(RunwayTest, airplane){
+//    Flightplan* testFlightplan = new Flightplan("LAX", 15, 45, 1);
+//    Airplane* testAirplane = Airplane("32", "callsign", "model", "status", 110, 5000, "militairy", "jet", "small", testFlightplan);    testRunway.setAirplane(airplane);
 //
-TEST_F(RunwayTest, airplane){
-    Airplane airplane("32", "callsign", "model", "landed", 122);
-    testRunway.setAirplane(airplane);
-    EXPECT_EQ(testRunway.getAirplane().getNumber(), "32");
-    testRunway.removeAirplane();
-    EXPECT_EQ(testRunway.getAirplane().getNumber(), "");
-
-
-}
-TEST_F(RunwayTest, nondefaultconst){
-    EXPECT_EQ(testRunway2.getAirport(), "ANR");
-    testRunway2.setAirport("BRS");
-    EXPECT_EQ(testRunway2.getAirport(), "BRS");
-    EXPECT_EQ(testRunway2.getName(), "R11");
-
-}
+//
+//
+//
+//}
+//TEST_F(RunwayTest, nondefaultconst){
+//    EXPECT_EQ(testRunway.get_airport(), "ANR");
+//    testRunway.set_airport("BRS");
+//    EXPECT_EQ(testRunway.get_airport(), "BRS");
+//    EXPECT_EQ(testRunway.get_name(), "R11");
+//
+//}

@@ -1,4 +1,4 @@
-/home/thimoty/clion-2018.1.2/bin/cmake/bin/cmake -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - Unix Makefiles" /home/thimoty/Downloads/PSE
+/Applications/CLion.app/Contents/bin/cmake/bin/cmake -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - Unix Makefiles" /Users/robbe/Desktop/PSE
 -- Configuring done
 -- Generating done
--- Build files have been written to: /home/thimoty/Downloads/PSE/cmake-build-debug
+-- Build files have been written to: /Users/robbe/Desktop/PSE/cmake-build-debug
