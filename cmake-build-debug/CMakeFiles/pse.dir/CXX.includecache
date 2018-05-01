@@ -6,6 +6,14 @@
 
 #IncludeRegexTransform: 
 
+/home/thimoty/Downloads/PSE/AirTrafficController.cpp
+AirTrafficController.h
+/home/thimoty/Downloads/PSE/AirTrafficController.h
+Airplane.h
+/home/thimoty/Downloads/PSE/Airplane.h
+Airport.h
+/home/thimoty/Downloads/PSE/Airport.h
+
 /home/thimoty/Downloads/PSE/AirTrafficController.h
 iostream
 -
@@ -164,6 +172,22 @@ vector
 algorithm
 -
 
+/home/thimoty/Downloads/PSE/Simulator.cpp
+Simulator.h
+/home/thimoty/Downloads/PSE/Simulator.h
+
+/home/thimoty/Downloads/PSE/Simulator.h
+iostream
+-
+Runway.h
+/home/thimoty/Downloads/PSE/Runway.h
+Airplane.h
+/home/thimoty/Downloads/PSE/Airplane.h
+Airport.h
+/home/thimoty/Downloads/PSE/Airport.h
+DesignByContract.h
+/home/thimoty/Downloads/PSE/DesignByContract.h
+
 /home/thimoty/Downloads/PSE/Taxiroute.h
 string
 -
@@ -239,6 +263,8 @@ Airplane.h
 /home/thimoty/Downloads/PSE/Airplane.h
 Parsers/LuchthavenParser.h
 /home/thimoty/Downloads/PSE/Parsers/LuchthavenParser.h
+Simulator.h
+/home/thimoty/Downloads/PSE/Simulator.h
 iostream
 -
 Airplane.h

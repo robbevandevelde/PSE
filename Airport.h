@@ -15,12 +15,8 @@ class Gate;
 class Runway;
 class DesignByContract;
 
-
 /*
- *
  * REQUIRES EN ENSURES IN HEADERS ZETTE ALS COMMENT
- *
- *
  *
  */
 
@@ -45,12 +41,12 @@ private:
     std::string _iata;
     std::string _callsign;
 
+public:
     void addAirplaneToGate(Airplane* airplane);
     void addAirplaneToRunway(Airplane* airplane);
     void removeAirplaneOfGate(Airplane* airplane);
     void removeAirplaneOfRunway(Airplane* airplane);
 
-public:
     Airport(unsigned int _gatesize, const std::string &_name, const std::string &_iata,
             const std::string &_callsign);
 
@@ -94,6 +90,8 @@ public:
     void removeWaitpoint2();
 
     void assignController(AirTrafficController *_controller);
+
+    unsigned int get_amountRunways() const;
 };
 
 

@@ -22,9 +22,9 @@ bool AirTrafficController::landingprotocol(Airplane *airplane)
     REQUIRE(this->properlyInitialised(), "AirTrafficController wasn't properly initialised when calling landingprotocol()");
     if(airplane->getHeight() == 10000){
         REQUIRE(airplane->getHeight() == 10000, "Airplane must be at 10000 ft");
-        std::cout << airplane->getCallsign() << " is asking permission to land in " << _airport->get_name() << std::cout;
-        std::cout << "This is" << _name << " from " << _airport->get_name() << " you have permission to descend to 5000 ft"
-                                                                               << std::cout;
+        std::cout << airplane->getCallsign() << " is asking permission to land in " << _airport->getName() << std::endl;
+        std::cout << "This is " << _name << " from " << _airport->getName() << " you have permission to descend to 5000 ft"
+                                                                               << std::endl;
         return  true;
     }
     else if(airplane->getHeight() == 5000){
@@ -44,7 +44,7 @@ bool AirTrafficController::landingprotocol(Airplane *airplane)
         }
     }
     else if(airplane->getStatus() == JustLanded){
-        std::cout << airplane->getStatus() << "Proceed to an empty gate as soon as possible" << std::endl;
+        std::cout << airplane->getCallsign() << " proceed to an empty gate as soon as possible" << std::endl;
         return true;
     }
     return false;
@@ -54,7 +54,7 @@ bool AirTrafficController::takeoffprotocol(Airplane *airplane)
 {
     REQUIRE(this->properlyInitialised(), "AirTrafficController wasn't properly initialised when calling takeoffprotocol");
     if(airplane->getStatus() == StandingAtGate){
-        std::cout << airplane->getCallsign() << " is asking permission to leave " << _airport->get_name() << std::endl;
+        std::cout << airplane->getCallsign() << " is asking permission to leave " << _airport->getName() << std::endl;
         std::cout << "This is" << _name << " you have permission to leave the gate" << std::endl;
         return true;
     } else if(airplane->getStatus() == Departure) {
@@ -62,7 +62,7 @@ bool AirTrafficController::takeoffprotocol(Airplane *airplane)
         return true;
     } else if(airplane->getStatus() == StandingAtRunway){
         if(_airport->isRunwayEmpty()){
-            std::cout << "You have permission to leave " << _airport->get_name() << std::endl;
+            std::cout << "You have permission to leave " << _airport->getName() << std::endl;
             return true;
         } else {
             std::cout << "You have to wait a few minutes for a clear runway" << std::endl;

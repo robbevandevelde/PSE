@@ -22,8 +22,6 @@ void Gate::addAirplane(Airplane *airplane) {
     _airplane = airplane;
     ENSURE(_airplane->getCallsign() == airplane->getCallsign() && _airplane->getModel() == airplane->getModel()&&
                    _airplane->getNumber() == airplane->getNumber(), "addAirplane failure");
-    _airplane->setStatus(StandingAtGate);
-    ENSURE(_airplane->getStatus() == StandingAtGate, "addAirplane failure");
     _occupied = true;
     ENSURE(_occupied, "Occupied must be true");
 }

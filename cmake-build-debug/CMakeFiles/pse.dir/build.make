@@ -417,6 +417,54 @@ CMakeFiles/pse.dir/Parsers/FlightplanParser.cpp.o.provides: CMakeFiles/pse.dir/P
 CMakeFiles/pse.dir/Parsers/FlightplanParser.cpp.o.provides.build: CMakeFiles/pse.dir/Parsers/FlightplanParser.cpp.o
 
 
+CMakeFiles/pse.dir/AirTrafficController.cpp.o: CMakeFiles/pse.dir/flags.make
+CMakeFiles/pse.dir/AirTrafficController.cpp.o: ../AirTrafficController.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/thimoty/Downloads/PSE/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_16) "Building CXX object CMakeFiles/pse.dir/AirTrafficController.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/pse.dir/AirTrafficController.cpp.o -c /home/thimoty/Downloads/PSE/AirTrafficController.cpp
+
+CMakeFiles/pse.dir/AirTrafficController.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/pse.dir/AirTrafficController.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/thimoty/Downloads/PSE/AirTrafficController.cpp > CMakeFiles/pse.dir/AirTrafficController.cpp.i
+
+CMakeFiles/pse.dir/AirTrafficController.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/pse.dir/AirTrafficController.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/thimoty/Downloads/PSE/AirTrafficController.cpp -o CMakeFiles/pse.dir/AirTrafficController.cpp.s
+
+CMakeFiles/pse.dir/AirTrafficController.cpp.o.requires:
+
+.PHONY : CMakeFiles/pse.dir/AirTrafficController.cpp.o.requires
+
+CMakeFiles/pse.dir/AirTrafficController.cpp.o.provides: CMakeFiles/pse.dir/AirTrafficController.cpp.o.requires
+	$(MAKE) -f CMakeFiles/pse.dir/build.make CMakeFiles/pse.dir/AirTrafficController.cpp.o.provides.build
+.PHONY : CMakeFiles/pse.dir/AirTrafficController.cpp.o.provides
+
+CMakeFiles/pse.dir/AirTrafficController.cpp.o.provides.build: CMakeFiles/pse.dir/AirTrafficController.cpp.o
+
+
+CMakeFiles/pse.dir/Simulator.cpp.o: CMakeFiles/pse.dir/flags.make
+CMakeFiles/pse.dir/Simulator.cpp.o: ../Simulator.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/thimoty/Downloads/PSE/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_17) "Building CXX object CMakeFiles/pse.dir/Simulator.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/pse.dir/Simulator.cpp.o -c /home/thimoty/Downloads/PSE/Simulator.cpp
+
+CMakeFiles/pse.dir/Simulator.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/pse.dir/Simulator.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/thimoty/Downloads/PSE/Simulator.cpp > CMakeFiles/pse.dir/Simulator.cpp.i
+
+CMakeFiles/pse.dir/Simulator.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/pse.dir/Simulator.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/thimoty/Downloads/PSE/Simulator.cpp -o CMakeFiles/pse.dir/Simulator.cpp.s
+
+CMakeFiles/pse.dir/Simulator.cpp.o.requires:
+
+.PHONY : CMakeFiles/pse.dir/Simulator.cpp.o.requires
+
+CMakeFiles/pse.dir/Simulator.cpp.o.provides: CMakeFiles/pse.dir/Simulator.cpp.o.requires
+	$(MAKE) -f CMakeFiles/pse.dir/build.make CMakeFiles/pse.dir/Simulator.cpp.o.provides.build
+.PHONY : CMakeFiles/pse.dir/Simulator.cpp.o.provides
+
+CMakeFiles/pse.dir/Simulator.cpp.o.provides.build: CMakeFiles/pse.dir/Simulator.cpp.o
+
+
 # Object files for target pse
 pse_OBJECTS = \
 "CMakeFiles/pse.dir/Parsers/AirplaneParser.cpp.o" \
@@ -433,7 +481,9 @@ pse_OBJECTS = \
 "CMakeFiles/pse.dir/main.cpp.o" \
 "CMakeFiles/pse.dir/Runway.cpp.o" \
 "CMakeFiles/pse.dir/Flightplan.cpp.o" \
-"CMakeFiles/pse.dir/Parsers/FlightplanParser.cpp.o"
+"CMakeFiles/pse.dir/Parsers/FlightplanParser.cpp.o" \
+"CMakeFiles/pse.dir/AirTrafficController.cpp.o" \
+"CMakeFiles/pse.dir/Simulator.cpp.o"
 
 # External object files for target pse
 pse_EXTERNAL_OBJECTS =
@@ -453,9 +503,11 @@ pse: CMakeFiles/pse.dir/main.cpp.o
 pse: CMakeFiles/pse.dir/Runway.cpp.o
 pse: CMakeFiles/pse.dir/Flightplan.cpp.o
 pse: CMakeFiles/pse.dir/Parsers/FlightplanParser.cpp.o
+pse: CMakeFiles/pse.dir/AirTrafficController.cpp.o
+pse: CMakeFiles/pse.dir/Simulator.cpp.o
 pse: CMakeFiles/pse.dir/build.make
 pse: CMakeFiles/pse.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/thimoty/Downloads/PSE/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_16) "Linking CXX executable pse"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/thimoty/Downloads/PSE/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_18) "Linking CXX executable pse"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/pse.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -478,6 +530,8 @@ CMakeFiles/pse.dir/requires: CMakeFiles/pse.dir/main.cpp.o.requires
 CMakeFiles/pse.dir/requires: CMakeFiles/pse.dir/Runway.cpp.o.requires
 CMakeFiles/pse.dir/requires: CMakeFiles/pse.dir/Flightplan.cpp.o.requires
 CMakeFiles/pse.dir/requires: CMakeFiles/pse.dir/Parsers/FlightplanParser.cpp.o.requires
+CMakeFiles/pse.dir/requires: CMakeFiles/pse.dir/AirTrafficController.cpp.o.requires
+CMakeFiles/pse.dir/requires: CMakeFiles/pse.dir/Simulator.cpp.o.requires
 
 .PHONY : CMakeFiles/pse.dir/requires
 

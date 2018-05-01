@@ -62,10 +62,12 @@ void Airport::Landingprotocol(Airplane *airplane) {
 
     std::cout << airplane->getCallsign() << " is approaching " << _name << " at " << airplane->getHeight() << " ft. "<< std::endl;
     while(airplane->getHeight() > 1000){
+        _controller->landingprotocol(airplane);
         airplane->setHeight(airplane->getHeight() - 1000);
         std::cout<< airplane->getCallsign() << " descended to " << airplane->getHeight() << std::endl;
     }
-
+    airplane->setStatus(FinalApproach);
+    ENSURE(airplane->getStatus() == FinalApproach, "Landing failure");
     ENSURE(airplane->getHeight() == 1000, "Airplane must be at 1000 ft");
 }
 
@@ -74,8 +76,8 @@ void Airport::completeLandingSequence(Airplane *airplane) {
 
     Landingprotocol(airplane);
     addAirplaneToRunway(airplane);
-    gateprotocol(airplane,0);
     TaxiToGate(airplane);
+    gateprotocol(airplane,0);
     std::cout << "---------------------------------------------------------------------------------------" << std::endl;
 }
 
@@ -94,13 +96,15 @@ void Airport::gateprotocol(Airplane *airplane, unsigned int passengers) {
     REQUIRE(this->properlyInitialised(),"Airport wasn't initialised when calling gateprotocol()");
     REQUIRE(airplane->getHeight() == 0 , "Airplane must be on the ground");
     if(airplane->getStatus() == JustLanded) {
-        for(unsigned int x = 0; x < _runways.size();x++){
-            if(_runways[x]->get_airplane() == airplane){
+        for(unsigned int x = 0; x < _gates.size();x++){
+            if(_gates[x]->get_airplane() == airplane){
                 std::cout << airplane->getPassengers() << " exited " << airplane->getCallsign() << " at Gate " <<
-                          _runways[x]->get_name() << " of " << _name << std::endl;
+                          _gates[x]->get_name() << " of " << _name << std::endl;
                 airplane->setPassengers(0);
                 ENSURE(airplane->getPassengers() == 0, "Passenger exit failure");
                 std::cout<< airplane->getCallsign() << " has been checked for technical malfunctions " << std::endl;
+                airplane->setStatus(StandingAtGate);
+                ENSURE(airplane->getStatus() == StandingAtGate, "Failire");
                 break;
             }
         }
@@ -129,7 +133,6 @@ void Airport::addAirplaneToGate(Airplane *airplane) {
                            _gates[x]->get_airplane()->getNumber() == airplane->getNumber() &&
                            _gates[x]->get_airplane()->getCallsign() == airplane->getCallsign(),
                    "Airplane in gate doesn't match added airplane");
-            ENSURE(_gates[x]->get_airplane()->getStatus() == StandingAtGate, "Airplane's status isn't standing at gate");
             std::cout << airplane->getCallsign() << " is standing at Gate " << _gates[x]->get_name() << std::endl;
             break;
         }
@@ -140,13 +143,13 @@ void Airport::addAirplaneToRunway(Airplane *airplane) {
     REQUIRE(this->properlyInitialised(),"Airport wasn't initialised when calling addAirplaneToRunway");
     for(unsigned int x = 0; x < _runways.size(); x++){
         if(!_runways[x]->is_status()){
-            if(airplane->getStatus() == Approaching){
+            if(airplane->getStatus() == FinalApproach){
                 std::cout << airplane->getCallsign() << " is landing at " << _name << " on runway "
                           << _runways[x]->get_name()  << std::endl;
 
                 airplane->setStatus(JustLanded);
                 _runways[x]->addAirplane(airplane);
-
+                _controller->landingprotocol(airplane);
                 std::cout << airplane->getCallsign() << " has landed at " << _name << " on runway "
                           << _runways[x]->get_name()  << std::endl;
                 ENSURE(_runways[x]->get_airplane()->getStatus() == JustLanded, "Add airplane to runway failure");
@@ -291,5 +294,9 @@ void Airport::removeWaitpoint1() {
 
 void Airport::removeWaitpoint2() {
     setWaitpoint2(NULL);
+}
+
+unsigned int Airport::get_amountRunways() const {
+    return _amountRunways;
 }
 

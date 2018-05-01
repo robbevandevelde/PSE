@@ -39,6 +39,10 @@ set(SOURCE_FILES
         Flightplan.cpp
         Parsers/FlightplanParser.cpp
         Parsers/FlightplanParser.h
+        AirTrafficController.h
+        AirTrafficController.cpp
+        Simulator.cpp
+        Simulator.h
         )
 
 set(DEBUG_SOURCE_FILES

@@ -143,6 +143,7 @@ AirTrafficController.o: AirTrafficController.cpp.o
 # target to build an object file
 AirTrafficController.cpp.o:
 	$(MAKE) -f CMakeFiles/pse_debug.dir/build.make CMakeFiles/pse_debug.dir/AirTrafficController.cpp.o
+	$(MAKE) -f CMakeFiles/pse.dir/build.make CMakeFiles/pse.dir/AirTrafficController.cpp.o
 .PHONY : AirTrafficController.cpp.o
 
 AirTrafficController.i: AirTrafficController.cpp.i
@@ -152,6 +153,7 @@ AirTrafficController.i: AirTrafficController.cpp.i
 # target to preprocess a source file
 AirTrafficController.cpp.i:
 	$(MAKE) -f CMakeFiles/pse_debug.dir/build.make CMakeFiles/pse_debug.dir/AirTrafficController.cpp.i
+	$(MAKE) -f CMakeFiles/pse.dir/build.make CMakeFiles/pse.dir/AirTrafficController.cpp.i
 .PHONY : AirTrafficController.cpp.i
 
 AirTrafficController.s: AirTrafficController.cpp.s
@@ -161,6 +163,7 @@ AirTrafficController.s: AirTrafficController.cpp.s
 # target to generate assembly for a file
 AirTrafficController.cpp.s:
 	$(MAKE) -f CMakeFiles/pse_debug.dir/build.make CMakeFiles/pse_debug.dir/AirTrafficController.cpp.s
+	$(MAKE) -f CMakeFiles/pse.dir/build.make CMakeFiles/pse.dir/AirTrafficController.cpp.s
 .PHONY : AirTrafficController.cpp.s
 
 Airplane.o: Airplane.cpp.o
@@ -494,6 +497,7 @@ Simulator.o: Simulator.cpp.o
 # target to build an object file
 Simulator.cpp.o:
 	$(MAKE) -f CMakeFiles/pse_debug.dir/build.make CMakeFiles/pse_debug.dir/Simulator.cpp.o
+	$(MAKE) -f CMakeFiles/pse.dir/build.make CMakeFiles/pse.dir/Simulator.cpp.o
 .PHONY : Simulator.cpp.o
 
 Simulator.i: Simulator.cpp.i
@@ -503,6 +507,7 @@ Simulator.i: Simulator.cpp.i
 # target to preprocess a source file
 Simulator.cpp.i:
 	$(MAKE) -f CMakeFiles/pse_debug.dir/build.make CMakeFiles/pse_debug.dir/Simulator.cpp.i
+	$(MAKE) -f CMakeFiles/pse.dir/build.make CMakeFiles/pse.dir/Simulator.cpp.i
 .PHONY : Simulator.cpp.i
 
 Simulator.s: Simulator.cpp.s
@@ -512,6 +517,7 @@ Simulator.s: Simulator.cpp.s
 # target to generate assembly for a file
 Simulator.cpp.s:
 	$(MAKE) -f CMakeFiles/pse_debug.dir/build.make CMakeFiles/pse_debug.dir/Simulator.cpp.s
+	$(MAKE) -f CMakeFiles/pse.dir/build.make CMakeFiles/pse.dir/Simulator.cpp.s
 .PHONY : Simulator.cpp.s
 
 Taxiroute.o: Taxiroute.cpp.o

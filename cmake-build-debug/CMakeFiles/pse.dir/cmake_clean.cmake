@@ -14,6 +14,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/pse.dir/Runway.cpp.o"
   "CMakeFiles/pse.dir/Flightplan.cpp.o"
   "CMakeFiles/pse.dir/Parsers/FlightplanParser.cpp.o"
+  "CMakeFiles/pse.dir/AirTrafficController.cpp.o"
+  "CMakeFiles/pse.dir/Simulator.cpp.o"
   "pse.pdb"
   "pse"
 )

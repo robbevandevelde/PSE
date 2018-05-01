@@ -5,6 +5,7 @@
 #include "Airport.h"
 #include "Airplane.h"
 #include "Parsers/LuchthavenParser.h"
+#include "Simulator.h"
 /*
  * TODO: zorgen dat de geparsede runways worden toegevoegd aan de airports met dezelfde IATA (mss door in runway ipv string Airport , Airport airport te zetten)
  * Testfile(met happyday enz.) toevoegen
@@ -99,15 +100,20 @@ int main() {
 
     Runway* runway = new Runway(50, "kk", "hoertjeeeeee", "f444");
     Airport* airport = new Airport(2,"Zaventem","f444","Echo");
+    AirTrafficController* John = new AirTrafficController(airport,"John");
+    airport->assignController(John);
     airport->addRunway(runway);
     airport->completeLandingSequence(airplane);
     airport->completeLandingSequence(airplane1);
     airport->completeTakeOffsequence(airplane);
-//    airplane->setStatus(Approaching);
-//    airplane->setHeight(10000);
+    airplane->setStatus(Approaching);
+    airplane->setHeight(10000);
     airport->completeLandingSequence(airplane);
-//    AirTrafficController* John = new AirTrafficController(airport,"John");
-//    airport->assignController(John);
-
+//    vector<Runway*> runways;
+//    runways.push_back(runway);
+//    vector<Airplane*> airplanes;
+//    airplanes.push_back(airplane);
+//    Simulator* sim = new Simulator(runways,airplanes,airport );
+//    sim->addRunways();
     return 0;
 }
