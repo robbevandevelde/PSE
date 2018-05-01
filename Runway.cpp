@@ -116,4 +116,12 @@ void Runway::pushbackTaxi(Taxiroute *taxiroute) {
 
 }
 
+void Runway::set_airplane(Airplane *_airplane) {
+    Runway::_airplane = _airplane;
+}
+
+void Runway::set_status(bool _status) {
+    Runway::_status = _status;
+}
+
 

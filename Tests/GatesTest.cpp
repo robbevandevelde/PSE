@@ -3,7 +3,7 @@
 //
 
 #include <gtest/gtest.h>
-#include "../Gates.h"
+#include "../Gate.h"
 
 class GatesTest: public ::testing::Test {
 protected:
@@ -14,7 +14,7 @@ protected:
     // should define it if you need to initialize the variables.
     // Otherwise, this can be skipped.
     virtual void SetUp() {
-        testGate = Gates(5);
+        testGate = new Gate(1);
     }
 
     // virtual void TearDown() will be called after each test is run.
@@ -24,10 +24,34 @@ protected:
     }
 
     // Declares the variables your tests want to use.
-    Gates testGate;
+    Gate* testGate;
 };
 
 // Tests the default constructor.
-//TEST_F(GatesTest, DefaultConstructor) {
-//    EXPECT_EQ(testGate.getName(), 5);
-//}
+TEST_F(GatesTest, InitTest) {
+    EXPECT_TRUE(testGate->properlyInitialised());
+}
+TEST_F(GatesTest, DefaultConstructor) {
+    EXPECT_EQ(testGate->get_name(), 1);
+    EXPECT_EQ(testGate->is_occupied(), false);
+    EXPECT_EQ(testGate->get_airplane(), nullptr);
+}
+
+TEST_F(GatesTest, airplaneTest) {
+    EXPECT_EQ(testGate->get_name(), 1);
+    EXPECT_EQ(testGate->is_occupied(), false);
+    EXPECT_EQ(testGate->get_airplane(), nullptr);
+    string name = "LAX";
+    Flightplan* testFlightplan = new Flightplan(name, 15, 45, 1);
+    Airplane* testAirplane = new Airplane("32", "callsign", "model", 0, 110, 5000, "militairy", "jet", "small", testFlightplan);
+    testGate->addAirplane(testAirplane);
+    EXPECT_TRUE(testGate->is_occupied());
+    testGate->removeAirplane();
+    EXPECT_FALSE(testGate->is_occupied());
+    Airplane* testAirplane2 = new Airplane("127", "Boeiing", "747", 0, 400, 15000, "Commercial", "airplane", "large", testFlightplan);
+    testGate->addAirplane(testAirplane2);
+    EXPECT_TRUE(testGate->is_occupied());
+    EXPECT_EQ(testAirplane2->getStatus(), StandingAtGate);
+    EXPECT_EQ(testGate->get_airplane()->properlyInitialised(), true);
+    EXPECT_EQ(testGate->get_airplane()->getNumber(), "127");
+}

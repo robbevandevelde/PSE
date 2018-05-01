@@ -3,6 +3,7 @@ file(REMOVE_RECURSE
   "CMakeFiles/pse_debug.dir/Parsers/AirportParser.cpp.o"
   "CMakeFiles/pse_debug.dir/Parsers/LuchthavenParser.cpp.o"
   "CMakeFiles/pse_debug.dir/Parsers/RunwayParser.cpp.o"
+  "CMakeFiles/pse_debug.dir/Parsers/FlightplanParser.cpp.o"
   "CMakeFiles/pse_debug.dir/TinyXML/tinystr.cpp.o"
   "CMakeFiles/pse_debug.dir/TinyXML/tinyxml.cpp.o"
   "CMakeFiles/pse_debug.dir/TinyXML/tinyxmlerror.cpp.o"
