@@ -9,14 +9,16 @@
 #include <string>
 #include "../Runway.h"
 #include "../TinyXML/tinyxml.h"
+#include "../DesignByContract.h"
 using namespace std;
 
 class RunwayParser{
 private:
-
+    RunwayParser* initCheck;
     string readElement(TiXmlElement* elem, const char* tag);
     Runway* runway;
 public:
+    bool properlyInitialised();
     RunwayParser();
     virtual ~RunwayParser();
     Runway* parseRunway(TiXmlElement* elem);

@@ -5,6 +5,7 @@
 #include "FlightplanParser.h"
 
 string FlightplanParser::readElement(TiXmlElement *elem, const char *tag) {
+    REQUIRE(this->properlyInitialised(), "FlightplanParser wasn't properly initialised when calling readElement");
     TiXmlElement* e = elem->FirstChildElement(tag);
     TiXmlNode* node = e->FirstChild();
     TiXmlText* text = node->ToText();
@@ -12,6 +13,8 @@ string FlightplanParser::readElement(TiXmlElement *elem, const char *tag) {
 }
 
 FlightplanParser::FlightplanParser() {
+    initCheck=this;
+    ENSURE(properlyInitialised(), "FlightplanParser wasn't properly initialised when calling constructor");
 }
 
 FlightplanParser::~FlightplanParser() {
@@ -19,6 +22,7 @@ FlightplanParser::~FlightplanParser() {
 }
 
 Flightplan *FlightplanParser::parseFlightplan(TiXmlElement *elem) {
+    REQUIRE(this->properlyInitialised(), "FlightplanParser wasn't properly initialised when calling parseFlightplan");
     string Destination = readElement(elem, "destination");
     unsigned int Departure = atoi(readElement(elem, "departure").c_str());
     unsigned int Arrival = atoi(readElement(elem, "arrival").c_str());
@@ -29,5 +33,10 @@ Flightplan *FlightplanParser::parseFlightplan(TiXmlElement *elem) {
 }
 
 Flightplan *FlightplanParser::getFlightplan() {
+    REQUIRE(this->properlyInitialised(), "FlightplanParser wasn't properly initialised when calling parseFlightplan");
     return flightplan;
+}
+
+bool FlightplanParser::properlyInitialised() {
+    return initCheck == this;
 }
