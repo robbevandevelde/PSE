@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 /home/thimoty/clion-2018.1.2/bin/cmake/bin/cmake -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - Unix Makefiles" /home/thimoty/Documents/PSE
 -- The C compiler identification is GNU 7.3.0
 -- The CXX compiler identification is GNU 7.3.0
@@ -13,6 +14,9 @@
 -- Detecting CXX compiler ABI info - done
 -- Detecting CXX compile features
 -- Detecting CXX compile features - done
+=======
+/Applications/CLion.app/Contents/bin/cmake/bin/cmake -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - Unix Makefiles" /Users/robbe/Desktop/Projecten_semester_2/PSE/PSE
+>>>>>>> Stashed changes
 -- Configuring done
 -- Generating done
 -- Build files have been written to: /home/thimoty/Documents/PSE/cmake-build-debug
