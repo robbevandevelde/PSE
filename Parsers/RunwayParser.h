@@ -18,12 +18,35 @@ private:
     string readElement(TiXmlElement* elem, const char* tag);
     Runway* runway;
 public:
+    /* Contract
+    * PRE:
+    * POST:
+    */
     bool properlyInitialised();
+    /* Contract
+    * PRE:
+    * POST:
+    */
     RunwayParser();
+    /* Contract
+    * PRE:
+    * POST:
+    */
     virtual ~RunwayParser();
+    /* Contract
+    * PRE:
+    * POST:
+    */
     Runway* parseRunway(TiXmlElement* elem);
-
+    /* Contract
+    * PRE:
+    * POST:
+    */
     Runway* getRunway();
+    /* Contract
+    * PRE:
+    * POST:
+    */
 };
 
 

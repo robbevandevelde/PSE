@@ -18,10 +18,30 @@ private:
     Flightplan* flightplan;
     FlightplanParser* initCheck;
 public:
+    /* Contract
+    * PRE:
+    * POST:
+    */
     bool properlyInitialised();
+    /* Contract
+    * PRE:
+    * POST:
+    */
     FlightplanParser();
+    /* Contract
+    * PRE:
+    * POST:
+    */
     virtual ~FlightplanParser();
+    /* Contract
+    * PRE:
+    * POST:
+    */
     Flightplan* parseFlightplan(TiXmlElement* elem);
+    /* Contract
+    * PRE:
+    * POST:
+    */
     Flightplan* getFlightplan();
 };
 

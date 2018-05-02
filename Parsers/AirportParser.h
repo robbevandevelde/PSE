@@ -16,10 +16,30 @@ private:
     string readElement(TiXmlElement* elem, const char* tag);
     Airport* airport;
 public:
+    /* Contract
+    * PRE:
+    * POST:
+    */
     bool properlyInitialised();
+    /* Contract
+    * PRE:
+    * POST:
+    */
     AirportParser();
+    /* Contract
+    * PRE:
+    * POST:
+    */
     virtual ~AirportParser();
+    /* Contract
+    * PRE:
+    * POST:
+    */
     Airport* parseAirport(TiXmlElement* elem);
+    /* Contract
+    * PRE:
+    * POST:
+    */
     Airport* getAirport();
 };
 
