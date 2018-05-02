@@ -38,6 +38,11 @@ void Simulator::Airplanes() {
 
             }
             else if(_airplanes[x]->getStatus() == StandingAtGate){
+                _airport->gateprotocol(_airplanes[x],50);
+                _airport->TaxiToRunway(_airplanes[x]);
+            }
+            else if(_airplanes[x]->getStatus() == Departure){
+                _airport->TakeOffprotocol(_airplanes[x]);
             }
         }
     }

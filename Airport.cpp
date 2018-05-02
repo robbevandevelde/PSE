@@ -31,6 +31,7 @@ bool Airport::properlyInitialised() {
     return _initcheck == this;
 }
 void Airport::TakeOffprotocol(Airplane *airplane) {
+    REQUIRE(airplane->getStatus() == Departure, "Airplane must be departure");
     REQUIRE(this->properlyInitialised(),"Airport wasn't properly initialised when calling TakeOffProtocol");
     REQUIRE(airplane->getHeight() == 0, "Airplane must be on the ground");
 
@@ -83,7 +84,7 @@ void Airport::completeLandingSequence(Airplane *airplane) {
 
 void Airport::completeTakeOffsequence(Airplane *airplane) {
     REQUIRE(this->properlyInitialised(),"Airport wasn't initialised when calling completeTakeOffsequence()");
-
+    gateprotocol(airplane,5);
     TaxiToRunway(airplane);
 
     TakeOffprotocol(airplane);
@@ -108,7 +109,7 @@ void Airport::gateprotocol(Airplane *airplane, unsigned int passengers) {
                 break;
             }
         }
-    } else if(airplane->getStatus() == Departure) {
+    } else if(airplane->getStatus() == StandingAtGate) {
         for(unsigned int x = 0; x < _gates.size(); x++){
             if(_gates[x]->get_airplane() == airplane){
                 std::cout << airplane->getCallsign() << " has been refueled" << std::endl;
@@ -154,10 +155,8 @@ void Airport::addAirplaneToRunway(Airplane *airplane) {
                           << _runways[x]->get_name()  << std::endl;
                 ENSURE(_runways[x]->get_airplane()->getStatus() == JustLanded, "Add airplane to runway failure");
             } else if(airplane->getStatus() == Departure){
-
                 std::cout << airplane->getCallsign() << " is taxiing to runway " << _runways[x]->get_name() <<
                           std::endl;
-                airplane->setStatus(JustLanded);
                 _runways[x]->addAirplane(airplane);
                 std::cout << airplane->getCallsign() << " is taxiing to runway " << _name << " on runway " <<
                           _runways[x]->get_name() <<std::endl;
@@ -179,7 +178,6 @@ void Airport::removeAirplaneOfGate(Airplane *airplane) {
                 _gates[x]->get_airplane()->getCallsign() == airplane->getCallsign()){
             std::cout << airplane->getCallsign() << " is standing at Gate " << _gates[x]->get_name() << std::endl;
             _gates[x]->get_airplane()->setStatus(Departure);
-            gateprotocol(_gates[x]->get_airplane(),5);
             _gates[x]->removeAirplane();
             ENSURE(_gates[x]->get_airplane() == NULL,"Remove airplane of gate failure");
             break;
