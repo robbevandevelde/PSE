@@ -290,17 +290,13 @@
 		<Unit filename="/home/thimoty/Documents/PSE/main.cpp">
 			<Option target="pse"/>
 		</Unit>
-<<<<<<< Updated upstream
+		<Unit filename="/home/thimoty/Documents/PSE/testInput">
+			<Option target="pse_debug"/>
+		</Unit>
+		<Unit filename="/home/thimoty/Documents/PSE/testInput/Input01.xml">
+			<Option target="pse_debug"/>
+		</Unit>
 		<Unit filename="/home/thimoty/Documents/PSE/CMakeLists.txt">
-=======
-		<Unit filename="/Users/robbe/Desktop/Projecten_semester_2/PSE/PSE/testInput">
-			<Option target="pse_debug"/>
-		</Unit>
-		<Unit filename="/Users/robbe/Desktop/Projecten_semester_2/PSE/PSE/testInput/Input01.xml">
-			<Option target="pse_debug"/>
-		</Unit>
-		<Unit filename="/Users/robbe/Desktop/Projecten_semester_2/PSE/PSE/CMakeLists.txt">
->>>>>>> Stashed changes
 			<Option virtualFolder="CMake Files\"/>
 		</Unit>
 	</Project>

@@ -23,6 +23,8 @@ private:
     unsigned int _height;
     unsigned int _passengers;
 
+    bool _fueled;
+
     std::string _model;
     std::string _number;
     std::string _callsign;
@@ -42,6 +44,7 @@ public:
     void ascend();
     void descend();
 
+    bool isFueled();
     unsigned int getFuel();
     unsigned int getStatus();
     unsigned int getHeight();
@@ -53,6 +56,7 @@ public:
     const std::string &getType();
     const std::string &getEngine();
 
+    void setFueled(bool _fueled);
     void setFuel(unsigned int _fuel);
     void setStatus(unsigned int _status);
     void setHeight(unsigned int _height);
@@ -64,6 +68,7 @@ public:
     void setFlightplan(Flightplan *flightplan);
     void setPassengers(unsigned int _passengers);
     void setCallsign(const std::string &_callsign);
+
 
 };
 
