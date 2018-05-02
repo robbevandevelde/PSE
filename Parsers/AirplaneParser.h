@@ -12,10 +12,11 @@ using namespace std;
 
 class AirplaneParser{
 private:
-
+    AirplaneParser* initCheck;
     string readElement(TiXmlElement* elem, const char* tag);
     Airplane* airplane;
 public:
+    bool properlyInitialised();
     AirplaneParser();
     virtual ~AirplaneParser();
     Airplane* parseAirplane(TiXmlElement* elem);

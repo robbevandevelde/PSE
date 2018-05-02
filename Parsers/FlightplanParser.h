@@ -16,7 +16,9 @@ class FlightplanParser {
 private:
     string readElement(TiXmlElement* elem, const char* tag);
     Flightplan* flightplan;
+    FlightplanParser* initCheck;
 public:
+    bool properlyInitialised();
     FlightplanParser();
     virtual ~FlightplanParser();
     Flightplan* parseFlightplan(TiXmlElement* elem);

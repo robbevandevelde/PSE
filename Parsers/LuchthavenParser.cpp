@@ -5,17 +5,20 @@
 #include "LuchthavenParser.h"
 
 //Return vector runways
-vector<Runway *> LuchthavenParser::getRunways() const {
+vector<Runway *> LuchthavenParser::getRunways() {
+    REQUIRE(this->properlyInitialised(), "Parser wasn't properly initialised when calling getRunways");
     return runways;
 }
 
 //REturn vector airplanes
-vector<Airplane *> LuchthavenParser::getAirplanes() const {
+vector<Airplane *> LuchthavenParser::getAirplanes() {
+    REQUIRE(this->properlyInitialised(), "Parser wasn't properly initialised when calling getAirplanes");
     return airplanes;
 }
 
 //Return vector airports
-vector<Airport *> LuchthavenParser::getAirports() const {
+vector<Airport *> LuchthavenParser::getAirports() {
+    REQUIRE(this->properlyInitialised(), "Parser wasn't properly initialised when calling getAirports");
     return airports;
 }
 
@@ -24,6 +27,8 @@ LuchthavenParser::LuchthavenParser() {
     runways = vector<Runway*>();
     airplanes= vector<Airplane*>();
     airports = vector<Airport*>();
+    initCheck = this;
+    ENSURE(properlyInitialised(), "Constructor must end");
 }
 
 //Default destructor
@@ -36,6 +41,7 @@ LuchthavenParser::~LuchthavenParser() {
  *@return niks void functie
  */
 void LuchthavenParser::isRunAirEqual(vector<Runway*> runwaysVect, vector<Airport*> airportsVect){
+    REQUIRE(this->properlyInitialised(), "Parser wasn't properly initialised when calling isRunAirEqual()");
     for(unsigned int RW = 0; RW < runwaysVect.size(); RW++){
         for(unsigned int AIR = 0; AIR < airportsVect.size(); AIR++){
             if (runwaysVect[RW]->getAirport() == airportsVect[AIR]->getIata())
@@ -51,6 +57,7 @@ void LuchthavenParser::isRunAirEqual(vector<Runway*> runwaysVect, vector<Airport
  *@return niks void functie
  */
 void LuchthavenParser::parseItems(TiXmlElement *elem) {
+    REQUIRE(this->properlyInitialised(), "Parser wasn't properly initialised when calling parseItems()");
     successEnum= Success;
     if (elem != NULL) {
         for (TiXmlElement *e = elem->FirstChildElement(); e != NULL; e = e->NextSiblingElement()) {
@@ -88,6 +95,7 @@ void LuchthavenParser::parseItems(TiXmlElement *elem) {
  */
 void LuchthavenParser::writeToFile(vector<Runway *> runwaysVect, vector<Airport *> airportsVect,
                                    vector<Airplane *> airplanesVect) {
+    REQUIRE(this->properlyInitialised(), "Parser wasn't properly initialised when calling writeToFile()");
     ofstream myfile;
     myfile.open ("Simulation.txt");
     for (unsigned int itAPO=0 ; itAPO < airportsVect.size(); itAPO++) {
@@ -110,8 +118,11 @@ void LuchthavenParser::writeToFile(vector<Runway *> runwaysVect, vector<Airport 
     myfile.close();
 
 }
-
+/*
+ * loads the given file
+ */
 bool LuchthavenParser::loadFile(string filename) {
+    REQUIRE(this->properlyInitialised(), "Parser wasn't properly initialised when calling loadFile()");
     if(!doc.LoadFile(filename.c_str())){
         cerr << doc.ErrorDesc() << endl;
         return false;
@@ -125,20 +136,36 @@ bool LuchthavenParser::loadFile(string filename) {
     }
     return true;
 }
-
-TiXmlElement *LuchthavenParser::getRoot() const {
+/*
+ * returns te element that is the root
+ */
+TiXmlElement *LuchthavenParser::getRoot() {
+    REQUIRE(this->properlyInitialised(), "Parser wasn't properly initialised when calling getRoot");
     return root;
 }
-
+/*
+ * sets the given element as root
+ */
 void LuchthavenParser::setRoot(TiXmlElement *root) {
     LuchthavenParser::root = root;
 }
-
-SuccessEnum LuchthavenParser::getSuccessEnum() const {
+/*
+ * returns the succesEnum
+ */
+SuccessEnum LuchthavenParser::getSuccessEnum() {
+    REQUIRE(this->properlyInitialised(), "Parser wasn't properly initialised when calling getSuccesEnum");
     return successEnum;
 }
-
+/*
+ * sets succesenum
+ */
 void LuchthavenParser::setSuccessEnum(SuccessEnum successEnum) {
     LuchthavenParser::successEnum = successEnum;
+}
+/*
+ * propely initialised function
+ */
+bool LuchthavenParser::properlyInitialised() {
+    return initCheck == this;
 }
 

@@ -12,10 +12,11 @@ using namespace std;
 
 class AirportParser{
 private:
-
+    AirportParser* initCheck;
     string readElement(TiXmlElement* elem, const char* tag);
     Airport* airport;
 public:
+    bool properlyInitialised();
     AirportParser();
     virtual ~AirportParser();
     Airport* parseAirport(TiXmlElement* elem);

@@ -7,6 +7,7 @@
 #include "FlightplanParser.h"
 
 string AirplaneParser::readElement(TiXmlElement *elem, const char *tag) {
+    REQUIRE(this->properlyInitialised(), "airplaneParser wasn't properly initialised when calling readElement()");
     TiXmlElement* e = elem->FirstChildElement(tag);
     TiXmlNode* node = e->FirstChild();
     TiXmlText* text = node->ToText();
@@ -14,7 +15,8 @@ string AirplaneParser::readElement(TiXmlElement *elem, const char *tag) {
 }
 
 AirplaneParser::AirplaneParser() {
-
+    initCheck = this;
+    ENSURE(properlyInitialised(), "Constructor must end");
 }
 
 AirplaneParser::~AirplaneParser() {
@@ -22,6 +24,7 @@ AirplaneParser::~AirplaneParser() {
 }
 
 Airplane *AirplaneParser::parseAirplane(TiXmlElement *elem) {
+    REQUIRE(this->properlyInitialised(), "airplaneParser wasn't properly initialised when calling parseAirplane()");
     string Number = readElement(elem, "number");
     string Model = readElement(elem, "model");
     string Callsign = readElement(elem, "callsign");
@@ -46,10 +49,12 @@ Airplane *AirplaneParser::parseAirplane(TiXmlElement *elem) {
     return airplane;}
 
 Airplane *AirplaneParser::getAirplane() {
+    REQUIRE(this->properlyInitialised(), "airplaneParser wasn't properly initialised when calling readElement()");
     return airplane;
 }
 
 unsigned int AirplaneParser::Statuscheck(string St) {
+    REQUIRE(this->properlyInitialised(), "airplaneParser wasn't properly initialised when calling readElement()");
     if (St== "Approaching"){
         return Approaching;
     }
@@ -66,4 +71,8 @@ unsigned int AirplaneParser::Statuscheck(string St) {
         return JustLanded;
     }
     return -1;
+}
+
+bool AirplaneParser::properlyInitialised() {
+    return initCheck == this;
 }
