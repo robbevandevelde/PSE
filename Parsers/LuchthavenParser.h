@@ -26,14 +26,16 @@ private:
     TiXmlDocument doc;
     TiXmlElement * root;
     SuccessEnum successEnum;
+    LuchthavenParser* initCheck;
 
 public:
+    bool properlyInitialised();
     void isRunAirEqual(vector<Runway*> runwaysVect, vector<Airport*> airportsVect);
-    vector<Runway*> getRunways() const;
+    vector<Runway*> getRunways();
 
-    vector<Airplane*> getAirplanes() const;
+    vector<Airplane*> getAirplanes();
 
-    vector<Airport*> getAirports() const;
+    vector<Airport*> getAirports();
 
     LuchthavenParser();
 
@@ -45,11 +47,11 @@ public:
 
     bool loadFile(string filename);
 
-    TiXmlElement *getRoot() const;
+    TiXmlElement *getRoot();
 
     void setRoot(TiXmlElement *root);
 
-    SuccessEnum getSuccessEnum() const;
+    SuccessEnum getSuccessEnum();
 
     void setSuccessEnum(SuccessEnum successEnum);
 };
