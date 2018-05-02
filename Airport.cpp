@@ -46,40 +46,30 @@ bool Airport::properlyInitialised()
  *@param
  *@return
  */
-void Airport::TakeOffprotocol(Airplane *airplane)
+void Airport::completeLandingSequence(Airplane *airplane)
 {
-    REQUIRE(airplane->getStatus() == Departure, "Airplane must be departure");
-    REQUIRE(this->properlyInitialised(),"Airport wasn't properly initialised when calling TakeOffProtocol");
-    REQUIRE(airplane->getHeight() == 0, "Airplane must be on the ground");
+    REQUIRE(this->properlyInitialised(), "Airport wasn't properly initialised when calling completeLandingSequence()");
 
-    while(airplane->getHeight() < 5000){
-        std::cout << airplane->getCallsign() <<  " ascended to " << airplane->getHeight() << " ft. " << std::endl;
-        airplane->ascend();
-    }
-    removeAirplaneOfRunway(airplane);
-    airplane->setStatus(InTheAir);
-    std::cout << airplane->getCallsign() << " has left " << _name << std::endl;
-    ENSURE(airplane->getStatus() == InTheAir, "TakeOff failure");
+    Landingprotocol(airplane);
+    addAirplaneToRunway(airplane);
+    TaxiToGate(airplane);
+    gateprotocol(airplane,0);
+    std::cout << "---------------------------------------------------------------------------------------" << std::endl;
 }
 
 /*
- *@param
- *@return
- */
+*@param
+*@return
+*/
 void Airport::Landingprotocol(Airplane *airplane)
 {
     REQUIRE(this->properlyInitialised(), "Airpower wasn't properly initialised when calling Landingprotocol");
     REQUIRE(airplane->getStatus() == Approaching, "Airplane must be approaching in order to land");
 
-    while(airplane->getHeight() > 10000){
-        airplane->descend();
-    }
-    ENSURE(airplane->getHeight() == 10000, "Airplane must be at 10000 ft in order to land");
-
     std::cout << airplane->getCallsign() << " is approaching " << _name << " at " << airplane->getHeight() << " ft. "<< std::endl;
     while(airplane->getHeight() > 1000){
         _controller->landingprotocol(airplane);
-        airplane->setHeight(airplane->getHeight() - 1000);
+        airplane->descend();
         std::cout<< airplane->getCallsign() << " descended to " << airplane->getHeight() << std::endl;
     }
     airplane->setStatus(FinalApproach);
@@ -92,15 +82,34 @@ void Airport::Landingprotocol(Airplane *airplane)
  *@param
  *@return
  */
-void Airport::completeLandingSequence(Airplane *airplane)
+void Airport::gateprotocol(Airplane *airplane, unsigned int passengers)
 {
-    REQUIRE(this->properlyInitialised(), "Airport wasn't properly initialised when calling completeLandingSequence()");
-
-    Landingprotocol(airplane);
-    addAirplaneToRunway(airplane);
-    TaxiToGate(airplane);
-    gateprotocol(airplane,0);
-    std::cout << "---------------------------------------------------------------------------------------" << std::endl;
+    REQUIRE(this->properlyInitialised(),"Airport wasn't properly initialised when calling gateprotocol()");
+    REQUIRE(airplane->getHeight() == 0 , "Airplane must be on the ground");
+    if(airplane->getStatus() == JustLanded) {
+        for(unsigned int x = 0; x < _gates.size();x++){
+            if(_gates[x]->getAirplane() == airplane){
+                std::cout << airplane->getPassengers() << " exited " << airplane->getCallsign() << " at Gate " <<
+                          _gates[x]->getName() << " of " << _name << std::endl;
+                airplane->setPassengers(0);
+                ENSURE(airplane->getPassengers() == 0, "Passenger exit failure");
+                std::cout<< airplane->getCallsign() << " has been checked for technical malfunctions " << std::endl;
+                airplane->setStatus(StandingAtGate);
+                ENSURE(airplane->getStatus() == StandingAtGate, "Failire");
+                break;
+            }
+        }
+    } else if(airplane->getStatus() == StandingAtGate) {
+        _controller->takeoffprotocol(airplane);
+        for(unsigned int x = 0; x < _gates.size(); x++){
+            if(_gates[x]->getAirplane() == airplane){
+                std::cout << airplane->getCallsign() << " has been refueled" << std::endl;
+                _gates[x]->getAirplane()->setPassengers(passengers);
+                std::cout << passengers << " boarded " << airplane->getCallsign() << " at Gate " <<
+                          _gates[x]->getName() << " of " << _name << std::endl;
+            }
+        }
+    }
 }
 
 /*
@@ -121,32 +130,67 @@ void Airport::completeTakeOffsequence(Airplane *airplane)
  *@param
  *@return
  */
-void Airport::gateprotocol(Airplane *airplane, unsigned int passengers)
+void Airport::TakeOffprotocol(Airplane *airplane)
 {
-    REQUIRE(this->properlyInitialised(),"Airport wasn't properly initialised when calling gateprotocol()");
-    REQUIRE(airplane->getHeight() == 0 , "Airplane must be on the ground");
-    if(airplane->getStatus() == JustLanded) {
-        for(unsigned int x = 0; x < _gates.size();x++){
-            if(_gates[x]->getAirplane() == airplane){
-                std::cout << airplane->getPassengers() << " exited " << airplane->getCallsign() << " at Gate " <<
-                                                                                                               _gates[x]->getName() << " of " << _name << std::endl;
-                airplane->setPassengers(0);
-                ENSURE(airplane->getPassengers() == 0, "Passenger exit failure");
-                std::cout<< airplane->getCallsign() << " has been checked for technical malfunctions " << std::endl;
-                airplane->setStatus(StandingAtGate);
-                ENSURE(airplane->getStatus() == StandingAtGate, "Failire");
-                break;
+    REQUIRE(airplane->getStatus() == Departure, "Airplane must be departure");
+    REQUIRE(this->properlyInitialised(),"Airport wasn't properly initialised when calling TakeOffProtocol");
+    REQUIRE(airplane->getHeight() == 0, "Airplane must be on the ground");
+
+    while(airplane->getHeight() < 5000){
+        std::cout << airplane->getCallsign() <<  " ascended to " << airplane->getHeight() << " ft. " << std::endl;
+        airplane->ascend();
+    }
+    removeAirplaneOfRunway(airplane);
+    airplane->setStatus(InTheAir);
+    std::cout << airplane->getCallsign() << " has left " << _name << std::endl;
+    ENSURE(airplane->getStatus() == InTheAir, "TakeOff failure");
+}
+
+/*
+ *@param
+ *@return
+ */
+void Airport::addAirplaneToRunway(Airplane *airplane)
+{
+    REQUIRE(this->properlyInitialised(),"Airport wasn't initialised when calling addAirplaneToRunway");
+    for(unsigned int x = 0; x < _runways.size(); x++){
+        if(!_runways[x]->isStatus()){
+            if(airplane->getHeight() == 0) {
+                std::cout << airplane->getCallsign() << " is landing at " << _name << " on runway "
+                          << _runways[x]->getName()  << std::endl;
+
+                airplane->setStatus(JustLanded);
+                _runways[x]->addAirplane(airplane);
+                std::cout << airplane->getCallsign() << " has landed at " << _name << " on runway "
+                          << _runways[x]->getName()  << std::endl;
+                _controller->landingprotocol(airplane);
+                ENSURE(_runways[x]->getAirplane()->getStatus() == JustLanded, "Add airplane to runway failure");
+
+            } else if(airplane->getStatus() == Departure){
+                _controller->takeoffprotocol(airplane);
+                std::cout << airplane->getCallsign() << " is taxiing to runway " << _runways[x]->getName() <<
+                          std::endl;
+                _runways[x]->addAirplane(airplane);
+                std::cout << airplane->getCallsign() << " is taxiing to runway " << _name << " on runway " <<
+                                                                                                           _runways[x]->getName() <<std::endl;
             }
+            ENSURE(_runways[x]->getAirplane() == airplane, "addAirplaneToRunway() failure");
+            break;
         }
-    } else if(airplane->getStatus() == StandingAtGate) {
-        _controller->takeoffprotocol(airplane);
-        for(unsigned int x = 0; x < _gates.size(); x++){
-            if(_gates[x]->getAirplane() == airplane){
-                std::cout << airplane->getCallsign() << " has been refueled" << std::endl;
-                _gates[x]->getAirplane()->setPassengers(passengers);
-                std::cout << passengers << " boarded " << airplane->getCallsign() << " at Gate " <<
-                          _gates[x]->getName() << " of " << _name << std::endl;
-            }
+    }
+}
+
+/*
+ *@param
+ *@return
+ */
+void Airport::removeAirplaneOfRunway(Airplane *airplane)
+{
+    REQUIRE(this->properlyInitialised(),"Airport wasn't properly initialised when calling removeAirplaneOfFrumway()");
+    for(unsigned int x = 0; x < _runways.size(); x++) {
+        if(_runways[x]->getAirplane() == airplane){
+            _runways[x]->removeAirplane();
+            ENSURE(_runways[x]->getAirplane() == NULL, "Remove airplane of runway failure");
         }
     }
 }
@@ -176,49 +220,11 @@ void Airport::addAirplaneToGate(Airplane *airplane)
  *@param
  *@return
  */
-void Airport::addAirplaneToRunway(Airplane *airplane)
-{
-    REQUIRE(this->properlyInitialised(),"Airport wasn't initialised when calling addAirplaneToRunway");
-    for(unsigned int x = 0; x < _runways.size(); x++){
-        if(!_runways[x]->isStatus()){
-            if(airplane->getStatus() == FinalApproach){
-                std::cout << airplane->getCallsign() << " is landing at " << _name << " on runway "
-                          << _runways[x]->getName()  << std::endl;
-
-                airplane->setStatus(JustLanded);
-                _runways[x]->addAirplane(airplane);
-                _controller->landingprotocol(airplane);
-                std::cout << airplane->getCallsign() << " has landed at " << _name << " on runway "
-                          << _runways[x]->getName()  << std::endl;
-                ENSURE(_runways[x]->getAirplane()->getStatus() == JustLanded, "Add airplane to runway failure");
-            } else if(airplane->getStatus() == Departure){
-                _controller->takeoffprotocol(airplane);
-                std::cout << airplane->getCallsign() << " is taxiing to runway " << _runways[x]->getName() <<
-                          std::endl;
-                _runways[x]->addAirplane(airplane);
-                std::cout << airplane->getCallsign() << " is taxiing to runway " << _name << " on runway " <<
-                                                                                                           _runways[x]->getName() <<std::endl;
-            }
-            ENSURE(_runways[x]->getAirplane()->getModel() == airplane->getModel() &&
-                           _runways[x]->getAirplane()->getNumber() == airplane->getNumber() &&
-                           _runways[x]->getAirplane()->getCallsign() == airplane->getCallsign(),
-                   "Add airplane to runway failure");
-            break;
-        }
-    }
-}
-
-/*
- *@param
- *@return
- */
 void Airport::removeAirplaneOfGate(Airplane *airplane)
 {
     REQUIRE(this->properlyInitialised(),"Airport wasn't properly initialised when calling removeAirplaneOfGate()");
     for(unsigned int x = 0; x < _gates.size();x++){
-        if(_gates[x]->getAirplane()->getModel() == airplane->getModel() &&
-                _gates[x]->getAirplane()->getNumber() == airplane->getNumber() &&
-                _gates[x]->getAirplane()->getCallsign() == airplane->getCallsign()){
+        if(_gates[x]->getAirplane() == airplane){
             std::cout << airplane->getCallsign() << " is standing at Gate " << _gates[x]->getName() << std::endl;
             _gates[x]->getAirplane()->setStatus(Departure);
             _gates[x]->removeAirplane();
@@ -228,20 +234,7 @@ void Airport::removeAirplaneOfGate(Airplane *airplane)
     }
 }
 
-/*
- *@param
- *@return
- */
-void Airport::removeAirplaneOfRunway(Airplane *airplane)
-{
-    REQUIRE(this->properlyInitialised(),"Airport wasn't properly initialised when calling removeAirplaneOfFrumway()");
-    for(unsigned int x = 0; x < _runways.size(); x++) {
-        if(_runways[x]->getAirplane() == airplane){
-            _runways[x]->removeAirplane();
-            ENSURE(_runways[x]->getAirplane() == NULL, "Remove airplane of runway failure");
-        }
-    }
-}
+
 
 /*
  *@param
@@ -333,7 +326,7 @@ void Airport::setGatesize(unsigned int _gatesize)
  */
 void Airport::addRunway(Runway *runway)
 {
-    REQUIRE(this->properlyInitialised(), "Airport wasn't properly initialised when calling addRunway");
+    REQUIRE(this->properlyInitialised(), "Airport wgetUsedasn't properly initialised when calling addRunway");
     _runways.push_back(runway);
     _amountRunways+=1;
     ENSURE(_runways[_runways.size() -1] == runway, "addRunway failure");
@@ -395,6 +388,8 @@ void Airport::setWaitpoint1(Airplane *waitpoint1)
 {
     REQUIRE(this->properlyInitialised(), "Airport wasn't properly initialised when calling setWaitpoint1()");
     Airport::_waitpoint1 = waitpoint1;
+    _waitpoint1->setStatus(WaitingPattern);
+    ENSURE(_waitpoint1->getStatus() == WaitingPattern, "Failure");
     ENSURE(getWaitpoint1() == waitpoint1, "setWaitpoint1() failure");
 }
 
@@ -416,6 +411,8 @@ void Airport::setWaitpoint2(Airplane *waitpoint2)
 {
     REQUIRE(this->properlyInitialised(), "Airport wasn't properly initialised when calling setWaitpoint2()");
     Airport::_waitpoint2 = waitpoint2;
+    _waitpoint2->setStatus(WaitingPattern);
+    ENSURE(_waitpoint2->getStatus() == WaitingPattern, "Failure");
     ENSURE(getWaitpoint2() == waitpoint2, "setWaitpoint2() failure");
 }
 
@@ -469,4 +466,27 @@ AirTrafficController *Airport::getController()
 {
     REQUIRE(this->properlyInitialised(), "Airport wasn't properly initialised when calling getController()");
     return _controller;
+}
+
+unsigned int Airport::getFreeRunwaySpot() {
+    REQUIRE(this->properlyInitialised(), "Airport wasn't properly initialised when calling getFreeRunwaySpot()");
+    for(unsigned int x = 0; x < _runways.size();x++){
+        if(!_runways[x]->isStatus()){
+            return x;
+        }
+    }
+}
+
+const vector<Runway *> &Airport::getRunways(){
+    REQUIRE(this->properlyInitialised(), "Airprort wasn't properly initialised when calling getRunways()");
+    return _runways;
+}
+
+bool Airport::isRunwayNotUsed() {
+    for(unsigned int x =0; x<_runways.size();x++){
+        if(!_runways[x]->isUsed()){
+            return  true;
+        }
+    }
+    return false;
 }

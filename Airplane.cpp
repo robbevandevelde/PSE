@@ -283,10 +283,12 @@ void Airplane::ascend()
 {
     REQUIRE(this->properlyInitialised(), "Airplane wasn't properly initialised when calling ascend()");
     _height += 1000;
+    std::cout<< _callsign << " ascended to " << _height << " ft." << std::endl;
 }
 
 void Airplane::descend() {
     REQUIRE(this->properlyInitialised(), "Airplane wasn't properly initialised when calling descend()");
     _height -= 1000;
+    std::cout<< _callsign << " descended to " << _height << " ft." << std::endl;
 }
 

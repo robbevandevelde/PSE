@@ -26,6 +26,7 @@ private:
     unsigned int _length;
 
     bool _status;
+    bool _goingtobeused;
 
     std::string _name;
     std::string _type;
@@ -53,6 +54,10 @@ public:
     void pushbackTaxi(Taxiroute* taxiroute);
     void setAirport(const std::string &_airport);
     void setTaxiRoute(const std::vector<Taxiroute *> &taxiRoute);
+
+    void setUsedStatus();
+    void removeUsedStatus();
+    bool isUsed();
 };
 
 

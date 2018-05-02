@@ -152,6 +152,7 @@ public:
     */
     void setCallsign(const std::string &_callsign);
 
+    bool isRunwayNotUsed();
     /* Contract
     * PRE:
     * POST:
@@ -210,5 +211,9 @@ public:
     * POST:
     */
     void assignController(AirTrafficController *_controller);
+
+    unsigned int getFreeRunwaySpot();
+
+    const vector<Runway *> &getRunways();
 };
 #endif //PSE_AIRPORT_H

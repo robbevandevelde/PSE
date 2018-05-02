@@ -88,7 +88,7 @@ int main() {
     Flightplan* fl = new Flightplan(naam,5,6,7);
 
     Airplane* airplane = new Airplane("1","EF566","Winchester",Approaching,5,5, "tumor","5","6",fl);
-//    Airplane* airplane1 = new Airplane("556", "F16", "Win100", Approaching,5,5, "tumor","5","6",fl);
+    Airplane* airplane1 = new Airplane("556", "F16", "Win100", Approaching,5,5, "tumor","5","6",fl);
 
     Runway* runway = new Runway(50, "1", "hoertjeeeeee", "f444");
     Runway* runway1 = new Runway(60, "2","lmao", "1337");
@@ -106,7 +106,7 @@ int main() {
     runways.push_back(runway1);
     vector<Airplane*> airplanes;
     airplanes.push_back(airplane);
-//    airplanes.push_back(airplane1);
+    airplanes.push_back(airplane1);
     Simulator* sim = new Simulator(runways,airplanes,airport);
 
     sim->addRunways();

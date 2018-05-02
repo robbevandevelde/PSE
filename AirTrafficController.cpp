@@ -37,22 +37,19 @@ bool AirTrafficController::landingprotocol(Airplane *airplane)
         REQUIRE(airplane->getHeight() == 10000, "Airplane must be at 10000 ft");
         std::cout << airplane->getCallsign() << " is asking permission to land in " << _airport->getName() << std::endl;
         std::cout << "This is " << _name << " from " << _airport->getName() << " you have permission to descend to 5000 ft"
-                                                                               << std::endl;
+                  << std::endl;
         return  true;
     }
     else if(airplane->getHeight() == 5000){
-        REQUIRE(airplane->getHeight() == 5000, "Airplane must be at 5000 ft");
-        if(_airport->isRunwayEmpty()){
-            std::cout << airplane->getCallsign() << " you have permission to descend to 3000 ft" << std::endl;
+        if(_airport->isRunwayEmpty() && _airport->isRunwayNotUsed()){
             return true;
-        }else {
-            if(_airport->getWaitpoint1() == NULL){
-                std::cout << "You have to wait for an empty runway, do a waiting pattern around 5000 ft "<< std::endl;
-                _airport->setWaitpoint1(airplane);
-            } else{
-                std::cout << "You have to wait for an empty runway, do a waiting pattern around 3000 ft "<< std::endl;
-                _airport->setWaitpoint2(airplane);
-            }
+        } else{
+            return false;
+        }
+    }else if(airplane->getHeight() == 3000){
+        if(_airport->isRunwayEmpty() && _airport->isRunwayNotUsed()){
+            return true;
+        } else{
             return false;
         }
     }

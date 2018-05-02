@@ -15,9 +15,10 @@ Runway::Runway(unsigned int _length, const std::string &_name, const std::string
 {
     _initcheck = this;
     _status = false;
+    _goingtobeused = false;
     _airplane = NULL;
     ENSURE(properlyInitialised(), "Constructor must end");
-    ENSURE(!_status, "Status must be false after initialising");
+    ENSURE(!_status && !_goingtobeused, "Status must be false after initialising");
     ENSURE(_airplane == NULL, "Airplane must point to a nullptr after initialising");
 }
 
@@ -227,4 +228,19 @@ void Runway::setStatus(bool _status)
     ENSURE(isStatus() == _status, "setStatus() failure");
 }
 
+void Runway::setUsedStatus() {
+    REQUIRE(this->properlyInitialised(), "Gate wasn't properly initialised when calling setUsedStatus()");
+    _goingtobeused = true;
+    ENSURE(_goingtobeused, "setUsedStatus failure");
+}
 
+void Runway::removeUsedStatus() {
+    REQUIRE(this->properlyInitialised(), "Gate wasn't properly initialised when calling removeUsedStatus()");
+    _goingtobeused = false;
+    ENSURE(!_goingtobeused, "removeUsedStatus() failure");
+}
+
+bool Runway::isUsed() {
+    REQUIRE(this->properlyInitialised(), "Gate wasn't properly initialised when calling isUsedStatus()");
+    return _goingtobeused;
+}

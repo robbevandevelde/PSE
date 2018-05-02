@@ -15,7 +15,6 @@ Gate::Gate(int _name) : _name(_name)
     _airplane = NULL;
     ENSURE(properlyInitialised(), "Constructor must end");
     ENSURE(_airplane == NULL, "Airplane must point to nullptr");
-    ENSURE(!_occupied, "Occupied must be false");\
     ENSURE(getName() == _name, "Gate constructor failure");
 }
 
@@ -83,3 +82,5 @@ Airplane *Gate::getAirplane()
     REQUIRE(this->properlyInitialised(),"Gate wasn't properly initialised when calling getAirplane()");
     return _airplane;
 }
+
+

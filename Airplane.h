@@ -12,7 +12,7 @@
 //class Flightplan;
 
 
-enum Status {JustLanded, StandingAtGate, StandingAtRunway, Departure, InTheAir,FinalApproach, Approaching};
+enum Status {JustLanded, StandingAtGate, StandingAtRunway, WaitingPattern, Departure, InTheAir,FinalApproach, Approaching};
 class Airplane {
 private:
     Airplane* _initcheck;

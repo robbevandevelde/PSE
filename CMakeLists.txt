@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 3.6)
 project(pse)
 
 set(CMAKE_CXX_STANDARD 98)
-set(CMAKE_CXX_FLAGS "-Wall -Werror -O2")
+set(CMAKE_CXX_FLAGS "-Wall -Werror -O1")
 set(CMAKE_EXE_LINKER_FLAGS) #add -pthread on windows/ unix
 
 # Set include dir
