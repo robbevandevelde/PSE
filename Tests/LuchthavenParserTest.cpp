@@ -37,7 +37,7 @@ TEST_F(LuchthavenParserTest, InputHappyday) {
     SuccessEnum yes= PartialImport;
     testParser.setSuccessEnum(yes);
     ofstream myfile;
-    myfile.open("testInput/Input01.xml");
+    myfile.open("../testInput/Input01.xml");
     myfile << "<?xml version=\"1.0\" ?>" << endl
            << "<SIMULATIE>" << endl
            << "\t<AIRPORT>" << endl
@@ -48,8 +48,8 @@ TEST_F(LuchthavenParserTest, InputHappyday) {
             << "\t</AIRPORT>" << endl
             << "</SIMULATIE>" << endl;
     myfile.close();
-    myfile.open("testInput/zzzError.txt");
-    testParser.loadFile("testInput/Input01.xml");
+    myfile.open("../testInput/zzzError.txt");
+    testParser.loadFile("../testInput/Input01.xml");
     testParser.parseItems(testParser.getRoot());
     EXPECT_TRUE(testParser.getSuccessEnum() == Success);
 
