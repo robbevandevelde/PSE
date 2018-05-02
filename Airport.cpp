@@ -475,6 +475,7 @@ unsigned int Airport::getFreeRunwaySpot() {
             return x;
         }
     }
+    return 1000;
 }
 
 const vector<Runway *> &Airport::getRunways(){
