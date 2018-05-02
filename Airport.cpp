@@ -99,13 +99,18 @@ void Airport::gateprotocol(Airplane *airplane, unsigned int passengers)
             }
         }
     } else if(airplane->getStatus() == StandingAtGate) {
-        _controller->takeoffprotocol(airplane);
         for(unsigned int x = 0; x < _gates.size(); x++){
             if(_gates[x]->getAirplane() == airplane){
-                std::cout << airplane->getCallsign() << " has been refueled" << std::endl;
-                _gates[x]->getAirplane()->setPassengers(passengers);
-                std::cout << passengers << " boarded " << airplane->getCallsign() << " at Gate " <<
-                          _gates[x]->getName() << " of " << _name << std::endl;
+                if(!airplane->isFueled()){
+                    std::cout << airplane->getCallsign() << " has been refueled" << std::endl;
+                    airplane->setFuel(1000);
+                    airplane->setFueled(true);
+                } else{
+                    _gates[x]->getAirplane()->setPassengers(passengers);
+                    std::cout << passengers << " boarded " << airplane->getCallsign() << " at Gate " <<
+                              _gates[x]->getName() << " of " << _name << std::endl;
+                }
+                break;
             }
         }
     }
@@ -137,7 +142,6 @@ void Airport::TakeOffprotocol(Airplane *airplane)
     for(unsigned int x = 0; x < _runways.size();x++){
         if(_runways[x]->getAirplane() == airplane){
             while(airplane->getHeight() < 5000){
-                std::cout << airplane->getCallsign() <<  " ascended to " << airplane->getHeight() << " ft. " << std::endl;
                 airplane->ascend();
             }
             removeAirplaneOfRunway(airplane);
@@ -159,7 +163,16 @@ void Airport::addAirplaneToRunway(Airplane *airplane)
     REQUIRE(this->properlyInitialised(),"Airport wasn't initialised when calling addAirplaneToRunway");
     for(unsigned int x = 0; x < _runways.size(); x++){
         if(!_runways[x]->isStatus()){
-            if(airplane->getHeight() == 0 || airplane->getStatus() == FinalApproach){
+             if(airplane->getStatus() == Departure){
+                _controller->takeoffprotocol(airplane);
+                std::cout << airplane->getCallsign() << " is taxiing to runway " << _runways[x]->getName() <<
+                          std::endl;
+                _runways[x]->addAirplane(airplane);
+                std::cout << airplane->getCallsign() << " is taxiing to runway " << _name << " on runway " <<
+                          _runways[x]->getName() <<std::endl;
+                break;
+            }
+            else if(airplane->getHeight() == 0 || airplane->getStatus() == FinalApproach){
                 std::cout << airplane->getCallsign() << " is landing at " << _name << " on runway "
                           << _runways[x]->getName()  << std::endl;
 
@@ -169,14 +182,8 @@ void Airport::addAirplaneToRunway(Airplane *airplane)
                           << _runways[x]->getName()  << std::endl;
                 _controller->landingprotocol(airplane);
                 ENSURE(_runways[x]->getAirplane()->getStatus() == JustLanded, "Add airplane to runway failure");
+                break;
 
-            } else if(airplane->getStatus() == Departure){
-                _controller->takeoffprotocol(airplane);
-                std::cout << airplane->getCallsign() << " is taxiing to runway " << _runways[x]->getName() <<
-                          std::endl;
-                _runways[x]->addAirplane(airplane);
-                std::cout << airplane->getCallsign() << " is taxiing to runway " << _name << " on runway " <<
-                          _runways[x]->getName() <<std::endl;
             }
             ENSURE(_runways[x]->getAirplane() == airplane, "addAirplaneToRunway() failure");
             break;
@@ -195,6 +202,7 @@ void Airport::removeAirplaneOfRunway(Airplane *airplane)
         if(_runways[x]->getAirplane() == airplane){
             _runways[x]->removeAirplane();
             ENSURE(_runways[x]->getAirplane() == NULL, "Remove airplane of runway failure");
+            break;
         }
     }
 }

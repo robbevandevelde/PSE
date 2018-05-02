@@ -31,7 +31,8 @@ Airplane::Airplane(std::string number,std::string callsign, std::string model,
     else{
         _height = 0;
     }
-
+    _fueled = false;
+    ENSURE(!_fueled, "Fueled must be false");
     ENSURE(properlyInitialised(), "Constructor must end");
     ENSURE(_height == 0 || _height == 10000, "Height must be either 0 or 10000");
     ENSURE(getNumber() == number && getCallsign() == callsign && getModel() == model && getStatus() == status &&
@@ -290,5 +291,16 @@ void Airplane::descend() {
     REQUIRE(this->properlyInitialised(), "Airplane wasn't properly initialised when calling descend()");
     _height -= 1000;
     std::cout<< _callsign << " descended to " << _height << " ft." << std::endl;
+}
+
+bool Airplane::isFueled() {
+    REQUIRE(this->properlyInitialised(), "Airplane wasn't properly initialised when calling isFueled()");
+    return _fueled;
+}
+
+void Airplane::setFueled(bool _fueled) {
+    REQUIRE(this->properlyInitialised(),"Airplane wasn't properly initialised when calling setFueled()");
+    Airplane::_fueled = _fueled;
+    ENSURE(isFueled() == _fueled, "setFueled fail");
 }
 
