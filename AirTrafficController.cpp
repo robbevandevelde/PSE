@@ -6,17 +6,30 @@
 #include "Airplane.h"
 #include "Airport.h"
 
+/*Constructor van airtrafficcontroller
+ *@param airport airport, string name
+ *@return niks
+ */
 AirTrafficController::AirTrafficController(Airport *_airport, const std::string &_name) : _airport(_airport),
                                                                                           _name(_name) {
     _initcheck = this;
     ENSURE(properlyInitialised(), "Constructor must end");
+    ENSURE(getAirport() == _airport && getName() == _name, "AirTraffic controller failure");
 }
 
+/*initialiser check
+ *@param geen
+ *@return bool
+ */
 bool AirTrafficController::properlyInitialised()
 {
     return _initcheck == this;
 }
 
+/*Landing protocol van de vliegtuig
+ *@param airplane airplane
+ *@return bool
+ */
 bool AirTrafficController::landingprotocol(Airplane *airplane)
 {
     REQUIRE(this->properlyInitialised(), "AirTrafficController wasn't properly initialised when calling landingprotocol()");
@@ -50,19 +63,22 @@ bool AirTrafficController::landingprotocol(Airplane *airplane)
     return false;
 }
 
+/*takeoffprotocol voor de airplane
+ *@param airplane airplane
+ *@return bool
+ */
 bool AirTrafficController::takeoffprotocol(Airplane *airplane)
 {
     REQUIRE(this->properlyInitialised(), "AirTrafficController wasn't properly initialised when calling takeoffprotocol");
     if(airplane->getStatus() == StandingAtGate){
         std::cout << airplane->getCallsign() << " is asking permission to leave " << _airport->getName() << std::endl;
-        std::cout << "This is" << _name << " you have permission to leave the gate" << std::endl;
+        std::cout << "This is " << _name << " you have permission to leave the gate" << std::endl;
         return true;
     } else if(airplane->getStatus() == Departure) {
-        std::cout << "You may leave the gate" << std::endl;
+        std::cout << "This is " <<_name << " you may proceed to an empty runway" << std::endl;
         return true;
     } else if(airplane->getStatus() == StandingAtRunway){
         if(_airport->isRunwayEmpty()){
-            std::cout << "You have permission to leave " << _airport->getName() << std::endl;
             return true;
         } else {
             std::cout << "You have to wait a few minutes for a clear runway" << std::endl;
@@ -72,8 +88,10 @@ bool AirTrafficController::takeoffprotocol(Airplane *airplane)
     return false;
 }
 
-
-
+/*Emergency protocollen voor de vliegtuig
+ *@param airplane airplane
+ *@return
+ */
 bool AirTrafficController::emergencyprotocol(Airplane *airplane)
 {
     REQUIRE(this->properlyInitialised(), "AirTrafficController wasn't properly initialised when calling emergencyprotocol");
@@ -85,6 +103,27 @@ bool AirTrafficController::emergencyprotocol(Airplane *airplane)
         }
     }
     return false;
+}
+
+/*get de airport van de controller
+ *@param geen
+ *@return airport airport
+ */
+Airport *AirTrafficController::getAirport()
+
+{
+    REQUIRE(this->properlyInitialised(), "AirTrafficController wasn't properly initialised when calling getAirport()");
+    return _airport;
+}
+
+/*get de name van de controller
+ *@param geen
+ *@return string name
+ */
+const string &AirTrafficController::getName()
+{
+    REQUIRE(this->properlyInitialised(), "AirtrafficController wasn't properly initialised when calling getName");
+    return _name;
 }
 
 

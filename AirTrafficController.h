@@ -28,6 +28,10 @@ public:
     bool takeoffprotocol(Airplane* airplane);
 
     bool emergencyprotocol(Airplane* airplane);
+
+    Airport *getAirport();
+
+    const std::string &getName();
 };
 
 

@@ -30,6 +30,7 @@ private:
     std::string _engine;
     std::string _size;
 public:
+
     Airplane(std::string number,std::string callsign, std::string model,
              unsigned int status, unsigned int passengers, unsigned int fuel,
              std::string type, std::string engine, std::string size, Flightplan* flightp);
@@ -37,6 +38,9 @@ public:
     bool properlyInitialised();
 
     Flightplan *getFlightplan();
+
+    void ascend();
+    void descend();
 
     unsigned int getFuel();
     unsigned int getStatus();

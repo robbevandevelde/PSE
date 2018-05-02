@@ -34,6 +34,9 @@ Airplane::Airplane(std::string number,std::string callsign, std::string model,
 
     ENSURE(properlyInitialised(), "Constructor must end");
     ENSURE(_height == 0 || _height == 10000, "Height must be either 0 or 10000");
+    ENSURE(getNumber() == number && getCallsign() == callsign && getModel() == model && getStatus() == status &&
+           getPassengers() == passengers && getFuel() == fuel && getType() == type && getEngine() == engine &&
+    getSize() == size && getFlightplan() == flightp, "Airplane constructor failure");
 }
 
 /*Checkt of dat het goed geinitialised is
@@ -192,12 +195,20 @@ void Airplane::setHeight(unsigned int _height)
     ENSURE(getHeight() == _height,"setHeight() failure");
 }
 
+/*get de height van de airplane
+ *@param geen
+ *@return string type van airplane
+ */
 const std::string &Airplane::getType()
 {
     REQUIRE(this->properlyInitialised(), "Airplane wasn't properly initialised when calling getType()");
     return _type;
 }
 
+/*set de type van de airplane
+ *@param string type
+ *@return niks
+ */
 void Airplane::setType(const std::string &type)
 {
     REQUIRE(this->properlyInitialised(), "Airplane wasn't properly initialised when calling setType()");
@@ -205,12 +216,20 @@ void Airplane::setType(const std::string &type)
     ENSURE(getType() == type,"setType() failure");
 }
 
+/*get de engine van de airplane
+ *@param geen
+ *@return string engine van de airplane
+ */
 const std::string &Airplane::getEngine()
 {
     REQUIRE(this->properlyInitialised(), "Airplane wasn't properly initialised when calling getEngine()");
     return _engine;
 }
 
+/*set de engine van de airplane
+ *@param string engine
+ *@return geen
+ */
 void Airplane::setEngine(const std::string &engine)
 {
     REQUIRE(this->properlyInitialised(), "Airplane wasn't properly initialised when calling setEngine()");
@@ -218,12 +237,20 @@ void Airplane::setEngine(const std::string &engine)
     ENSURE(getEngine() == engine, "setEngine() failure");
 }
 
+/*get de size van de airplane
+ *@param geen
+ *@return string size van de airplane
+ */
 const std::string &Airplane::getSize()
 {
     REQUIRE(this->properlyInitialised(), "Airplane wasn't properly initialised when calling getSize()");
     return _size;
 }
 
+/*set de size van de airplane
+ *@param string size
+ *@return geen
+ */
 void Airplane::setSize(const std::string &size)
 {
     REQUIRE(this->properlyInitialised(), "Airplane wasn't properly initialised when calling setSize()");
@@ -231,16 +258,35 @@ void Airplane::setSize(const std::string &size)
     ENSURE(getSize() == size, "setSize() failure");
 }
 
+/*get de flightplan van de airplane
+ *@param geen
+ *@return Flightplan flightplan van de airplane
+ */
 Flightplan *Airplane::getFlightplan()
 {
     REQUIRE(this->properlyInitialised(), "Airplane wasn't properly initialised when calling getFlightplan");
     return _flightplan;
 }
 
+/*set de flightplan van de vliegtuig
+ *@param Flightplan flightplan
+ *@return geen
+ */
 void Airplane::setFlightplan(Flightplan *flightplan)
 {
     REQUIRE(this->properlyInitialised(), "Airplane wasn't properly initialised when calling setFlightplan()");
     Airplane::_flightplan = flightplan;
     ENSURE(getFlightplan() == flightplan, "setFlightplan() failure");
+}
+
+void Airplane::ascend()
+{
+    REQUIRE(this->properlyInitialised(), "Airplane wasn't properly initialised when calling ascend()");
+    _height += 1000;
+}
+
+void Airplane::descend() {
+    REQUIRE(this->properlyInitialised(), "Airplane wasn't properly initialised when calling descend()");
+    _height -= 1000;
 }
 

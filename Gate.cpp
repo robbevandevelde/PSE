@@ -4,6 +4,10 @@
 
 #include "Gate.h"
 
+/*Constructor van gate
+ *@param string name
+ *@return geen
+ */
 Gate::Gate(int _name) : _name(_name)
 {
     _initcheck = this;
@@ -11,44 +15,69 @@ Gate::Gate(int _name) : _name(_name)
     _airplane = NULL;
     ENSURE(properlyInitialised(), "Constructor must end");
     ENSURE(_airplane == NULL, "Airplane must point to nullptr");
-    ENSURE(!_occupied, "Occupied must be false");
+    ENSURE(!_occupied, "Occupied must be false");\
+    ENSURE(getName() == _name, "Gate constructor failure");
 }
 
+/*initcheck
+ *@param geen
+ *@return bool
+ */
 bool Gate::properlyInitialised()
 {
     return _initcheck == this;
 }
 
+/*add een airplane aan de gate
+ *@param airplane airplane
+ *@return geen
+ */
 void Gate::addAirplane(Airplane *airplane)
 {
     REQUIRE(this->properlyInitialised(), "Gate wasn't properly initialised when calling addAirplane()");
     _airplane = airplane;
-    ENSURE(_airplane->getCallsign() == airplane->getCallsign() && _airplane->getModel() == airplane->getModel()&&
-                   _airplane->getNumber() == airplane->getNumber(), "addAirplane failure");
+    ENSURE(getAirplane() == airplane, "addAirplane() failure");
     _occupied = true;
     ENSURE(_occupied, "Occupied must be true");
 }
+
+/*Removed een airplane van de gate
+ *@param geen
+ *@return geen
+ */
 void Gate::removeAirplane()
 {
     REQUIRE(this->properlyInitialised(),"Gate wasn't properly initialised when calling removeAirplane()");
     _airplane = NULL;
-    ENSURE(_airplane == NULL, "Airplane must point to NULL");
+    ENSURE(getAirplane() == NULL, "Airplane must point to NULL");
     _occupied = false;
     ENSURE(!_occupied, "Occupied must be false");
 }
 
+/*return de status van de gate
+ *@param geen
+ *@return bool
+ */
 bool Gate::isOccupied()
 {
     REQUIRE(this->properlyInitialised(), "Gate wasn't properly initialised when calling isOccupied()");
     return _occupied;
 }
 
+/*get de name van de gate
+ *@param geen
+ *@return string name
+ */
 int Gate::getName()
 {
     REQUIRE(this->properlyInitialised(), "Gate wasn't properly initialised when calling getName()");
     return _name;
 }
 
+/*get de airplane van de gate
+ *@param geen
+ *@return airplane airplane van de gate
+ */
 Airplane *Gate::getAirplane()
 {
     REQUIRE(this->properlyInitialised(),"Gate wasn't properly initialised when calling getAirplane()");

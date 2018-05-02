@@ -78,42 +78,38 @@ using namespace std;
 #include "AirTrafficController.h"
 
 int main() {
-    std::string naam = "kanker";
-    Flightplan* fl = new Flightplan(naam,5,6,7);
-    Airplane* airplane = new Airplane("1","EF566","Winchester",Approaching,5,5, "tumor","5","6",fl);
-    std::cout<< airplane->getCallsign() << std::endl;
-    std::cout<< airplane->getNumber() << std::endl;
-    std::cout<< airplane->getModel() << std::endl;
-    std::cout<< airplane->getStatus() << std::endl;
-
-    Airplane* airplane1 = new Airplane("556", "F16", "Win100", Approaching,5,5, "tumor","5","6",fl);
-
-//    Runway runway(1,"boo", "blau", "donau");
-//    runway.addAirplane(airplane);
-//    runway.removeAirplane();
-//    std::cout<< runway.getType() << std::endl;
-//    std::cout<< runway.getAirport() << std::endl;
-//    std::cout<< runway.getName() << std::endl;
-//    std::cout<< runway.getLength() << std::endl;
-//    std::cout<< runway.getAirplane() << std::endl;
-
-
-    Runway* runway = new Runway(50, "kk", "hoertjeeeeee", "f444");
     Airport* airport = new Airport(2,"Zaventem","f444","Echo");
+
+
     AirTrafficController* John = new AirTrafficController(airport,"John");
     airport->assignController(John);
-    airport->addRunway(runway);
-    airport->completeLandingSequence(airplane);
-    airport->completeLandingSequence(airplane1);
-    airport->completeTakeOffsequence(airplane);
-    airplane->setStatus(Approaching);
-    airplane->setHeight(10000);
-    airport->completeLandingSequence(airplane);
-//    vector<Runway*> runways;
-//    runways.push_back(runway);
-//    vector<Airplane*> airplanes;
-//    airplanes.push_back(airplane);
-//    Simulator* sim = new Simulator(runways,airplanes,airport );
-//    sim->addRunways();
+
+    std::string naam = "kanker";
+    Flightplan* fl = new Flightplan(naam,5,6,7);
+
+    Airplane* airplane = new Airplane("1","EF566","Winchester",Approaching,5,5, "tumor","5","6",fl);
+//    Airplane* airplane1 = new Airplane("556", "F16", "Win100", Approaching,5,5, "tumor","5","6",fl);
+
+    Runway* runway = new Runway(50, "1", "hoertjeeeeee", "f444");
+    Runway* runway1 = new Runway(60, "2","lmao", "1337");
+
+
+//    airport->addRunway(runway);
+//    airport->completeLandingSequence(airplane);
+//    airport->completeLandingSequence(airplane1);
+//    airport->completeTakeOffsequence(airplane);
+//    airplane->setStatus(Approaching);
+//    airplane->setHeight(10000);
+//    airport->completeLandingSequence(airplane);
+    vector<Runway*> runways;
+    runways.push_back(runway);
+    runways.push_back(runway1);
+    vector<Airplane*> airplanes;
+    airplanes.push_back(airplane);
+//    airplanes.push_back(airplane1);
+    Simulator* sim = new Simulator(runways,airplanes,airport);
+
+    sim->addRunways();
+    sim->Airplanes();
     return 0;
 }
