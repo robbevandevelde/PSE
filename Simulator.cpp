@@ -19,7 +19,7 @@ void Simulator::addRunways() {
     for(unsigned int x = 0; x < _runways.size(); x++){
         _airport->addRunway(_runways[x]);
     }
-    ENSURE(_airport->get_amountRunways() == _runways.size(), "Runway size dont match");
+    ENSURE(_airport->getAmountRunways() == _runways.size(), "Runway size dont match");
 }
 
 void Simulator::Airplanes() {

@@ -19,7 +19,7 @@ class Runway {
 private:
     Runway* _initcheck;
 
-    std::vector <Taxiroute*> taxiRoute;
+    std::vector <Taxiroute*> _taxiRoute;
 
     Airplane* _airplane;
 
@@ -31,33 +31,28 @@ private:
     std::string _type;
     std::string _airport;
 public:
+    Runway(unsigned int _length, const std::string &_name, const std::string &_type, const std::string &_airport);
 
-
-    Runway(int _length, const std::string &_name, const std::string &_type, const std::string &_airport);
     bool properlyInitialised();
 
-    bool is_status();
-    unsigned int get_length();
-    Airplane *get_airplane();
-    const std::string &get_name();
-    const std::string &get_type();
-    const std::string &get_airport();
-    const std::vector<Taxiroute *> &getTaxiRoute() const;
+    bool isStatus();
+    Airplane *getAirplane();
+    unsigned int getLength();
+    const std::string &getName();
+    const std::string &getType();
+    const std::string &getAirport();
+    const std::vector<Taxiroute *> &getTaxiRoute();
 
-
-    void set_length(unsigned int _length);
-    void set_name(const std::string &_name);
-    void set_type(const std::string &_type);
-    void set_airport(const std::string &_airport);
-    void pushbackTaxi(Taxiroute* taxiroute);
-    void setTaxiRoute(const std::vector<Taxiroute *> &taxiRoute);
-    void addAirplane(Airplane* airplane);
     void removeAirplane();
-    void set_status(bool _status);
-    void set_airplane(Airplane *_airplane);
-
-
-
+    void setStatus(bool _status);
+    void setLength(unsigned int _length);
+    void addAirplane(Airplane* airplane);
+    void setAirplane(Airplane *_airplane);
+    void setName(const std::string &_name);
+    void setType(const std::string &_type);
+    void pushbackTaxi(Taxiroute* taxiroute);
+    void setAirport(const std::string &_airport);
+    void setTaxiRoute(const std::vector<Taxiroute *> &taxiRoute);
 };
 
 

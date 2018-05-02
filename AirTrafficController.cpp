@@ -76,6 +76,7 @@ bool AirTrafficController::takeoffprotocol(Airplane *airplane)
 
 bool AirTrafficController::emergencyprotocol(Airplane *airplane)
 {
+    REQUIRE(this->properlyInitialised(), "AirTrafficController wasn't properly initialised when calling emergencyprotocol");
     if(airplane->getFuel() == 0){
         if(airplane->getHeight() >= 3000){
             std::cout << "We will make a free runway for you" << std::endl;

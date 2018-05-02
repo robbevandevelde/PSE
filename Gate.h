@@ -20,12 +20,12 @@ public:
 
     bool properlyInitialised();
 
-    int get_name();
-    bool is_occupied();
-    Airplane *get_airplane();
+    int getName();
+    bool isOccupied();
+    Airplane *getAirplane();
 
-    void addAirplane(Airplane * airplane);
     void removeAirplane();
+    void addAirplane(Airplane * airplane);
 };
 
 

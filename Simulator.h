@@ -19,11 +19,10 @@ private:
 public:
     Simulator(const vector<Runway *> &_runways, const vector<Airplane *> &_airplanes, Airport *_airport);
 
-public:
     bool properlyInitialised();
 
-    void addRunways();
     void Airplanes();
+    void addRunways();
 };
 
 

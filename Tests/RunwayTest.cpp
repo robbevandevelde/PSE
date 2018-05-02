@@ -39,27 +39,27 @@ protected:
 ////
 TEST_F(RunwayTest, Initcheck){
     EXPECT_TRUE(testRunway->properlyInitialised());
-    EXPECT_EQ(3, testRunway->get_length());
-    EXPECT_EQ("R11", testRunway->get_name());
-    EXPECT_EQ("FLAT", testRunway->get_type());
-    EXPECT_EQ("ANR", testRunway->get_airport());
+    EXPECT_EQ(3, testRunway->getLength());
+    EXPECT_EQ("R11", testRunway->getName());
+    EXPECT_EQ("FLAT", testRunway->getType());
+    EXPECT_EQ("ANR", testRunway->getAirport());
 }
 
 TEST_F(RunwayTest, aiport) {
-    EXPECT_EQ(testRunway->get_airport(), "ANR");
-    testRunway->set_airport("newairport");
-    EXPECT_EQ(testRunway->get_airport(), "newairport");
+    EXPECT_EQ(testRunway->getAirport(), "ANR");
+    testRunway->setAirport("newairport");
+    EXPECT_EQ(testRunway->getAirport(), "newairport");
 }
 TEST_F(RunwayTest, airplanetest) {
     string name = "LAX";
     Flightplan* testFlightplan = new Flightplan(name, 15, 45, 1);
     Airplane* testAirplane = new Airplane("32", "callsign", "model", 0, 110, 5000, "militairy", "jet", "small", testFlightplan);
-    testRunway->set_airplane(testAirplane);
-    EXPECT_EQ(testRunway->get_airplane()->getFlightplan()->getArrival(), 45);
-    EXPECT_EQ(testRunway->get_airplane()->getFlightplan()->getDestination(), "LAX");
-    EXPECT_EQ(testRunway->get_airplane()->getHeight(), 0);
-    testRunway->get_airplane()->setStatus(4);
-    EXPECT_EQ(testRunway->get_airplane()->getStatus(), InTheAir);
+    testRunway->setAirplane(testAirplane);
+    EXPECT_EQ(testRunway->getAirplane()->getFlightplan()->getArrival(), 45);
+    EXPECT_EQ(testRunway->getAirplane()->getFlightplan()->getDestination(), "LAX");
+    EXPECT_EQ(testRunway->getAirplane()->getHeight(), 0);
+    testRunway->getAirplane()->setStatus(4);
+    EXPECT_EQ(testRunway->getAirplane()->getStatus(), InTheAir);
 }
 
 
@@ -68,9 +68,9 @@ TEST_F(RunwayTest, airplanetest) {
 //
 //}
 //TEST_F(RunwayTest, nondefaultconst){
-//    EXPECT_EQ(testRunway.get_airport(), "ANR");
-//    testRunway.set_airport("BRS");
-//    EXPECT_EQ(testRunway.get_airport(), "BRS");
-//    EXPECT_EQ(testRunway.get_name(), "R11");
+//    EXPECT_EQ(testRunway.getAirport(), "ANR");
+//    testRunway.setAirport("BRS");
+//    EXPECT_EQ(testRunway.getAirport(), "BRS");
+//    EXPECT_EQ(testRunway.getName(), "R11");
 //
 //}

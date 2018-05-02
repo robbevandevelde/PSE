@@ -28,19 +28,19 @@ using namespace std;
 //
 //        for (unsigned int itRW=0 ; itRW < runwaysVect.size(); itRW++) {
 //            cout << "------------------------------------------\n";
-//            cout << runwaysVect[itRW]->get_name() << endl;
-//            cout << runwaysVect[itRW]->get_airport() << endl;
+//            cout << runwaysVect[itRW]->getName() << endl;
+//            cout << runwaysVect[itRW]->getAirport() << endl;
 ////            for (unsigned int taxIT=0 ; itRW < runwaysVect[itRW]->getTaxiRoute().size(); itRW++) {
 ////
 ////                cout << runwaysVect[itRW]->getTaxiRoute()[taxIT] << endl;
 ////            }
-//            cout << runwaysVect[itRW]->get_length() << endl;
+//            cout << runwaysVect[itRW]->getLength() << endl;
 //            cout << runwaysVect[itRW]->getType() << endl;
 ////            runwaysVect[itRW]->getTaxiRoute()[0];
 //        }
 //        for (unsigned int itAPO=0 ; itAPO < airportsVect.size(); itAPO++) {
 //            cout << "------------------------------------------\n";
-//            cout << airportsVect[itAPO]->get_name() << endl;
+//            cout << airportsVect[itAPO]->getName() << endl;
 //            cout << airportsVect[itAPO]->get_iata() << endl;
 //            cout << airportsVect[itAPO]->getCallsign() << endl;
 //            cout << airportsVect[itAPO]->get_gatesize() << endl;
@@ -92,10 +92,10 @@ int main() {
 //    runway.addAirplane(airplane);
 //    runway.removeAirplane();
 //    std::cout<< runway.getType() << std::endl;
-//    std::cout<< runway.get_airport() << std::endl;
-//    std::cout<< runway.get_name() << std::endl;
-//    std::cout<< runway.get_length() << std::endl;
-//    std::cout<< runway.get_airplane() << std::endl;
+//    std::cout<< runway.getAirport() << std::endl;
+//    std::cout<< runway.getName() << std::endl;
+//    std::cout<< runway.getLength() << std::endl;
+//    std::cout<< runway.getAirplane() << std::endl;
 
 
     Runway* runway = new Runway(50, "kk", "hoertjeeeeee", "f444");

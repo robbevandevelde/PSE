@@ -32,26 +32,26 @@ TEST_F(GatesTest, InitTest) {
     EXPECT_TRUE(testGate->properlyInitialised());
 }
 TEST_F(GatesTest, DefaultConstructor) {
-    EXPECT_EQ(testGate->get_name(), 1);
-    EXPECT_EQ(testGate->is_occupied(), false);
-    EXPECT_EQ(testGate->get_airplane(), nullptr);
+    EXPECT_EQ(testGate->getName(), 1);
+    EXPECT_EQ(testGate->isOccupied(), false);
+    EXPECT_EQ(testGate->getAirplane(), nullptr);
 }
 
 TEST_F(GatesTest, airplaneTest) {
-    EXPECT_EQ(testGate->get_name(), 1);
-    EXPECT_EQ(testGate->is_occupied(), false);
-    EXPECT_EQ(testGate->get_airplane(), nullptr);
+    EXPECT_EQ(testGate->getName(), 1);
+    EXPECT_EQ(testGate->isOccupied(), false);
+    EXPECT_EQ(testGate->getAirplane(), nullptr);
     string name = "LAX";
     Flightplan* testFlightplan = new Flightplan(name, 15, 45, 1);
     Airplane* testAirplane = new Airplane("32", "callsign", "model", 0, 110, 5000, "militairy", "jet", "small", testFlightplan);
     testGate->addAirplane(testAirplane);
-    EXPECT_TRUE(testGate->is_occupied());
+    EXPECT_TRUE(testGate->isOccupied());
     testGate->removeAirplane();
-    EXPECT_FALSE(testGate->is_occupied());
+    EXPECT_FALSE(testGate->isOccupied());
     Airplane* testAirplane2 = new Airplane("127", "Boeiing", "747", 0, 400, 15000, "Commercial", "airplane", "large", testFlightplan);
     testGate->addAirplane(testAirplane2);
-    EXPECT_TRUE(testGate->is_occupied());
+    EXPECT_TRUE(testGate->isOccupied());
     EXPECT_EQ(testAirplane2->getStatus(), StandingAtGate);
-    EXPECT_EQ(testGate->get_airplane()->properlyInitialised(), true);
-    EXPECT_EQ(testGate->get_airplane()->getNumber(), "127");
+    EXPECT_EQ(testGate->getAirplane()->properlyInitialised(), true);
+    EXPECT_EQ(testGate->getAirplane()->getNumber(), "127");
 }

@@ -38,7 +38,7 @@ LuchthavenParser::~LuchthavenParser() {
 void LuchthavenParser::isRunAirEqual(vector<Runway*> runwaysVect, vector<Airport*> airportsVect){
     for(unsigned int RW = 0; RW < runwaysVect.size(); RW++){
         for(unsigned int AIR = 0; AIR < airportsVect.size(); AIR++){
-            if (runwaysVect[RW]->get_airport() == airportsVect[AIR]->getIata())
+            if (runwaysVect[RW]->getAirport() == airportsVect[AIR]->getIata())
             {
                 airportsVect[AIR]->addRunway(runwaysVect[RW]);
             }
