@@ -24,8 +24,8 @@ public:
     */
     bool properlyInitialised();
     /* Contract
-    * PRE:
-    * POST:
+    * PRE:Must be Properly initialised
+    * POST:Runwayparser has been constructed
     */
     RunwayParser();
     /* Contract
@@ -34,19 +34,16 @@ public:
     */
     virtual ~RunwayParser();
     /* Contract
-    * PRE:
-    * POST:
+    * PRE:Must be Properly initialised
+    * POST:Runway elements are parsed
     */
     Runway* parseRunway(TiXmlElement* elem);
     /* Contract
-    * PRE:
-    * POST:
+    * PRE:Must be Properly initialised
+    * POST:Runway is returned
     */
     Runway* getRunway();
-    /* Contract
-    * PRE:
-    * POST:
-    */
+
 };
 
 

@@ -24,8 +24,8 @@ public:
     */
     bool properlyInitialised();
     /* Contract
-    * PRE:
-    * POST:
+    * PRE:Must be Properly initialised
+    * POST:Flightplan is constructed
     */
     FlightplanParser();
     /* Contract
@@ -34,13 +34,14 @@ public:
     */
     virtual ~FlightplanParser();
     /* Contract
-    * PRE:
+    * PRE:Must be Properly initialised
     * POST:
+     * flightplan is parsed
     */
     Flightplan* parseFlightplan(TiXmlElement* elem);
     /* Contract
-    * PRE:
-    * POST:
+    * PRE:Must be Properly initialised
+    * POST:Flightplan is returned
     */
     Flightplan* getFlightplan();
 };

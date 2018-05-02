@@ -45,35 +45,48 @@ TEST_F(AirportTest, gettersEnSetters){
     EXPECT_EQ(testAirport->getCallsign(),"callsign");
     EXPECT_EQ(testAirport->getIata(),"IATA");
 }
-//TEST_F(AirportTest, LandingProtocols){
-//    string name = "LAX";
-//    Flightplan* testFlightplan = new Flightplan(name, 15, 45, 1);
-//    Airplane* testAirplane = new Airplane("32", "callsign", "model", Approaching, 110, 5000, "militairy", "jet", "small", testFlightplan);
-//    EXPECT_EQ(testAirplane->getHeight(), 10000);
-//    testAirport->Landingprotocol(testAirplane);
-//    EXPECT_EQ(testAirplane->getHeight(), 1000);
-//}
-//TEST_F(AirportTest, FinishedLanding){
-//    string name = "LAX";
-//    //Runway* testRunway = new Runway(3, name, name, name);
-//
-//    Flightplan* testFlightplan = new Flightplan(name, 15, 45, 1);
-//    Airplane* testAirplane = new Airplane("32", "callsign", "model", Approaching, 110, 5000, "militairy", "jet", "small", testFlightplan);
-//    EXPECT_EQ(testAirplane->getHeight(), 10000);
-////    testAirport->completeLandingSequence(testAirplane);
-////    EXPECT_EQ(testAirplane->getHeight(), 0);
-//    testAirplane->setHeight(0);
-//
-//}
-//TEST_F(AirportTest, GateProtocol){
-//    string name = "LAX";
-//    Flightplan* testFlightplan = new Flightplan(name, 15, 45, 1);
-//    Airplane* testAirplane = new Airplane("32", "callsign", "model", JustLanded, 110, 5000, "militairy", "jet", "small", testFlightplan);
-//    EXPECT_EQ(testAirplane->getHeight(), 0);
-//    testAirport->gateprotocol(testAirplane, 110);
-//    string name1= "R11";
-//    string name2= "FLAT";
-//    string name3= "ANR";
-//    EXPECT_EQ(testAirplane->getPassengers(), 110);
-//
-//}
+TEST_F(AirportTest, LandingProtocol){
+    AirTrafficController* John = new AirTrafficController(testAirport,"John");
+    testAirport->assignController(John);
+    string name = "LAX";
+    Flightplan* testFlightplan = new Flightplan(name, 15, 45, 1);
+    Airplane* testAirplane = new Airplane("32", "callsign", "model", Approaching, 110, 5000, "militairy", "jet", "small", testFlightplan);
+    EXPECT_EQ(testAirplane->getHeight(), 10000);
+    testAirport->Landingprotocol(testAirplane);
+    EXPECT_EQ(testAirplane->getHeight(), 0);
+}
+
+TEST_F(AirportTest, TakeoffProtocol){
+    AirTrafficController* John = new AirTrafficController(testAirport,"John");
+    testAirport->assignController(John);
+    string name = "LAX";
+    Flightplan* testFlightplan = new Flightplan(name, 15, 45, 1);
+    Airplane* testAirplane = new Airplane("32", "callsign", "model", Departure, 110, 5000, "militairy", "jet", "small", testFlightplan);
+    EXPECT_EQ(testAirplane->getHeight(), 0);
+    testAirport->TakeOffprotocol(testAirplane);
+    EXPECT_EQ(testAirplane->getStatus(), 4);
+}
+TEST_F(AirportTest, GateProtocol){
+    AirTrafficController* John = new AirTrafficController(testAirport,"John");
+    testAirport->assignController(John);
+    string name = "LAX";
+    Flightplan* testFlightplan = new Flightplan(name, 15, 45, 1);
+    Airplane* testAirplane = new Airplane("32", "callsign", "model", StandingAtGate, 110, 5000, "militairy", "jet", "small", testFlightplan);
+    EXPECT_EQ(testAirplane->getHeight(), 0);
+    testAirport->gateprotocol(testAirplane, 110);
+    EXPECT_EQ(testAirplane->getStatus(), StandingAtGate);
+}
+TEST_F(AirportTest, AirplaneToRun){
+    AirTrafficController* John = new AirTrafficController(testAirport,"John");
+    testAirport->assignController(John);
+    string name = "LAX";
+    Flightplan* testFlightplan = new Flightplan(name, 15, 45, 1);
+    Airplane* testAirplane = new Airplane("32", "callsign", "model", Departure, 110, 5000, "militairy", "jet", "small", testFlightplan);
+    EXPECT_EQ(testAirplane->getHeight(), 0);
+    testAirport->addAirplaneToRunway(testAirplane);
+    testAirport->removeAirplaneOfRunway(testAirplane);
+}TEST_F(AirportTest, Controller){
+    AirTrafficController* John = new AirTrafficController(testAirport,"John");
+    testAirport->assignController(John);
+    EXPECT_EQ(testAirport->getController(), John);
+}

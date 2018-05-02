@@ -22,8 +22,8 @@ public:
     */
     bool properlyInitialised();
     /* Contract
-    * PRE:
-    * POST:
+    * PRE:Must be Properly initialised
+    * POST:Constructed
     */
     AirportParser();
     /* Contract
@@ -32,13 +32,13 @@ public:
     */
     virtual ~AirportParser();
     /* Contract
-    * PRE:
-    * POST:
+    * PRE:Must be Properly initialised
+    * POST:Airport items must be parsed
     */
     Airport* parseAirport(TiXmlElement* elem);
     /* Contract
-    * PRE:
-    * POST:
+    * PRE:Must be Properly initialised
+    * POST:Airport is returned
     */
     Airport* getAirport();
 };

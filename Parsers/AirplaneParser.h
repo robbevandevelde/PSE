@@ -22,8 +22,8 @@ public:
     */
     bool properlyInitialised();
     /* Contract
-    * PRE:
-    * POST:
+    * PRE:Must be Properly initialised
+    * POST:Must be constructed
     */
     AirplaneParser();
     /* Contract
@@ -37,13 +37,13 @@ public:
     */
     Airplane* parseAirplane(TiXmlElement* elem);
     /* Contract
-    * PRE:
-    * POST:
+    * PRE:Must be Properly initialised
+    * POST: Airplane returned
     */
     Airplane* getAirplane();
     /* Contract
-    * PRE:
-    * POST:
+    * PRE:Must be Properly initialised
+    * POST:status is returned(enum)
     */
     unsigned int Statuscheck(string St);
 };

@@ -35,28 +35,28 @@ public:
     */
     bool properlyInitialised();
     /* Contract
-    * PRE:
-    * POST:
+    * PRE:Must be Properly initialised, Have 2 vectors as input
+    * POST:runway is added to airport if needed
     */
     void isRunAirEqual(vector<Runway*> runwaysVect, vector<Airport*> airportsVect);
     /* Contract
-    * PRE:
-    * POST:
+    * PRE:Must be Properly initialised
+    * POST:Runways is returned as vector
     */
     vector<Runway*> getRunways();
     /* Contract
-    * PRE:
-    * POST:
+    * PRE:Must be Properly initialised
+    * POST:Airplanes is returned as vector
     */
     vector<Airplane*> getAirplanes();
     /* Contract
-    * PRE:
-    * POST:
+    * PRE:Must be Properly initialised
+    * POST:Airports is returned as vector
     */
     vector<Airport*> getAirports();
     /* Contract
-    * PRE:
-    * POST:
+    * PRE:Must be Properly initialised
+    * POST:Luchthaven has been constructed
     */
     LuchthavenParser();
     /* Contract
@@ -65,38 +65,38 @@ public:
     */
     virtual ~LuchthavenParser();
     /* Contract
-    * PRE:
-    * POST:
+    * PRE:Must be Properly initialised
+    * POST:Items must be parsed
     */
     void parseItems(TiXmlElement* elem);
     /* Contract
-    * PRE:
-    * POST:
+    * PRE:Must be Properly initialised
+    * POST:Information has been written to file
     */
     void writeToFile(vector<Runway*> runwaysVect, vector<Airport*> airportsVect, vector<Airplane*> airplanesVect);
     /* Contract
-    * PRE:
-    * POST:
+    * PRE:Must be Properly initialised
+    * POST:file is loaded in
     */
     bool loadFile(string filename);
     /* Contract
-    * PRE:
-    * POST:
+    * PRE:Must be Properly initialised
+    * POST:Element Root is returned
     */
     TiXmlElement *getRoot();
     /* Contract
-    * PRE:
-    * POST:
+    * PRE:Must be Properly initialised
+    * POST:Root has been set to given element
     */
     void setRoot(TiXmlElement *root);
     /* Contract
-    * PRE:
-    * POST:
+    * PRE:Must be Properly initialised
+    * POST:Enum is returend
     */
     SuccessEnum getSuccessEnum();
     /* Contract
-    * PRE:
-    * POST:
+    * PRE:Must be Properly initialised
+    * POST:Succes enum has been set to given item
     */
     void setSuccessEnum(SuccessEnum successEnum);
 };
