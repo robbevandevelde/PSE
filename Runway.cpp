@@ -65,7 +65,8 @@ void Runway::removeAirplane()
 
     _airplane = NULL;
     _status = false;
-
+    _goingtobeused = false;
+    ENSURE(!_goingtobeused, " remove airplane failure");
     ENSURE(_airplane == NULL, "Airplane must point to a nullptr after removing a plane");
     ENSURE(!_status,"Status must be false after removing a plane");
 }
