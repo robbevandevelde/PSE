@@ -11,7 +11,7 @@
  */
 Airplane::Airplane(std::string number,std::string callsign, std::string model,
                    unsigned int status, unsigned int passengers, unsigned int fuel,
-                   std::string type, std::string engine, std::string size, Flightplan* flightp)
+                   unsigned int type, unsigned int engine, unsigned int size, Flightplan* flightp)
 {
 
     _initcheck = this;
@@ -200,7 +200,7 @@ void Airplane::setHeight(unsigned int _height)
  *@param geen
  *@return string type van airplane
  */
-const std::string &Airplane::getType()
+unsigned int Airplane::getType()
 {
     REQUIRE(this->properlyInitialised(), "Airplane wasn't properly initialised when calling getType()");
     return _type;
@@ -210,7 +210,7 @@ const std::string &Airplane::getType()
  *@param string type
  *@return niks
  */
-void Airplane::setType(const std::string &type)
+void Airplane::setType(unsigned int type)
 {
     REQUIRE(this->properlyInitialised(), "Airplane wasn't properly initialised when calling setType()");
     Airplane::_type = type;
@@ -221,7 +221,7 @@ void Airplane::setType(const std::string &type)
  *@param geen
  *@return string engine van de airplane
  */
-const std::string &Airplane::getEngine()
+unsigned int Airplane::getEngine()
 {
     REQUIRE(this->properlyInitialised(), "Airplane wasn't properly initialised when calling getEngine()");
     return _engine;
@@ -231,7 +231,7 @@ const std::string &Airplane::getEngine()
  *@param string engine
  *@return geen
  */
-void Airplane::setEngine(const std::string &engine)
+void Airplane::setEngine(unsigned int engine)
 {
     REQUIRE(this->properlyInitialised(), "Airplane wasn't properly initialised when calling setEngine()");
     Airplane::_engine = engine;
@@ -242,7 +242,7 @@ void Airplane::setEngine(const std::string &engine)
  *@param geen
  *@return string size van de airplane
  */
-const std::string &Airplane::getSize()
+unsigned int Airplane::getSize()
 {
     REQUIRE(this->properlyInitialised(), "Airplane wasn't properly initialised when calling getSize()");
     return _size;
@@ -252,7 +252,7 @@ const std::string &Airplane::getSize()
  *@param string size
  *@return geen
  */
-void Airplane::setSize(const std::string &size)
+void Airplane::setSize(unsigned int size)
 {
     REQUIRE(this->properlyInitialised(), "Airplane wasn't properly initialised when calling setSize()");
     Airplane::_size = size;

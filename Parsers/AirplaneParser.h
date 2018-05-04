@@ -46,6 +46,9 @@ public:
     * POST:status is returned(enum)
     */
     unsigned int Statuscheck(string St);
+    unsigned int Enginecheck(string En);
+    unsigned int Typecheck(string Ty);
+    unsigned int Sizecheck(string Si);
 };
 
 

@@ -43,7 +43,8 @@ Airplane *AirplaneParser::parseAirplane(TiXmlElement *elem) {
             fp = fpp.parseFlightplan(p);
         }
     }
-    Airplane* airplane = new Airplane(Number, Callsign, Model, Statuscheck(Status), Passengers, Fuel, Type, Engine, Size, fp);
+    Airplane* airplane = new Airplane(Number, Callsign, Model, Statuscheck(Status), Passengers, Fuel, Typecheck(Type),
+                                      Enginecheck(Engine), Sizecheck(Size), fp);
 
 
     return airplane;}
@@ -75,4 +76,47 @@ unsigned int AirplaneParser::Statuscheck(string St) {
 
 bool AirplaneParser::properlyInitialised() {
     return initCheck == this;
+}
+
+unsigned int AirplaneParser::Enginecheck(string En) {
+    REQUIRE(this->properlyInitialised(), "airplaneParser wasn't properly initialised when calling readElement()");
+    if (En== "jet"){
+        return Jet;
+    }
+    if (En== "propeller"){
+        return Propeller;
+    }
+    return  -1;
+
+}
+
+unsigned int AirplaneParser::Typecheck(string Ty) {
+    REQUIRE(this->properlyInitialised(), "airplaneParser wasn't properly initialised when calling readElement()");
+    if (Ty== "private"){
+        return Private;
+    }
+    if (Ty== "militairy"){
+        return Militairy;
+    }
+    if (Ty== "airline"){
+        return Airline;
+    }
+    if (Ty== "emergency"){
+        return Emergency;
+    }
+    return -1;
+}
+
+unsigned int AirplaneParser::Sizecheck(string Si) {
+    REQUIRE(this->properlyInitialised(), "airplaneParser wasn't properly initialised when calling readElement()");
+    if (Si== "small"){
+        return Small;
+    }
+    if (Si== "medium"){
+        return Medium;
+    }
+    if (Si== "large"){
+        return Large;
+    }
+    return 0;
 }
