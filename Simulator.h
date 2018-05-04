@@ -1,6 +1,8 @@
-//
-// Created by thimoty on 4/30/18.
-//
+/*Dit is de simulator dat het landen en opstijgen automatiseerd
+ *@author: Thimoty
+ *@date: 26/04/2018
+ *@version: 2.0
+ */
 
 #ifndef PSE_SIMULATOR_H
 #define PSE_SIMULATOR_H

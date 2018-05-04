@@ -6,17 +6,6 @@
         <callsign>Antwerp Tower</callsign>
         <gates>10</gates>
     </AIRPORT>
-    <RUNWAY>
-        <name>11R</name>
-        <airport>ANR</airport>
-        <type>asphalt</type>
-        <length>1510</length>
-        <TAXIROUTE>
-            <taxipoint>Alpha</taxipoint>
-            <crossing>11R</crossing>
-            <taxipoint>Bravo</taxipoint>
-        </TAXIROUTE>
-    </RUNWAY>
     <AIRPLANE>
         <number>N11842</number>
         <callsign>Cessna 842</callsign>
@@ -34,4 +23,50 @@
             <interval>1</interval>
         </FLIGHTPLAN>
     </AIRPLANE>
+    <AIRPLANE>
+        <number>N1</number>
+        <callsign>EF566</callsign>
+        <model>Winchester</model>
+        <status>Approaching</status>
+        <passengers>5</passengers>
+        <fuel>5</fuel>
+        <type>Militsiry</type>
+        <engine>jet</engine>
+        <size>small</size>
+        <FLIGHTPLAN>
+            <destination>LCY</destination>
+            <departure>15</departure>
+            <arrival>45</arrival>
+            <interval>1</interval>
+        </FLIGHTPLAN>
+    </AIRPLANE>
+    <AIRPLANE>
+        <number>Win10521</number>
+        <callsign>Win10</callsign>
+        <model>win100</model>
+        <status>Approaching</status>
+        <passengers>5</passengers>
+        <fuel>5</fuel>
+        <type>private</type>
+        <engine>propeller</engine>
+        <size>small</size>
+        <FLIGHTPLAN>
+            <destination>LCY</destination>
+            <departure>15</departure>
+            <arrival>45</arrival>
+            <interval>1</interval>
+        </FLIGHTPLAN>
+    </AIRPLANE>
+    <RUNWAY>
+        <name>11R</name>
+        <airport>ANR</airport>
+        <type>asphalt</type>
+        <length>1510</length>
+    </RUNWAY>
+    <RUNWAY>
+        <name>11L</name>
+        <airport>ANR</airport>
+        <type>grass</type>
+        <length>50</length>
+    </RUNWAY>
 </SIMULATIE>

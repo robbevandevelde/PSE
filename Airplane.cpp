@@ -37,7 +37,7 @@ Airplane::Airplane(std::string number,std::string callsign, std::string model,
     ENSURE(_height == 0 || _height == 10000, "Height must be either 0 or 10000");
     ENSURE(getNumber() == number && getCallsign() == callsign && getModel() == model && getStatus() == status &&
            getPassengers() == passengers && getFuel() == fuel && getType() == type && getEngine() == engine &&
-    getSize() == size && getFlightplan() == flightp, "Airplane constructor failure");
+           getSize() == size && getFlightplan() == flightp, "Airplane constructor failure");
 }
 
 /*Checkt of dat het goed geinitialised is
@@ -280,6 +280,10 @@ void Airplane::setFlightplan(Flightplan *flightplan)
     ENSURE(getFlightplan() == flightplan, "setFlightplan() failure");
 }
 
+/*Ascend de vliegtuig met 1000 ft
+ *@param geen
+ *@return geen
+ */
 void Airplane::ascend()
 {
     REQUIRE(this->properlyInitialised(), "Airplane wasn't properly initialised when calling ascend()");
@@ -287,17 +291,29 @@ void Airplane::ascend()
     std::cout<< _callsign << " ascended to " << _height << " ft." << std::endl;
 }
 
+/*Descend de vliegtuig met 1000 ft
+ *@param geen
+ *@return geen
+ */
 void Airplane::descend() {
     REQUIRE(this->properlyInitialised(), "Airplane wasn't properly initialised when calling descend()");
     _height -= 1000;
     std::cout<< _callsign << " descended to " << _height << " ft." << std::endl;
 }
 
+/*Checkt of dat de vliegtuig bijgetankt is
+ *@param geen
+ *@return bool fueled
+ */
 bool Airplane::isFueled() {
     REQUIRE(this->properlyInitialised(), "Airplane wasn't properly initialised when calling isFueled()");
     return _fueled;
 }
 
+/*Set de fueled status
+ *@param bool fueled
+ *@return geen
+ */
 void Airplane::setFueled(bool _fueled) {
     REQUIRE(this->properlyInitialised(),"Airplane wasn't properly initialised when calling setFueled()");
     Airplane::_fueled = _fueled;

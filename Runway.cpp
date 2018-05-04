@@ -43,12 +43,10 @@ void Runway::addAirplane(Airplane *airplane)
 
     _airplane = airplane;
     _status = true;
-
+    _goingtobeused = true;
     _airplane->setHeight(0);
     ENSURE(_airplane->getHeight() == 0, "Added airplane's height isn't set to 0");
-
     ENSURE(getAirplane() == airplane, "Added airplane doesn't match airplane");
-
     ENSURE(getAirplane() == airplane, "Airplane must point to the given airplane");
     ENSURE(_status,"Status must be true after adding an airplane");
 }
@@ -169,7 +167,7 @@ Airplane *Runway::getAirplane()
  *@param geen
  *@return bool de status van de runway
  */
-bool Runway::isStatus()
+bool Runway::isOccupied()
 {
     REQUIRE(this->properlyInitialised(), "Runway wasn't properly initialised when calling getStatus()");
     return _status;
@@ -226,22 +224,32 @@ void Runway::setStatus(bool _status)
 {
     REQUIRE(this->properlyInitialised(),"Runway wasn't properly initialised when calling setStatus()");
     Runway::_status = _status;
-    ENSURE(isStatus() == _status, "setStatus() failure");
+    ENSURE(isOccupied() == _status, "setStatus() failure");
 }
-
+/*set de goingtoebeusedstatus
+ *@param geen
+ *@return geen
+ */
 void Runway::setUsedStatus() {
     REQUIRE(this->properlyInitialised(), "Gate wasn't properly initialised when calling setUsedStatus()");
+    REQUIRE(!_goingtobeused, "setUsedSatus() failure");
     _goingtobeused = true;
-    ENSURE(_goingtobeused, "setUsedStatus failure");
+    ENSURE(_goingtobeused, "setUsedStatus() failure");
 }
-
+/*Removed de gointobeused status
+ *@param niks
+ *@return niks
+ */
 void Runway::removeUsedStatus() {
     REQUIRE(this->properlyInitialised(), "Gate wasn't properly initialised when calling removeUsedStatus()");
     _goingtobeused = false;
     ENSURE(!_goingtobeused, "removeUsedStatus() failure");
 }
-
-bool Runway::isUsed() {
+/*Checkt of dat de runway gebruikt gaat worden
+ *@param geen
+ *@return bool goingtobeused
+ */
+bool Runway::isGoingToBeUsed() {
     REQUIRE(this->properlyInitialised(), "Gate wasn't properly initialised when calling isUsedStatus()");
     return _goingtobeused;
 }

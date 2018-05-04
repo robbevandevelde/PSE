@@ -35,8 +35,8 @@ void Gate::addAirplane(Airplane *airplane)
 {
     REQUIRE(this->properlyInitialised(), "Gate wasn't properly initialised when calling addAirplane()");
     _airplane = airplane;
-    ENSURE(getAirplane() == airplane, "addAirplane() failure");
     _occupied = true;
+    ENSURE(getAirplane() == airplane, "addAirplane() failure");
     ENSURE(_occupied, "Occupied must be true");
 }
 
@@ -48,8 +48,8 @@ void Gate::removeAirplane()
 {
     REQUIRE(this->properlyInitialised(),"Gate wasn't properly initialised when calling removeAirplane()");
     _airplane = NULL;
-    ENSURE(getAirplane() == NULL, "Airplane must point to NULL");
     _occupied = false;
+    ENSURE(getAirplane() == NULL, "Airplane must point to NULL");
     ENSURE(!_occupied, "Occupied must be false");
 }
 
