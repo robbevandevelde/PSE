@@ -50,7 +50,7 @@ TEST_F(AirportTest, LandingProtocol){
     testAirport->assignController(John);
     string name = "LAX";
     Flightplan* testFlightplan = new Flightplan(name, 15, 45, 1);
-    Airplane* testAirplane = new Airplane("32", "callsign", "model", Approaching, 110, 5000, "militairy", "jet", "small", testFlightplan);
+    Airplane* testAirplane = new Airplane("32", "callsign", "model", Approaching, 110, 5000, 1, 1, 2, testFlightplan);
     EXPECT_EQ(testAirplane->getHeight(), 10000);
     testAirport->Landingprotocol(testAirplane);
     EXPECT_EQ(testAirplane->getHeight(), 0);
@@ -61,7 +61,7 @@ TEST_F(AirportTest, TakeoffProtocol){
     testAirport->assignController(John);
     string name = "LAX";
     Flightplan* testFlightplan = new Flightplan(name, 15, 45, 1);
-    Airplane* testAirplane = new Airplane("32", "callsign", "model", Departure, 110, 5000, "militairy", "jet", "small", testFlightplan);
+    Airplane* testAirplane = new Airplane("32", "callsign", "model", Departure, 110, 5000, 1, 1, 1, testFlightplan);
     EXPECT_EQ(testAirplane->getHeight(), 0);
     testAirport->TakeOffprotocol(testAirplane);
     EXPECT_EQ(testAirplane->getStatus(), 4);
@@ -71,7 +71,7 @@ TEST_F(AirportTest, GateProtocol){
     testAirport->assignController(John);
     string name = "LAX";
     Flightplan* testFlightplan = new Flightplan(name, 15, 45, 1);
-    Airplane* testAirplane = new Airplane("32", "callsign", "model", StandingAtGate, 110, 5000, "militairy", "jet", "small", testFlightplan);
+    Airplane* testAirplane = new Airplane("32", "callsign", "model", StandingAtGate, 110, 5000, 1, 2, 2, testFlightplan);
     EXPECT_EQ(testAirplane->getHeight(), 0);
     testAirport->gateprotocol(testAirplane, 110);
     EXPECT_EQ(testAirplane->getStatus(), StandingAtGate);
@@ -81,7 +81,7 @@ TEST_F(AirportTest, AirplaneToRun){
     testAirport->assignController(John);
     string name = "LAX";
     Flightplan* testFlightplan = new Flightplan(name, 15, 45, 1);
-    Airplane* testAirplane = new Airplane("32", "callsign", "model", Departure, 110, 5000, "militairy", "jet", "small", testFlightplan);
+    Airplane* testAirplane = new Airplane("32", "callsign", "model", Departure, 110, 5000, 1, 3, 1, testFlightplan);
     EXPECT_EQ(testAirplane->getHeight(), 0);
     testAirport->addAirplaneToRunway(testAirplane);
     testAirport->removeAirplaneOfRunway(testAirplane);

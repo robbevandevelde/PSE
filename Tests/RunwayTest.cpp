@@ -53,7 +53,7 @@ TEST_F(RunwayTest, aiport) {
 TEST_F(RunwayTest, airplanetest) {
     string name = "LAX";
     Flightplan* testFlightplan = new Flightplan(name, 15, 45, 1);
-    Airplane* testAirplane = new Airplane("32", "callsign", "model", 0, 110, 5000, "militairy", "jet", "small", testFlightplan);
+    Airplane* testAirplane = new Airplane("32", "callsign", "model", 0, 110, 5000, 1, 1, 1, testFlightplan);
     testRunway->setAirplane(testAirplane);
     EXPECT_EQ(testRunway->getAirplane()->getFlightplan()->getArrival(), 45);
     EXPECT_EQ(testRunway->getAirplane()->getFlightplan()->getDestination(), "LAX");

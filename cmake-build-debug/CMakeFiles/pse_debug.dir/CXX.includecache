@@ -246,43 +246,43 @@ cxxabi.h
 acxx_demangle.h
 -
 
-/Users/robbe/Desktop/Projecten_semester_2/PSE/PSE/AirTrafficController.cpp
+/Users/robbe/Desktop/PSE/AirTrafficController.cpp
 AirTrafficController.h
-/Users/robbe/Desktop/Projecten_semester_2/PSE/PSE/AirTrafficController.h
+/Users/robbe/Desktop/PSE/AirTrafficController.h
 Airplane.h
-/Users/robbe/Desktop/Projecten_semester_2/PSE/PSE/Airplane.h
+/Users/robbe/Desktop/PSE/Airplane.h
 Airport.h
-/Users/robbe/Desktop/Projecten_semester_2/PSE/PSE/Airport.h
+/Users/robbe/Desktop/PSE/Airport.h
 
-/Users/robbe/Desktop/Projecten_semester_2/PSE/PSE/AirTrafficController.h
+/Users/robbe/Desktop/PSE/AirTrafficController.h
 iostream
 -
 DesignByContract.h
-/Users/robbe/Desktop/Projecten_semester_2/PSE/PSE/DesignByContract.h
+/Users/robbe/Desktop/PSE/DesignByContract.h
 
-/Users/robbe/Desktop/Projecten_semester_2/PSE/PSE/Airplane.cpp
+/Users/robbe/Desktop/PSE/Airplane.cpp
 Airplane.h
-/Users/robbe/Desktop/Projecten_semester_2/PSE/PSE/Airplane.h
+/Users/robbe/Desktop/PSE/Airplane.h
 
-/Users/robbe/Desktop/Projecten_semester_2/PSE/PSE/Airplane.h
+/Users/robbe/Desktop/PSE/Airplane.h
 DesignByContract.h
-/Users/robbe/Desktop/Projecten_semester_2/PSE/PSE/DesignByContract.h
+/Users/robbe/Desktop/PSE/DesignByContract.h
 Flightplan.h
-/Users/robbe/Desktop/Projecten_semester_2/PSE/PSE/Flightplan.h
+/Users/robbe/Desktop/PSE/Flightplan.h
 iostream
 -
 
-/Users/robbe/Desktop/Projecten_semester_2/PSE/PSE/Airport.cpp
+/Users/robbe/Desktop/PSE/Airport.cpp
 Gate.h
-/Users/robbe/Desktop/Projecten_semester_2/PSE/PSE/Gate.h
+/Users/robbe/Desktop/PSE/Gate.h
 Runway.h
-/Users/robbe/Desktop/Projecten_semester_2/PSE/PSE/Runway.h
+/Users/robbe/Desktop/PSE/Runway.h
 DesignByContract.h
-/Users/robbe/Desktop/Projecten_semester_2/PSE/PSE/DesignByContract.h
+/Users/robbe/Desktop/PSE/DesignByContract.h
 Airport.h
-/Users/robbe/Desktop/Projecten_semester_2/PSE/PSE/Airport.h
+/Users/robbe/Desktop/PSE/Airport.h
 
-/Users/robbe/Desktop/Projecten_semester_2/PSE/PSE/Airport.h
+/Users/robbe/Desktop/PSE/Airport.h
 vector
 -
 sstream
@@ -290,13 +290,13 @@ sstream
 iostream
 -
 Airplane.h
-/Users/robbe/Desktop/Projecten_semester_2/PSE/PSE/Airplane.h
+/Users/robbe/Desktop/PSE/Airplane.h
 AirTrafficController.h
-/Users/robbe/Desktop/Projecten_semester_2/PSE/PSE/AirTrafficController.h
+/Users/robbe/Desktop/PSE/AirTrafficController.h
 
-/Users/robbe/Desktop/Projecten_semester_2/PSE/PSE/AirportUtils.cpp
+/Users/robbe/Desktop/PSE/AirportUtils.cpp
 AirportUtils.h
-/Users/robbe/Desktop/Projecten_semester_2/PSE/PSE/AirportUtils.h
+/Users/robbe/Desktop/PSE/AirportUtils.h
 iostream
 -
 fstream
@@ -308,79 +308,79 @@ cstdio
 string
 -
 
-/Users/robbe/Desktop/Projecten_semester_2/PSE/PSE/AirportUtils.h
+/Users/robbe/Desktop/PSE/AirportUtils.h
 iostream
 -
 
-/Users/robbe/Desktop/Projecten_semester_2/PSE/PSE/DesignByContract.h
+/Users/robbe/Desktop/PSE/DesignByContract.h
 assert.h
 -
 
-/Users/robbe/Desktop/Projecten_semester_2/PSE/PSE/Flightplan.cpp
+/Users/robbe/Desktop/PSE/Flightplan.cpp
 Flightplan.h
-/Users/robbe/Desktop/Projecten_semester_2/PSE/PSE/Flightplan.h
+/Users/robbe/Desktop/PSE/Flightplan.h
 
-/Users/robbe/Desktop/Projecten_semester_2/PSE/PSE/Flightplan.h
+/Users/robbe/Desktop/PSE/Flightplan.h
 DesignByContract.h
-/Users/robbe/Desktop/Projecten_semester_2/PSE/PSE/DesignByContract.h
+/Users/robbe/Desktop/PSE/DesignByContract.h
 string
 -
 
-/Users/robbe/Desktop/Projecten_semester_2/PSE/PSE/Gate.cpp
+/Users/robbe/Desktop/PSE/Gate.cpp
 Gate.h
-/Users/robbe/Desktop/Projecten_semester_2/PSE/PSE/Gate.h
+/Users/robbe/Desktop/PSE/Gate.h
 
-/Users/robbe/Desktop/Projecten_semester_2/PSE/PSE/Gate.h
+/Users/robbe/Desktop/PSE/Gate.h
 iostream
 -
 Airplane.h
-/Users/robbe/Desktop/Projecten_semester_2/PSE/PSE/Airplane.h
+/Users/robbe/Desktop/PSE/Airplane.h
 
-/Users/robbe/Desktop/Projecten_semester_2/PSE/PSE/Parsers/AirplaneParser.cpp
+/Users/robbe/Desktop/PSE/Parsers/AirplaneParser.cpp
 iostream
 -
 AirplaneParser.h
-/Users/robbe/Desktop/Projecten_semester_2/PSE/PSE/Parsers/AirplaneParser.h
+/Users/robbe/Desktop/PSE/Parsers/AirplaneParser.h
 FlightplanParser.h
-/Users/robbe/Desktop/Projecten_semester_2/PSE/PSE/Parsers/FlightplanParser.h
+/Users/robbe/Desktop/PSE/Parsers/FlightplanParser.h
 
-/Users/robbe/Desktop/Projecten_semester_2/PSE/PSE/Parsers/AirplaneParser.h
+/Users/robbe/Desktop/PSE/Parsers/AirplaneParser.h
 string
 -
 ../Airplane.h
-/Users/robbe/Desktop/Projecten_semester_2/PSE/PSE/Airplane.h
+/Users/robbe/Desktop/PSE/Airplane.h
 ../TinyXML/tinyxml.h
-/Users/robbe/Desktop/Projecten_semester_2/PSE/PSE/TinyXML/tinyxml.h
+/Users/robbe/Desktop/PSE/TinyXML/tinyxml.h
 
-/Users/robbe/Desktop/Projecten_semester_2/PSE/PSE/Parsers/AirportParser.cpp
+/Users/robbe/Desktop/PSE/Parsers/AirportParser.cpp
 AirportParser.h
-/Users/robbe/Desktop/Projecten_semester_2/PSE/PSE/Parsers/AirportParser.h
+/Users/robbe/Desktop/PSE/Parsers/AirportParser.h
 
-/Users/robbe/Desktop/Projecten_semester_2/PSE/PSE/Parsers/AirportParser.h
+/Users/robbe/Desktop/PSE/Parsers/AirportParser.h
 string
 -
 ../Airport.h
-/Users/robbe/Desktop/Projecten_semester_2/PSE/PSE/Airport.h
+/Users/robbe/Desktop/PSE/Airport.h
 ../TinyXML/tinyxml.h
-/Users/robbe/Desktop/Projecten_semester_2/PSE/PSE/TinyXML/tinyxml.h
+/Users/robbe/Desktop/PSE/TinyXML/tinyxml.h
 
-/Users/robbe/Desktop/Projecten_semester_2/PSE/PSE/Parsers/FlightplanParser.cpp
+/Users/robbe/Desktop/PSE/Parsers/FlightplanParser.cpp
 FlightplanParser.h
-/Users/robbe/Desktop/Projecten_semester_2/PSE/PSE/Parsers/FlightplanParser.h
+/Users/robbe/Desktop/PSE/Parsers/FlightplanParser.h
 
-/Users/robbe/Desktop/Projecten_semester_2/PSE/PSE/Parsers/FlightplanParser.h
+/Users/robbe/Desktop/PSE/Parsers/FlightplanParser.h
 string
 -
 ../TinyXML/tinyxml.h
-/Users/robbe/Desktop/Projecten_semester_2/PSE/PSE/TinyXML/tinyxml.h
+/Users/robbe/Desktop/PSE/TinyXML/tinyxml.h
 ../Flightplan.h
-/Users/robbe/Desktop/Projecten_semester_2/PSE/PSE/Flightplan.h
+/Users/robbe/Desktop/PSE/Flightplan.h
 
-/Users/robbe/Desktop/Projecten_semester_2/PSE/PSE/Parsers/LuchthavenParser.cpp
+/Users/robbe/Desktop/PSE/Parsers/LuchthavenParser.cpp
 LuchthavenParser.h
-/Users/robbe/Desktop/Projecten_semester_2/PSE/PSE/Parsers/LuchthavenParser.h
+/Users/robbe/Desktop/PSE/Parsers/LuchthavenParser.h
 
-/Users/robbe/Desktop/Projecten_semester_2/PSE/PSE/Parsers/LuchthavenParser.h
+/Users/robbe/Desktop/PSE/Parsers/LuchthavenParser.h
 vector
 -
 string
@@ -388,43 +388,43 @@ string
 fstream
 -
 AirplaneParser.h
-/Users/robbe/Desktop/Projecten_semester_2/PSE/PSE/Parsers/AirplaneParser.h
+/Users/robbe/Desktop/PSE/Parsers/AirplaneParser.h
 AirportParser.h
-/Users/robbe/Desktop/Projecten_semester_2/PSE/PSE/Parsers/AirportParser.h
+/Users/robbe/Desktop/PSE/Parsers/AirportParser.h
 RunwayParser.h
-/Users/robbe/Desktop/Projecten_semester_2/PSE/PSE/Parsers/RunwayParser.h
+/Users/robbe/Desktop/PSE/Parsers/RunwayParser.h
 ../TinyXML/tinyxml.h
-/Users/robbe/Desktop/Projecten_semester_2/PSE/PSE/TinyXML/tinyxml.h
+/Users/robbe/Desktop/PSE/TinyXML/tinyxml.h
 ../Runway.h
-/Users/robbe/Desktop/Projecten_semester_2/PSE/PSE/Runway.h
+/Users/robbe/Desktop/PSE/Runway.h
 ../Airplane.h
-/Users/robbe/Desktop/Projecten_semester_2/PSE/PSE/Airplane.h
+/Users/robbe/Desktop/PSE/Airplane.h
 ../Airport.h
-/Users/robbe/Desktop/Projecten_semester_2/PSE/PSE/Airport.h
+/Users/robbe/Desktop/PSE/Airport.h
 
-/Users/robbe/Desktop/Projecten_semester_2/PSE/PSE/Parsers/RunwayParser.cpp
+/Users/robbe/Desktop/PSE/Parsers/RunwayParser.cpp
 RunwayParser.h
-/Users/robbe/Desktop/Projecten_semester_2/PSE/PSE/Parsers/RunwayParser.h
+/Users/robbe/Desktop/PSE/Parsers/RunwayParser.h
 
-/Users/robbe/Desktop/Projecten_semester_2/PSE/PSE/Parsers/RunwayParser.h
+/Users/robbe/Desktop/PSE/Parsers/RunwayParser.h
 string
 -
 ../Runway.h
-/Users/robbe/Desktop/Projecten_semester_2/PSE/PSE/Runway.h
+/Users/robbe/Desktop/PSE/Runway.h
 ../TinyXML/tinyxml.h
-/Users/robbe/Desktop/Projecten_semester_2/PSE/PSE/TinyXML/tinyxml.h
+/Users/robbe/Desktop/PSE/TinyXML/tinyxml.h
 ../DesignByContract.h
-/Users/robbe/Desktop/Projecten_semester_2/PSE/PSE/DesignByContract.h
+/Users/robbe/Desktop/PSE/DesignByContract.h
 
-/Users/robbe/Desktop/Projecten_semester_2/PSE/PSE/Runway.cpp
+/Users/robbe/Desktop/PSE/Runway.cpp
 Runway.h
-/Users/robbe/Desktop/Projecten_semester_2/PSE/PSE/Runway.h
+/Users/robbe/Desktop/PSE/Runway.h
 Airplane.h
-/Users/robbe/Desktop/Projecten_semester_2/PSE/PSE/Airplane.h
+/Users/robbe/Desktop/PSE/Airplane.h
 Taxiroute.h
-/Users/robbe/Desktop/Projecten_semester_2/PSE/PSE/Taxiroute.h
+/Users/robbe/Desktop/PSE/Taxiroute.h
 
-/Users/robbe/Desktop/Projecten_semester_2/PSE/PSE/Runway.h
+/Users/robbe/Desktop/PSE/Runway.h
 string
 -
 iostream
@@ -434,61 +434,61 @@ vector
 algorithm
 -
 
-/Users/robbe/Desktop/Projecten_semester_2/PSE/PSE/Simulator.cpp
+/Users/robbe/Desktop/PSE/Simulator.cpp
 Simulator.h
-/Users/robbe/Desktop/Projecten_semester_2/PSE/PSE/Simulator.h
+/Users/robbe/Desktop/PSE/Simulator.h
 
-/Users/robbe/Desktop/Projecten_semester_2/PSE/PSE/Simulator.h
+/Users/robbe/Desktop/PSE/Simulator.h
 iostream
 -
 Runway.h
-/Users/robbe/Desktop/Projecten_semester_2/PSE/PSE/Runway.h
+/Users/robbe/Desktop/PSE/Runway.h
 Airplane.h
-/Users/robbe/Desktop/Projecten_semester_2/PSE/PSE/Airplane.h
+/Users/robbe/Desktop/PSE/Airplane.h
 Airport.h
-/Users/robbe/Desktop/Projecten_semester_2/PSE/PSE/Airport.h
+/Users/robbe/Desktop/PSE/Airport.h
 DesignByContract.h
-/Users/robbe/Desktop/Projecten_semester_2/PSE/PSE/DesignByContract.h
+/Users/robbe/Desktop/PSE/DesignByContract.h
 
-/Users/robbe/Desktop/Projecten_semester_2/PSE/PSE/Taxiroute.cpp
+/Users/robbe/Desktop/PSE/Taxiroute.cpp
 Taxiroute.h
-/Users/robbe/Desktop/Projecten_semester_2/PSE/PSE/Taxiroute.h
+/Users/robbe/Desktop/PSE/Taxiroute.h
 
-/Users/robbe/Desktop/Projecten_semester_2/PSE/PSE/Taxiroute.h
+/Users/robbe/Desktop/PSE/Taxiroute.h
 string
 -
 iostream
 -
 
-/Users/robbe/Desktop/Projecten_semester_2/PSE/PSE/TestMain.cpp
+/Users/robbe/Desktop/PSE/TestMain.cpp
 gtest/gtest.h
 -
 
-/Users/robbe/Desktop/Projecten_semester_2/PSE/PSE/Tests/AirplaneTest.cpp
+/Users/robbe/Desktop/PSE/Tests/AirplaneTest.cpp
 gtest/gtest.h
 -
 ../Airplane.h
-/Users/robbe/Desktop/Projecten_semester_2/PSE/PSE/Airplane.h
+/Users/robbe/Desktop/PSE/Airplane.h
 
-/Users/robbe/Desktop/Projecten_semester_2/PSE/PSE/Tests/AirportTest.cpp
+/Users/robbe/Desktop/PSE/Tests/AirportTest.cpp
 gtest/gtest.h
 -
 ../Airport.h
-/Users/robbe/Desktop/Projecten_semester_2/PSE/PSE/Airport.h
+/Users/robbe/Desktop/PSE/Airport.h
 
-/Users/robbe/Desktop/Projecten_semester_2/PSE/PSE/Tests/FlightplanTest.cpp
+/Users/robbe/Desktop/PSE/Tests/FlightplanTest.cpp
 gtest/gtest.h
 -
 ../Flightplan.h
-/Users/robbe/Desktop/Projecten_semester_2/PSE/PSE/Flightplan.h
+/Users/robbe/Desktop/PSE/Flightplan.h
 
-/Users/robbe/Desktop/Projecten_semester_2/PSE/PSE/Tests/GatesTest.cpp
+/Users/robbe/Desktop/PSE/Tests/GatesTest.cpp
 gtest/gtest.h
 -
 ../Gate.h
-/Users/robbe/Desktop/Projecten_semester_2/PSE/PSE/Gate.h
+/Users/robbe/Desktop/PSE/Gate.h
 
-/Users/robbe/Desktop/Projecten_semester_2/PSE/PSE/Tests/LuchthavenParserTest.cpp
+/Users/robbe/Desktop/PSE/Tests/LuchthavenParserTest.cpp
 iostream
 -
 fstream
@@ -496,31 +496,31 @@ fstream
 gtest/gtest.h
 -
 ../Parsers/LuchthavenParser.h
-/Users/robbe/Desktop/Projecten_semester_2/PSE/PSE/Parsers/LuchthavenParser.h
+/Users/robbe/Desktop/PSE/Parsers/LuchthavenParser.h
 ../AirportUtils.h
-/Users/robbe/Desktop/Projecten_semester_2/PSE/PSE/AirportUtils.h
+/Users/robbe/Desktop/PSE/AirportUtils.h
 
-/Users/robbe/Desktop/Projecten_semester_2/PSE/PSE/Tests/RunwayTest.cpp
+/Users/robbe/Desktop/PSE/Tests/RunwayTest.cpp
 gtest/gtest.h
 -
 ../Runway.h
-/Users/robbe/Desktop/Projecten_semester_2/PSE/PSE/Runway.h
+/Users/robbe/Desktop/PSE/Runway.h
 ../Flightplan.h
-/Users/robbe/Desktop/Projecten_semester_2/PSE/PSE/Flightplan.h
+/Users/robbe/Desktop/PSE/Flightplan.h
 ../Airplane.h
-/Users/robbe/Desktop/Projecten_semester_2/PSE/PSE/Airplane.h
+/Users/robbe/Desktop/PSE/Airplane.h
 
-/Users/robbe/Desktop/Projecten_semester_2/PSE/PSE/TinyXML/tinystr.cpp
+/Users/robbe/Desktop/PSE/TinyXML/tinystr.cpp
 tinystr.h
-/Users/robbe/Desktop/Projecten_semester_2/PSE/PSE/TinyXML/tinystr.h
+/Users/robbe/Desktop/PSE/TinyXML/tinystr.h
 
-/Users/robbe/Desktop/Projecten_semester_2/PSE/PSE/TinyXML/tinystr.h
+/Users/robbe/Desktop/PSE/TinyXML/tinystr.h
 assert.h
 -
 string.h
 -
 
-/Users/robbe/Desktop/Projecten_semester_2/PSE/PSE/TinyXML/tinyxml.cpp
+/Users/robbe/Desktop/PSE/TinyXML/tinyxml.cpp
 ctype.h
 -
 sstream
@@ -528,9 +528,9 @@ sstream
 iostream
 -
 tinyxml.h
-/Users/robbe/Desktop/Projecten_semester_2/PSE/PSE/TinyXML/tinyxml.h
+/Users/robbe/Desktop/PSE/TinyXML/tinyxml.h
 
-/Users/robbe/Desktop/Projecten_semester_2/PSE/PSE/TinyXML/tinyxml.h
+/Users/robbe/Desktop/PSE/TinyXML/tinyxml.h
 ctype.h
 -
 stdio.h
@@ -548,19 +548,19 @@ iostream
 sstream
 -
 tinystr.h
-/Users/robbe/Desktop/Projecten_semester_2/PSE/PSE/TinyXML/tinystr.h
+/Users/robbe/Desktop/PSE/TinyXML/tinystr.h
 
-/Users/robbe/Desktop/Projecten_semester_2/PSE/PSE/TinyXML/tinyxmlerror.cpp
+/Users/robbe/Desktop/PSE/TinyXML/tinyxmlerror.cpp
 tinyxml.h
-/Users/robbe/Desktop/Projecten_semester_2/PSE/PSE/TinyXML/tinyxml.h
+/Users/robbe/Desktop/PSE/TinyXML/tinyxml.h
 
-/Users/robbe/Desktop/Projecten_semester_2/PSE/PSE/TinyXML/tinyxmlparser.cpp
+/Users/robbe/Desktop/PSE/TinyXML/tinyxmlparser.cpp
 ctype.h
 -
 stddef.h
 -
 tinyxml.h
-/Users/robbe/Desktop/Projecten_semester_2/PSE/PSE/TinyXML/tinyxml.h
+/Users/robbe/Desktop/PSE/TinyXML/tinyxml.h
 windows.h
 -
 

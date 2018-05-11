@@ -43,12 +43,12 @@ TEST_F(GatesTest, airplaneTest) {
     EXPECT_EQ(testGate->getAirplane(), nullptr);
     string name = "LAX";
     Flightplan* testFlightplan = new Flightplan(name, 15, 45, 1);
-    Airplane* testAirplane = new Airplane("32", "callsign", "model", 0, 110, 5000, "militairy", "jet", "small", testFlightplan);
+    Airplane* testAirplane = new Airplane("32", "callsign", "model", 0, 110, 5000, 1, 2, 1, testFlightplan);
     testGate->addAirplane(testAirplane);
     EXPECT_TRUE(testGate->isOccupied());
     testGate->removeAirplane();
     EXPECT_FALSE(testGate->isOccupied());
-    Airplane* testAirplane2 = new Airplane("127", "Boeiing", "747", 0, 400, 15000, "Commercial", "airplane", "large", testFlightplan);
+    Airplane* testAirplane2 = new Airplane("127", "Boeiing", "747", 0, 400, 15000, 3, 2, 3, testFlightplan);
     testGate->addAirplane(testAirplane2);
     EXPECT_TRUE(testGate->isOccupied());
 //    EXPECT_EQ(testAirplane2->getStatus(), StandingAtGate);

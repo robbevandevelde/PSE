@@ -17,7 +17,7 @@ protected:
     virtual void SetUp() {
         string name = "LAX";
         testFlightplan = new Flightplan(name, 15, 45, 1);
-        testAirplane = new Airplane("32", "callsign", "model", 5, 110, 5000, "militairy", "jet", "small", testFlightplan);
+        testAirplane = new Airplane("32", "callsign", "model", 5, 110, 5000, 1, 2, 1, testFlightplan);
 
     }
 

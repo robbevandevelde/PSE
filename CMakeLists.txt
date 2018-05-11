@@ -75,7 +75,12 @@ set(DEBUG_SOURCE_FILES
         AirportUtils.h Taxiroute.cpp Taxiroute.h Flightplan.cpp
         Flightplan.h Gate.cpp Gate.h AirTrafficController.cpp AirTrafficController.h Simulator.cpp Simulator.h
         testInput testInput/Input01.xml
-        Tests/FlightplanTest.cpp)
+        Tests/FlightplanTest.cpp
+        testInput/Input02.xml
+        testInput/Input03.xml
+        testInput/Input04.xml
+        testInput/Input05.xml
+        )
 
 add_executable(pse ${SOURCE_FILES})
 

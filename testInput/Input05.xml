@@ -1,0 +1,9 @@
+<?xml version="1.0" ?>
+<SIMULATIE>
+    <AL>
+        <name></name>
+        <iata></iata>
+        <callsign>Antwerp Tower</callsign>
+        <gates>10</gates>
+    </AL>
+</SIMULATIE>

@@ -71,6 +71,7 @@ int main() {
         Simulator* sim = new Simulator(runwaysVect,airplanesVect,airportsVect[0]);
         sim->addRunways();
         sim->Airplanes();
+        cout <<parser.getSuccessEnum();
     }else{
         cout<< "unable to parse file" << endl;
     }

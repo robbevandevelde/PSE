@@ -58,7 +58,7 @@ void LuchthavenParser::isRunAirEqual(vector<Runway*> runwaysVect, vector<Airport
  */
 void LuchthavenParser::parseItems(TiXmlElement *elem) {
     REQUIRE(this->properlyInitialised(), "Parser wasn't properly initialised when calling parseItems()");
-    successEnum= Success;
+    successEnum = ImportAborted;
     if (elem != NULL) {
         for (TiXmlElement *e = elem->FirstChildElement(); e != NULL; e = e->NextSiblingElement()) {
             string elemName = e->Value();
@@ -67,6 +67,8 @@ void LuchthavenParser::parseItems(TiXmlElement *elem) {
                 Runway *rw = rwp.parseRunway(e);
                 //if(rw->isConsistent()){
                 runways.push_back(rw);
+                successEnum= Success;
+
                 //}
             }
             if (elemName == "AIRPLANE") {
@@ -74,6 +76,8 @@ void LuchthavenParser::parseItems(TiXmlElement *elem) {
                 Airplane *apl = aplp.parseAirplane(e);
                 //if(apl->isConsistent()){
                 airplanes.push_back(apl);
+                successEnum= Success;
+
                 //}
             }
             if (elemName == "AIRPORT") {
@@ -81,9 +85,9 @@ void LuchthavenParser::parseItems(TiXmlElement *elem) {
                 Airport *apo = apop.parseAirport(e);
                 //if(apo->isConsistent()){
                 airports.push_back(apo);
+                successEnum= Success;
+
                 //}
-            } else {
-                successEnum = ImportAborted;
             }
         }
     }
