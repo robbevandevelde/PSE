@@ -14,35 +14,23 @@ using namespace std;
 
 class FlightplanParser {
 private:
+    //    REQUIRE(this->properlyInitialised(), "FlightplanParser wasn't properly initialised when calling readElement");
     string readElement(TiXmlElement* elem, const char* tag);
     Flightplan* flightplan;
     FlightplanParser* initCheck;
 public:
-    /* Contract
-    * PRE:
-    * POST:
-    */
     bool properlyInitialised();
-    /* Contract
-    * PRE:Must be Properly initialised
-    * POST:Flightplan is constructed
-    */
+    //    ENSURE(properlyInitialised(), "FlightplanParser wasn't properly initialised when calling constructor");
     FlightplanParser();
-    /* Contract
-    * PRE:
-    * POST:
-    */
+    //    ENSURE(properlyInitialised(), "FlightplanParser wasn't properly initialised when calling destructor");
     virtual ~FlightplanParser();
-    /* Contract
-    * PRE:Must be Properly initialised
-    * POST:
-     * flightplan is parsed
-    */
+    //    REQUIRE(this->properlyInitialised(), "FlightplanParser wasn't properly initialised when calling parseFlightplan");
+    //    ENSURE(flightplan->getDeparture() == Departure, "Departure not equal");
+    //    ENSURE(flightplan->getArrival() == Arrival, "Arrival not equal");
+    //    ENSURE(flightplan->getDestination() == Destination, "Destination not equal");
+    //    ENSURE(flightplan->getInterval() == Interval, "Interval not equal");
     Flightplan* parseFlightplan(TiXmlElement* elem);
-    /* Contract
-    * PRE:Must be Properly initialised
-    * POST:Flightplan is returned
-    */
+    //    REQUIRE(this->properlyInitialised(), "FlightplanParser wasn't properly initialised when calling parseFlightplan");
     Flightplan* getFlightplan();
 };
 

@@ -16,38 +16,32 @@ private:
     string readElement(TiXmlElement* elem, const char* tag);
     Airplane* airplane;
 public:
-    /* Contract
-    * PRE:
-    * POST:
-    */
+
     bool properlyInitialised();
-    /* Contract
-    * PRE:Must be Properly initialised
-    * POST:Must be constructed
-    */
+    //    ENSURE(properlyInitialised(), "Constructor must end");
     AirplaneParser();
-    /* Contract
-    * PRE:
-    * POST:
-    */
+    //    ENSURE(properlyInitialised(), "Constructor must end");
     virtual ~AirplaneParser();
-    /* Contract
-    * PRE:
-    * POST:
-    */
+    //    REQUIRE(this->properlyInitialised(), "airplaneParser wasn't properly initialised when calling parseAirplane()");
+    //    ENSURE( airplane->getNumber() == Number, "number not equal");
+    //    ENSURE( airplane->getCallsign() == Callsign, "Callsign not equal");
+    //    ENSURE( airplane->getModel() == Model, "Model not equal");
+    //    ENSURE( airplane->getStatus() == Statuscheck(Status), "Status not equal");
+    //    ENSURE( airplane->getFuel() == Fuel, "Fuel not equal");
+    //    ENSURE( airplane->getType() == Typecheck(Type), "Type not equal");
+    //    ENSURE( airplane->getEngine() == Enginecheck(Engine), "Engine not equal");
+    //    ENSURE( airplane->getSize() == Sizecheck(Size), "Size not equal");
+    //    ENSURE( airplane->getFlightplan() == fp, "Flightplan not equal");
     Airplane* parseAirplane(TiXmlElement* elem);
-    /* Contract
-    * PRE:Must be Properly initialised
-    * POST: Airplane returned
-    */
+    //    REQUIRE(this->properlyInitialised(), "airplaneParser wasn't properly initialised when calling readElement()");
     Airplane* getAirplane();
-    /* Contract
-    * PRE:Must be Properly initialised
-    * POST:status is returned(enum)
-    */
+    //    REQUIRE(this->properlyInitialised(), "airplaneParser wasn't properly initialised when calling readElement()");
     unsigned int Statuscheck(string St);
+    //    REQUIRE(this->properlyInitialised(), "airplaneParser wasn't properly initialised when calling readElement()");
     unsigned int Enginecheck(string En);
+    //    REQUIRE(this->properlyInitialised(), "airplaneParser wasn't properly initialised when calling readElement()");
     unsigned int Typecheck(string Ty);
+    //    REQUIRE(this->properlyInitialised(), "airplaneParser wasn't properly initialised when calling readElement()");
     unsigned int Sizecheck(string Si);
 };
 

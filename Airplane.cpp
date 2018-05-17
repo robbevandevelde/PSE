@@ -288,6 +288,7 @@ void Airplane::ascend()
 {
     REQUIRE(this->properlyInitialised(), "Airplane wasn't properly initialised when calling ascend()");
     _height += 1000;
+    ENSURE(getHeight() == _height, "Height is not altered");
     std::cout<< _callsign << " ascended to " << _height << " ft." << std::endl;
 }
 
@@ -298,6 +299,7 @@ void Airplane::ascend()
 void Airplane::descend() {
     REQUIRE(this->properlyInitialised(), "Airplane wasn't properly initialised when calling descend()");
     _height -= 1000;
+    ENSURE(getHeight() == _height, "Height is not altered");
     std::cout<< _callsign << " descended to " << _height << " ft." << std::endl;
 }
 
@@ -318,5 +320,15 @@ void Airplane::setFueled(bool _fueled) {
     REQUIRE(this->properlyInitialised(),"Airplane wasn't properly initialised when calling setFueled()");
     Airplane::_fueled = _fueled;
     ENSURE(isFueled() == _fueled, "setFueled fail");
+}
+
+bool Airplane::isAllowedToLandOnGrass() {
+    REQUIRE(this->properlyInitialised(),"Airplane wasn't properly initialised when calling setFueled()");
+    if(_size  == Small && _engine == Propeller){
+        return true;
+        ENSURE(_size == Small, "Airplane is too big to land on grass");
+        ENSURE(_engine == Propeller, "This engine is not a propeller");
+    }
+    return false;
 }
 

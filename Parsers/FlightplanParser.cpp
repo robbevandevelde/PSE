@@ -18,6 +18,7 @@ FlightplanParser::FlightplanParser() {
 }
 
 FlightplanParser::~FlightplanParser() {
+    ENSURE(properlyInitialised(), "FlightplanParser wasn't properly initialised when calling destructor");
 
 }
 
@@ -28,6 +29,10 @@ Flightplan *FlightplanParser::parseFlightplan(TiXmlElement *elem) {
     unsigned int Arrival = atoi(readElement(elem, "arrival").c_str());
     unsigned int Interval = atoi(readElement(elem, "interval").c_str());
     Flightplan* flightplan = new Flightplan(Destination, Departure, Arrival, Interval);
+    ENSURE(flightplan->getDeparture() == Departure, "Departure not equal");
+    ENSURE(flightplan->getArrival() == Arrival, "Arrival not equal");
+    ENSURE(flightplan->getDestination() == Destination, "Destination not equal");
+    ENSURE(flightplan->getInterval() == Interval, "Interval not equal");
     return flightplan;
 
 }

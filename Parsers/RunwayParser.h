@@ -15,35 +15,25 @@ using namespace std;
 class RunwayParser{
 private:
     RunwayParser* initCheck;
+    //    REQUIRE(this->properlyInitialised(), "RunwayParse wasn't properly initialised when calling readElement()");
     string readElement(TiXmlElement* elem, const char* tag);
     Runway* runway;
 public:
-    /* Contract
-    * PRE:
-    * POST:
-    */
-    bool properlyInitialised();
-    /* Contract
-    * PRE:Must be Properly initialised
-    * POST:Runwayparser has been constructed
-    */
-    RunwayParser();
-    /* Contract
-    * PRE:
-    * POST:
-    */
-    virtual ~RunwayParser();
-    /* Contract
-    * PRE:Must be Properly initialised
-    * POST:Runway elements are parsed
-    */
-    Runway* parseRunway(TiXmlElement* elem);
-    /* Contract
-    * PRE:Must be Properly initialised
-    * POST:Runway is returned
-    */
-    Runway* getRunway();
 
+    bool properlyInitialised();
+    //    ENSURE(properlyInitialised(), "Constructor must end");
+    RunwayParser();
+    //    ENSURE(properlyInitialised(), "Constructor must end");
+    virtual ~RunwayParser();
+    //    REQUIRE(this->properlyInitialised(), "RunwayParse wasn't properly initialised when calling parseRunway()");
+    //    ENSURE(runway->getLength() == Length, "Length is not equal");
+    //    ENSURE(runway->getName() == Name, "Length is not equal");
+    //    ENSURE(runway->getType() == rwTypeCheck(Type), "Type is not equal");
+    //    ENSURE(runway->getAirport() == Airport, "Airport is not equal");
+    Runway* parseRunway(TiXmlElement* elem);
+    //    REQUIRE(this->properlyInitialised(), "RunwayParse wasn't properly initialised when calling readElement()");
+    Runway* getRunway();
+    //    REQUIRE(this->properlyInitialised(), "RunwayParse wasn't properly initialised when calling readElement()");
     unsigned int rwTypeCheck(string rw);
 
 

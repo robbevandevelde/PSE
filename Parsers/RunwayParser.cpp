@@ -28,6 +28,10 @@ Runway *RunwayParser::parseRunway(TiXmlElement *elem) {
     string Type = readElement(elem, "type");
     unsigned int Length = atoi(readElement(elem, "length").c_str());
     Runway* runway = new Runway(Length, Name, rwTypeCheck(Type), Airport);
+    ENSURE(runway->getLength() == Length, "Length is not equal");
+    ENSURE(runway->getName() == Name, "Length is not equal");
+    ENSURE(runway->getType() == rwTypeCheck(Type), "Type is not equal");
+    ENSURE(runway->getAirport() == Airport, "Airport is not equal");
 //    for (TiXmlElement *e = elem->FirstChildElement(); e != NULL; e = e->NextSiblingElement()) {
 //        string elemName = e->Value();
 //        if (elemName == "TAXIROUTE") {
@@ -70,6 +74,7 @@ bool RunwayParser::properlyInitialised() {
 }
 
 unsigned int RunwayParser::rwTypeCheck(string rw) {
+    REQUIRE(this->properlyInitialised(), "RunwayParse wasn't properly initialised when calling readElement()");
     if(rw == "asphalt"){
         return Asphalt;
     }

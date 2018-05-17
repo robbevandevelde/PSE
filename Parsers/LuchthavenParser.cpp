@@ -33,6 +33,7 @@ LuchthavenParser::LuchthavenParser() {
 
 //Default destructor
 LuchthavenParser::~LuchthavenParser() {
+    ENSURE(properlyInitialised(), "Destructor must end");
 
 }
 

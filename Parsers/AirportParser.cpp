@@ -18,6 +18,7 @@ AirportParser::AirportParser() {
 }
 
 AirportParser::~AirportParser() {
+    ENSURE(properlyInitialised(), "Destructor must end");
 
 }
 
@@ -29,6 +30,10 @@ Airport *AirportParser::parseAirport(TiXmlElement *elem) {
     unsigned int Gates = atoi(readElement(elem, "gates").c_str());
 
      Airport* airport = new Airport(Gates, Name, Iata, Callsign);
+    ENSURE(airport->getGatesize() == Gates, "Gates not equal");
+    ENSURE(airport->getName() == Name, "Name not equal");
+    ENSURE(airport->getIata() == Iata, "Iata not equal");
+    ENSURE(airport->getCallsign() == Callsign, "Callsign not equal");
     return airport;
 }
 

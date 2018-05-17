@@ -20,6 +20,7 @@ AirplaneParser::AirplaneParser() {
 }
 
 AirplaneParser::~AirplaneParser() {
+    ENSURE(properlyInitialised(), "Constructor must end");
 
 }
 
@@ -45,7 +46,15 @@ Airplane *AirplaneParser::parseAirplane(TiXmlElement *elem) {
     }
     Airplane* airplane = new Airplane(Number, Callsign, Model, Statuscheck(Status), Passengers, Fuel, Typecheck(Type),
                                       Enginecheck(Engine), Sizecheck(Size), fp);
-
+    ENSURE( airplane->getNumber() == Number, "number not equal");
+    ENSURE( airplane->getCallsign() == Callsign, "Callsign not equal");
+    ENSURE( airplane->getModel() == Model, "Model not equal");
+    ENSURE( airplane->getStatus() == Statuscheck(Status), "Status not equal");
+    ENSURE( airplane->getFuel() == Fuel, "Fuel not equal");
+    ENSURE( airplane->getType() == Typecheck(Type), "Type not equal");
+    ENSURE( airplane->getEngine() == Enginecheck(Engine), "Engine not equal");
+    ENSURE( airplane->getSize() == Sizecheck(Size), "Size not equal");
+    ENSURE( airplane->getFlightplan() == fp, "Flightplan not equal");
 
     return airplane;}
 

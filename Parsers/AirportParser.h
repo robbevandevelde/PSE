@@ -13,33 +13,23 @@ using namespace std;
 class AirportParser{
 private:
     AirportParser* initCheck;
+    //    REQUIRE(this->properlyInitialised(), "AirportParser wasn't properly initialised when calling readElement()");
     string readElement(TiXmlElement* elem, const char* tag);
     Airport* airport;
 public:
-    /* Contract
-    * PRE:
-    * POST:
-    */
+
     bool properlyInitialised();
-    /* Contract
-    * PRE:Must be Properly initialised
-    * POST:Constructed
-    */
+    //    ENSURE(properlyInitialised(), "Constructor must end");
     AirportParser();
-    /* Contract
-    * PRE:
-    * POST:
-    */
+    //    ENSURE(properlyInitialised(), "Destructor must end");
     virtual ~AirportParser();
-    /* Contract
-    * PRE:Must be Properly initialised
-    * POST:Airport items must be parsed
-    */
+    //    REQUIRE(this->properlyInitialised(), "AirportParser wasn't properly initialised when calling parseAirport()");
+    //    ENSURE(airport->getGatesize() == Gates, "Gates not equal");
+    //    ENSURE(airport->getName() == Name, "Name not equal");
+    //    ENSURE(airport->getIata() == Iata, "Iata not equal");
+    //    ENSURE(airport->getCallsign() == Callsign, "Callsign not equal");
     Airport* parseAirport(TiXmlElement* elem);
-    /* Contract
-    * PRE:Must be Properly initialised
-    * POST:Airport is returned
-    */
+    //    REQUIRE(this->properlyInitialised(), "AirportParser wasn't properly initialised when calling getAirport()");
     Airport* getAirport();
 };
 

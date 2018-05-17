@@ -54,9 +54,12 @@ public:
     Flightplan *getFlightplan();
 
     //    REQUIRE(this->properlyInitialised(), "Airplane wasn't properly initialised when calling ascend()");
+    //    ENSURE(getHeight() == _height, "Height is not altered");
+
     void ascend();
 
     //    REQUIRE(this->properlyInitialised(), "Airplane wasn't properly initialised when calling descend()");
+    //    ENSURE(getHeight() == _height, "Height is not altered");
     void descend();
 
     //    REQUIRE(this->properlyInitialised(), "Airplane wasn't properly initialised when calling isFueled()");
@@ -118,6 +121,10 @@ public:
     //    REQUIRE(this->properlyInitialised(),"Airplane wasn't properly initialised when calling setCallsign()");
     //    ENSURE(getCallsign() == _callsign, "setCallsign() failure");
     void setCallsign(const std::string &_callsign);
+    //    REQUIRE(this->properlyInitialised(),"Airplane wasn't properly initialised when calling setFueled()");
+    //    ENSURE(_size == Small, "Airplane is too big to land on grass");
+    //    ENSURE(_engine == Propeller, "This engine is not a propeller");
+    bool isAllowedToLandOnGrass();
 };
 
 

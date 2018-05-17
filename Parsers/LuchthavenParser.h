@@ -29,75 +29,33 @@ private:
     LuchthavenParser* initCheck;
 
 public:
-    /* Contract
-    * PRE:
-    * POST:
-    */
+
     bool properlyInitialised();
-    /* Contract
-    * PRE:Must be Properly initialised, Have 2 vectors as input
-    * POST:runway is added to airport if needed
-    */
+    //    REQUIRE(this->properlyInitialised(), "Parser wasn't properly initialised when calling loadFile()");
     void isRunAirEqual(vector<Runway*> runwaysVect, vector<Airport*> airportsVect);
-    /* Contract
-    * PRE:Must be Properly initialised
-    * POST:Runways is returned as vector
-    */
+    //    REQUIRE(this->properlyInitialised(), "Parser wasn't properly initialised when calling loadFile()");
     vector<Runway*> getRunways();
-    /* Contract
-    * PRE:Must be Properly initialised
-    * POST:Airplanes is returned as vector
-    */
+    //    REQUIRE(this->properlyInitialised(), "Parser wasn't properly initialised when calling loadFile()");
     vector<Airplane*> getAirplanes();
-    /* Contract
-    * PRE:Must be Properly initialised
-    * POST:Airports is returned as vector
-    */
+    //    REQUIRE(this->properlyInitialised(), "Parser wasn't properly initialised when calling loadFile()");
     vector<Airport*> getAirports();
-    /* Contract
-    * PRE:Must be Properly initialised
-    * POST:Luchthaven has been constructed
-    */
+    //    ENSURE(properlyInitialised(), "Constructor must end");
     LuchthavenParser();
-    /* Contract
-    * PRE:
-    * POST:
-    */
+    //    ENSURE(properlyInitialised(), "Destructor must end");
     virtual ~LuchthavenParser();
-    /* Contract
-    * PRE:Must be Properly initialised
-    * POST:Items must be parsed
-    */
+    //    REQUIRE(this->properlyInitialised(), "Parser wasn't properly initialised when calling loadFile()");
     void parseItems(TiXmlElement* elem);
-    /* Contract
-    * PRE:Must be Properly initialised
-    * POST:Information has been written to file
-    */
+    //    REQUIRE(this->properlyInitialised(), "Parser wasn't properly initialised when calling loadFile()");
     void writeToFile(vector<Runway*> runwaysVect, vector<Airport*> airportsVect, vector<Airplane*> airplanesVect);
-    /* Contract
-    * PRE:Must be Properly initialised
-    * POST:file is loaded in
-    */
+    //    REQUIRE(this->properlyInitialised(), "Parser wasn't properly initialised when calling loadFile()");
     bool loadFile(string filename);
-    /* Contract
-    * PRE:Must be Properly initialised
-    * POST:Element Root is returned
-    */
+    //    REQUIRE(this->properlyInitialised(), "Parser wasn't properly initialised when calling loadFile()");
     TiXmlElement *getRoot();
-    /* Contract
-    * PRE:Must be Properly initialised
-    * POST:Root has been set to given element
-    */
+    //    REQUIRE(this->properlyInitialised(), "Parser wasn't properly initialised when calling loadFile()");
     void setRoot(TiXmlElement *root);
-    /* Contract
-    * PRE:Must be Properly initialised
-    * POST:Enum is returend
-    */
+    //    REQUIRE(this->properlyInitialised(), "Parser wasn't properly initialised when calling loadFile()");
     SuccessEnum getSuccessEnum();
-    /* Contract
-    * PRE:Must be Properly initialised
-    * POST:Succes enum has been set to given item
-    */
+    //    REQUIRE(this->properlyInitialised(), "Parser wasn't properly initialised when calling loadFile()");
     void setSuccessEnum(SuccessEnum successEnum);
 };
 
