@@ -44,6 +44,9 @@ public:
     */
     Runway* getRunway();
 
+    unsigned int rwTypeCheck(string rw);
+
+
 };
 
 

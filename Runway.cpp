@@ -10,8 +10,8 @@
  *@param unsigned int length, string name, string type, airport airport
  *@return niks
  */
-Runway::Runway(unsigned int _length, const std::string &_name, const std::string &_type, const std::string &_airport) :
-        _length(_length), _name(_name), _type(_type), _airport(_airport)
+Runway::Runway(unsigned int _length, const std::string &_name, unsigned int _type, const std::string &_airport) :
+        _length(_length), _name(_name), _rwType(_type), _airport(_airport)
 {
     _initcheck = this;
     _status = false;
@@ -94,21 +94,21 @@ void Runway::setName(const std::string &_name)
  *@param geen
  *@return string type
  */
-const std::string &Runway::getType()
+unsigned int Runway::getType()
 {
     REQUIRE(this->properlyInitialised(), "Runway wasn't properly initialised when calling getType()");
-    return _type;
+    return _rwType;
 }
 
 /*set de type van de runway
  *@param string type
  *@return niks
  */
-void Runway::setType(const std::string &_type)
+void Runway::setType(unsigned int _type)
 {
     REQUIRE(this->properlyInitialised(), "Runway wasn't properly initialised when calling setType()");
-    Runway::_type = _type;
-    ENSURE(getType() == _type, "setType() failure");
+    Runway::_rwType = _type;
+    ENSURE(getType() == _rwType, "setType() failure");
 }
 
 /*get de naam van de airport

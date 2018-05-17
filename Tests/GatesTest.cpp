@@ -34,13 +34,13 @@ TEST_F(GatesTest, InitTest) {
 TEST_F(GatesTest, DefaultConstructor) {
     EXPECT_EQ(testGate->getName(), 1);
     EXPECT_EQ(testGate->isOccupied(), false);
-    EXPECT_EQ(testGate->getAirplane(), nullptr);
+    EXPECT_EQ(testGate->getAirplane(), NULL);
 }
 
 TEST_F(GatesTest, airplaneTest) {
     EXPECT_EQ(testGate->getName(), 1);
     EXPECT_EQ(testGate->isOccupied(), false);
-    EXPECT_EQ(testGate->getAirplane(), nullptr);
+    EXPECT_EQ(testGate->getAirplane(), NULL);
     string name = "LAX";
     Flightplan* testFlightplan = new Flightplan(name, 15, 45, 1);
     Airplane* testAirplane = new Airplane("32", "callsign", "model", 0, 110, 5000, 1, 2, 1, testFlightplan);

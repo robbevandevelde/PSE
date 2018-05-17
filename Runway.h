@@ -12,6 +12,8 @@
 #include <vector>
 #include <algorithm>
 
+enum rwType {Grass, Asphalt};
+
 class Taxiroute;
 class Airplane;
 
@@ -24,18 +26,20 @@ private:
     Airplane* _airplane;
 
     unsigned int _length;
+    std::string _name;
+    unsigned int _rwType;
+    std::string _airport;
 
     bool _status;
     bool _goingtobeused;
 
-    std::string _name;
-    std::string _type;
-    std::string _airport;
+
+
 public:
     //    ENSURE(properlyInitialised(), "Constructor must end");
     //    ENSURE(!_status && !_goingtobeused, "Status must be false after initialising");
     //    ENSURE(_airplane == NULL, "Airplane must point to a nullptr after initialising");
-    Runway(unsigned int _length, const std::string &_name, const std::string &_type, const std::string &_airport);
+    Runway(unsigned int _length, const std::string &_name, unsigned int _type, const std::string &_airport);
 
     //  Geen pre of post condities
     bool properlyInitialised();
@@ -49,7 +53,7 @@ public:
     //    REQUIRE(this->properlyInitialised(), "Runway wasn't properly initialised when calling getName()");
     const std::string &getName();
     //    REQUIRE(this->properlyInitialised(), "Runway wasn't properly initialised when calling getType()");
-    const std::string &getType();
+    unsigned int getType();
     //    REQUIRE(this->properlyInitialised(), "Runway wasn't properly initialised when calling getAirport()");
     const std::string &getAirport();
     //    REQUIRE(this->properlyInitialised(),"Runway wasn't properly initialised when calling getTaxiRoute()");
@@ -88,7 +92,10 @@ public:
     void setName(const std::string &_name);
     //    REQUIRE(this->properlyInitialised(), "Runway wasn't properly initialised when calling setType()");
     //    ENSURE(getType() == _type, "setType() failure");
-    void setType(const std::string &_type);
+
+
+    ///////
+    void setType(unsigned int _type);
     //    REQUIRE(this->properlyInitialised(),"Runway wasn't properly initialised when calling pushbackTaxi()");
     //    ENSURE(_taxiRoute[_taxiRoute.size() - 1] == taxiroute, "pushbackTaxi() failure");
     void pushbackTaxi(Taxiroute* taxiroute);
