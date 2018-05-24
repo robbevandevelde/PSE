@@ -14,7 +14,7 @@ protected:
     // should define it if you need to initialize the variables.
     // Otherwise, this can be skipped.
     virtual void SetUp() {
-        testGate = new Gate(1);
+        testGate = new Gate((unsigned int)1);
     }
 
     // virtual void TearDown() will be called after each test is run.
@@ -32,15 +32,15 @@ TEST_F(GatesTest, InitTest) {
     EXPECT_TRUE(testGate->properlyInitialised());
 }
 TEST_F(GatesTest, DefaultConstructor) {
-    EXPECT_EQ(testGate->getName(), 1);
-    EXPECT_EQ(testGate->isOccupied(), false);
-    EXPECT_EQ(testGate->getAirplane(), NULL);
+    EXPECT_EQ((unsigned int)1, testGate->getName());
+    EXPECT_FALSE(testGate->isOccupied());
+    EXPECT_EQ((Airplane*)NULL, testGate->getAirplane());
 }
 
 TEST_F(GatesTest, airplaneTest) {
-    EXPECT_EQ(testGate->getName(), 1);
-    EXPECT_EQ(testGate->isOccupied(), false);
-    EXPECT_EQ(testGate->getAirplane(), NULL);
+    EXPECT_EQ((unsigned int)1, testGate->getName());
+    EXPECT_FALSE(testGate->isOccupied());
+    EXPECT_EQ(NULL, testGate->getAirplane());
     string name = "LAX";
     Flightplan* testFlightplan = new Flightplan(name, 15, 45, 1);
     Airplane* testAirplane = new Airplane("32", "callsign", "model", 0, 110, 5000, 1, 2, 1, testFlightplan);
@@ -52,6 +52,6 @@ TEST_F(GatesTest, airplaneTest) {
     testGate->addAirplane(testAirplane2);
     EXPECT_TRUE(testGate->isOccupied());
 //    EXPECT_EQ(testAirplane2->getStatus(), StandingAtGate);
-    EXPECT_EQ(testGate->getAirplane()->properlyInitialised(), true);
-    EXPECT_EQ(testGate->getAirplane()->getNumber(), "127");
+    EXPECT_EQ(true, testGate->getAirplane()->properlyInitialised());
+    EXPECT_EQ("127", testGate->getAirplane()->getNumber());
 }

@@ -14,18 +14,18 @@ class Gate {
     Gate* _initcheck;
     Airplane* _airplane;
 
-    int _name;
+    unsigned int _name;
 
     bool _occupied;
 public:
     //    ENSURE(properlyInitialised(), "Constructor must end");
     //    ENSURE(_airplane == NULL, "Airplane must point to nullptr");
     //    ENSURE(getName() == _name, "Gate constructor failure");
-    Gate(int _name);
+    Gate(unsigned int _name);
     //    Geen pre of post condities
     bool properlyInitialised();
     //    REQUIRE(this->properlyInitialised(), "Gate wasn't properly initialised when calling getName()");
-    int getName();
+    unsigned int getName();
     //    REQUIRE(this->properlyInitialised(), "Gate wasn't properly initialised when calling isOccupied()");
     bool isOccupied();
     //    REQUIRE(this->properlyInitialised(),"Gate wasn't properly initialised when calling getAirplane()");

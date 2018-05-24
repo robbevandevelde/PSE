@@ -8,7 +8,7 @@
  *@param string name
  *@return geen
  */
-Gate::Gate(int _name) : _name(_name)
+Gate::Gate(unsigned int _name) : _name(_name)
 {
     _initcheck = this;
     _occupied = false;
@@ -67,7 +67,7 @@ bool Gate::isOccupied()
  *@param geen
  *@return string name
  */
-int Gate::getName()
+unsigned int Gate::getName()
 {
     REQUIRE(this->properlyInitialised(), "Gate wasn't properly initialised when calling getName()");
     return _name;

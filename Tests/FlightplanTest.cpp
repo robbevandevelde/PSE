@@ -38,17 +38,17 @@ TEST_F(FlightplanTest, InitTest) {
     EXPECT_TRUE(testFlightplan->properlyInitialised());
 }
 TEST_F(FlightplanTest, getsettest) {
-    EXPECT_EQ(testFlightplan->getDestination(), "LAX");
-    EXPECT_EQ(testFlightplan->getDeparture(), 45);
-    EXPECT_EQ(testFlightplan->getArrival(), 15);
-    EXPECT_EQ(testFlightplan->getInterval(), 1);
+    EXPECT_EQ("LAX", testFlightplan->getDestination());
+    EXPECT_EQ((unsigned int)45, testFlightplan->getDeparture());
+    EXPECT_EQ((unsigned int)15, testFlightplan->getArrival());
+    EXPECT_EQ((unsigned int) 1, testFlightplan->getInterval());
     string name = "ANR";
     testFlightplan->setDestination(name);
     testFlightplan->setDeparture(30);
     testFlightplan->setArrival(30);
     testFlightplan->setInterval(2);
-    EXPECT_EQ(testFlightplan->getDestination(), "ANR");
-    EXPECT_EQ(testFlightplan->getDeparture(), 30);
-    EXPECT_EQ(testFlightplan->getArrival(), 30);
-    EXPECT_EQ(testFlightplan->getInterval(), 2);
+    EXPECT_EQ("ANR", testFlightplan->getDestination());
+    EXPECT_EQ((unsigned int)30, testFlightplan->getDeparture());
+    EXPECT_EQ((unsigned int)30, testFlightplan->getArrival());
+    EXPECT_EQ((unsigned int)2, testFlightplan->getInterval());
 }

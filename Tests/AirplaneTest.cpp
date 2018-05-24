@@ -38,10 +38,10 @@ TEST_F(AirplaneTest, InitTest) {
 
 }
 TEST_F(AirplaneTest, DefaultconstructorTests) {
-    EXPECT_EQ(testAirplane->getStatus(), 5);
-    EXPECT_EQ(testAirplane->getPassengers(), 110);
+    EXPECT_EQ((unsigned int)5, testAirplane->getStatus());
+    EXPECT_EQ((unsigned int)110, testAirplane->getPassengers());
     testAirplane->setStatus(1);
-    EXPECT_EQ(testAirplane->getStatus(), StandingAtGate);
+    EXPECT_EQ(StandingAtGate, testAirplane->getStatus());
 }
 
 TEST_F(AirplaneTest, gettersEnSetters) {
@@ -50,9 +50,9 @@ TEST_F(AirplaneTest, gettersEnSetters) {
     testAirplane->setNumber("32");
     testAirplane->setCallsign("callsign");
     testAirplane->setPassengers(110);
-    EXPECT_EQ(testAirplane->getStatus(), 0);
-    EXPECT_EQ(testAirplane->getNumber(), "32");
-    EXPECT_EQ(testAirplane->getCallsign(), "callsign");
-    EXPECT_EQ(testAirplane->getModel(), "model");
-    EXPECT_EQ(testAirplane->getPassengers(), 110);
+    EXPECT_EQ((unsigned int)0, testAirplane->getStatus());
+    EXPECT_EQ("32", testAirplane->getNumber());
+    EXPECT_EQ("callsign", testAirplane->getCallsign());
+    EXPECT_EQ("model", testAirplane->getModel());
+    EXPECT_EQ((unsigned int)110, testAirplane->getPassengers());
 }
