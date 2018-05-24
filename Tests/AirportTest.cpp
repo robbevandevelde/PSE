@@ -52,7 +52,7 @@ TEST_F(AirportTest, LandingProtocol){
     Flightplan* testFlightplan = new Flightplan(name, 15, 45, 1);
     Airplane* testAirplane = new Airplane("32", "callsign", "model", Approaching, 110, 5000, 1, 1, 2, testFlightplan);
     EXPECT_EQ((unsigned int)10000, testAirplane->getHeight());
-    testAirport->Landingprotocol(testAirplane);
+    testAirport->landingprotocol(testAirplane);
     EXPECT_EQ((unsigned int)0, testAirplane->getHeight());
 }
 
@@ -63,7 +63,7 @@ TEST_F(AirportTest, TakeoffProtocol){
     Flightplan* testFlightplan = new Flightplan(name, 15, 45, 1);
     Airplane* testAirplane = new Airplane("32", "callsign", "model", Departure, 110, 5000, 1, 1, 1, testFlightplan);
     EXPECT_EQ((unsigned int)0, testAirplane->getHeight());
-    testAirport->TakeOffprotocol(testAirplane);
+    testAirport->takeOffprotocol(testAirplane);
     EXPECT_EQ((unsigned int)4, testAirplane->getStatus());
 }
 TEST_F(AirportTest, GateProtocol){

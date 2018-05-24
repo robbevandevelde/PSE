@@ -6,5 +6,5 @@ CXX_FLAGS = -Wall -Werror -O1 -g   -std=gnu++98
 
 CXX_DEFINES = 
 
-CXX_INCLUDES = -I/home/uauser/Desktop/PSE/gtest/include 
+CXX_INCLUDES = -I/home/uauser/Downloads/PSE/gtest/include 
 

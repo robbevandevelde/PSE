@@ -64,14 +64,13 @@ int main() {
 //
 //        }
 //        cout << "------------------------------------------\n" << endl;
-        AirTrafficController* John = new AirTrafficController(airportsVect[0],"John");
-        airportsVect[0]->assignController(John);
+        AirTrafficController* Alain = new AirTrafficController(airportsVect[0],"Alain Clement");
+        airportsVect[0]->assignController(Alain);
 //        airportsVect[0]->completeLandingSequence(airplanesVect[0]);
 //        airportsVect[0]->StandingAtGateprotocol(*airplanesVect[0]);
         Simulator* sim = new Simulator(runwaysVect,airplanesVect,airportsVect[0]);
         sim->addRunways();
         sim->Airplanes();
-        cout <<parser.getSuccessEnum();
     }else{
         cout<< "unable to parse file" << endl;
     }

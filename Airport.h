@@ -14,6 +14,7 @@
 
 class Gate;
 class Runway;
+
 class DesignByContract;
 
 
@@ -51,21 +52,21 @@ public:
     bool properlyInitialised();
 
     //    REQUIRE(this->properlyInitialised(), "Airport wasn't properly initialised when calling completeLandingSequence()");
-    void completeLandingSequence(Airplane *airplane);
+    void completeLandingSequence(Airplane *airplane, std::ostream& out = std::cout);
     //    REQUIRE(this->properlyInitialised(),"Airport wasn't initialised when calling completeTakeOffsequence()");
-    void completeTakeOffsequence(Airplane *airplane);
+    void completeTakeOffsequence(Airplane *airplane, std::ostream& out = std::cout);
 
     //    REQUIRE(airplane->getStatus() == Departure, "Airplane must be departure");
     //    REQUIRE(this->properlyInitialised(),"Airport wasn't properly initialised when calling TakeOffProtocol");
     //    REQUIRE(airplane->getHeight() == 0, "Airplane must be on the ground");
     //    ENSURE(airplane->getStatus() == InTheAir, "TakeOff failure");
     //    ENSURE(_runways[x]->getAirplane() == NULL,"Take off failure");
-    void TakeOffprotocol(Airplane* airplane);
+    void takeOffprotocol(Airplane *airplane, std::ostream& out = std::cout);
     //    REQUIRE(this->properlyInitialised(), "Airpower wasn't properly initialised when calling Landingprotocol");
     //    REQUIRE(airplane->getStatus() == Approaching, "Airplane must be approaching in order to land");
     //    ENSURE(airplane->getStatus() == FinalApproach, "Landing failure");
     //    ENSURE(airplane->getHeight() == 0, "Airplane must be at 0 ft");
-    void Landingprotocol(Airplane* airplane);
+    void landingprotocol(Airplane *airplane, std::ostream& out = std::cout);
 
     //    REQUIRE(this->properlyInitialised(),"Airport wasn't properly initialised when calling gateprotocol()");
     //    REQUIRE(airplane->getHeight() == 0 , "Airplane must be on the ground");
@@ -78,7 +79,7 @@ public:
     //    ENSURE(airplane->isFueled(), "Airplane should be fueled");
     //    Post conditie 3:
     //    ENSURE(airplane->getPassengers() == passengers, "Boarded passengers don't match with given amount");
-    void gateprotocol(Airplane* airplane, unsigned int passengers);
+    void gateprotocol(Airplane* airplane, unsigned int passengers, std::ostream& out = std::cout);
     //    REQUIRE(this->properlyInitialised(), "Airport wasn't properly initialised when calling TaxiToGate");
     void TaxiToGate(Airplane* airplane);
     //    REQUIRE(this->properlyInitialised(), "Airport wasn't properly initialised when calling TaxiToRunway");
@@ -87,7 +88,7 @@ public:
     //    REQUIRE(airplane->getStatus() == JustLanded, "Airplane has to be standing at the runway in order to taxi");
     //    REQUIRE(_gates.size() == _gatesize, "Amount of gates don't match with the given amount of gates");
     //    ENSURE(_gates[x]->getAirplane() == airplane, "Airplane in gate doesn't match added airplane");
-    void addAirplaneToGate(Airplane* airplane);
+    void addAirplaneToGate(Airplane* airplane, std::ostream& out = std::cout);
     //    REQUIRE(this->properlyInitialised(),"Airport wasn't initialised when calling addAirplaneToRunway");
     //    2 post condities:
     //    Post conditie 1:
@@ -95,12 +96,12 @@ public:
     //    Post conditie 2:
     //    ENSURE(_runways[x]->getAirplane()->getStatus() == JustLanded, "Add airplane to runway failure");
     //    ENSURE(_runways[x]->getAirplane() == airplane, "addAirplaneToRunway() failure");
-    void addAirplaneToRunway(Airplane* airplane);
+    void addAirplaneToRunway(Airplane* airplane, std::ostream& out = std::cout);
     //    REQUIRE(this->properlyInitialised(),"Airport wasn't properly initialised when calling removeAirplaneOfGate()");
     //    ENSURE(_gates[x]->getAirplane() == NULL,"Remove airplane of gate failure");
-    void removeAirplaneOfGate(Airplane* airplane);
+    void removeAirplaneOfGate(Airplane* airplane, std::ostream& out = std::cout);
     //    REQUIRE(this->properlyInitialised(),"Airport wasn't properly initialised when calling removeAirplaneOfFrumway()");
-    //    ENSURE(_runways[x]->getAirplane() == NULL, "Remove airplane of runway failure");
+    //    ENSURE(_runways[x]    ->getAirplane() == NULL, "Remove airplane of runway failure");
     void removeAirplaneOfRunway(Airplane* airplane);
 
     //    REQUIRE(this->properlyInitialised(), "Airport wasn't properly initialised when calling getGatesize()");

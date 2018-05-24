@@ -1,4 +1,4 @@
-/opt/clion-2016.3.2/bin/cmake/bin/cmake -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - Unix Makefiles" /home/uauser/Desktop/PSE
+/opt/clion-2016.3.2/bin/cmake/bin/cmake -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - Unix Makefiles" /home/uauser/Downloads/PSE
 -- The C compiler identification is GNU 7.2.0
 -- The CXX compiler identification is GNU 7.2.0
 -- Check for working C compiler: /usr/bin/cc
@@ -15,4 +15,4 @@
 -- Detecting CXX compile features - done
 -- Configuring done
 -- Generating done
--- Build files have been written to: /home/uauser/Desktop/PSE/cmake-build-debug
+-- Build files have been written to: /home/uauser/Downloads/PSE/cmake-build-debug
