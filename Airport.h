@@ -80,10 +80,10 @@ public:
     //    Post conditie 3:
     //    ENSURE(airplane->getPassengers() == passengers, "Boarded passengers don't match with given amount");
     void gateprotocol(Airplane* airplane, unsigned int passengers, std::ostream& out = std::cout);
-    //    REQUIRE(this->properlyInitialised(), "Airport wasn't properly initialised when calling TaxiToGate");
-    void TaxiToGate(Airplane* airplane);
-    //    REQUIRE(this->properlyInitialised(), "Airport wasn't properly initialised when calling TaxiToRunway");
-    void TaxiToRunway(Airplane* airplane);
+    //    REQUIRE(this->properlyInitialised(), "Airport wasn't properly initialised when calling taxiToGate");
+    void taxiToGate(Airplane *airplane);
+    //    REQUIRE(this->properlyInitialised(), "Airport wasn't properly initialised when calling taxiToRunway");
+    void taxiToRunway(Airplane *airplane);
     //    REQUIRE(this->properlyInitialised(),"Airport wasn't properly initialised when calling addAirplaneToGate()");
     //    REQUIRE(airplane->getStatus() == JustLanded, "Airplane has to be standing at the runway in order to taxi");
     //    REQUIRE(_gates.size() == _gatesize, "Amount of gates don't match with the given amount of gates");
@@ -97,12 +97,12 @@ public:
     //    ENSURE(_runways[x]->getAirplane()->getStatus() == JustLanded, "Add airplane to runway failure");
     //    ENSURE(_runways[x]->getAirplane() == airplane, "addAirplaneToRunway() failure");
     void addAirplaneToRunway(Airplane* airplane, std::ostream& out = std::cout);
-    //    REQUIRE(this->properlyInitialised(),"Airport wasn't properly initialised when calling removeAirplaneOfGate()");
+    //    REQUIRE(this->properlyInitialised(),"Airport wasn't properly initialised when calling removeAirplaneFromGate()");
     //    ENSURE(_gates[x]->getAirplane() == NULL,"Remove airplane of gate failure");
-    void removeAirplaneOfGate(Airplane* airplane, std::ostream& out = std::cout);
+    void removeAirplaneFromGate(Airplane *airplane, std::ostream &out = std::cout);
     //    REQUIRE(this->properlyInitialised(),"Airport wasn't properly initialised when calling removeAirplaneOfFrumway()");
     //    ENSURE(_runways[x]    ->getAirplane() == NULL, "Remove airplane of runway failure");
-    void removeAirplaneOfRunway(Airplane* airplane);
+    void removeAirplaneFromRunway(Airplane *airplane);
 
     //    REQUIRE(this->properlyInitialised(), "Airport wasn't properly initialised when calling getGatesize()");
     unsigned int getGatesize();
@@ -161,15 +161,21 @@ public:
     //    REQUIRE(this->properlyInitialised(), "Airprort wasn't properly initialised when calling getRunways()");
     const vector<Runway *> &getRunways();
     //    REQUIRE(this->properlyInitialised(), "Airport wasn't properly initialised when calling addRunwayWait()");
-    //    ENSURE(RunwayWaitChecker(airplane), "add airplane to runwaywait failure");
+    //    ENSURE(runwayWaitChecker(airplane), "add airplane to runwaywait failure");
     void addRunwayWait(Airplane* airplane);
     //    REQUIRE(this->properlyInitialised(), "Airport wasn't properly initialised when calling removeRunwayWait()");
     void removeRunwayWait(Airplane* airplane);
     //    REQUIRE(this->properlyInitialised(), "Airport wasn't properly initialised when calling RunWaitChecker()");
-    bool RunwayWaitChecker(Airplane* airplane);
+    bool runwayWaitChecker(Airplane *airplane);
     //    REQUIRE(this->properlyInitialised(), "Airport wasn't properly initialised when calling goingToGetUsedRunway()");
     void goingToGetUsedRunway();
     //    REQUIRE(this->properlyInitialised(), "Airport wasn't properly initialised when calling isRunwayCompletelyClear()");
     bool isRunwayCompletelyClear();
+
+    //    REQUIRE(this->properlyInitialised(), "Airport wasn't properly initialised when calling isAirplaneInGate");
+    bool isAirplaneInGate(Airplane* airplane);
+    //    REQUIRE(this->properlyInitialised(), "Airport wasn't properly initialised when calling isAirplaneInRunway");
+    bool isAirplaneInRunway(Airplane* airplane);
+
 };
 #endif //PSE_AIRPORT_H

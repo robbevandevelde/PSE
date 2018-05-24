@@ -70,7 +70,7 @@ int main() {
 //        airportsVect[0]->StandingAtGateprotocol(*airplanesVect[0]);
         Simulator* sim = new Simulator(runwaysVect,airplanesVect,airportsVect[0]);
         sim->addRunways();
-        sim->Airplanes();
+        sim->Simulate();
     }else{
         cout<< "unable to parse file" << endl;
     }
@@ -109,7 +109,7 @@ int main() {
 //    Simulator* sim = new Simulator(runways,airplanes,airport);
 //
 //    sim->addRunways();
-//    sim->Airplanes();
+//    sim->Simulate();
 //    return 0;
 //
 //

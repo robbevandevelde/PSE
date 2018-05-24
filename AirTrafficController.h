@@ -23,11 +23,11 @@ public:
 
     bool properlyInitialised();
 
-    bool landingprotocol(Airplane* airplane);
+    bool landingprotocol(Airplane* airplane, std::ostream& out = std::cout);
 
-    bool takeoffprotocol(Airplane* airplane);
+    bool takeoffprotocol(Airplane* airplane, std::ostream& out = std::cout);
 
-    bool emergencyprotocol(Airplane* airplane);
+    bool emergencyprotocol(Airplane* airplane, std::ostream& out = std::cout);
 
     Airport *getAirport();
 

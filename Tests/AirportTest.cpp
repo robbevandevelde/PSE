@@ -84,7 +84,7 @@ TEST_F(AirportTest, AirplaneToRun){
     Airplane* testAirplane = new Airplane("32", "callsign", "model", Departure, 110, 5000, 1, 3, 1, testFlightplan);
     EXPECT_EQ((unsigned int)0, testAirplane->getHeight());
     testAirport->addAirplaneToRunway(testAirplane);
-    testAirport->removeAirplaneOfRunway(testAirplane);
+    testAirport->removeAirplaneFromRunway(testAirplane);
 }
 TEST_F(AirportTest, Controller){
     AirTrafficController* John = new AirTrafficController(testAirport,"John");

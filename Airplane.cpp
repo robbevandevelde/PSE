@@ -284,23 +284,23 @@ void Airplane::setFlightplan(Flightplan *flightplan)
  *@param geen
  *@return geen
  */
-void Airplane::ascend()
+void Airplane::ascend(std::ostream& out)
 {
     REQUIRE(this->properlyInitialised(), "Airplane wasn't properly initialised when calling ascend()");
     _height += 1000;
     ENSURE(getHeight() == _height, "Height is not altered");
-    std::cout<< _callsign << " ascended to " << _height << " ft." << std::endl;
+    out<< _callsign << " ascended to " << _height << " ft." << std::endl;
 }
 
 /*Descend de vliegtuig met 1000 ft
  *@param geen
  *@return geen
  */
-void Airplane::descend() {
+void Airplane::descend(std::ostream& out) {
     REQUIRE(this->properlyInitialised(), "Airplane wasn't properly initialised when calling descend()");
     _height -= 1000;
     ENSURE(getHeight() == _height, "Height is not altered");
-    std::cout<< _callsign << " descended to " << _height << " ft." << std::endl;
+    out<< _callsign << " descended to " << _height << " ft." << std::endl;
 }
 
 /*Checkt of dat de vliegtuig bijgetankt is

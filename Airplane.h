@@ -56,11 +56,11 @@ public:
     //    REQUIRE(this->properlyInitialised(), "Airplane wasn't properly initialised when calling ascend()");
     //    ENSURE(getHeight() == _height, "Height is not altered");
 
-    void ascend();
+    void ascend(std::ostream& out = std::cout);
 
     //    REQUIRE(this->properlyInitialised(), "Airplane wasn't properly initialised when calling descend()");
     //    ENSURE(getHeight() == _height, "Height is not altered");
-    void descend();
+    void descend(std::ostream& out = std::cout);
 
     //    REQUIRE(this->properlyInitialised(), "Airplane wasn't properly initialised when calling isFueled()");
     bool isFueled();

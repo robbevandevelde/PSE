@@ -23,7 +23,7 @@ public:
 
     bool properlyInitialised();
 
-    void Airplanes();
+    void Simulate(std::ostream &out = std::cout);
     void addRunways();
 };
 
