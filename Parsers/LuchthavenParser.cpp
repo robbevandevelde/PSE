@@ -115,10 +115,34 @@ void LuchthavenParser::writeToFile(vector<Runway *> runwaysVect, vector<Airport 
         myfile << "\n";
         myfile << "Airplane: "<< airplanesVect[itAPL]->getCallsign() << " (" << airplanesVect[itAPL]->getNumber()<<")"<< endl;
         myfile <<"-> model: "<< airplanesVect[itAPL]->getModel() << endl;
-        myfile <<"-> type: "<< airplanesVect[itAPL]->getType() << endl;
-        myfile <<"-> engine: "<< airplanesVect[itAPL]->getEngine() << endl;
-        myfile <<"-> size: "<< airplanesVect[itAPL]->getSize() << endl;
-    }
+        if(airplanesVect[itAPL]->getType() == 0){
+            myfile <<"-> type: Private" << endl;
+        }
+        if(airplanesVect[itAPL]->getType() == 1){
+            myfile <<"-> type: Airline" << endl;
+        }
+        if(airplanesVect[itAPL]->getType() == 2){
+            myfile <<"-> type: Militairy" << endl;
+        }
+        if(airplanesVect[itAPL]->getType() == 3){
+            myfile <<"-> type: Emergency" << endl;
+        }
+        if(airplanesVect[itAPL]->getEngine() == 0){
+            myfile <<"-> engine: Propeller"<< endl;
+        }
+        if(airplanesVect[itAPL]->getEngine() == 1){
+            myfile <<"-> engine: Jet"<< endl;
+        }
+        if(airplanesVect[itAPL]->getSize() == 0){
+            myfile <<"-> size: Small"<< endl;
+        }
+        if(airplanesVect[itAPL]->getSize() == 1){
+            myfile <<"-> size: Medium"<< endl;
+        }
+        if(airplanesVect[itAPL]->getSize() == 2){
+            myfile <<"-> size: Large"<< endl;
+        }
+        }
 
     myfile.close();
 

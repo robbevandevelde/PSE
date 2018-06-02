@@ -16,12 +16,12 @@ using namespace std;
 /**
 Auxiliary functions for file manipulation.
 */
-bool AirportUtils::DirectoryExists(const std::string dirname) {
+bool DirectoryExists(const std::string dirname) {
     struct stat st;
     return stat(dirname.c_str(), &st) == 0;
 }
 
-bool AirportUtils::FileExists(const std::string filename) {
+bool FileExists(const std::string filename) {
     struct stat st;
     if (stat(filename.c_str(), &st) != 0) return false;
     ifstream f(filename.c_str());
@@ -34,13 +34,13 @@ bool AirportUtils::FileExists(const std::string filename) {
     }
 }
 
-bool AirportUtils::FileIsEmpty(const std::string filename) {
+bool FileIsEmpty(const std::string filename) {
     struct stat st;
     if (stat(filename.c_str(), &st) != 0) return true; // File does not exist; thus it is empty
     return st.st_size == 0;
 }
 
-bool AirportUtils::FileCompare(const std::string leftFileName, const std::string rightFileName) {
+bool FileCompare(const std::string leftFileName, const std::string rightFileName) {
     ifstream leftFile, rightFile;
     char leftRead, rightRead;
     bool result;
@@ -72,7 +72,7 @@ bool AirportUtils::FileCompare(const std::string leftFileName, const std::string
     return result;
 }
 
-string AirportUtils::to_string( int x ) {
+string to_string( int x ) {
     int length = snprintf( NULL, 0, "%d", x );
     char* buf = new char[length + 1];
     snprintf( buf, length + 1, "%d", x );

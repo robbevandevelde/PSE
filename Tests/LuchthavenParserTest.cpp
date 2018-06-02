@@ -2,11 +2,14 @@
 // Created by Robbe Van de Velde on 21/03/18.
 //
 
+#include <sys/stat.h>
 #include <iostream>
 #include <fstream>
 #include <gtest/gtest.h>
 #include "../Parsers/LuchthavenParser.h"
 #include "../AirportUtils.h"
+
+
 
 using namespace std;
 
@@ -36,9 +39,9 @@ TEST_F(LuchthavenParserTest, InitCheck) {
 }
 // Tests the default constructor.
 TEST_F(LuchthavenParserTest, InputHappyday1) {
-//    ASSERT_TRUE(DirectoryExists("testInput"));
-    SuccessEnum yes= PartialImport;
-    testParser.setSuccessEnum(yes);
+    ASSERT_TRUE(DirectoryExists("testInput"));
+    ASSERT_FALSE(DirectoryExists("testIut"));
+    testParser.setSuccessEnum(PartialImport);
     ofstream myfile;
     myfile.open("../testInput/Input01.xml");
     myfile << "<?xml version=\"1.0\" ?>" << endl
@@ -51,27 +54,34 @@ TEST_F(LuchthavenParserTest, InputHappyday1) {
             << "\t</AIRPORT>" << endl
             << "</SIMULATIE>" << endl;
     myfile.close();
-    myfile.open("../testInput/zzzError.txt");
-    testParser.loadFile("../testInput/Input01.xml");
+    ASSERT_TRUE(FileExists("testInput/Input01.xml"));
+    testParser.loadFile("testInput/Input01.xml");
     testParser.parseItems(testParser.getRoot());
     EXPECT_TRUE(testParser.getSuccessEnum() == Success);
 
 }
 TEST_F(LuchthavenParserTest, InputHappyday2) {
-//    ASSERT_TRUE(DirectoryExists("testInput"));
+    ASSERT_TRUE(DirectoryExists("testInput"));
     SuccessEnum yes= PartialImport;
     testParser.setSuccessEnum(yes);
-    testParser.loadFile("../testInput/Input03.xml");
+    ASSERT_TRUE(FileExists("testInput/Input03.xml"));
+    testParser.loadFile("testInput/Input03.xml");
     testParser.parseItems(testParser.getRoot());
     EXPECT_TRUE(testParser.getSuccessEnum() == Success);
 }
 TEST_F(LuchthavenParserTest, FalseTest) {
-//    ASSERT_TRUE(DirectoryExists("testInput"));
+    ASSERT_TRUE(DirectoryExists("testInput"));
     SuccessEnum yes= PartialImport;
     testParser.setSuccessEnum(yes);
-    testParser.loadFile("../testInput/Input02.xml");
+    testParser.loadFile("testInput/Input02.xml");
     testParser.parseItems(testParser.getRoot());
     EXPECT_TRUE(testParser.getSuccessEnum() == 0);
+}
+TEST_F(LuchthavenParserTest, Fileopen) {
+    ASSERT_FALSE(DirectoryExists("rwrwe"));
+    ASSERT_FALSE(FileExists("dvd"));
+    ASSERT_FALSE(FileIsEmpty("testInput/Input02.xml"));
+
 }
 //    if(parser.loadFile("luchthaven.xml")){
 //parser.parseItems(parser.getRoot());

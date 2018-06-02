@@ -68,8 +68,8 @@ void Airport::landingprotocol(Airplane *airplane , std::ostream& out)
 
     out << airplane->getCallsign() << " is approaching " << _name << " at " << airplane->getHeight() << " ft. "<< std::endl;
     while(airplane->getHeight() > 1000){
-        _controller->landingprotocol(airplane);
-        airplane->descend();
+        _controller->landingprotocol(airplane, out);
+        airplane->descend(out);
     }
     airplane->setStatus(FinalApproach);
     airplane->setHeight(0);
@@ -145,7 +145,7 @@ void Airport::takeOffprotocol(Airplane *airplane, std::ostream& out)
     for(unsigned int x = 0; x < _runways.size();x++){
         if(_runways[x]->getAirplane() == airplane){
             while(airplane->getHeight() < 5000){
-                airplane->ascend();
+                airplane->ascend(out);
             }
             removeAirplaneFromRunway(airplane);
             airplane->setStatus(InTheAir);

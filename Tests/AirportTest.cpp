@@ -4,6 +4,8 @@
 
 #include <gtest/gtest.h>
 #include "../Airport.h"
+#include <iostream>
+#include <fstream>
 
 class AirportTest: public ::testing::Test {
 protected:
@@ -52,7 +54,10 @@ TEST_F(AirportTest, LandingProtocol){
     Flightplan* testFlightplan = new Flightplan(name, 15, 45, 1);
     Airplane* testAirplane = new Airplane("32", "callsign", "model", Approaching, 110, 5000, 1, 1, 2, testFlightplan);
     EXPECT_EQ((unsigned int)10000, testAirplane->getHeight());
-    testAirport->landingprotocol(testAirplane);
+    ofstream myfile;
+    myfile.open("testOutput/Output01.txt");
+    testAirport->landingprotocol(testAirplane, myfile);
+    myfile.close();
     EXPECT_EQ((unsigned int)0, testAirplane->getHeight());
 }
 
@@ -63,7 +68,10 @@ TEST_F(AirportTest, TakeoffProtocol){
     Flightplan* testFlightplan = new Flightplan(name, 15, 45, 1);
     Airplane* testAirplane = new Airplane("32", "callsign", "model", Departure, 110, 5000, 1, 1, 1, testFlightplan);
     EXPECT_EQ((unsigned int)0, testAirplane->getHeight());
-    testAirport->takeOffprotocol(testAirplane);
+    ofstream myfile;
+    myfile.open("testOutput/Output02.txt");
+    testAirport->takeOffprotocol(testAirplane, myfile);
+    myfile.close();
     EXPECT_EQ((unsigned int)4, testAirplane->getStatus());
 }
 TEST_F(AirportTest, GateProtocol){
@@ -73,7 +81,10 @@ TEST_F(AirportTest, GateProtocol){
     Flightplan* testFlightplan = new Flightplan(name, 15, 45, 1);
     Airplane* testAirplane = new Airplane("32", "callsign", "model", StandingAtGate, 110, 5000, 1, 2, 2, testFlightplan);
     EXPECT_EQ((unsigned int)0, testAirplane->getHeight());
-    testAirport->gateprotocol(testAirplane, 110);
+    ofstream myfile;
+    myfile.open("testOutput/Output03.txt");
+    testAirport->gateprotocol(testAirplane, 110, myfile);
+    myfile.close();
     EXPECT_EQ(StandingAtGate, testAirplane->getStatus());
 }
 TEST_F(AirportTest, AirplaneToRun){

@@ -7,7 +7,6 @@
 
 #include <iostream>
 
-class AirportUtils {
 
     bool DirectoryExists(const std::string dirname);
 
@@ -18,7 +17,7 @@ class AirportUtils {
     bool FileCompare(const std::string leftFileName, const std::string rightFileName);
 
     std::string to_string(int i);
-};
+
 
 
 #endif //PSE_AIRPORTUTILS_H
