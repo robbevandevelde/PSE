@@ -35,7 +35,6 @@ private:
 
     unsigned int _gatesize;
     unsigned int _amountRunways;
-
     std::string _name;
     std::string _iata;
     std::string _callsign;
@@ -169,8 +168,8 @@ public:
     bool runwayWaitChecker(Airplane *airplane);
     //    REQUIRE(this->properlyInitialised(), "Airport wasn't properly initialised when calling goingToGetUsedRunway()");
     void goingToGetUsedRunway();
-    //    REQUIRE(this->properlyInitialised(), "Airport wasn't properly initialised when calling isRunwayCompletelyClear()");
-    bool isRunwayCompletelyClear();
+    //    REQUIRE(this->properlyInitialised(), "Airport wasn't properly initialised when calling isARunwayCompletelyClear()");
+    bool isARunwayCompletelyClear();
 
     //    REQUIRE(this->properlyInitialised(), "Airport wasn't properly initialised when calling isAirplaneInGate");
     bool isAirplaneInGate(Airplane* airplane);

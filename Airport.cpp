@@ -585,9 +585,9 @@ void Airport::goingToGetUsedRunway()
  *@param geen
  *@return bool true als waar, false als niet waar
  */
-bool Airport::isRunwayCompletelyClear()
+bool Airport::isARunwayCompletelyClear()
 {
-    REQUIRE(this->properlyInitialised(), "Airport wasn't properly initialised when calling isRunwayCompletelyClear()");
+    REQUIRE(this->properlyInitialised(), "Airport wasn't properly initialised when calling isARunwayCompletelyClear()");
     for(unsigned int x = 0;x <_runways.size();x++){
         if(!_runways[x]->isOccupied()){
             if(!_runways[x]->isGoingToBeUsed()){
