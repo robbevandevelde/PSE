@@ -102,3 +102,62 @@ TEST_F(AirportTest, Controller){
     testAirport->assignController(John);
     EXPECT_EQ(John, testAirport->getController());
 }
+TEST_F(AirportTest, landingDeathtest){
+    AirTrafficController* John = new AirTrafficController(testAirport,"John");
+    testAirport->assignController(John);
+    string name = "LAX";
+    Flightplan* testFlightplan = new Flightplan(name, 15, 45, 1);
+    Airplane* testAirplane = new Airplane("32", "callsign", "model", JustLanded, 110, 5000, 1, 1, 2, testFlightplan);
+    EXPECT_EQ((unsigned int)0, testAirplane->getHeight());
+    ofstream myfile;
+    myfile.open("testOutput/Output01.txt");
+    EXPECT_DEATH(testAirport->landingprotocol(testAirplane, myfile), "Airplane must be approaching in order to land");
+    myfile.close();
+    EXPECT_EQ((unsigned int)0, testAirplane->getHeight());
+}
+TEST_F(AirportTest,  gateprotDeathtest){
+    AirTrafficController* John = new AirTrafficController(testAirport,"John");
+    testAirport->assignController(John);
+    string name = "LAX";
+    Flightplan* testFlightplan = new Flightplan(name, 15, 45, 1);
+    Airplane* testAirplane = new Airplane("32", "callsign", "model", Approaching, 110, 5000, 1, 1, 2, testFlightplan);
+    ofstream myfile;
+    myfile.open("testOutput/Output01.txt");
+    EXPECT_DEATH(testAirport->gateprotocol(testAirplane, 20), "Airplane must be on the ground");
+    myfile.close();
+}
+TEST_F(AirportTest,  takeOffDeathtest){
+    AirTrafficController* John = new AirTrafficController(testAirport,"John");
+    testAirport->assignController(John);
+    string name = "LAX";
+    Flightplan* testFlightplan = new Flightplan(name, 15, 45, 1);
+    Airplane* testAirplane = new Airplane("32", "callsign", "model", Approaching, 110, 5000, 1, 1, 2, testFlightplan);
+    ofstream myfile;
+    myfile.open("testOutput/Output01.txt");
+    EXPECT_DEATH(testAirport->takeOffprotocol(testAirplane, myfile), "Airplane must be departure");
+    myfile.close();
+}
+TEST_F(AirportTest,  takeOffDeathtest2){
+    AirTrafficController* John = new AirTrafficController(testAirport,"John");
+    testAirport->assignController(John);
+    string name = "LAX";
+    Flightplan* testFlightplan = new Flightplan(name, 15, 45, 1);
+    Airplane* testAirplane = new Airplane("32", "callsign", "model", Departure, 110, 5000, 1, 1, 2, testFlightplan);
+    testAirplane->setHeight(50);
+    ofstream myfile;
+    myfile.open("testOutput/Output01.txt");
+    EXPECT_DEATH(testAirport->takeOffprotocol(testAirplane, myfile), "Airplane must be on the ground");
+    myfile.close();
+}
+TEST_F(AirportTest,  apl2gtDeathtest){
+    AirTrafficController* John = new AirTrafficController(testAirport,"John");
+    testAirport->assignController(John);
+    string name = "LAX";
+    Flightplan* testFlightplan = new Flightplan(name, 15, 45, 1);
+    Airplane* testAirplane = new Airplane("32", "callsign", "model", Departure, 110, 5000, 1, 1, 2, testFlightplan);
+    ofstream myfile;
+    myfile.open("testOutput/Output01.txt");
+    EXPECT_DEATH(testAirport->addAirplaneToGate(testAirplane, myfile), "Airplane has to be standing at the runway in order to taxi");
+    myfile.close();
+}
+

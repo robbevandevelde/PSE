@@ -25,45 +25,6 @@ int main() {
         vector<Airplane*> airplanesVect = parser.getAirplanes();
         //parser.isRunAirEqual(runwaysVect,airportsVect);
         parser.writeToFile(runwaysVect, airportsVect, airplanesVect);
-
-//        for (unsigned int itRW=0 ; itRW < runwaysVect.size(); itRW++) {
-//            cout << "------------------------------------------\n";
-//            cout << runwaysVect[itRW]->getName() << endl;
-//            cout << runwaysVect[itRW]->getAirport() << endl;
-////            for (unsigned int taxIT=0 ; itRW < runwaysVect[itRW]->getTaxiRoute().size(); itRW++) {
-////
-////                cout << runwaysVect[itRW]->getTaxiRoute()[taxIT] << endl;
-////            }
-//            cout << runwaysVect[itRW]->getLength() << endl;
-//            cout << runwaysVect[itRW]->getType() << endl;
-////            runwaysVect[itRW]->getTaxiRoute()[0];
-//        }
-//        for (unsigned int itAPO=0 ; itAPO < airportsVect.size(); itAPO++) {
-//            cout << "------------------------------------------\n";
-//            cout << airportsVect[itAPO]->getName() << endl;
-//            cout << airportsVect[itAPO]->getIata() << endl;
-//            cout << airportsVect[itAPO]->getCallsign() << endl;
-//            cout << airportsVect[itAPO]->getCallsign() << endl;
-//        }
-//        for (unsigned int itAPL=0 ; itAPL < airplanesVect.size(); itAPL++) {
-//            cout << "------------------------------------------\n";
-//            cout << airplanesVect[itAPL]->getNumber() << endl;
-//            cout << airplanesVect[itAPL]->getCallsign() << endl;
-//            cout << airplanesVect[itAPL]->getModel() << endl;
-//            cout << airplanesVect[itAPL]->getStatus() << endl;
-//            cout << "Type: " <<airplanesVect[itAPL]->getType() << endl;
-//            cout << "Engine: " <<airplanesVect[itAPL]->getEngine() << endl;
-//            cout << "Size: " << airplanesVect[itAPL]->getSize() << endl;
-//            cout << "Max Fuel: " << airplanesVect[itAPL]->getFuel() << endl;
-//            cout << "Max passengers: "<<airplanesVect[itAPL]->getPassengers() << endl;
-//            cout << "Flightplan: "<<endl;
-//            cout << "\tDeparture: "<<airplanesVect[itAPL]->getFlightplan()->getDeparture()<<endl;
-//            cout << "\tDest: "<<airplanesVect[itAPL]->getFlightplan()->getDestination()<<endl;
-//            cout << "\tArrival: "<<airplanesVect[itAPL]->getFlightplan()->getArrival()<<endl;
-//            cout << "\tInterval: "<<airplanesVect[itAPL]->getFlightplan()->getInterval()<<endl;
-//
-//        }
-//        cout << "------------------------------------------\n" << endl;
         AirTrafficController* Alain = new AirTrafficController(airportsVect[0],"Alain Clement");
         airportsVect[0]->assignController(Alain);
 //        airportsVect[0]->completeLandingSequence(airplanesVect[0]);
@@ -74,7 +35,11 @@ int main() {
     }else{
         cout<< "unable to parse file" << endl;
     }
-
+//    Airport* testAirport = new Airport(10, "Antwerp Airport", "ANR", "callsign");
+//    string name = "gggg";
+//    Flightplan* testFlightplan = new Flightplan(name, 15, 45, 1);
+//    Airplane* testAirplane = new Airplane("32", "callsign", "model", JustLanded, 110, 5000, 1, 1, 2, testFlightplan);
+//    testAirport->landingprotocol(testAirplane);
 }
 //#include <iostream>
 //#include "Airplane.h"

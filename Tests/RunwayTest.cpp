@@ -63,15 +63,3 @@ TEST_F(RunwayTest, airplanetest) {
 //    EXPECT_EQ(testRunway->getAirplane()->getStatus(), InTheAir);
 }
 
-
-//
-//
-//
-//}
-//TEST_F(RunwayTest, nondefaultconst){
-//    EXPECT_EQ(testRunway.getAirport(), "ANR");
-//    testRunway.setAirport("BRS");
-//    EXPECT_EQ(testRunway.getAirport(), "BRS");
-//    EXPECT_EQ(testRunway.getName(), "R11");
-//
-//}

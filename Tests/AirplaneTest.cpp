@@ -34,7 +34,7 @@ protected:
 
 TEST_F(AirplaneTest, InitTest) {
     EXPECT_TRUE(testAirplane->properlyInitialised());
-    //EXPECT_TRUE(testFlightplan->properlyInitialised());
+    EXPECT_TRUE(testFlightplan->properlyInitialised());
 
 }
 TEST_F(AirplaneTest, DefaultconstructorTests) {

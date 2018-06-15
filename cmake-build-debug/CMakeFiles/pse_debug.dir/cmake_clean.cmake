@@ -24,6 +24,7 @@ file(REMOVE_RECURSE
   "CMakeFiles/pse_debug.dir/AirTrafficController.cpp.o"
   "CMakeFiles/pse_debug.dir/Simulator.cpp.o"
   "CMakeFiles/pse_debug.dir/Tests/FlightplanTest.cpp.o"
+  "CMakeFiles/pse_debug.dir/Tests/OutputTest.cpp.o"
   "pse_debug.pdb"
   "pse_debug"
 )

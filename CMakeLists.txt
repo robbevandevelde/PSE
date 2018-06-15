@@ -80,7 +80,7 @@ set(DEBUG_SOURCE_FILES
         testInput/Input03.xml
         testInput/Input04.xml
         testInput/Input05.xml
-        )
+        Tests/OutputTest.cpp)
 
 add_executable(pse ${SOURCE_FILES})
 

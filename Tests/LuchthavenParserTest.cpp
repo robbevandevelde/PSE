@@ -75,7 +75,7 @@ TEST_F(LuchthavenParserTest, FalseTest) {
     testParser.setSuccessEnum(yes);
     testParser.loadFile("testInput/Input02.xml");
     testParser.parseItems(testParser.getRoot());
-    EXPECT_TRUE(testParser.getSuccessEnum() == 0);
+    EXPECT_TRUE(testParser.getSuccessEnum() == ImportAborted);
 }
 TEST_F(LuchthavenParserTest, Fileopen) {
     ASSERT_FALSE(DirectoryExists("rwrwe"));
@@ -83,5 +83,3 @@ TEST_F(LuchthavenParserTest, Fileopen) {
     ASSERT_FALSE(FileIsEmpty("testInput/Input02.xml"));
 
 }
-//    if(parser.loadFile("luchthaven.xml")){
-//parser.parseItems(parser.getRoot());

@@ -104,15 +104,15 @@ void LuchthavenParser::writeToFile(vector<Runway *> runwaysVect, vector<Airport 
     ofstream myfile;
     myfile.open ("Simulation.txt");
     for (unsigned int itAPO=0 ; itAPO < airportsVect.size(); itAPO++) {
-        myfile << "\n";
         myfile << "Airport: "<< airportsVect[itAPO]->getName() << " (" << airportsVect[itAPO]->getIata()<<")"<< endl;
         myfile <<"-> gates: "<< airportsVect[itAPO]->getGatesize() << endl;
         myfile <<"-> runways: "<<  runwaysVect.size() << endl;
+        myfile << "\n";
+
     }
 
 
     for (unsigned int itAPL=0 ; itAPL < airplanesVect.size(); itAPL++) {
-        myfile << "\n";
         myfile << "Airplane: "<< airplanesVect[itAPL]->getCallsign() << " (" << airplanesVect[itAPL]->getNumber()<<")"<< endl;
         myfile <<"-> model: "<< airplanesVect[itAPL]->getModel() << endl;
         if(airplanesVect[itAPL]->getType() == 0){
@@ -142,7 +142,9 @@ void LuchthavenParser::writeToFile(vector<Runway *> runwaysVect, vector<Airport 
         if(airplanesVect[itAPL]->getSize() == 2){
             myfile <<"-> size: Large"<< endl;
         }
+        myfile << "\n";
         }
+
 
     myfile.close();
 
