@@ -66,13 +66,19 @@ void Airport::landingprotocol(Airplane *airplane , std::ostream& out)
     REQUIRE(this->properlyInitialised(), "Airpower wasn't properly initialised when calling Landingprotocol");
     REQUIRE(airplane->getStatus() == Approaching, "Airplane must be approaching in order to land");
 
-    out << airplane->getCallsign() << " is approaching " << _name << " at " << airplane->getHeight() << " ft. "<< std::endl;
-    while(airplane->getHeight() > 1000){
+    out << airplane->getCallsign() << " is approaching " << _name << " at " << airplane->getHeight() << " ft."<< std::endl;
+    while(airplane->getHeight() !=0){
         _controller->landingprotocol(airplane, out);
         airplane->descend(out);
     }
     airplane->setStatus(FinalApproach);
-    airplane->setHeight(0);
+    for(unsigned int x = 0; x < _runways.size();x++) {
+        if (!_runways[x]->isOccupied()) {
+            if (!_runways[x]->isGoingToBeUsed()) {
+                _runways[x]->setUsedStatus();
+            }
+        }
+    }
     ENSURE(airplane->getStatus() == FinalApproach, "Landing failure");
     ENSURE(airplane->getHeight() == 0, "Airplane must be at 0 ft");
 }
@@ -91,7 +97,7 @@ void Airport::gateprotocol(Airplane *airplane, unsigned int passengers, std::ost
                 out << airplane->getPassengers() << " exited " << airplane->getCallsign() << " at Gate " <<
                           _gates[x]->getName() << " of " << _name << std::endl;
                 airplane->setPassengers(0);
-                out<< airplane->getCallsign() << " has been checked for technical malfunctions " << std::endl;
+                out<< airplane->getCallsign() << " has been checked for technical malfunctions" << std::endl;
                 airplane->setStatus(StandingAtGate);
                 ENSURE(airplane->getPassengers() == 0, "Passenger exit failure");
                 ENSURE(airplane->getStatus() == StandingAtGate, "Failire");
@@ -220,7 +226,7 @@ void Airport::removeAirplaneFromRunway(Airplane *airplane)
 void Airport::addAirplaneToGate(Airplane *airplane, std::ostream& out)
 {
     REQUIRE(this->properlyInitialised(),"Airport wasn't properly initialised when calling addAirplaneToGate()");
-    REQUIRE(airplane->getStatus() == JustLanded, "Airplane has to be standing at the runway in order to taxi");
+    REQUIRE(airplane->getStatus() == JustLanded, "Airplane has to be just landed at the runway in order to taxi");
     REQUIRE(_gates.size() == _gatesize, "Amount of gates don't match with the given amount of gates");
 
     for(unsigned int x = 0; x < _gates.size();x++){

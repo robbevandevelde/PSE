@@ -157,7 +157,7 @@ TEST_F(AirportTest,  apl2gtDeathtest){
     Airplane* testAirplane = new Airplane("32", "callsign", "model", Departure, 110, 5000, 1, 1, 2, testFlightplan);
     ofstream myfile;
     myfile.open("testOutput/Output01.txt");
-    EXPECT_DEATH(testAirport->addAirplaneToGate(testAirplane, myfile), "Airplane has to be standing at the runway in order to taxi");
+    EXPECT_DEATH(testAirport->addAirplaneToGate(testAirplane, myfile), "Airplane has to be just landed at the runway in order to taxi");
     myfile.close();
 }
 

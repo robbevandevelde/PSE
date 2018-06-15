@@ -71,6 +71,41 @@ bool FileCompare(const std::string leftFileName, const std::string rightFileName
     rightFile.close();
     return result;
 }
+bool compareFiles(const std::string leftFileName, const std::string rightFileName)
+    {
+        ifstream leftFile, rightFile;
+        bool equal = true;
+        leftFile.open(leftFileName.c_str());
+        if (!leftFile.is_open()) {
+            return false;
+        };
+        rightFile.open(rightFileName.c_str());
+        if (!rightFile.is_open()) {
+            leftFile.close();
+            return false;
+        };
+
+        //start comparing lines
+        while ((!leftFile.eof()) && (!rightFile.eof())) {
+
+            string line,line2;
+            getline(leftFile,line);
+            getline(rightFile,line2);
+            if(line ==line2){
+                equal = true;
+            }
+            else{
+                equal = false;
+                break;
+            }
+        }
+
+        leftFile.close();
+        rightFile.close();   //close them
+
+        return equal;  //open your out file and enjoy
+    }
+
 
 string to_string( int x ) {
     int length = snprintf( NULL, 0, "%d", x );
@@ -80,3 +115,4 @@ string to_string( int x ) {
     delete[] buf;
     return str;
 }
+

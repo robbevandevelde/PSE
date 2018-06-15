@@ -1,0 +1,4 @@
+callsign is taxiing to Gate 1
+callsign is standing at Gate 1
+110 exited callsign at Gate 1 of Antwerp Airport
+callsign has been checked for technical malfunctions

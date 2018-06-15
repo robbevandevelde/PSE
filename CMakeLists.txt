@@ -72,7 +72,7 @@ set(DEBUG_SOURCE_FILES
         Tests/AirplaneTest.cpp Tests/AirportTest.cpp
         Tests/GatesTest.cpp DesignByContract.h
         Tests/LuchthavenParserTest.cpp AirportUtils.cpp
-        AirportUtils.h Taxiroute.cpp Taxiroute.h Flightplan.cpp
+        AirportUtils.h Flightplan.cpp
         Flightplan.h Gate.cpp Gate.h AirTrafficController.cpp AirTrafficController.h Simulator.cpp Simulator.h
         testInput testInput/Input01.xml
         Tests/FlightplanTest.cpp

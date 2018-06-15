@@ -16,6 +16,8 @@
 
     bool FileCompare(const std::string leftFileName, const std::string rightFileName);
 
+    bool compareFiles(const std::string leftFileName, const std::string rightFileName);
+
     std::string to_string(int i);
 
 
