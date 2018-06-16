@@ -13,6 +13,7 @@ callsign descended to 1000 ft.
 callsign descended to 0 ft.
 callsign is landing at Antwerp Airport on runway R11
 callsign has landed at Antwerp Airport on runway R11
+callsign proceed to an empty gate as soon as possible
 callsign is taxiing to Gate 1
 callsign is standing at Gate 1
 110 exited callsign at Gate 1 of Antwerp Airport

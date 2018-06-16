@@ -99,10 +99,10 @@ void LuchthavenParser::parseItems(TiXmlElement *elem) {
  *@return niks void functie
  */
 void LuchthavenParser::writeToFile(vector<Runway *> runwaysVect, vector<Airport *> airportsVect,
-                                   vector<Airplane *> airplanesVect) {
+                                   vector<Airplane *> airplanesVect, string name) {
     REQUIRE(this->properlyInitialised(), "Parser wasn't properly initialised when calling writeToFile()");
     ofstream myfile;
-    myfile.open ("Simulation.txt");
+    myfile.open (name);
     for (unsigned int itAPO=0 ; itAPO < airportsVect.size(); itAPO++) {
         myfile << "Airport: "<< airportsVect[itAPO]->getName() << " (" << airportsVect[itAPO]->getIata()<<")"<< endl;
         myfile <<"-> gates: "<< airportsVect[itAPO]->getGatesize() << endl;

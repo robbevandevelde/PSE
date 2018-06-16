@@ -46,7 +46,8 @@ bool AirTrafficController::landingprotocol(Airplane *airplane, std::ostream& out
         } else{
             return false;
         }
-    }else if(airplane->getHeight() == 3000){
+    }
+    else if(airplane->getHeight() == 3000){
         if(_airport->isRunwayEmpty() && _airport->isRunwayNotUsed()){
             return true;
         } else{

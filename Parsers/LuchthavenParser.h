@@ -46,7 +46,7 @@ public:
     //    REQUIRE(this->properlyInitialised(), "Parser wasn't properly initialised when calling loadFile()");
     void parseItems(TiXmlElement* elem);
     //    REQUIRE(this->properlyInitialised(), "Parser wasn't properly initialised when calling loadFile()");
-    void writeToFile(vector<Runway*> runwaysVect, vector<Airport*> airportsVect, vector<Airplane*> airplanesVect);
+    void writeToFile(vector<Runway*> runwaysVect, vector<Airport*> airportsVect, vector<Airplane*> airplanesVect, string name);
     //    REQUIRE(this->properlyInitialised(), "Parser wasn't properly initialised when calling loadFile()");
     bool loadFile(string filename);
     //    REQUIRE(this->properlyInitialised(), "Parser wasn't properly initialised when calling loadFile()");

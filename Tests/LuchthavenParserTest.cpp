@@ -22,7 +22,7 @@ protected:
     // should define it if you need to initialize the variables.
     // Otherwise, this can be skipped.
     virtual void SetUp() {
-//        testParser = new LuchthavenParser();
+        testParser = new LuchthavenParser();
     }
 
     // virtual void TearDown() will be called after each test is run.
@@ -32,16 +32,16 @@ protected:
     }
 
     // Declares the variables your tests want to use.
-    LuchthavenParser testParser;
+    LuchthavenParser* testParser;
 };
 TEST_F(LuchthavenParserTest, InitCheck) {
-    EXPECT_EQ(testParser.properlyInitialised(), true);
+    EXPECT_EQ(testParser->properlyInitialised(), true);
 }
 // Tests the default constructor.
 TEST_F(LuchthavenParserTest, InputHappyday1) {
     ASSERT_TRUE(DirectoryExists("testInput"));
     ASSERT_FALSE(DirectoryExists("testIut"));
-    testParser.setSuccessEnum(PartialImport);
+    testParser->setSuccessEnum(PartialImport);
     ofstream myfile;
     myfile.open("../testInput/Input01.xml");
     myfile << "<?xml version=\"1.0\" ?>" << endl
@@ -55,31 +55,46 @@ TEST_F(LuchthavenParserTest, InputHappyday1) {
             << "</SIMULATIE>" << endl;
     myfile.close();
     ASSERT_TRUE(FileExists("testInput/Input01.xml"));
-    testParser.loadFile("testInput/Input01.xml");
-    testParser.parseItems(testParser.getRoot());
-    EXPECT_TRUE(testParser.getSuccessEnum() == Success);
+    testParser->loadFile("testInput/Input01.xml");
+    testParser->parseItems(testParser->getRoot());
+    EXPECT_TRUE(testParser->getSuccessEnum() == Success);
 
 }
 TEST_F(LuchthavenParserTest, InputHappyday2) {
     ASSERT_TRUE(DirectoryExists("testInput"));
     SuccessEnum yes= PartialImport;
-    testParser.setSuccessEnum(yes);
+    testParser->setSuccessEnum(yes);
     ASSERT_TRUE(FileExists("testInput/Input03.xml"));
-    testParser.loadFile("testInput/Input03.xml");
-    testParser.parseItems(testParser.getRoot());
-    EXPECT_TRUE(testParser.getSuccessEnum() == Success);
+    testParser->loadFile("testInput/Input03.xml");
+    testParser->parseItems(testParser->getRoot());
+    EXPECT_TRUE(testParser->getSuccessEnum() == Success);
 }
 TEST_F(LuchthavenParserTest, FalseTest) {
     ASSERT_TRUE(DirectoryExists("testInput"));
     SuccessEnum yes= PartialImport;
-    testParser.setSuccessEnum(yes);
-    testParser.loadFile("testInput/Input02.xml");
-    testParser.parseItems(testParser.getRoot());
-    EXPECT_TRUE(testParser.getSuccessEnum() == ImportAborted);
+    testParser->setSuccessEnum(yes);
+    testParser->loadFile("testInput/Input02.xml");
+    testParser->parseItems(testParser->getRoot());
+    EXPECT_TRUE(testParser->getSuccessEnum() == ImportAborted);
 }
 TEST_F(LuchthavenParserTest, Fileopen) {
     ASSERT_FALSE(DirectoryExists("rwrwe"));
     ASSERT_FALSE(FileExists("dvd"));
     ASSERT_FALSE(FileIsEmpty("testInput/Input02.xml"));
-
+}
+TEST_F(LuchthavenParserTest, FalseTest2) {
+    ASSERT_TRUE(DirectoryExists("testInput"));
+    SuccessEnum yes= PartialImport;
+    testParser->setSuccessEnum(yes);
+    testParser->loadFile("testInput/Input04.xml");
+    testParser->parseItems(testParser->getRoot());
+    EXPECT_TRUE(testParser->getSuccessEnum() == ImportAborted);
+}
+TEST_F(LuchthavenParserTest, FalseTest3) {
+    ASSERT_TRUE(DirectoryExists("testInput"));
+    SuccessEnum yes= PartialImport;
+    testParser->setSuccessEnum(yes);
+    testParser->loadFile("testInput/Input05.xml");
+    testParser->parseItems(testParser->getRoot());
+    EXPECT_TRUE(testParser->getSuccessEnum() == ImportAborted);
 }

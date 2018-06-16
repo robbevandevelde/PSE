@@ -174,7 +174,7 @@ void Airport::addAirplaneToRunway(Airplane *airplane, std::ostream& out)
         if (airplane->getStatus() == Departure) {
             if (!_runways[x]->isOccupied()) {
                 if (!_runways[x]->isGoingToBeUsed()) {
-                    _controller->takeoffprotocol(airplane);
+                    _controller->takeoffprotocol(airplane, out);
                     out << airplane->getCallsign() << " is taxiing to runway " << _runways[x]->getName() <<
                               std::endl;
                     _runways[x]->addAirplane(airplane);
@@ -193,7 +193,7 @@ void Airport::addAirplaneToRunway(Airplane *airplane, std::ostream& out)
                     _runways[x]->addAirplane(airplane);
                     out << airplane->getCallsign() << " has landed at " << _name << " on runway "
                               << _runways[x]->getName() << std::endl;
-                    _controller->landingprotocol(airplane);
+                    _controller->landingprotocol(airplane, out);
                     ENSURE(_runways[x]->getAirplane()->getStatus() == JustLanded, "Add airplane to runway failure");
                     ENSURE(isAirplaneInRunway(airplane), "addAirplaneToRunway() failure");
                     break;

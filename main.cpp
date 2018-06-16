@@ -16,15 +16,15 @@
  */
 using namespace std;
 int main() {
-    LuchthavenParser parser;
-    if(parser.loadFile("luchthaven.xml")){
-        parser.parseItems(parser.getRoot());
+    LuchthavenParser* parser = new LuchthavenParser();
+    if(parser->loadFile("luchthaven.xml")){
+        parser->parseItems(parser->getRoot());
 
-        vector<Runway*> runwaysVect = parser.getRunways();
-        vector<Airport*> airportsVect = parser.getAirports();
-        vector<Airplane*> airplanesVect = parser.getAirplanes();
+        vector<Runway*> runwaysVect = parser->getRunways();
+        vector<Airport*> airportsVect = parser->getAirports();
+        vector<Airplane*> airplanesVect = parser->getAirplanes();
         //parser.isRunAirEqual(runwaysVect,airportsVect);
-        parser.writeToFile(runwaysVect, airportsVect, airplanesVect);
+        parser->writeToFile(runwaysVect, airportsVect, airplanesVect, "simulatie.txt");
         AirTrafficController* Alain = new AirTrafficController(airportsVect[0],"Alain Clement");
         airportsVect[0]->assignController(Alain);
 //        airportsVect[0]->completeLandingSequence(airplanesVect[0]);
