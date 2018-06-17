@@ -56,4 +56,34 @@ TEST_F(RunwayTest, airplanetest) {
     EXPECT_EQ((unsigned int)0, testRunway->getAirplane()->getHeight());
     testRunway->getAirplane()->setStatus(4);
 }
+//death test for adding second aircraft
+TEST_F(RunwayTest, airplaneAddDeadtest) {
+    string name = "LAX";
+    Flightplan* testFlightplan = new Flightplan(name, 15, 45, 1);
+    Airplane* testAirplane = new Airplane("32", "callsign", "model", 0, 110, 5000, 1, 1, 1, testFlightplan);
+    testRunway->setAirplane(testAirplane);
+    Airplane* testAirplane2 = new Airplane("2", "calls", "model", 0, 110, 5000, 1, 1, 1, testFlightplan);
+    EXPECT_DEATH(testRunway->addAirplane(testAirplane2), "Airplane must point to a nullptr");
+}
+//deathtest for having wrong status
+TEST_F(RunwayTest, airplaneAddDeadtest2) {
+    string name = "LAX";
+    Flightplan* testFlightplan = new Flightplan(name, 15, 45, 1);
+    Airplane* testAirplane = new Airplane("32", "callsign", "model", 0, 110, 5000, 1, 1, 1, testFlightplan);
+    testRunway->setStatus(true);
+    EXPECT_DEATH(testRunway->addAirplane(testAirplane), "Status must be false");
+}
+//remove nonexistant airplane
+TEST_F(RunwayTest, airplaneremoveDeadtest) {
+    EXPECT_DEATH(testRunway->removeAirplane(), "Airplane must point to an airplane and not a nullptr");
+}
+//status is false
+TEST_F(RunwayTest, airplaneremoveDeadtest2) {
+    string name = "LAX";
+    Flightplan* testFlightplan = new Flightplan(name, 15, 45, 1);
+    Airplane* testAirplane = new Airplane("32", "callsign", "model", 0, 110, 5000, 1, 1, 1, testFlightplan);
+    testRunway->addAirplane(testAirplane);
+    testRunway->setStatus(false);
+    EXPECT_DEATH(testRunway->removeAirplane(), "Status must be true because the space is occupied");
+}
 
