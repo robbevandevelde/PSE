@@ -27,16 +27,17 @@ protected:
     Gate* testGate;
 };
 
-// Tests the default constructor.
+// Tests the init.
 TEST_F(GatesTest, InitTest) {
     EXPECT_TRUE(testGate->properlyInitialised());
 }
+//Tests the default constructor
 TEST_F(GatesTest, DefaultConstructor) {
     EXPECT_EQ((unsigned int)1, testGate->getName());
     EXPECT_FALSE(testGate->isOccupied());
     EXPECT_EQ((Airplane*)NULL, testGate->getAirplane());
 }
-
+//Tests the standard gate functions
 TEST_F(GatesTest, airplaneTest) {
     EXPECT_EQ((unsigned int)1, testGate->getName());
     EXPECT_FALSE(testGate->isOccupied());

@@ -17,6 +17,12 @@ protected:
     // Otherwise, this can be skipped.
     virtual void SetUp() {
         testAirport = new Airport(10, "Antwerp Airport", "ANR", "callsign");
+        AirTrafficController* John = new AirTrafficController(testAirport,"John");
+        testAirport->assignController(John);
+        string name = "LAX";
+        testFlightplan = new Flightplan(name, 15, 45, 1);
+        testAirplane = new Airplane("32", "callsign", "model", Departure, 110, 5000, 1, 1, 1, testFlightplan);
+
 
     }
 
@@ -28,15 +34,20 @@ protected:
 
     // Declares the variables your tests want to use.
     Airport* testAirport;
+    AirTrafficController* John;
+    Flightplan* testFlightplan;
+    Airplane* testAirplane;
 };
 
-// Tests the default constructor.
+// Tests the initialisation.
 TEST_F(AirportTest, InitTest){
     EXPECT_TRUE(testAirport->properlyInitialised());
 }
+//Tests the default constructor
 TEST_F(AirportTest, DefaultConstructorTest){
     EXPECT_EQ(testAirport->getName(),"Antwerp Airport");
 }
+//Tests the getters and setters
 TEST_F(AirportTest, gettersEnSetters){
     testAirport->setGatesize(3);
     testAirport->setCallsign("callsign");
@@ -47,12 +58,10 @@ TEST_F(AirportTest, gettersEnSetters){
     EXPECT_EQ("callsign", testAirport->getCallsign());
     EXPECT_EQ("IATA", testAirport->getIata());
 }
+//Tests the landing protocol
 TEST_F(AirportTest, LandingProtocol){
-    AirTrafficController* John = new AirTrafficController(testAirport,"John");
-    testAirport->assignController(John);
-    string name = "LAX";
-    Flightplan* testFlightplan = new Flightplan(name, 15, 45, 1);
-    Airplane* testAirplane = new Airplane("32", "callsign", "model", Approaching, 110, 5000, 1, 1, 2, testFlightplan);
+    testAirplane->setStatus(Approaching);
+    testAirplane->setHeight(10000);
     EXPECT_EQ((unsigned int)10000, testAirplane->getHeight());
     ofstream myfile;
     myfile.open("testOutput/Output01.txt");
@@ -60,13 +69,9 @@ TEST_F(AirportTest, LandingProtocol){
     myfile.close();
     EXPECT_EQ((unsigned int)0, testAirplane->getHeight());
 }
-
+//Tests the takeoff protocol
 TEST_F(AirportTest, TakeoffProtocol){
-    AirTrafficController* John = new AirTrafficController(testAirport,"John");
-    testAirport->assignController(John);
-    string name = "LAX";
-    Flightplan* testFlightplan = new Flightplan(name, 15, 45, 1);
-    Airplane* testAirplane = new Airplane("32", "callsign", "model", Departure, 110, 5000, 1, 1, 1, testFlightplan);
+    testAirplane->setStatus(Departure);
     EXPECT_EQ((unsigned int)0, testAirplane->getHeight());
     ofstream myfile;
     myfile.open("testOutput/Output02.txt");
@@ -74,12 +79,9 @@ TEST_F(AirportTest, TakeoffProtocol){
     myfile.close();
     EXPECT_EQ((unsigned int)4, testAirplane->getStatus());
 }
+//Tests the gate protocol
 TEST_F(AirportTest, GateProtocol){
-    AirTrafficController* John = new AirTrafficController(testAirport,"John");
-    testAirport->assignController(John);
-    string name = "LAX";
-    Flightplan* testFlightplan = new Flightplan(name, 15, 45, 1);
-    Airplane* testAirplane = new Airplane("32", "callsign", "model", StandingAtGate, 110, 5000, 1, 2, 2, testFlightplan);
+    testAirplane->setStatus(StandingAtGate);
     EXPECT_EQ((unsigned int)0, testAirplane->getHeight());
     ofstream myfile;
     myfile.open("testOutput/Output03.txt");
@@ -87,27 +89,20 @@ TEST_F(AirportTest, GateProtocol){
     myfile.close();
     EXPECT_EQ(StandingAtGate, testAirplane->getStatus());
 }
+//Tests the airplane to runway function
 TEST_F(AirportTest, AirplaneToRun){
-    AirTrafficController* John = new AirTrafficController(testAirport,"John");
-    testAirport->assignController(John);
-    string name = "LAX";
-    Flightplan* testFlightplan = new Flightplan(name, 15, 45, 1);
-    Airplane* testAirplane = new Airplane("32", "callsign", "model", Departure, 110, 5000, 1, 3, 1, testFlightplan);
+    testAirplane->setStatus(Departure);
     EXPECT_EQ((unsigned int)0, testAirplane->getHeight());
     testAirport->addAirplaneToRunway(testAirplane);
     testAirport->removeAirplaneFromRunway(testAirplane);
 }
+//Tests the added controller
 TEST_F(AirportTest, Controller){
-    AirTrafficController* John = new AirTrafficController(testAirport,"John");
-    testAirport->assignController(John);
-    EXPECT_EQ(John, testAirport->getController());
+    EXPECT_EQ("John", testAirport->getController()->getName());
 }
+//Tests the landing protocol with expected death
 TEST_F(AirportTest, landingDeathtest){
-    AirTrafficController* John = new AirTrafficController(testAirport,"John");
-    testAirport->assignController(John);
-    string name = "LAX";
-    Flightplan* testFlightplan = new Flightplan(name, 15, 45, 1);
-    Airplane* testAirplane = new Airplane("32", "callsign", "model", JustLanded, 110, 5000, 1, 1, 2, testFlightplan);
+    testAirplane->setStatus(JustLanded);
     EXPECT_EQ((unsigned int)0, testAirplane->getHeight());
     ofstream myfile;
     myfile.open("testOutput/Output01.txt");
@@ -115,46 +110,36 @@ TEST_F(AirportTest, landingDeathtest){
     myfile.close();
     EXPECT_EQ((unsigned int)0, testAirplane->getHeight());
 }
+////Tests the gate protocol with expected death
 TEST_F(AirportTest,  gateprotDeathtest){
-    AirTrafficController* John = new AirTrafficController(testAirport,"John");
-    testAirport->assignController(John);
-    string name = "LAX";
-    Flightplan* testFlightplan = new Flightplan(name, 15, 45, 1);
-    Airplane* testAirplane = new Airplane("32", "callsign", "model", Approaching, 110, 5000, 1, 1, 2, testFlightplan);
+    testAirplane->setStatus(Approaching);
+    testAirplane->setHeight(500);
     ofstream myfile;
     myfile.open("testOutput/Output01.txt");
     EXPECT_DEATH(testAirport->gateprotocol(testAirplane, 20), "Airplane must be on the ground");
     myfile.close();
 }
+//Tests the takeoff protocol with expected death
 TEST_F(AirportTest,  takeOffDeathtest){
-    AirTrafficController* John = new AirTrafficController(testAirport,"John");
-    testAirport->assignController(John);
-    string name = "LAX";
-    Flightplan* testFlightplan = new Flightplan(name, 15, 45, 1);
-    Airplane* testAirplane = new Airplane("32", "callsign", "model", Approaching, 110, 5000, 1, 1, 2, testFlightplan);
+    testAirplane->setStatus(Approaching);
     ofstream myfile;
     myfile.open("testOutput/Output01.txt");
     EXPECT_DEATH(testAirport->takeOffprotocol(testAirplane, myfile), "Airplane must be departure");
     myfile.close();
 }
+//Tests the takeoff protocol with expected death
 TEST_F(AirportTest,  takeOffDeathtest2){
-    AirTrafficController* John = new AirTrafficController(testAirport,"John");
-    testAirport->assignController(John);
-    string name = "LAX";
-    Flightplan* testFlightplan = new Flightplan(name, 15, 45, 1);
-    Airplane* testAirplane = new Airplane("32", "callsign", "model", Departure, 110, 5000, 1, 1, 2, testFlightplan);
+    testAirplane->setStatus(Departure);
     testAirplane->setHeight(50);
     ofstream myfile;
     myfile.open("testOutput/Output01.txt");
     EXPECT_DEATH(testAirport->takeOffprotocol(testAirplane, myfile), "Airplane must be on the ground");
     myfile.close();
 }
+//Tests the airplane to gate with expected death
 TEST_F(AirportTest,  apl2gtDeathtest){
-    AirTrafficController* John = new AirTrafficController(testAirport,"John");
-    testAirport->assignController(John);
-    string name = "LAX";
-    Flightplan* testFlightplan = new Flightplan(name, 15, 45, 1);
-    Airplane* testAirplane = new Airplane("32", "callsign", "model", Departure, 110, 5000, 1, 1, 2, testFlightplan);
+    testAirplane->setStatus(Departure);
+    testAirplane->setHeight(0);
     ofstream myfile;
     myfile.open("testOutput/Output01.txt");
     EXPECT_DEATH(testAirport->addAirplaneToGate(testAirplane, myfile), "Airplane has to be just landed at the runway in order to taxi");

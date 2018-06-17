@@ -14,14 +14,12 @@
 
 enum rwType {Grass, Asphalt};
 
-class Taxiroute;
 class Airplane;
 
 class Runway {
 private:
     Runway* _initcheck;
 
-    std::vector <Taxiroute*> _taxiRoute;
 
     Airplane* _airplane;
 
@@ -56,8 +54,6 @@ public:
     unsigned int getType();
     //    REQUIRE(this->properlyInitialised(), "Runway wasn't properly initialised when calling getAirport()");
     const std::string &getAirport();
-    //    REQUIRE(this->properlyInitialised(),"Runway wasn't properly initialised when calling getTaxiRoute()");
-    const std::vector<Taxiroute *> &getTaxiRoute();
 
     //  REQUIRE(this->properlyInitialised(), "Runway wasn't properly initialised when calling removeAirplane()");
     //    REQUIRE(_airplane != NULL, "Airplane must point to an airplane and not a nullptr");
@@ -96,15 +92,10 @@ public:
 
     ///////
     void setType(unsigned int _type);
-    //    REQUIRE(this->properlyInitialised(),"Runway wasn't properly initialised when calling pushbackTaxi()");
-    //    ENSURE(_taxiRoute[_taxiRoute.size() - 1] == taxiroute, "pushbackTaxi() failure");
-    void pushbackTaxi(Taxiroute* taxiroute);
+
     //    REQUIRE(this->properlyInitialised(),"Runway wasn't properly initialised when calling setAirport()");
     //    ENSURE(getAirport() == _airport, "setAirport failure");
     void setAirport(const std::string &_airport);
-    //    REQUIRE(this->properlyInitialised(),"Runway wasn't properly initialised when calling ()");
-    //    ENSURE(getTaxiRoute() == taxiRoute, "setTaxiRoute() failure");
-    void setTaxiRoute(const std::vector<Taxiroute *> &taxiRoute);
 
     //    REQUIRE(this->properlyInitialised(), "Gate wasn't properly initialised when calling setUsedStatus()");
     //    REQUIRE(!_goingtobeused, "setUsedSatus() failure");

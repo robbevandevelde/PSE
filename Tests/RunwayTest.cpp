@@ -32,12 +32,7 @@ protected:
     Runway* testRunway;
 };
 
-
-
-// Tests the "happy day" scenario
-
-
-////
+//initcheck
 TEST_F(RunwayTest, Initcheck){
     EXPECT_TRUE(testRunway->properlyInitialised());
     EXPECT_EQ((unsigned int)3, testRunway->getLength());
@@ -60,6 +55,5 @@ TEST_F(RunwayTest, airplanetest) {
     EXPECT_EQ("LAX", testRunway->getAirplane()->getFlightplan()->getDestination());
     EXPECT_EQ((unsigned int)0, testRunway->getAirplane()->getHeight());
     testRunway->getAirplane()->setStatus(4);
-//    EXPECT_EQ(testRunway->getAirplane()->getStatus(), InTheAir);
 }
 

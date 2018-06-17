@@ -31,19 +31,20 @@ protected:
     Airplane* testAirplane;
     Flightplan* testFlightplan;
 };
-
+//tests if all objects are properly initialised
 TEST_F(AirplaneTest, InitTest) {
     EXPECT_TRUE(testAirplane->properlyInitialised());
     EXPECT_TRUE(testFlightplan->properlyInitialised());
 
 }
+//tests the constructed values
 TEST_F(AirplaneTest, DefaultconstructorTests) {
     EXPECT_EQ((unsigned int)5, testAirplane->getStatus());
     EXPECT_EQ((unsigned int)110, testAirplane->getPassengers());
     testAirplane->setStatus(1);
     EXPECT_EQ(StandingAtGate, testAirplane->getStatus());
 }
-
+//tests getters and setters
 TEST_F(AirplaneTest, gettersEnSetters) {
     testAirplane->setStatus(0);
     testAirplane->setModel("model");

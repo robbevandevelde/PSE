@@ -34,10 +34,11 @@ protected:
     // Declares the variables your tests want to use.
     LuchthavenParser* testParser;
 };
+//initcheck
 TEST_F(LuchthavenParserTest, InitCheck) {
     EXPECT_EQ(testParser->properlyInitialised(), true);
 }
-// Tests the default constructor.
+// Tests the input, happy day.
 TEST_F(LuchthavenParserTest, InputHappyday1) {
     ASSERT_TRUE(DirectoryExists("testInput"));
     ASSERT_FALSE(DirectoryExists("testIut"));
@@ -58,8 +59,8 @@ TEST_F(LuchthavenParserTest, InputHappyday1) {
     testParser->loadFile("testInput/Input01.xml");
     testParser->parseItems(testParser->getRoot());
     EXPECT_TRUE(testParser->getSuccessEnum() == Success);
-
 }
+//Second happy day, now with pre loaded file
 TEST_F(LuchthavenParserTest, InputHappyday2) {
     ASSERT_TRUE(DirectoryExists("testInput"));
     SuccessEnum yes= PartialImport;
@@ -69,6 +70,7 @@ TEST_F(LuchthavenParserTest, InputHappyday2) {
     testParser->parseItems(testParser->getRoot());
     EXPECT_TRUE(testParser->getSuccessEnum() == Success);
 }
+//Failtest, not able to parse "<AL>"
 TEST_F(LuchthavenParserTest, FalseTest) {
     ASSERT_TRUE(DirectoryExists("testInput"));
     SuccessEnum yes= PartialImport;
@@ -77,11 +79,13 @@ TEST_F(LuchthavenParserTest, FalseTest) {
     testParser->parseItems(testParser->getRoot());
     EXPECT_TRUE(testParser->getSuccessEnum() == ImportAborted);
 }
+//Tests if it cannot open false files
 TEST_F(LuchthavenParserTest, Fileopen) {
     ASSERT_FALSE(DirectoryExists("rwrwe"));
     ASSERT_FALSE(FileExists("dvd"));
     ASSERT_FALSE(FileIsEmpty("testInput/Input02.xml"));
 }
+//Tests wrongly build xml file
 TEST_F(LuchthavenParserTest, FalseTest2) {
     ASSERT_TRUE(DirectoryExists("testInput"));
     SuccessEnum yes= PartialImport;
@@ -90,6 +94,7 @@ TEST_F(LuchthavenParserTest, FalseTest2) {
     testParser->parseItems(testParser->getRoot());
     EXPECT_TRUE(testParser->getSuccessEnum() == ImportAborted);
 }
+//tests good file without any names
 TEST_F(LuchthavenParserTest, FalseTest3) {
     ASSERT_TRUE(DirectoryExists("testInput"));
     SuccessEnum yes= PartialImport;

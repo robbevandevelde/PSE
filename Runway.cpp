@@ -172,38 +172,6 @@ bool Runway::isOccupied()
     return _status;
 }
 
-/*get de taxiroute van de runway
- *@param geen
- *@return vector taxiroute
- */
-const vector<Taxiroute *> &Runway::getTaxiRoute()
-{
-    REQUIRE(this->properlyInitialised(),"Runway wasn't properly initialised when calling getTaxiRoute()");
-    return _taxiRoute;
-}
-
-/*set de taxiroute
- *@param vector taxiroute
- *@return niks
- */
-void Runway::setTaxiRoute(const vector<Taxiroute *> &taxiRoute)
-{
-    REQUIRE(this->properlyInitialised(),"Runway wasn't properly initialised when calling ()");
-    Runway::_taxiRoute = taxiRoute;
-    ENSURE(getTaxiRoute() == taxiRoute, "setTaxiRoute() failure");
-}
-
-/*pusht een taxi route in de vecttor
- *@param taxiroute
- *@return niks
- */
-void Runway::pushbackTaxi(Taxiroute *taxiroute)
-{
-    REQUIRE(this->properlyInitialised(),"Runway wasn't properly initialised when calling pushbackTaxi()");
-    _taxiRoute.push_back(taxiroute);
-    ENSURE(_taxiRoute[_taxiRoute.size() - 1] == taxiroute, "pushbackTaxi() failure");
-}
-
 /*set de airplane van de airplane
  *@param airplane airplane
  *@return geen
