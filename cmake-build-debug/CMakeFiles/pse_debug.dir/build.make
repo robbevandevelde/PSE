@@ -513,33 +513,9 @@ CMakeFiles/pse_debug.dir/AirportUtils.cpp.o.provides: CMakeFiles/pse_debug.dir/A
 CMakeFiles/pse_debug.dir/AirportUtils.cpp.o.provides.build: CMakeFiles/pse_debug.dir/AirportUtils.cpp.o
 
 
-CMakeFiles/pse_debug.dir/Taxiroute.cpp.o: CMakeFiles/pse_debug.dir/flags.make
-CMakeFiles/pse_debug.dir/Taxiroute.cpp.o: ../Taxiroute.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/uauser/Desktop/PSE/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_20) "Building CXX object CMakeFiles/pse_debug.dir/Taxiroute.cpp.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/pse_debug.dir/Taxiroute.cpp.o -c /home/uauser/Desktop/PSE/Taxiroute.cpp
-
-CMakeFiles/pse_debug.dir/Taxiroute.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/pse_debug.dir/Taxiroute.cpp.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/uauser/Desktop/PSE/Taxiroute.cpp > CMakeFiles/pse_debug.dir/Taxiroute.cpp.i
-
-CMakeFiles/pse_debug.dir/Taxiroute.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/pse_debug.dir/Taxiroute.cpp.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/uauser/Desktop/PSE/Taxiroute.cpp -o CMakeFiles/pse_debug.dir/Taxiroute.cpp.s
-
-CMakeFiles/pse_debug.dir/Taxiroute.cpp.o.requires:
-
-.PHONY : CMakeFiles/pse_debug.dir/Taxiroute.cpp.o.requires
-
-CMakeFiles/pse_debug.dir/Taxiroute.cpp.o.provides: CMakeFiles/pse_debug.dir/Taxiroute.cpp.o.requires
-	$(MAKE) -f CMakeFiles/pse_debug.dir/build.make CMakeFiles/pse_debug.dir/Taxiroute.cpp.o.provides.build
-.PHONY : CMakeFiles/pse_debug.dir/Taxiroute.cpp.o.provides
-
-CMakeFiles/pse_debug.dir/Taxiroute.cpp.o.provides.build: CMakeFiles/pse_debug.dir/Taxiroute.cpp.o
-
-
 CMakeFiles/pse_debug.dir/Flightplan.cpp.o: CMakeFiles/pse_debug.dir/flags.make
 CMakeFiles/pse_debug.dir/Flightplan.cpp.o: ../Flightplan.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/uauser/Desktop/PSE/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_21) "Building CXX object CMakeFiles/pse_debug.dir/Flightplan.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/uauser/Desktop/PSE/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_20) "Building CXX object CMakeFiles/pse_debug.dir/Flightplan.cpp.o"
 	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/pse_debug.dir/Flightplan.cpp.o -c /home/uauser/Desktop/PSE/Flightplan.cpp
 
 CMakeFiles/pse_debug.dir/Flightplan.cpp.i: cmake_force
@@ -563,7 +539,7 @@ CMakeFiles/pse_debug.dir/Flightplan.cpp.o.provides.build: CMakeFiles/pse_debug.d
 
 CMakeFiles/pse_debug.dir/Gate.cpp.o: CMakeFiles/pse_debug.dir/flags.make
 CMakeFiles/pse_debug.dir/Gate.cpp.o: ../Gate.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/uauser/Desktop/PSE/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_22) "Building CXX object CMakeFiles/pse_debug.dir/Gate.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/uauser/Desktop/PSE/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_21) "Building CXX object CMakeFiles/pse_debug.dir/Gate.cpp.o"
 	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/pse_debug.dir/Gate.cpp.o -c /home/uauser/Desktop/PSE/Gate.cpp
 
 CMakeFiles/pse_debug.dir/Gate.cpp.i: cmake_force
@@ -587,7 +563,7 @@ CMakeFiles/pse_debug.dir/Gate.cpp.o.provides.build: CMakeFiles/pse_debug.dir/Gat
 
 CMakeFiles/pse_debug.dir/AirTrafficController.cpp.o: CMakeFiles/pse_debug.dir/flags.make
 CMakeFiles/pse_debug.dir/AirTrafficController.cpp.o: ../AirTrafficController.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/uauser/Desktop/PSE/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_23) "Building CXX object CMakeFiles/pse_debug.dir/AirTrafficController.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/uauser/Desktop/PSE/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_22) "Building CXX object CMakeFiles/pse_debug.dir/AirTrafficController.cpp.o"
 	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/pse_debug.dir/AirTrafficController.cpp.o -c /home/uauser/Desktop/PSE/AirTrafficController.cpp
 
 CMakeFiles/pse_debug.dir/AirTrafficController.cpp.i: cmake_force
@@ -611,7 +587,7 @@ CMakeFiles/pse_debug.dir/AirTrafficController.cpp.o.provides.build: CMakeFiles/p
 
 CMakeFiles/pse_debug.dir/Simulator.cpp.o: CMakeFiles/pse_debug.dir/flags.make
 CMakeFiles/pse_debug.dir/Simulator.cpp.o: ../Simulator.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/uauser/Desktop/PSE/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_24) "Building CXX object CMakeFiles/pse_debug.dir/Simulator.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/uauser/Desktop/PSE/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_23) "Building CXX object CMakeFiles/pse_debug.dir/Simulator.cpp.o"
 	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/pse_debug.dir/Simulator.cpp.o -c /home/uauser/Desktop/PSE/Simulator.cpp
 
 CMakeFiles/pse_debug.dir/Simulator.cpp.i: cmake_force
@@ -635,7 +611,7 @@ CMakeFiles/pse_debug.dir/Simulator.cpp.o.provides.build: CMakeFiles/pse_debug.di
 
 CMakeFiles/pse_debug.dir/Tests/FlightplanTest.cpp.o: CMakeFiles/pse_debug.dir/flags.make
 CMakeFiles/pse_debug.dir/Tests/FlightplanTest.cpp.o: ../Tests/FlightplanTest.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/uauser/Desktop/PSE/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_25) "Building CXX object CMakeFiles/pse_debug.dir/Tests/FlightplanTest.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/uauser/Desktop/PSE/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_24) "Building CXX object CMakeFiles/pse_debug.dir/Tests/FlightplanTest.cpp.o"
 	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/pse_debug.dir/Tests/FlightplanTest.cpp.o -c /home/uauser/Desktop/PSE/Tests/FlightplanTest.cpp
 
 CMakeFiles/pse_debug.dir/Tests/FlightplanTest.cpp.i: cmake_force
@@ -659,7 +635,7 @@ CMakeFiles/pse_debug.dir/Tests/FlightplanTest.cpp.o.provides.build: CMakeFiles/p
 
 CMakeFiles/pse_debug.dir/Tests/OutputTest.cpp.o: CMakeFiles/pse_debug.dir/flags.make
 CMakeFiles/pse_debug.dir/Tests/OutputTest.cpp.o: ../Tests/OutputTest.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/uauser/Desktop/PSE/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_26) "Building CXX object CMakeFiles/pse_debug.dir/Tests/OutputTest.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/uauser/Desktop/PSE/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_25) "Building CXX object CMakeFiles/pse_debug.dir/Tests/OutputTest.cpp.o"
 	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/pse_debug.dir/Tests/OutputTest.cpp.o -c /home/uauser/Desktop/PSE/Tests/OutputTest.cpp
 
 CMakeFiles/pse_debug.dir/Tests/OutputTest.cpp.i: cmake_force
@@ -702,7 +678,6 @@ pse_debug_OBJECTS = \
 "CMakeFiles/pse_debug.dir/Tests/GatesTest.cpp.o" \
 "CMakeFiles/pse_debug.dir/Tests/LuchthavenParserTest.cpp.o" \
 "CMakeFiles/pse_debug.dir/AirportUtils.cpp.o" \
-"CMakeFiles/pse_debug.dir/Taxiroute.cpp.o" \
 "CMakeFiles/pse_debug.dir/Flightplan.cpp.o" \
 "CMakeFiles/pse_debug.dir/Gate.cpp.o" \
 "CMakeFiles/pse_debug.dir/AirTrafficController.cpp.o" \
@@ -732,7 +707,6 @@ pse_debug: CMakeFiles/pse_debug.dir/Tests/AirportTest.cpp.o
 pse_debug: CMakeFiles/pse_debug.dir/Tests/GatesTest.cpp.o
 pse_debug: CMakeFiles/pse_debug.dir/Tests/LuchthavenParserTest.cpp.o
 pse_debug: CMakeFiles/pse_debug.dir/AirportUtils.cpp.o
-pse_debug: CMakeFiles/pse_debug.dir/Taxiroute.cpp.o
 pse_debug: CMakeFiles/pse_debug.dir/Flightplan.cpp.o
 pse_debug: CMakeFiles/pse_debug.dir/Gate.cpp.o
 pse_debug: CMakeFiles/pse_debug.dir/AirTrafficController.cpp.o
@@ -741,7 +715,7 @@ pse_debug: CMakeFiles/pse_debug.dir/Tests/FlightplanTest.cpp.o
 pse_debug: CMakeFiles/pse_debug.dir/Tests/OutputTest.cpp.o
 pse_debug: CMakeFiles/pse_debug.dir/build.make
 pse_debug: CMakeFiles/pse_debug.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/uauser/Desktop/PSE/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_27) "Linking CXX executable pse_debug"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/uauser/Desktop/PSE/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_26) "Linking CXX executable pse_debug"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/pse_debug.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -768,7 +742,6 @@ CMakeFiles/pse_debug.dir/requires: CMakeFiles/pse_debug.dir/Tests/AirportTest.cp
 CMakeFiles/pse_debug.dir/requires: CMakeFiles/pse_debug.dir/Tests/GatesTest.cpp.o.requires
 CMakeFiles/pse_debug.dir/requires: CMakeFiles/pse_debug.dir/Tests/LuchthavenParserTest.cpp.o.requires
 CMakeFiles/pse_debug.dir/requires: CMakeFiles/pse_debug.dir/AirportUtils.cpp.o.requires
-CMakeFiles/pse_debug.dir/requires: CMakeFiles/pse_debug.dir/Taxiroute.cpp.o.requires
 CMakeFiles/pse_debug.dir/requires: CMakeFiles/pse_debug.dir/Flightplan.cpp.o.requires
 CMakeFiles/pse_debug.dir/requires: CMakeFiles/pse_debug.dir/Gate.cpp.o.requires
 CMakeFiles/pse_debug.dir/requires: CMakeFiles/pse_debug.dir/AirTrafficController.cpp.o.requires

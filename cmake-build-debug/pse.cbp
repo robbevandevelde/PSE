@@ -239,12 +239,6 @@
 			<Option target="pse_debug"/>
 			<Option target="pse"/>
 		</Unit>
-		<Unit filename="/home/uauser/Desktop/PSE/Taxiroute.cpp">
-			<Option target="pse_debug"/>
-		</Unit>
-		<Unit filename="/home/uauser/Desktop/PSE/Taxiroute.h">
-			<Option target="pse_debug"/>
-		</Unit>
 		<Unit filename="/home/uauser/Desktop/PSE/TestMain.cpp">
 			<Option target="pse_debug"/>
 		</Unit>
