@@ -89,6 +89,8 @@ public:
     //    ENSURE(_gates[x]->getAirplane() == airplane, "Airplane in gate doesn't match added airplane");
     void addAirplaneToGate(Airplane* airplane, std::ostream& out = std::cout);
     //    REQUIRE(this->properlyInitialised(),"Airport wasn't initialised when calling addAirplaneToRunway");
+    //    REQUIRE(airplane->getStatus() == Departure|| airplane->getStatus() == FinalApproach ||airplane->getStatus() == EmergencyLanding, "Not valid status for landing");
+    //    REQUIRE(airplane->getHeight() == 0, "Airplane must be on the ground");
     //    2 post condities:
     //    Post conditie 1:
     //    ENSURE(_runways[x]->getAirplane() == airplane, "addAirplaneToRunway() failure");
@@ -166,8 +168,8 @@ public:
     void removeRunwayWait(Airplane* airplane);
     //    REQUIRE(this->properlyInitialised(), "Airport wasn't properly initialised when calling RunWaitChecker()");
     bool runwayWaitChecker(Airplane *airplane);
-    //    REQUIRE(this->properlyInitialised(), "Airport wasn't properly initialised when calling goingToGetUsedRunway()");
-    void goingToGetUsedRunway(Airplane* airplane);
+    //    REQUIRE(this->properlyInitialised(), "Airport wasn't properly initialised when calling goingToBeUsedRunway()");
+    void goingToBeUsedRunway(Airplane *airplane);
     //    REQUIRE(this->properlyInitialised(), "Airport wasn't properly initialised when calling isARunwayCompletelyClear()");
     bool isARunwayCompletelyClear();
 
@@ -175,6 +177,10 @@ public:
     bool isAirplaneInGate(Airplane* airplane);
     //    REQUIRE(this->properlyInitialised(), "Airport wasn't properly initialised when calling isAirplaneInRunway");
     bool isAirplaneInRunway(Airplane* airplane);
+    //    REQUIRE(this->properlyInitialised(), "Airport wasn't properly initialised when calling emergencyControle()");
+    //    REQUIRE(airplane->getStatus() == EmergencyControle1, "Not valid status for airplane status");
+    //    REQUIRE(airplane->getHeight() == 0, "Airplane must be on ground");
+    void emergencyControle(Airplane* airplane, std::ostream& out);
 
 };
 #endif //PSE_AIRPORT_H

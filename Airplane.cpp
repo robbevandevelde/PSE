@@ -175,7 +175,6 @@ unsigned int Airplane::getStatus()
  */
 void Airplane::setStatus(unsigned int _status)
 {
-    REQUIRE(_status<9, "This status enum doesn't exist");
     REQUIRE(this->properlyInitialised(),"Airplane wasn't properly initialised when calling setStatus()");
     Airplane::_status = _status;
     ENSURE(getStatus() == _status, "setStatus() failure");

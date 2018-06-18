@@ -43,12 +43,12 @@ int main() {
 //    Airplane* testAirplane = new Airplane("32", "callsign", "model", JustLanded, 110, 5000, 1, 1, 2, testFlightplan);
 //    testAirport->landingprotocol(testAirplane);
 }
-//#include <iostream>
-//#include "Airplane.h"
-//#include "Runway.h"
-//#include "Airport.h"
-//#include "AirTrafficController.h"
-//
+#include <iostream>
+#include "Airplane.h"
+#include "Runway.h"
+#include "Airport.h"
+#include "AirTrafficController.h"
+
 //int main() {
 //    Airport* airport = new Airport(2,"Zaventem","f444","Echo");
 //
@@ -59,17 +59,21 @@ int main() {
 //    std::string naam = "kanker";
 //    Flightplan* fl = new Flightplan(naam,5,6,7);
 //
-//    Airplane* airplane = new Airplane("1","EF566","Winchester",Approaching,5,5, "tumor","5","6",fl);
-//    Airplane* airplane1 = new Airplane("556", "F16", "Win100", Approaching,5,5, "tumor","5","6",fl);
-//    Airplane* airplane2 = new Airplane("6969", "HI99", "Wallonie", Approaching,5,5, "tumor","5","6",fl);
+//    Airplane* airplane = new Airplane("1","EF566","Winchester",Approaching,5,5, 3,1,0,fl);
+//    Airplane* airplane1 = new Airplane("556", "F16", "Win100", Approaching,5,5, 3,1,0,fl);
+//    Airplane* airplane2 = new Airplane("6969", "HI99", "Wallonie", Approaching,5,5, 3,1,0,fl);
 //
-//    Runway* runway = new Runway(50, "1", "hoertjeeeeee", "f444");
-//    Runway* runway1 = new Runway(60, "2","lmao", "1337");
+//    Runway* runway = new Runway(50, "1", 0, "f444");
+//    Runway* runway1 = new Runway(60, "2",1, "1337");
 //
 //    vector<Runway*> runways;
 //    runways.push_back(runway);
 //    runways.push_back(runway1);
 //    vector<Airplane*> airplanes;
+//    airplane->setHeight(5000);
+//    airplane1->setHeight(3000);
+//    airplane2->setHeight(6000);
+//    airplane2->setFuel(0);
 //    airplanes.push_back(airplane);
 //    airplanes.push_back(airplane1);
 //    airplanes.push_back(airplane2);

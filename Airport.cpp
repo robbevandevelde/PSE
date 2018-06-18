@@ -171,6 +171,8 @@ void Airport::takeOffprotocol(Airplane *airplane, std::ostream& out)
 void Airport::addAirplaneToRunway(Airplane *airplane, std::ostream& out)
 {
     REQUIRE(this->properlyInitialised(),"Airport wasn't initialised when calling addAirplaneToRunway");
+    REQUIRE(airplane->getStatus() == Departure|| airplane->getStatus() == FinalApproach || airplane->getStatus() == EmergencyLanding, "Not valid status for landing");
+    REQUIRE(airplane->getHeight() == 0, "Airplane must be on the ground");
     for(unsigned int x = 0; x < _runways.size(); x++){
         if (airplane->getStatus() == Departure) {
             if (!_runways[x]->isOccupied()) {
@@ -188,16 +190,32 @@ void Airport::addAirplaneToRunway(Airplane *airplane, std::ostream& out)
         else if(airplane->getStatus() == FinalApproach){
             if(!_runways[x]->isOccupied()) {
                 if(_runways[x]->isGoingToBeUsed()) {
+                    if (_runways[x]->getGoingtobeusedby() == airplane) {
+                        out << airplane->getCallsign() << " is landing at " << _name << " on runway "
+                            << _runways[x]->getName() << std::endl;
+                        airplane->setStatus(JustLanded);
+                        _runways[x]->addAirplane(airplane);
+                        out << airplane->getCallsign() << " has landed at " << _name << " on runway "
+                            << _runways[x]->getName() << std::endl;
+                        _controller->landingprotocol(airplane, out);
+                        ENSURE(_runways[x]->getAirplane()->getStatus() == JustLanded, "Add airplane to runway failure");
+                        ENSURE(isAirplaneInRunway(airplane), "addAirplaneToRunway() failure");
+                        break;
+                    }
+                }
+            }
+        }
+        else if(airplane->getStatus() == EmergencyLanding){
+            if(_runways[x]->isGoingToBeUsed()) {
+                if (_runways[x]->getGoingtobeusedby() == airplane) {
                     out << airplane->getCallsign() << " is landing at " << _name << " on runway "
-                              << _runways[x]->getName() << std::endl;
-
-                    airplane->setStatus(JustLanded);
-                    _runways[x]->setGoingtobeusedby(airplane);
+                        << _runways[x]->getName() << std::endl;
+                    airplane->setStatus(EmergencyControle1);
                     _runways[x]->addAirplane(airplane);
                     out << airplane->getCallsign() << " has landed at " << _name << " on runway "
-                              << _runways[x]->getName() << std::endl;
-                    _controller->landingprotocol(airplane, out);
-                    ENSURE(_runways[x]->getAirplane()->getStatus() == JustLanded, "Add airplane to runway failure");
+                        << _runways[x]->getName() << std::endl;
+                    out << airplane->getCallsign() << " wait for an emergency controle"<< std::endl;
+                    ENSURE(_runways[x]->getAirplane()->getStatus() == EmergencyControle1, "Add airplane to runway failure");
                     ENSURE(isAirplaneInRunway(airplane), "addAirplaneToRunway() failure");
                     break;
                 }
@@ -574,9 +592,9 @@ bool Airport::runwayWaitChecker(Airplane *airplane)
  *@param geen
  *@return geen
  */
-void Airport::goingToGetUsedRunway(Airplane* airplane)
+void Airport::goingToBeUsedRunway(Airplane *airplane)
 {
-    REQUIRE(this->properlyInitialised(), "Airport wasn't properly initialised when calling goingToGetUsedRunway()");
+    REQUIRE(this->properlyInitialised(), "Airport wasn't properly initialised when calling goingToBeUsedRunway()");
     for(unsigned int x =0; x< _runways.size();x++){
         if(!_runways[x]->isGoingToBeUsed()){
             _runways[x]->setUsedStatus();
@@ -619,3 +637,22 @@ bool Airport::isAirplaneInGate(Airplane *airplane)
     }
     return false;
 }
+
+void Airport::emergencyControle(Airplane *airplane,std::ostream& out) {
+    REQUIRE(this->properlyInitialised(), "Airport wasn't properly initialised when calling emergencyControle()");
+    REQUIRE(airplane->getStatus() == EmergencyControle1 ||airplane->getStatus() == EmergencyControle2, "Not valid status for airplane status");
+    REQUIRE(airplane->getHeight() == 0, "Airplane must be on ground");
+    if(airplane->getStatus() == EmergencyControle1){
+        out << airplane->getCallsign() << " has been checked for technical malfunctions" << std::endl;
+        airplane->setStatus(EmergencyControle2);
+    }
+    else if(airplane->getStatus() == EmergencyControle2){
+        airplane->setFuel(1000);
+        out << airplane     ->getCallsign() << " has been refueled" << std::endl;
+        out << airplane->getCallsign() << " may proceed to an empty gate" << std::endl;
+        airplane->setStatus(JustLanded);
+        this->taxiToGate(airplane);
+        this->gateprotocol(airplane, 0);
+    }
+}
+
