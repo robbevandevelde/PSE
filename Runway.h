@@ -5,8 +5,8 @@
  */
 
 
-#ifndef PARSER_RUNWAY_H
-#define PARSER_RUNWAY_H
+#ifndef PSE_RUNWAY_H
+#define PSE_RUNWAY_H
 #include <string>
 #include <iostream>
 #include <vector>
@@ -111,4 +111,4 @@ public:
 };
 
 
-#endif //PARSER_RUNWAY_H
+#endif //PSE_RUNWAY_H

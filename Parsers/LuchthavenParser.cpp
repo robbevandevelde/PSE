@@ -69,8 +69,6 @@ void LuchthavenParser::parseItems(TiXmlElement *elem) {
                 //if(rw->isConsistent()){
                 runways.push_back(rw);
                 successEnum= Success;
-
-                //}
             }
             if (elemName == "AIRPLANE") {
                 AirplaneParser aplp;
@@ -102,7 +100,7 @@ void LuchthavenParser::writeToFile(vector<Runway *> runwaysVect, vector<Airport 
                                    vector<Airplane *> airplanesVect, string name) {
     REQUIRE(this->properlyInitialised(), "Parser wasn't properly initialised when calling writeToFile()");
     ofstream myfile;
-    myfile.open (name);
+    myfile.open(name.c_str());
     for (unsigned int itAPO=0 ; itAPO < airportsVect.size(); itAPO++) {
         myfile << "Airport: "<< airportsVect[itAPO]->getName() << " (" << airportsVect[itAPO]->getIata()<<")"<< endl;
         myfile <<"-> gates: "<< airportsVect[itAPO]->getGatesize() << endl;

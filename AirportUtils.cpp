@@ -41,8 +41,10 @@ bool FileIsEmpty(const std::string filename) {
 }
 
 bool FileCompare(const std::string leftFileName, const std::string rightFileName) {
-    ifstream leftFile, rightFile;
-    char leftRead, rightRead;
+    ifstream leftFile;
+    ifstream rightFile;
+    char leftRead;
+    char rightRead;
     bool result;
 
     // Open the two files.
@@ -73,7 +75,8 @@ bool FileCompare(const std::string leftFileName, const std::string rightFileName
 }
 bool compareFiles(const std::string leftFileName, const std::string rightFileName)
     {
-        ifstream leftFile, rightFile;
+        ifstream leftFile;
+        ifstream rightFile;
         bool equal = true;
         leftFile.open(leftFileName.c_str());
         if (!leftFile.is_open()) {

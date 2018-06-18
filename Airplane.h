@@ -4,14 +4,12 @@
  *@version: 2.0
  */
 
-#ifndef PARSER_AIRPLANE_H
-#define PARSER_AIRPLANE_H
+#ifndef PSE_AIRPLANE_H
+#define PSE_AIRPLANE_H
 
 #include "DesignByContract.h"
 #include "Flightplan.h"
 #include <iostream>
-//class Flightplan;
-
 
 enum Status {JustLanded, StandingAtGate, WaitingAtRunway, StandingAtRunway , Departure, InTheAir,FinalApproach,
     Approaching, EmergencyLanding};
@@ -128,4 +126,4 @@ public:
 };
 
 
-#endif //PARSER_AIRPLANE_H
+#endif //PSE_AIRPLANE_H
