@@ -89,6 +89,7 @@ TEST_F(RunwayTest, airplaneremoveDeadtest2)
     string name = "LAX";
     Flightplan* testFlightplan = new Flightplan(name, 15, 45, 1);
     Airplane* testAirplane = new Airplane("32", "callsign", "model", 0, 110, 5000, 1, 1, 1, testFlightplan);
+    testRunway->setGoingtobeusedby(testAirplane);
     testRunway->addAirplane(testAirplane);
     testRunway->setStatus(false);
     EXPECT_DEATH(testRunway->removeAirplane(), "Status must be true because the space is occupied");

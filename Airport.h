@@ -167,7 +167,7 @@ public:
     //    REQUIRE(this->properlyInitialised(), "Airport wasn't properly initialised when calling RunWaitChecker()");
     bool runwayWaitChecker(Airplane *airplane);
     //    REQUIRE(this->properlyInitialised(), "Airport wasn't properly initialised when calling goingToGetUsedRunway()");
-    void goingToGetUsedRunway();
+    void goingToGetUsedRunway(Airplane* airplane);
     //    REQUIRE(this->properlyInitialised(), "Airport wasn't properly initialised when calling isARunwayCompletelyClear()");
     bool isARunwayCompletelyClear();
 

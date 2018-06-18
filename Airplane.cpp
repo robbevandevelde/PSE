@@ -36,6 +36,7 @@ Airplane::Airplane(std::string number,std::string callsign, std::string model,
         _height = 0;
     }
     _fueled = false;
+    _controle=false;
     ENSURE(!_fueled, "Fueled must be false");
     ENSURE(properlyInitialised(), "Constructor must end");
     ENSURE(_height == 0 || _height == 10000, "Height must be either 0 or 10000");
@@ -338,5 +339,16 @@ bool Airplane::isAllowedToLandOnGrass() {
         ENSURE(_engine == Propeller, "This engine is not a propeller");
     }
     return false;
+}
+
+bool Airplane::isControle() {
+    REQUIRE(this->properlyInitialised(),"Airplane wasn't properly initialised when calling isControle()");
+    return _controle;
+}
+
+void Airplane::setControle(bool _controle) {
+    REQUIRE(this->properlyInitialised(),"Airplane wasn't properly initialised when calling setControle()");
+    Airplane::_controle = _controle;
+    ENSURE(isControle()== _controle, "Must be the same");
 }
 

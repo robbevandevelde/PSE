@@ -31,7 +31,7 @@ private:
     unsigned int _passengers;
 
     bool _fueled;
-
+    bool _controle;
     std::string _model;
     std::string _number;
     std::string _callsign;
@@ -131,6 +131,12 @@ public:
     //    ENSURE(_size == Small, "Airplane is too big to land on grass");
     //    ENSURE(_engine == Propeller, "This engine is not a propeller");
     bool isAllowedToLandOnGrass();
+
+    //    REQUIRE(this->properlyInitialised(),"Airplane wasn't properly initialised when calling isControle()");
+    bool isControle();
+
+    //    REQUIRE(this->properlyInitialised(),"Airplane wasn't properly initialised when calling setControle()");
+    void setControle(bool _controle);
 };
 
 

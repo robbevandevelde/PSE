@@ -22,7 +22,7 @@ private:
 
 
     Airplane* _airplane;
-
+    Airplane* _goingtobeusedby;
     unsigned int _length;
     std::string _name;
     unsigned int _rwType;
@@ -108,6 +108,11 @@ public:
 
     //    REQUIRE(this->properlyInitialised(), "Gate wasn't properly initialised when calling isUsedStatus()");
     bool isGoingToBeUsed();
+
+    Airplane *getGoingtobeusedby();
+
+    void setGoingtobeusedby(Airplane *_goingtobeusedby);
+
 };
 
 

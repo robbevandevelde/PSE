@@ -76,6 +76,7 @@ void Airport::landingprotocol(Airplane *airplane , std::ostream& out)
         if (!_runways[x]->isOccupied()) {
             if (!_runways[x]->isGoingToBeUsed()) {
                 _runways[x]->setUsedStatus();
+                _runways[x]->setGoingtobeusedby(airplane);
             }
         }
     }
@@ -177,6 +178,7 @@ void Airport::addAirplaneToRunway(Airplane *airplane, std::ostream& out)
                     _controller->takeoffprotocol(airplane, out);
                     out << airplane->getCallsign() << " is taxiing to runway " << _runways[x]->getName() <<
                               std::endl;
+                    _runways[x]->setGoingtobeusedby(airplane);
                     _runways[x]->addAirplane(airplane);
                     ENSURE(isAirplaneInRunway(airplane), "addAirplaneToRunway() failure");
                     break;
@@ -190,6 +192,7 @@ void Airport::addAirplaneToRunway(Airplane *airplane, std::ostream& out)
                               << _runways[x]->getName() << std::endl;
 
                     airplane->setStatus(JustLanded);
+                    _runways[x]->setGoingtobeusedby(airplane);
                     _runways[x]->addAirplane(airplane);
                     out << airplane->getCallsign() << " has landed at " << _name << " on runway "
                               << _runways[x]->getName() << std::endl;
@@ -571,12 +574,13 @@ bool Airport::runwayWaitChecker(Airplane *airplane)
  *@param geen
  *@return geen
  */
-void Airport::goingToGetUsedRunway()
+void Airport::goingToGetUsedRunway(Airplane* airplane)
 {
     REQUIRE(this->properlyInitialised(), "Airport wasn't properly initialised when calling goingToGetUsedRunway()");
     for(unsigned int x =0; x< _runways.size();x++){
         if(!_runways[x]->isGoingToBeUsed()){
             _runways[x]->setUsedStatus();
+            _runways[x]->setGoingtobeusedby(airplane);
             break;
         }
     }
