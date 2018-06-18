@@ -17,7 +17,7 @@ protected:
     virtual void SetUp() {
         string name = "LAX";
         testFlightplan = new Flightplan(name, 15, 45, 1);
-        testAirplane = new Airplane("32", "callsign", "model", 5, 110, 5000, 1, 2, 1, testFlightplan);
+        testAirplane = new Airplane("32", "callsign", "model", 5, 110, 5000, 1, 1, 1, testFlightplan);
 
     }
 
@@ -43,6 +43,29 @@ TEST_F(AirplaneTest, DefaultconstructorTests) {
     EXPECT_EQ((unsigned int)110, testAirplane->getPassengers());
     testAirplane->setStatus(1);
     EXPECT_EQ(StandingAtGate, testAirplane->getStatus());
+}
+//Tests the statusenum death
+TEST_F(AirplaneTest, statusdeathTest) {
+    EXPECT_DEATH(testAirplane->setStatus(10), "This status enum doesn't exist");
+}
+//Tests the engineenum death
+TEST_F(AirplaneTest, enginedeathTest) {
+    EXPECT_DEATH(testAirplane->setEngine(2), "This engine enum doesn't exist");
+}
+//Tests the size death
+TEST_F(AirplaneTest, sizedeathTest) {
+    EXPECT_DEATH(testAirplane->setSize(3), "This size enum doesn't exist");
+}
+//Tests the type death
+TEST_F(AirplaneTest, typedeathTest) {
+    EXPECT_DEATH(testAirplane->setType(100), "This type enum doesn't exist");
+}
+//Tests the constructor death
+TEST_F(AirplaneTest, constructordeathTest) {
+    EXPECT_DEATH(Airplane ap("10","call","serial", 1, 100,5000,1,5,2,testFlightplan), "This engine enum doesn't exist");
+    EXPECT_DEATH(Airplane ap("10","call","serial", 1, 100,5000,1,0,3,testFlightplan), "This size enum doesn't exist");
+    EXPECT_DEATH(Airplane ap("10","call","serial", 10, 100,5000,1,0,1,testFlightplan), "This status enum doesn't exist");
+    EXPECT_DEATH(Airplane ap("10","call","serial", 1, 100,5000,5,0,1,testFlightplan), "This type enum doesn't exist");
 }
 //tests getters and setters
 TEST_F(AirplaneTest, gettersEnSetters) {

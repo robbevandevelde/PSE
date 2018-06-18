@@ -32,6 +32,8 @@ int main() {
         Simulator* sim = new Simulator(runwaysVect,airplanesVect,airportsVect[0]);
         sim->addRunways();
         sim->Simulate();
+        airplanesVect[0]->setStatus(8);
+        airplanesVect[0]->getStatus();
     }else{
         cout<< "unable to parse file" << endl;
     }
