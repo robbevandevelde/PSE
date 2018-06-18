@@ -35,6 +35,8 @@ public:
     //    ENSURE(getAirplane() == NULL, "Airplane must point to NULL");
     //    ENSURE(!_occupied, "Occupied must be false");
     void removeAirplane();
+    //    REQUIRE(_airplane != NULL, "Airplane cannot be NULL");
+    //    REQUIRE(airplane != NULL, "Airplane cannot be nothing");
     //    REQUIRE(this->properlyInitialised(), "Gate wasn't properly initialised when calling addAirplane()");
     //    ENSURE(getAirplane() == airplane, "addAirplane() failure");
     //    ENSURE(_occupied, "Occupied must be true");

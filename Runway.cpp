@@ -199,7 +199,8 @@ void Runway::setStatus(bool _status)
  *@param geen
  *@return geen
  */
-void Runway::setUsedStatus() {
+void Runway::setUsedStatus()
+{
     REQUIRE(this->properlyInitialised(), "Gate wasn't properly initialised when calling setUsedStatus()");
     REQUIRE(!_goingtobeused, "setUsedSatus() failure");
     _goingtobeused = true;
@@ -209,7 +210,8 @@ void Runway::setUsedStatus() {
  *@param niks
  *@return niks
  */
-void Runway::removeUsedStatus() {
+void Runway::removeUsedStatus()
+{
     REQUIRE(this->properlyInitialised(), "Gate wasn't properly initialised when calling removeUsedStatus()");
     _goingtobeused = false;
     ENSURE(!_goingtobeused, "removeUsedStatus() failure");
@@ -218,7 +220,8 @@ void Runway::removeUsedStatus() {
  *@param geen
  *@return bool goingtobeused
  */
-bool Runway::isGoingToBeUsed() {
+bool Runway::isGoingToBeUsed()
+{
     REQUIRE(this->properlyInitialised(), "Gate wasn't properly initialised when calling isUsedStatus()");
     return _goingtobeused;
 }

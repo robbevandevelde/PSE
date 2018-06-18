@@ -6,7 +6,8 @@
 #include "AirplaneParser.h"
 #include "FlightplanParser.h"
 
-string AirplaneParser::readElement(TiXmlElement *elem, const char *tag) {
+string AirplaneParser::readElement(TiXmlElement *elem, const char *tag)
+{
     REQUIRE(this->properlyInitialised(), "airplaneParser wasn't properly initialised when calling readElement()");
     TiXmlElement* e = elem->FirstChildElement(tag);
     TiXmlNode* node = e->FirstChild();
@@ -14,17 +15,20 @@ string AirplaneParser::readElement(TiXmlElement *elem, const char *tag) {
     return text->Value();
 }
 
-AirplaneParser::AirplaneParser() {
+AirplaneParser::AirplaneParser()
+{
     initCheck = this;
     ENSURE(properlyInitialised(), "Constructor must end");
 }
 
-AirplaneParser::~AirplaneParser() {
+AirplaneParser::~AirplaneParser()
+{
     ENSURE(properlyInitialised(), "Constructor must end");
 
 }
 
-Airplane *AirplaneParser::parseAirplane(TiXmlElement *elem) {
+Airplane *AirplaneParser::parseAirplane(TiXmlElement *elem)
+{
     REQUIRE(this->properlyInitialised(), "airplaneParser wasn't properly initialised when calling parseAirplane()");
     string Number = readElement(elem, "number");
     string Model = readElement(elem, "model");
@@ -58,12 +62,14 @@ Airplane *AirplaneParser::parseAirplane(TiXmlElement *elem) {
 
     return airplane;}
 
-Airplane *AirplaneParser::getAirplane() {
+Airplane *AirplaneParser::getAirplane()
+{
     REQUIRE(this->properlyInitialised(), "airplaneParser wasn't properly initialised when calling readElement()");
     return airplane;
 }
 
-unsigned int AirplaneParser::Statuscheck(string St) {
+unsigned int AirplaneParser::Statuscheck(string St)
+{
     REQUIRE(this->properlyInitialised(), "airplaneParser wasn't properly initialised when calling readElement()");
     if (St== "Approaching"){
         return Approaching;
@@ -83,11 +89,13 @@ unsigned int AirplaneParser::Statuscheck(string St) {
     return -1;
 }
 
-bool AirplaneParser::properlyInitialised() {
+bool AirplaneParser::properlyInitialised()
+{
     return initCheck == this;
 }
 
-unsigned int AirplaneParser::Enginecheck(string En) {
+unsigned int AirplaneParser::Enginecheck(string En)
+{
     REQUIRE(this->properlyInitialised(), "airplaneParser wasn't properly initialised when calling readElement()");
     if (En== "jet"){
         return Jet;
@@ -99,7 +107,8 @@ unsigned int AirplaneParser::Enginecheck(string En) {
 
 }
 
-unsigned int AirplaneParser::Typecheck(string Ty) {
+unsigned int AirplaneParser::Typecheck(string Ty)
+{
     REQUIRE(this->properlyInitialised(), "airplaneParser wasn't properly initialised when calling readElement()");
     if (Ty== "private"){
         return Private;
@@ -116,7 +125,8 @@ unsigned int AirplaneParser::Typecheck(string Ty) {
     return -1;
 }
 
-unsigned int AirplaneParser::Sizecheck(string Si) {
+unsigned int AirplaneParser::Sizecheck(string Si)
+{
     REQUIRE(this->properlyInitialised(), "airplaneParser wasn't properly initialised when calling readElement()");
     if (Si== "small"){
         return Small;

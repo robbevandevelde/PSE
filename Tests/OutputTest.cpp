@@ -47,11 +47,13 @@ protected:
     Airplane* testAirplane;
 };
 //initcheck
-TEST_F(OutputTest, InitCheck) {
+TEST_F(OutputTest, InitCheck)
+{
     EXPECT_TRUE(testParser->properlyInitialised());
 }
 //tests output of landingprotocol
-TEST_F(OutputTest, LandingProtocolOutput){
+TEST_F(OutputTest, LandingProtocolOutput)
+{
     EXPECT_TRUE(DirectoryExists("testOutput"));
     ofstream myfile;
     myfile.open("testOutput/testOutput01.txt");
@@ -63,7 +65,8 @@ TEST_F(OutputTest, LandingProtocolOutput){
     EXPECT_TRUE(FileCompare("testOutput/testOutput01.txt", "testOutput/compareLanding.txt"));
 }
 //tests output of gateprotocol
-TEST_F(OutputTest, gateProtocolOutput){
+TEST_F(OutputTest, gateProtocolOutput)
+{
     EXPECT_TRUE(DirectoryExists("testOutput"));
     ofstream myfile;
     myfile.open("testOutput/testOutput02.txt");
@@ -78,7 +81,8 @@ TEST_F(OutputTest, gateProtocolOutput){
     EXPECT_TRUE(FileCompare("testOutput/testOutput02.txt", "testOutput/compareGateprot.txt"));
 }
 //tests output of takeoffprotocol
-TEST_F(OutputTest, takeoffOutput){
+TEST_F(OutputTest, takeoffOutput)
+{
     EXPECT_TRUE(DirectoryExists("testOutput"));
     ofstream myfile;
     ofstream myfile2;
@@ -106,7 +110,8 @@ TEST_F(OutputTest, takeoffOutput){
     EXPECT_TRUE(FileCompare("testOutput/testOutput03.txt", "testOutput/compareTakeOff.txt"));
 }
 //Tests the writetofile of a complete simulation
-TEST_F(OutputTest, simulatieTest){
+TEST_F(OutputTest, simulatieTest)
+{
     ASSERT_TRUE(DirectoryExists("testInput"));
     SuccessEnum yes= PartialImport;
     testParser->setSuccessEnum(yes);
@@ -121,7 +126,8 @@ TEST_F(OutputTest, simulatieTest){
     EXPECT_TRUE(FileCompare("testOutput/simulatieTest.txt", "testOutput/compareSimulatie.txt"));
 }
 //Tests the failed writetofile of a broken/empty simulation
-TEST_F(OutputTest, simulatieTestFail){
+TEST_F(OutputTest, simulatieTestFail)
+{
     ASSERT_TRUE(DirectoryExists("testInput"));
     SuccessEnum yes= PartialImport;
     testParser->setSuccessEnum(yes);

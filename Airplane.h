@@ -36,6 +36,10 @@ private:
     std::string _number;
     std::string _callsign;
 public:
+    //    REQUIRE(status<9, "This status enum doesn't exist");
+    //    REQUIRE(type<4, "This type enum doesn't exist");
+    //    REQUIRE(size<3, "This size enum doesn't exist");
+    //    REQUIRE(engine<2, "This engine enum doesn't exist");
     //    ENSURE(!_fueled, "Fueled must be false");
     //    ENSURE(properlyInitialised(), "Constructor must end");
     //    ENSURE(_height == 0 || _height == 10000, "Height must be either 0 or 10000");
@@ -89,21 +93,25 @@ public:
     //    REQUIRE(this->properlyInitialised(),"Airplane wasn't properly initialised when calling setFuel()");
     //    ENSURE(getFuel() == _fuel, "setFuel() failure");
     void setFuel(unsigned int _fuel);
+    //    REQUIRE(status<9, "This status enum doesn't exist");
     //    REQUIRE(this->properlyInitialised(),"Airplane wasn't properly initialised when calling setStatus()");
     //    ENSURE(getStatus() == _status, "setStatus() failure");
     void setStatus(unsigned int _status);
     //    REQUIRE(this->properlyInitialised(),"Airplane wasn't properly initialised when calling setHeight()");
     //    ENSURE(getHeight() == _height,"setHeight() failure");
     void setHeight(unsigned int _height);
+    //    REQUIRE(size<3, "This size enum doesn't exist");
     //    REQUIRE(this->properlyInitialised(), "Airplane wasn't properly initialised when calling setSize()");
     //    ENSURE(getSize() == size, "setSize() failure");
     void setSize(unsigned int _size);
+    //    REQUIRE(type<4, "This type enum doesn't exist");
     //    REQUIRE(this->properlyInitialised(), "Airplane wasn't properly initialised when calling setType()");
     //    ENSURE(getType() == type,"setType() failure");
     void setType(unsigned int _type);
     //    REQUIRE(this->properlyInitialised(),"Airplane wasn't properly initialised when calling setModel()");
     //    ENSURE(getModel() == _model, "setModel() failure");
     void setModel(const std::string &_model);
+    //    REQUIRE(engine<2, "This engine enum doesn't exist");
     //    REQUIRE(this->properlyInitialised(), "Airplane wasn't properly initialised when calling setEngine()");
     //    ENSURE(getEngine() == engine, "setEngine() failure");
     void setEngine(unsigned int _engine);

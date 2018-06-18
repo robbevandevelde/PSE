@@ -28,25 +28,30 @@ protected:
 };
 
 // Tests the init.
-TEST_F(GatesTest, InitTest) {
+TEST_F(GatesTest, InitTest)
+{
     EXPECT_TRUE(testGate->properlyInitialised());
 }
 //Tests the default constructor
-TEST_F(GatesTest, DefaultConstructor) {
+TEST_F(GatesTest, DefaultConstructor)
+{
     EXPECT_EQ((unsigned int)1, testGate->getName());
     EXPECT_FALSE(testGate->isOccupied());
     EXPECT_EQ((Airplane*)NULL, testGate->getAirplane());
 }
 //Tests the death for addAirplane
-TEST_F(GatesTest, deathaddAirplane) {
+TEST_F(GatesTest, deathaddAirplane)
+{
     EXPECT_DEATH(testGate->addAirplane(NULL), "Airplane cannot be nothing");
 }
 //Tests the death for removeAirplane
-TEST_F(GatesTest, deathremoveAirplane) {
+TEST_F(GatesTest, deathremoveAirplane)
+{
     EXPECT_DEATH(testGate->removeAirplane(), "Airplane cannot be NULL");
 }
 //Tests the standard gate functions
-TEST_F(GatesTest, airplaneTest) {
+TEST_F(GatesTest, airplaneTest)
+{
     EXPECT_EQ((unsigned int)1, testGate->getName());
     EXPECT_FALSE(testGate->isOccupied());
     EXPECT_EQ(NULL, testGate->getAirplane());

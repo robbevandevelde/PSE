@@ -34,6 +34,7 @@ private:
 
 
 public:
+    //    REQUIRE(_rwType<2, "type enum must be smaller than 2");
     //    ENSURE(properlyInitialised(), "Constructor must end");
     //    ENSURE(!_status && !_goingtobeused, "Status must be false after initialising");
     //    ENSURE(_airplane == NULL, "Airplane must point to a nullptr after initialising");
@@ -86,11 +87,10 @@ public:
     //    REQUIRE(this->properlyInitialised(), "Runway wasn't properly initialised when calling setName()");
     //    ENSURE(getName() == _name, "setName() failure");
     void setName(const std::string &_name);
+
     //    REQUIRE(this->properlyInitialised(), "Runway wasn't properly initialised when calling setType()");
     //    ENSURE(getType() == _type, "setType() failure");
-
-
-    ///////
+    //    REQUIRE(_type < 2, "type enum must be smaller than 2");
     void setType(unsigned int _type);
 
     //    REQUIRE(this->properlyInitialised(),"Runway wasn't properly initialised when calling setAirport()");

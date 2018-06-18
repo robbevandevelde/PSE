@@ -40,15 +40,18 @@ protected:
 };
 
 // Tests the initialisation.
-TEST_F(AirportTest, InitTest){
+TEST_F(AirportTest, InitTest)
+{
     EXPECT_TRUE(testAirport->properlyInitialised());
 }
 //Tests the default constructor
-TEST_F(AirportTest, DefaultConstructorTest){
+TEST_F(AirportTest, DefaultConstructorTest)
+{
     EXPECT_EQ(testAirport->getName(),"Antwerp Airport");
 }
 //Tests the getters and setters
-TEST_F(AirportTest, gettersEnSetters){
+TEST_F(AirportTest, gettersEnSetters)
+{
     testAirport->setGatesize(3);
     testAirport->setCallsign("callsign");
     testAirport->setIata("IATA");
@@ -59,7 +62,8 @@ TEST_F(AirportTest, gettersEnSetters){
     EXPECT_EQ("IATA", testAirport->getIata());
 }
 //Tests the landing protocol
-TEST_F(AirportTest, LandingProtocol){
+TEST_F(AirportTest, LandingProtocol)
+{
     testAirplane->setStatus(Approaching);
     testAirplane->setHeight(10000);
     EXPECT_EQ((unsigned int)10000, testAirplane->getHeight());
@@ -70,7 +74,8 @@ TEST_F(AirportTest, LandingProtocol){
     EXPECT_EQ((unsigned int)0, testAirplane->getHeight());
 }
 //Tests the takeoff protocol
-TEST_F(AirportTest, TakeoffProtocol){
+TEST_F(AirportTest, TakeoffProtocol)
+{
     testAirplane->setStatus(Departure);
     EXPECT_EQ((unsigned int)0, testAirplane->getHeight());
     ofstream myfile;
@@ -80,7 +85,8 @@ TEST_F(AirportTest, TakeoffProtocol){
     EXPECT_EQ((unsigned int)4, testAirplane->getStatus());
 }
 //Tests the gate protocol
-TEST_F(AirportTest, GateProtocol){
+TEST_F(AirportTest, GateProtocol)
+{
     testAirplane->setStatus(StandingAtGate);
     EXPECT_EQ((unsigned int)0, testAirplane->getHeight());
     ofstream myfile;
@@ -90,18 +96,21 @@ TEST_F(AirportTest, GateProtocol){
     EXPECT_EQ(StandingAtGate, testAirplane->getStatus());
 }
 //Tests the airplane to runway function
-TEST_F(AirportTest, AirplaneToRun){
+TEST_F(AirportTest, AirplaneToRun)
+{
     testAirplane->setStatus(Departure);
     EXPECT_EQ((unsigned int)0, testAirplane->getHeight());
     testAirport->addAirplaneToRunway(testAirplane);
     testAirport->removeAirplaneFromRunway(testAirplane);
 }
 //Tests the added controller
-TEST_F(AirportTest, Controller){
+TEST_F(AirportTest, Controller)
+{
     EXPECT_EQ("John", testAirport->getController()->getName());
 }
 //Tests the landing protocol with expected death
-TEST_F(AirportTest, landingDeathtest){
+TEST_F(AirportTest, landingDeathtest)
+{
     testAirplane->setStatus(JustLanded);
     EXPECT_EQ((unsigned int)0, testAirplane->getHeight());
     ofstream myfile;
@@ -111,7 +120,8 @@ TEST_F(AirportTest, landingDeathtest){
     EXPECT_EQ((unsigned int)0, testAirplane->getHeight());
 }
 ////Tests the gate protocol with expected death
-TEST_F(AirportTest,  gateprotDeathtest){
+TEST_F(AirportTest,  gateprotDeathtest)
+{
     testAirplane->setStatus(Approaching);
     testAirplane->setHeight(500);
     ofstream myfile;
@@ -120,7 +130,8 @@ TEST_F(AirportTest,  gateprotDeathtest){
     myfile.close();
 }
 //Tests the takeoff protocol with expected death
-TEST_F(AirportTest,  takeOffDeathtest){
+TEST_F(AirportTest,  takeOffDeathtest)
+{
     testAirplane->setStatus(Approaching);
     ofstream myfile;
     myfile.open("testOutput/Output01.txt");
@@ -128,7 +139,8 @@ TEST_F(AirportTest,  takeOffDeathtest){
     myfile.close();
 }
 //Tests the takeoff protocol with expected death
-TEST_F(AirportTest,  takeOffDeathtest2){
+TEST_F(AirportTest,  takeOffDeathtest2)
+{
     testAirplane->setStatus(Departure);
     testAirplane->setHeight(50);
     ofstream myfile;
@@ -137,7 +149,8 @@ TEST_F(AirportTest,  takeOffDeathtest2){
     myfile.close();
 }
 //Tests the airplane to gate with expected death
-TEST_F(AirportTest,  apl2gtDeathtest){
+TEST_F(AirportTest,  apl2gtDeathtest)
+{
     testAirplane->setStatus(Departure);
     testAirplane->setHeight(0);
     ofstream myfile;

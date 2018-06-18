@@ -598,7 +598,8 @@ bool Airport::isARunwayCompletelyClear()
     return false;
 }
 
-bool Airport::isAirplaneInRunway(Airplane *airplane) {
+bool Airport::isAirplaneInRunway(Airplane *airplane)
+{
     REQUIRE(this->properlyInitialised(), "Airport wasn't properly initialised when calling isAirplaneInRunway");
     for(unsigned int x = 0; x < _runways.size(); x++){
         if(_runways[x]->getAirplane() == airplane) return true;
@@ -606,7 +607,8 @@ bool Airport::isAirplaneInRunway(Airplane *airplane) {
     return false;
 }
 
-bool Airport::isAirplaneInGate(Airplane *airplane) {
+bool Airport::isAirplaneInGate(Airplane *airplane)
+{
     REQUIRE(this->properlyInitialised(), "Airport wasn't properly initialised when calling isAirplaneInGate");
     for(unsigned int x = 0; x < _gates.size(); x++){
         if(_gates[x]->getAirplane() == airplane) return true;

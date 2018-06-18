@@ -33,11 +33,13 @@ protected:
     Flightplan* testFlightplan;
 };
 // Tests the default constructor.
-TEST_F(FlightplanTest, InitTest) {
+TEST_F(FlightplanTest, InitTest)
+{
     EXPECT_TRUE(testFlightplan->properlyInitialised());
 }
 //Tests the getters and setters
-TEST_F(FlightplanTest, getsettest) {
+TEST_F(FlightplanTest, getsettest)
+{
     EXPECT_EQ("LAX", testFlightplan->getDestination());
     EXPECT_EQ((unsigned int)45, testFlightplan->getDeparture());
     EXPECT_EQ((unsigned int)15, testFlightplan->getArrival());

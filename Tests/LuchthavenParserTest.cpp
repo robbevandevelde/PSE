@@ -35,11 +35,13 @@ protected:
     LuchthavenParser* testParser;
 };
 //initcheck
-TEST_F(LuchthavenParserTest, InitCheck) {
+TEST_F(LuchthavenParserTest, InitCheck)
+{
     EXPECT_EQ(testParser->properlyInitialised(), true);
 }
 // Tests the input, happy day.
-TEST_F(LuchthavenParserTest, InputHappyday1) {
+TEST_F(LuchthavenParserTest, InputHappyday1)
+{
     ASSERT_TRUE(DirectoryExists("testInput"));
     ASSERT_FALSE(DirectoryExists("testIut"));
     testParser->setSuccessEnum(PartialImport);
@@ -61,7 +63,8 @@ TEST_F(LuchthavenParserTest, InputHappyday1) {
     EXPECT_TRUE(testParser->getSuccessEnum() == Success);
 }
 //Second happy day, now with pre loaded file
-TEST_F(LuchthavenParserTest, InputHappyday2) {
+TEST_F(LuchthavenParserTest, InputHappyday2)
+{
     ASSERT_TRUE(DirectoryExists("testInput"));
     SuccessEnum yes= PartialImport;
     testParser->setSuccessEnum(yes);
@@ -71,7 +74,8 @@ TEST_F(LuchthavenParserTest, InputHappyday2) {
     EXPECT_TRUE(testParser->getSuccessEnum() == Success);
 }
 //Failtest, not able to parse "<AL>"
-TEST_F(LuchthavenParserTest, FalseTest) {
+TEST_F(LuchthavenParserTest, FalseTest)
+{
     ASSERT_TRUE(DirectoryExists("testInput"));
     SuccessEnum yes= PartialImport;
     testParser->setSuccessEnum(yes);
@@ -80,13 +84,15 @@ TEST_F(LuchthavenParserTest, FalseTest) {
     EXPECT_TRUE(testParser->getSuccessEnum() == ImportAborted);
 }
 //Tests if it cannot open false files
-TEST_F(LuchthavenParserTest, Fileopen) {
+TEST_F(LuchthavenParserTest, Fileopen)
+{
     ASSERT_FALSE(DirectoryExists("rwrwe"));
     ASSERT_FALSE(FileExists("dvd"));
     ASSERT_FALSE(FileIsEmpty("testInput/Input02.xml"));
 }
 //Tests wrongly build xml file
-TEST_F(LuchthavenParserTest, FalseTest2) {
+TEST_F(LuchthavenParserTest, FalseTest2)
+{
     ASSERT_TRUE(DirectoryExists("testInput"));
     SuccessEnum yes= PartialImport;
     testParser->setSuccessEnum(yes);
@@ -95,7 +101,8 @@ TEST_F(LuchthavenParserTest, FalseTest2) {
     EXPECT_TRUE(testParser->getSuccessEnum() == ImportAborted);
 }
 //tests good file without any names
-TEST_F(LuchthavenParserTest, FalseTest3) {
+TEST_F(LuchthavenParserTest, FalseTest3)
+{
     ASSERT_TRUE(DirectoryExists("testInput"));
     SuccessEnum yes= PartialImport;
     testParser->setSuccessEnum(yes);
