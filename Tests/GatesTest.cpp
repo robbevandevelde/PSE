@@ -37,6 +37,14 @@ TEST_F(GatesTest, DefaultConstructor) {
     EXPECT_FALSE(testGate->isOccupied());
     EXPECT_EQ((Airplane*)NULL, testGate->getAirplane());
 }
+//Tests the death for addAirplane
+TEST_F(GatesTest, deathaddAirplane) {
+    EXPECT_DEATH(testGate->addAirplane(NULL), "Airplane cannot be nothing");
+}
+//Tests the death for removeAirplane
+TEST_F(GatesTest, deathremoveAirplane) {
+    EXPECT_DEATH(testGate->removeAirplane(), "Airplane cannot be NULL");
+}
 //Tests the standard gate functions
 TEST_F(GatesTest, airplaneTest) {
     EXPECT_EQ((unsigned int)1, testGate->getName());

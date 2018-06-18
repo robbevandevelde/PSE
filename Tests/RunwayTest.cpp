@@ -86,4 +86,12 @@ TEST_F(RunwayTest, airplaneremoveDeadtest2) {
     testRunway->setStatus(false);
     EXPECT_DEATH(testRunway->removeAirplane(), "Status must be true because the space is occupied");
 }
+//Tests the type enum
+TEST_F(RunwayTest, runwayTypeDeath) {
+    EXPECT_DEATH(testRunway->setType(2), "type enum must be smaller than 2");
+}
+//Tests the constructor
+TEST_F(RunwayTest, constructorDeath) {
+    EXPECT_DEATH(Runway rw(11,"R11", 4, "ANR"), "type enum must be smaller than 2");
+}
 

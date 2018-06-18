@@ -12,6 +12,7 @@
 Runway::Runway(unsigned int _length, const std::string &_name, unsigned int _type, const std::string &_airport) :
         _length(_length), _name(_name), _rwType(_type), _airport(_airport)
 {
+    REQUIRE(_rwType<2, "type enum must be smaller than 2");
     _initcheck = this;
     _status = false;
     _goingtobeused = false;
@@ -105,6 +106,7 @@ unsigned int Runway::getType()
  */
 void Runway::setType(unsigned int _type)
 {
+    REQUIRE(_type < 2, "type enum must be smaller than 2");
     REQUIRE(this->properlyInitialised(), "Runway wasn't properly initialised when calling setType()");
     Runway::_rwType = _type;
     ENSURE(getType() == _rwType, "setType() failure");

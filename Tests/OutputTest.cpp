@@ -84,7 +84,7 @@ TEST_F(OutputTest, takeoffOutput){
     ofstream myfile2;
     myfile.open("testOutput/testOutput03.txt");
     myfile2.open("testOutput/extra.txt");
-    Runway* testRunway = new Runway(1,"R11",2,"ANT");
+    Runway* testRunway = new Runway(1,"R11",1,"ANT");
     testAirport->addRunway(testRunway);
     testAirplane->setStatus(Approaching);
     testAirplane->setHeight(10000);
