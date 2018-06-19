@@ -9,6 +9,7 @@
 #include "DesignByContract.h"
 class Airport;
 class Airplane;
+class Runway;
 
 class AirTrafficController {
 private:

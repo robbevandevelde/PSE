@@ -65,10 +65,10 @@ int main() {
     Flightplan *fl = new Flightplan(naam, 5, 6, 7);
 
     Airplane *airplane = new Airplane("Small", "Small Propeller", "Winchester", Approaching, 50, 50, Airline, Jet, Medium, fl);
-    airplane->setHeight(10000);
-    airplane->setFuel(0);
+    airplane->setHeight(7000);
+//    airplane->setFuel(0);
     Airplane *airplane1 = new Airplane("556", "F16", "Win100", Approaching, 50, 50, Airline, Jet, Medium, fl);
-    airplane1->setHeight(10000);
+    airplane1->setHeight(7000);
 //    Airplane *airplane2 = new Airplane("6969", "HI99", "Wallonie", Approaching, 5, 5, 3, 1, 0, fl);
 //    Airplane *airplane3 = new Airplane("33", "adad", "aqrfs", Approaching,5,5,3,1,0,fl);
 //    Airplane *airplane4 = new Airplane("36545", "aVRad", "aqFfs", Approaching,5,5,3,1,0,fl);

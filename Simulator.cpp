@@ -293,6 +293,9 @@ void Simulator::Simulate(std::ostream &out)
                         }
                     }
                 }
+                    /**TO COLLISION SOLVER MET 2 OF MEERDERE VLIEGTUIGEN HIER
+                     *
+                     */
                 else if (_airplanes[x]->getStatus() == Departure) {
                     for (unsigned int i = 0; i < _airport->getRunways().size();i++) {
                         if(_airport->getRunways()[i]->getAirplane() == _airplanes[x]){

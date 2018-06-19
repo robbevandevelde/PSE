@@ -5,6 +5,7 @@
 #include "AirTrafficController.h"
 #include "Airplane.h"
 #include "Airport.h"
+#include "Runway.h"
 
 /*Constructor van airtrafficcontroller
  *@param airport airport, string name
@@ -49,20 +50,23 @@ bool AirTrafficController::landingprotocol(Airplane *airplane, std::ostream& out
     else if(airplane->getHeight() == 5000){
         for(unsigned int x=0; x < _airport->getRunways().size();x++){
             if(_airport->validRunwayForPlane(airplane, _airport->getRunways()[x])){
-
+                if(!_airport->getRunways()[x]->isGoingToBeUsed() && !_airport->getRunways()[x]->isOccupied()){
+                    return true;
+                } else{
+                    return false;
+                }
             }
-        }
-        if(_airport->isRunwayEmpty() && _airport->isRunwayNotUsed()){
-            return true;
-        } else{
-            return false;
         }
     }
     else if(airplane->getHeight() == 3000){
-        if(_airport->isRunwayEmpty() && _airport->isRunwayNotUsed()){
-            return true;
-        } else{
-            return false;
+        for(unsigned int x=0; x < _airport->getRunways().size();x++){
+            if(_airport->validRunwayForPlane(airplane, _airport->getRunways()[x])){
+                if(!_airport->getRunways()[x]->isGoingToBeUsed() && !_airport->getRunways()[x]->isOccupied()){
+                    return true;
+                } else{
+                    return false;
+                }
+            }
         }
     }
     else if(airplane->getStatus() == JustLanded){
