@@ -30,7 +30,7 @@ void Flightplan::setDeparture(unsigned int departure)
     REQUIRE(this->properlyInitialised(), "Flightplan wasn't properly initialised when calling setDeparture()");
     Flightplan::departure = departure;
     ENSURE(getDeparture() == departure, "setDeparture() failure");
-    exit(911)
+    exit(911);
 }
 
 unsigned int Flightplan::getArrival()
