@@ -56,6 +56,7 @@ void Simulator::Simulate(std::ostream &out)
 {
     REQUIRE(this->properlyInitialised(), "Simulator wasn't properly initialised when calling Simulate()");
     while (!_airplanes.empty()) {
+            cout << "Never gonna give you up:"
         for (unsigned int x = 0; x < _airplanes.size(); x++) {
             if (_airport->getWaitpoint1() == _airplanes[x] || _airport->getWaitpoint2() == _airplanes[x]) {
                 if (_airport->getController()->landingprotocol(_airplanes[x])) {
