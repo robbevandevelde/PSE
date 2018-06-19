@@ -2,14 +2,9 @@
 // Created by thimoty on 4/30/18.
 //
 
-/** TODO: ZORGEN DAT ER GEEN PROPERLY INITIALISED ERROR IS ME EMERGENCY LANDING
- *
- */
-
 
 
 #include "Simulator.h"
-
 /*Constructor van simulator
  *@param vector<Runway *> &_runways, vector<Airplane *> &_airplanes, Airport *_airport
  *@return geen
@@ -63,6 +58,7 @@ void Simulator::Simulate(std::ostream &out)
                         _airplanes[x]->setStatus(FinalApproach);
                         _airport->goingToBeUsedRunway(_airplanes[x]);
                         _airplanes[x]->descend();
+
                     } else if (_airport->getWaitpoint2() == _airplanes[x]) {
                         _airport->removeWaitpoint2();
                         _airplanes[x]->setStatus(FinalApproach);
@@ -78,13 +74,12 @@ void Simulator::Simulate(std::ostream &out)
                     _airport->taxiToRunway(_airplanes[x]);
                 }
             }
-                /**TODO: noodlanding verder afwerken
-                */
             else if(_airplanes[x]->getFuel() == 0) {
                 //Reserveren van een plaats
                 if(!_airplanes[x]->isControle()){
                     out << "This is " << _airplanes[x]->getCallsign()
                         << " we have almost no fuel and request an emergency landing" << std::endl;
+                    out << "--------------------------------------------------------------------------"<< std::endl;
                     _airplanes[x]->setStatus(EmergencyLanding);
                     if(_airport->getController()->emergencyprotocol(_airplanes[x])){
                         if(_airport->isARunwayCompletelyClear()){
@@ -135,12 +130,15 @@ void Simulator::Simulate(std::ostream &out)
                 }
                 if (_airplanes[x]->getHeight() == 0 && _airplanes[x]->getStatus() == EmergencyLanding) {
                     _airport->addAirplaneToRunway(_airplanes[x]);
+                    out << "--------------------------------------------------------------------------"<< std::endl;
 
                 }else if(_airplanes[x]->getStatus() == EmergencyControle1 ||_airplanes[x]->getStatus() == EmergencyControle2){
-                    _airport[x].emergencyControle(_airplanes[x],out);
+                    _airport->emergencyControle(_airplanes[x],out);
+                    out << "--------------------------------------------------------------------------"<< std::endl;
                 } else {
                     if(_airplanes[x]->getHeight() != 0){
                         _airplanes[x]->descend();
+                        out << "--------------------------------------------------------------------------"<< std::endl;
                     }
                 }
             }
@@ -165,14 +163,16 @@ void Simulator::Simulate(std::ostream &out)
                                           << std::endl;
                                 _airport->setWaitpoint1(_airplanes[x]);
                                 _airplanes[x]->setStatus(Approaching);
-                            } else {
-                                out
-                                        << "You have to wait for an empty runway, do a waiting pattern around 3000 ft."
-                                        << std::endl;
+                                out << "--------------------------------------------------------------------------"<< std::endl;
+                            } else if(_airport->getWaitpoint2() == NULL) {
+                                out << "You have to wait for an empty runway, do a waiting pattern around 3000 ft." << std::endl;
                                 _airplanes[x]->descend();
                                 _airplanes[x]->descend();
                                 _airport->setWaitpoint2(_airplanes[x]);
-                                _airplanes[x]->setStatus(FinalApproach);
+                                out << "--------------------------------------------------------------------------"<< std::endl;
+                            } else {
+                                out << _airplanes[x]->getCallsign() << " has to ascend to 1000 ft. again"<< std::endl;
+                                _airplanes[x]->setHeight(10000);
                             }
                         }
                     }
@@ -183,10 +183,18 @@ void Simulator::Simulate(std::ostream &out)
                             _airplanes[x]->descend();
                             out << "--------------------------------------------------------------------------"<< std::endl;
                         } else {
-                            out << "You, " << _airplanes[x]->getCallsign() <<", have to wait for an empty runway, do a waiting pattern around 3000 ft.    e    "
-                                      << std::endl;
-                            _airport->setWaitpoint2(_airplanes[x]);
-                            _airplanes[x]->setStatus(FinalApproach);
+                            if(_airport->getWaitpoint2() == NULL){
+                                out << _airplanes[x]->getCallsign() <<" has to wait for an empty runway, do a waiting pattern around 3000 ft."
+                                    << std::endl;
+                                _airport->setWaitpoint2(_airplanes[x]);
+                            } else if(_airport->getWaitpoint1() == NULL){
+                                out << _airplanes[x]->getCallsign() <<" has to ascend to 5000 ft. and do a waiting pattern"<< std::endl;
+                                _airport->setWaitpoint1(_airplanes[x]);
+                            } else{
+                                out << _airplanes[x]->getCallsign() << " has to ascend to 1000 ft. again"<< std::endl;
+                                _airplanes[x]->setHeight(10000);
+                            }
+
                             out << "--------------------------------------------------------------------------"<< std::endl;
                         }
                     }

@@ -638,7 +638,8 @@ bool Airport::isAirplaneInGate(Airplane *airplane)
     return false;
 }
 
-void Airport::emergencyControle(Airplane *airplane,std::ostream& out) {
+void Airport::emergencyControle(Airplane *airplane,std::ostream& out)
+{
     REQUIRE(this->properlyInitialised(), "Airport wasn't properly initialised when calling emergencyControle()");
     REQUIRE(airplane->getStatus() == EmergencyControle1 ||airplane->getStatus() == EmergencyControle2, "Not valid status for airplane status");
     REQUIRE(airplane->getHeight() == 0, "Airplane must be on ground");
@@ -656,3 +657,33 @@ void Airport::emergencyControle(Airplane *airplane,std::ostream& out) {
     }
 }
 
+bool Airport::validRunwayForPlane(Airplane *airplane, Runway* runway)
+{
+    if(airplane->getSize() == Small){
+        if(airplane->getEngine() == Propeller && runway->getType() == Grass && runway->getLength() >=500){
+            return true;
+        } else if(airplane->getEngine() == Jet && runway->getType() == Asphalt && runway->getLength() >=1000){
+            return true;
+        } else {
+            return false;
+        }
+    } else if(airplane->getSize() == Medium){
+        if(airplane->getEngine() == Propeller && runway->getType() == Asphalt && runway->getLength() >=1000){
+            return true;
+        } else if(airplane->getEngine() == Jet && runway->getType() == Asphalt && runway->getLength() >=2000){
+            return true;
+        } else {
+            return false;
+        }
+    } else if(airplane->getSize() == Large){
+        if(airplane->getEngine() == Propeller && runway->getType() == Asphalt && runway->getLength() >=1500){
+            return true;
+        } else if(airplane->getEngine() ==Jet && runway->getType() == Asphalt && runway->getLength() >=3000){
+            return true;
+        } else {
+            return false;
+        }
+    } else{
+        return false;
+    }
+}
