@@ -84,11 +84,11 @@ void Simulator::Simulate(std::ostream &out)
             else if(_airplanes[x]->getFuel() == 0) {
                 //Reserveren van een plaats
                 if(!_airplanes[x]->isControle()){
-                    out << "This is " << _airplanes[x]->getCallsign()
-                        << " we have almost no fuel and request an emergency landing" << std::endl;
-                    out << "--------------------------------------------------------------------------"<< std::endl;
                     _airplanes[x]->setStatus(EmergencyLanding);
                     if(_airport->getController()->emergencyprotocol(_airplanes[x])){
+                        out << "This is " << _airplanes[x]->getCallsign()
+                            << " we have almost no fuel and request an emergency landing" << std::endl;
+                        out << "--------------------------------------------------------------------------"<< std::endl;
                         for(unsigned int l =0; l < _airport->getRunways().size(); l++) {
                             if(_airport->validRunwayForPlane(_airplanes[x],_airport->getRunways()[l])){
                                 if(!_airport->getRunways()[l]->isGoingToBeUsed()){
@@ -129,8 +129,6 @@ void Simulator::Simulate(std::ostream &out)
                                                 _airport->getRunways()[l]->setUsedStatus();
                                                 _airport->getRunways()[l]->setGoingtobeusedby(_airplanes[x]);
                                                 _airplanes[x]->setControle(true);
-
-
                                             }
                                         }
                                     }
@@ -179,6 +177,12 @@ void Simulator::Simulate(std::ostream &out)
 //                                }
 //                            }
                         } else {
+                            if(_airplanes[x]->getHeight() ==9000) {
+                            out << "This is " << _airplanes[x]->getCallsign()
+                                << " we have almost no fuel and request an emergency landing" << std::endl;
+                            out << "--------------------------------------------------------------------------"
+                                << std::endl;
+                            }
                             if(_airplanes[x]->getHeight() == 0){
                                 _airplanes.erase(_airplanes.begin() + x);
                             }

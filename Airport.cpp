@@ -535,7 +535,7 @@ unsigned int Airport::getFreeRunwaySpot()
  *@param geen
  *@return vector<runway*> runway
  */
-const vector<Runway *> &Airport::getRunways()
+const vector<Runway*> &Airport::getRunways()
 {
     REQUIRE(this->properlyInitialised(), "Airprort wasn't properly initialised when calling getRunways()");
     return _runways;

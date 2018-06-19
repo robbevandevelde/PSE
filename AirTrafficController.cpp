@@ -30,6 +30,12 @@ bool AirTrafficController::properlyInitialised()
  *@param airplane airplane
  *@return bool
  */
+/**TO DO: AIRPLANE OP JUISTE RUNWAY ZETTE FIXE
+ *
+ * @param airplane
+ * @param out
+ * @return
+ */
 bool AirTrafficController::landingprotocol(Airplane *airplane, std::ostream& out)
 {
     REQUIRE(this->properlyInitialised(), "AirTrafficController wasn't properly initialised when calling landingprotocol()");
@@ -41,6 +47,11 @@ bool AirTrafficController::landingprotocol(Airplane *airplane, std::ostream& out
         return  true;
     }
     else if(airplane->getHeight() == 5000){
+        for(unsigned int x=0; x < _airport->getRunways().size();x++){
+            if(_airport->validRunwayForPlane(airplane, _airport->getRunways()[x])){
+
+            }
+        }
         if(_airport->isRunwayEmpty() && _airport->isRunwayNotUsed()){
             return true;
         } else{
