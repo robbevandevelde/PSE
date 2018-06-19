@@ -2,9 +2,14 @@
 // Created by thimoty on 4/30/18.
 //
 
+/** TODO: ZORGEN DAT ER GEEN PROPERLY INITIALISED ERROR IS ME EMERGENCY LANDING
+ *
+ */
+
 
 
 #include "Simulator.h"
+
 /*Constructor van simulator
  *@param vector<Runway *> &_runways, vector<Airplane *> &_airplanes, Airport *_airport
  *@return geen
@@ -74,6 +79,8 @@ void Simulator::Simulate(std::ostream &out)
                     _airport->taxiToRunway(_airplanes[x]);
                 }
             }
+                /**TODO: noodlanding verder afwerken
+                */
             else if(_airplanes[x]->getFuel() == 0) {
                 //Reserveren van een plaats
                 if(!_airplanes[x]->isControle()){
@@ -82,47 +89,96 @@ void Simulator::Simulate(std::ostream &out)
                     out << "--------------------------------------------------------------------------"<< std::endl;
                     _airplanes[x]->setStatus(EmergencyLanding);
                     if(_airport->getController()->emergencyprotocol(_airplanes[x])){
-                        if(_airport->isARunwayCompletelyClear()){
-                            _airplanes[x]->setControle(true);
-                            _airport->goingToBeUsedRunway(_airplanes[x]);
-                        }
-                        else {
-                            _airplanes[x]->setControle(true);
-                            for(unsigned int y=0;y <_airplanes.size();y++){
-                                if(_airplanes[y]->getStatus() == Departure) {
-                                    for(unsigned int i = 0;i<_airport->getAmountRunways();i++){
-                                        if(_airport->getRunways()[i]->getAirplane() == _airplanes[y]){
-                                            _airport->getRunways()[i]->removeAirplane();
-                                            _airport->addRunwayWait(_airplanes[y]);
-                                            _airport->getRunways()[i]->setUsedStatus();
-                                            _airport->getRunways()[i]->setGoingtobeusedby(_airplanes[x]);
-                                            break;
+                        for(unsigned int l =0; l < _airport->getRunways().size(); l++) {
+                            if(_airport->validRunwayForPlane(_airplanes[x],_airport->getRunways()[l])){
+                                if(!_airport->getRunways()[l]->isGoingToBeUsed()){
+                                    if(!_airport->getRunways()[l]->isOccupied()){
+                                        _airplanes[x]->setControle(true);
+                                        _airport->getRunways()[l]->setUsedStatus();
+                                        _airport->getRunways()[l]->setGoingtobeusedby(_airplanes[x]);
+                                        break;
+                                    }
+                                } else{
+                                    for(unsigned int j = 0; j < _airplanes.size();j++){
+                                        if(_airport->getRunways()[l]->getGoingtobeusedby() == _airplanes[j]){
+                                            if(_airplanes[j]->getStatus() == Departure){
+                                                _airport->getRunways()[l]->removeAirplane();
+                                                _airport->addRunwayWait(_airplanes[j]);
+                                                _airport->getRunways()[l]->setUsedStatus();
+                                                _airport->getRunways()[l]->setGoingtobeusedby(_airplanes[x]);
+                                                _airplanes[x]->setControle(true);
+                                                break;
+                                            }
+                                            else if(_airplanes[j]->getHeight()>= 3000 && _airplanes[j]->getHeight() <=5000){
+                                                _airport->getRunways()[l]->setGoingtobeusedby(NULL);
+                                                //Zetten van de plane2 naar een wachtpunt
+                                                if(_airport->getWaitpoint2() == NULL){
+                                                    _airport->setWaitpoint2(_airplanes[j]);
+                                                    out<< _airplanes[j]->getCallsign()<<"do awaiting pattern at 3000 "
+                                                            "ft. because there is an emergency landing in the process" << std::endl;
+                                                } else if(_airport->getWaitpoint1() == NULL){
+                                                    _airport->setWaitpoint2(_airplanes[j]);
+                                                    out << _airplanes[j]->getCallsign()<< "do a waiting pattern at 5000 "
+                                                            "ft. because there is an emergency landing in the process" << std::endl;
+                                                } else{
+                                                    _airplanes[j]->setHeight(10000);
+                                                    out << _airplanes[j]->getCallsign() << " you will have to ascend to 10000 ft. again"<< std::endl;
+                                                }
+                                                //Zetten van de emergencyplane op de baan
+
+                                                _airport->getRunways()[l]->setUsedStatus();
+                                                _airport->getRunways()[l]->setGoingtobeusedby(_airplanes[x]);
+                                                _airplanes[x]->setControle(true);
+
+
+                                            }
                                         }
                                     }
                                     break;
-                                } else if(_airplanes[y]->getHeight()>= 3000 && _airplanes[x]->getHeight() <=5000){
-                                    for(unsigned int j = 0; j <_airport->getAmountRunways();j++){
-                                        if(_airport->getRunways()[j]->getAirplane() == _airplanes[y]){
-                                            _airport->getRunways()[j]->removeAirplane();
-                                            _airport->getRunways()[j]->setGoingtobeusedby(_airplanes[x]);
-                                            _airport->getRunways()[j]->setUsedStatus();
-                                                if(_airport->getWaitpoint1() == NULL){
-                                                    _airport->setWaitpoint1(_airplanes[y]);
-                                                }
-                                                else if(_airport->getWaitpoint2() == NULL){
-                                                    _airport->setWaitpoint2(_airplanes[y]);
-                                                } else{
-                                                    _airplanes[y]->setHeight(10000);
-                                                }
-                                                break;
-                                            }
-                                        }
-                                        break;
-                                    }
                                 }
                             }
                         }
-                        else {
+
+//                        if(_airport->isARunwayCompletelyClear()){
+//                            _airplanes[x]->setControle(true);
+//                            _airport->goingToBeUsedRunway(_airplanes[x]);
+//                        }
+//                        else {
+//                            _airplanes[x]->setControle(true);
+//                            for(unsigned int y=0;y <_airplanes.size();y++){
+//                                if(_airplanes[y]->getStatus() == Departure) {
+//                                    for(unsigned int i = 0;i<_airport->getAmountRunways();i++){
+//                                        if(_airport->getRunways()[i]->getAirplane() == _airplanes[y]){
+//                                            _airport->getRunways()[i]->removeAirplane();
+//                                            _airport->addRunwayWait(_airplanes[y]);
+//                                            _airport->getRunways()[i]->setUsedStatus();
+//                                            _airport->getRunways()[i]->setGoingtobeusedby(_airplanes[x]);
+//                                            break;
+//                                        }
+//                                    }
+//                                    break;
+//                                } else if(_airplanes[y]->getHeight()>= 3000 && _airplanes[y]->getHeight() <=5000){
+//                                    for(unsigned int j = 0; j <_airport->getAmountRunways();j++){
+//                                        if(_airport->getRunways()[j]->getAirplane() == _airplanes[y]){
+//                                            _airport->getRunways()[j]->removeAirplane();
+//                                            _airport->getRunways()[j]->setGoingtobeusedby(_airplanes[x]);
+//                                            _airport->getRunways()[j]->setUsedStatus();
+//                                                if(_airport->getWaitpoint1() == NULL){
+//                                                    _airport->setWaitpoint1(_airplanes[y]);
+//                                                }
+//                                                else if(_airport->getWaitpoint2() == NULL){
+//                                                    _airport->setWaitpoint2(_airplanes[y]);
+//                                                } else{
+//                                                    _airplanes[y]->setHeight(10000);
+//                                                }
+//                                                break;
+//                                            }
+//                                        }
+//                                        break;
+//                                    }
+//                                }
+//                            }
+                        } else {
                             if(_airplanes[x]->getHeight() == 0){
                                 _airplanes.erase(_airplanes.begin() + x);
                             }

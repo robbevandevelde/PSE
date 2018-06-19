@@ -177,47 +177,55 @@ void Airport::addAirplaneToRunway(Airplane *airplane, std::ostream& out)
         if (airplane->getStatus() == Departure) {
             if (!_runways[x]->isOccupied()) {
                 if (!_runways[x]->isGoingToBeUsed()) {
-                    _controller->takeoffprotocol(airplane, out);
-                    out << airplane->getCallsign() << " is taxiing to runway " << _runways[x]->getName() <<
-                              std::endl;
-                    _runways[x]->setGoingtobeusedby(airplane);
-                    _runways[x]->addAirplane(airplane);
-                    ENSURE(isAirplaneInRunway(airplane), "addAirplaneToRunway() failure");
-                    break;
-                }
-            }
-        }
-        else if(airplane->getStatus() == FinalApproach){
-            if(!_runways[x]->isOccupied()) {
-                if(_runways[x]->isGoingToBeUsed()) {
-                    if (_runways[x]->getGoingtobeusedby() == airplane) {
-                        out << airplane->getCallsign() << " is landing at " << _name << " on runway "
-                            << _runways[x]->getName() << std::endl;
-                        airplane->setStatus(JustLanded);
+                    if (validRunwayForPlane(airplane, _runways[x])) {
+                        _controller->takeoffprotocol(airplane, out);
+                        out << airplane->getCallsign() << " is taxiing to runway " << _runways[x]->getName() <<
+                            std::endl;
+                        _runways[x]->setGoingtobeusedby(airplane);
                         _runways[x]->addAirplane(airplane);
-                        out << airplane->getCallsign() << " has landed at " << _name << " on runway "
-                            << _runways[x]->getName() << std::endl;
-                        _controller->landingprotocol(airplane, out);
-                        ENSURE(_runways[x]->getAirplane()->getStatus() == JustLanded, "Add airplane to runway failure");
                         ENSURE(isAirplaneInRunway(airplane), "addAirplaneToRunway() failure");
                         break;
                     }
                 }
             }
         }
+        else if(airplane->getStatus() == FinalApproach){
+            if(!_runways[x]->isOccupied()) {
+                if(_runways[x]->isGoingToBeUsed()) {
+                    if (validRunwayForPlane(airplane, _runways[x])) {
+                        if (_runways[x]->getGoingtobeusedby() == airplane) {
+                            out << airplane->getCallsign() << " is landing at " << _name << " on runway "
+                                << _runways[x]->getName() << std::endl;
+                            airplane->setStatus(JustLanded);
+                            _runways[x]->addAirplane(airplane);
+                            out << airplane->getCallsign() << " has landed at " << _name << " on runway "
+                                << _runways[x]->getName() << std::endl;
+                            _controller->landingprotocol(airplane, out);
+                            ENSURE(_runways[x]->getAirplane()->getStatus() == JustLanded,
+                                   "Add airplane to runway failure");
+                            ENSURE(isAirplaneInRunway(airplane), "addAirplaneToRunway() failure");
+                            break;
+                        }
+                    }
+                }
+            }
+        }
         else if(airplane->getStatus() == EmergencyLanding){
             if(_runways[x]->isGoingToBeUsed()) {
-                if (_runways[x]->getGoingtobeusedby() == airplane) {
-                    out << airplane->getCallsign() << " is landing at " << _name << " on runway "
-                        << _runways[x]->getName() << std::endl;
-                    airplane->setStatus(EmergencyControle1);
-                    _runways[x]->addAirplane(airplane);
-                    out << airplane->getCallsign() << " has landed at " << _name << " on runway "
-                        << _runways[x]->getName() << std::endl;
-                    out << airplane->getCallsign() << " wait for an emergency controle"<< std::endl;
-                    ENSURE(_runways[x]->getAirplane()->getStatus() == EmergencyControle1, "Add airplane to runway failure");
-                    ENSURE(isAirplaneInRunway(airplane), "addAirplaneToRunway() failure");
-                    break;
+                if (validRunwayForPlane(airplane, _runways[x])) {
+                    if (_runways[x]->getGoingtobeusedby() == airplane) {
+                        out << airplane->getCallsign() << " is landing at " << _name << " on runway "
+                            << _runways[x]->getName() << std::endl;
+                        airplane->setStatus(EmergencyControle1);
+                        _runways[x]->addAirplane(airplane);
+                        out << airplane->getCallsign() << " has landed at " << _name << " on runway "
+                            << _runways[x]->getName() << std::endl;
+                        out << airplane->getCallsign() << " wait for an emergency controle" << std::endl;
+                        ENSURE(_runways[x]->getAirplane()->getStatus() == EmergencyControle1,
+                               "Add airplane to runway failure");
+                        ENSURE(isAirplaneInRunway(airplane), "addAirplaneToRunway() failure");
+                        break;
+                    }
                 }
             }
         }
@@ -597,9 +605,11 @@ void Airport::goingToBeUsedRunway(Airplane *airplane)
     REQUIRE(this->properlyInitialised(), "Airport wasn't properly initialised when calling goingToBeUsedRunway()");
     for(unsigned int x =0; x< _runways.size();x++){
         if(!_runways[x]->isGoingToBeUsed()){
-            _runways[x]->setUsedStatus();
-            _runways[x]->setGoingtobeusedby(airplane);
-            break;
+            if (validRunwayForPlane(airplane, _runways[x])) {
+                _runways[x]->setUsedStatus();
+                _runways[x]->setGoingtobeusedby(airplane);
+                break;
+            }
         }
     }
 }

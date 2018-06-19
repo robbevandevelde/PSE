@@ -49,7 +49,12 @@ using namespace std;
 #include "Airport.h"
 #include "AirTrafficController.h"
 
+/**
+ *
+ * TEST VOOR EMERGENCY LANDING
+ */
 int main() {
+
     Airport *airport = new Airport(2, "Zaventem", "f444", "Echo");
 
 
@@ -89,7 +94,34 @@ int main() {
     sim->Simulate();
     return 0;
 }
-
+//int main(){
+//    Airport *airport = new Airport(2, "Zaventem", "f444", "Echo");
+//    AirTrafficController *John = new AirTrafficController(airport, "John");
+//    airport->assignController(John);
+//    std::string naam = "kanker";
+//
+//    //Runways
+//    Flightplan *fl = new Flightplan(naam, 5, 6, 7);
+//    Runway* runway = new Runway(3000, "Alpha", Asphalt, "Zaventem");
+//    Runway* runway1 = new Runway(500,"Bravo", Grass, "Zaventem");
+//    vector<Runway*> runways;
+//    runways.push_back(runway);
+//    runways.push_back(runway1);
+//
+//    //Airplanes
+//    Airplane* airplane = new Airplane("Klein", "Propeller", "EF11",Approaching,50,50,Airline, Propeller, Small,fl);
+//    airplane->setHeight(10000);
+//    Airplane* airplane2 = new Airplane("Medium", "Jet","EFEF", Approaching, 50,50, Airline,Jet, Medium,fl);
+//    vector<Airplane*> airplanes;
+//    airplanes.push_back(airplane);
+//    airplanes.push_back(airplane2);
+//
+//    Simulator* sim = new Simulator(runways,airplanes,airport);
+//    sim->addRunways();
+//    sim->Simulate();
+//
+//    return 0;
+//};
 
 
 
