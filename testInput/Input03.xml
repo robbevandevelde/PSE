@@ -27,7 +27,7 @@
         <number>N1</number>
         <callsign>EF566</callsign>
         <model>Winchester</model>
-        <status>Approaching</status>
+        <status>EmergencyLanding</status>
         <passengers>5</passengers>
         <fuel>5</fuel>
         <type>militairy</type>

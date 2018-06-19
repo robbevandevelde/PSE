@@ -49,7 +49,7 @@ TEST_F(AirplaneTest, DefaultconstructorTests)
 //Tests the statusenum death
 TEST_F(AirplaneTest, statusdeathTest)
 {
-    EXPECT_DEATH(testAirplane->setStatus(10), "This status enum doesn't exist");
+    EXPECT_DEATH(testAirplane->setStatus(12), "This status enum doesn't exist");
 }
 //Tests the engineenum death
 TEST_F(AirplaneTest, enginedeathTest)
@@ -71,7 +71,7 @@ TEST_F(AirplaneTest, constructordeathTest)
 {
     EXPECT_DEATH(Airplane ap("10","call","serial", 1, 100,5000,1,5,2,testFlightplan), "This engine enum doesn't exist");
     EXPECT_DEATH(Airplane ap("10","call","serial", 1, 100,5000,1,0,3,testFlightplan), "This size enum doesn't exist");
-    EXPECT_DEATH(Airplane ap("10","call","serial", 10, 100,5000,1,0,1,testFlightplan), "This status enum doesn't exist");
+    EXPECT_DEATH(Airplane ap("10","call","serial", 12, 100,5000,1,0,1,testFlightplan), "This status enum doesn't exist");
     EXPECT_DEATH(Airplane ap("10","call","serial", 1, 100,5000,5,0,1,testFlightplan), "This type enum doesn't exist");
 }
 //tests getters and setters

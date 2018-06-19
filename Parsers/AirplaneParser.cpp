@@ -86,6 +86,24 @@ unsigned int AirplaneParser::Statuscheck(string St)
     if(St == "JustLanded"){
         return JustLanded;
     }
+    if(St == "WaitingAtRunway"){
+        return WaitingAtRunway;
+    }
+    if(St == "StandingAtRunway"){
+        return StandingAtRunway;
+    }
+    if(St == "FinalApproach"){
+        return FinalApproach;
+    }
+    if(St == "EmergencyLanding"){
+        return EmergencyLanding;
+    }
+    if(St == "EmergencyControle1"){
+        return EmergencyControle1;
+    }
+    if(St == "EmergencyControle2"){
+        return EmergencyControle2;
+    }
     return -1;
 }
 

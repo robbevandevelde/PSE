@@ -13,7 +13,7 @@ Airplane::Airplane(std::string number,std::string callsign, std::string model,
                    unsigned int status, unsigned int passengers, unsigned int fuel,
                    unsigned int type, unsigned int engine, unsigned int size, Flightplan* flightp)
 {
-    REQUIRE(status<9, "This status enum doesn't exist");
+    REQUIRE(status<11, "This status enum doesn't exist");
     REQUIRE(type<4, "This type enum doesn't exist");
     REQUIRE(size<3, "This size enum doesn't exist");
     REQUIRE(engine<2, "This engine enum doesn't exist");
@@ -175,6 +175,7 @@ unsigned int Airplane::getStatus()
  */
 void Airplane::setStatus(unsigned int _status)
 {
+    REQUIRE(_status<11, "This status enum doesn't exist");
     REQUIRE(this->properlyInitialised(),"Airplane wasn't properly initialised when calling setStatus()");
     Airplane::_status = _status;
     ENSURE(getStatus() == _status, "setStatus() failure");
@@ -251,7 +252,6 @@ void Airplane::setEngine(unsigned int engine)
  */
 unsigned int Airplane::getSize()
 {
-    REQUIRE(_size<3, "This size enum doesn't exist");
     REQUIRE(this->properlyInitialised(), "Airplane wasn't properly initialised when calling getSize()");
     return _size;
 }
@@ -262,6 +262,7 @@ unsigned int Airplane::getSize()
  */
 void Airplane::setSize(unsigned int size)
 {
+    REQUIRE(size<3, "This size enum doesn't exist");
     REQUIRE(this->properlyInitialised(), "Airplane wasn't properly initialised when calling setSize()");
     Airplane::_size = size;
     ENSURE(getSize() == size, "setSize() failure");

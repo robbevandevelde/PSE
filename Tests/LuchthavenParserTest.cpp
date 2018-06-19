@@ -110,3 +110,19 @@ TEST_F(LuchthavenParserTest, FalseTest3)
     testParser->parseItems(testParser->getRoot());
     EXPECT_TRUE(testParser->getSuccessEnum() == ImportAborted);
 }
+//Test the iputted values
+TEST_F(LuchthavenParserTest, InputValueTest)
+{
+    ASSERT_TRUE(DirectoryExists("testInput"));
+    SuccessEnum yes= PartialImport;
+    testParser->setSuccessEnum(yes);
+    ASSERT_TRUE(FileExists("testInput/Input03.xml"));
+    testParser->loadFile("testInput/Input03.xml");
+    testParser->parseItems(testParser->getRoot());
+    EXPECT_TRUE(testParser->getSuccessEnum() == Success);
+    EXPECT_EQ(Small, testParser->getAirplanes()[0]->getSize());
+    EXPECT_EQ("Cessna 842", testParser->getAirplanes()[0]->getCallsign());
+    EXPECT_EQ(Propeller, testParser->getAirplanes()[0]->getEngine());
+    EXPECT_EQ(Approaching, testParser->getAirplanes()[0]->getStatus());
+    EXPECT_EQ(EmergencyLanding, testParser->getAirplanes()[1]->getStatus());
+}
