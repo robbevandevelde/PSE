@@ -55,7 +55,7 @@ using namespace std;
  */
 int main() {
 
-    Airport *airport = new Airport(2, "Zaventem", "f444", "Echo");
+    Airport *airport = new Airport(10, "Zaventem", "f444", "Echo");
 
 
     AirTrafficController *John = new AirTrafficController(airport, "John");
@@ -64,33 +64,35 @@ int main() {
     std::string naam = "kanker";
     Flightplan *fl = new Flightplan(naam, 5, 6, 7);
 
-    Airplane *airplane = new Airplane("Small", "Small Propeller", "Winchester", Approaching, 50, 50, Airline, Jet, Medium, fl);
-    airplane->setHeight(7000);
+    Airplane *airplane = new Airplane("Small", "Small Propeller", "Winchester", Approaching, 50, 50, Airline, Propeller, Small, fl);
+    airplane->setHeight(4000);
 //    airplane->setFuel(0);
     Airplane *airplane1 = new Airplane("556", "F16", "Win100", Approaching, 50, 50, Airline, Jet, Medium, fl);
-    airplane1->setHeight(7000);
-//    Airplane *airplane2 = new Airplane("6969", "HI99", "Wallonie", Approaching, 5, 5, 3, 1, 0, fl);
-//    Airplane *airplane3 = new Airplane("33", "adad", "aqrfs", Approaching,5,5,3,1,0,fl);
-//    Airplane *airplane4 = new Airplane("36545", "aVRad", "aqFfs", Approaching,5,5,3,1,0,fl);
+    airplane1->setHeight(4000);
+    Airplane *airplane2 = new Airplane("6969", "HI99", "Wallonie", Approaching, 50,50 ,Airline, Jet, Medium, fl);
+    airplane2->setHeight(4000);
+    Airplane *airplane3 = new Airplane("420", "Allahu akbar", "Winchester", Approaching, 50, 50, Airline, Propeller, Small, fl);
+    airplane3->setHeight(4000);
 
     Runway *runway = new Runway(500, "Alpha", Grass, "Zaventem");
 
     Runway *runway1 = new Runway(2000, "Bravo", Asphalt, "Zaventem");
 
+    Runway *runway2 = new Runway(9000, "Charlie", Asphalt, "Zaventem");
+
     vector<Runway *> runways;
 
     runways.push_back(runway);
     runways.push_back(runway1);
+    runways.push_back(runway2);
 
     vector<Airplane *> airplanes;
     airplanes.push_back(airplane);
     airplanes.push_back(airplane1);
-//    airplanes.push_back(airplane);
-//    airplanes.push_back(airplane3);
-//    airplanes.push_back(airplane2);
-//    airplanes.push_back(airplane4);
-    Simulator *sim = new Simulator(runways, airplanes, airport);
+    airplanes.push_back(airplane2);
+    airplanes.push_back(airplane3);
 
+    Simulator *sim = new Simulator(runways, airplanes, airport);
     sim->addRunways();
     sim->Simulate();
     return 0;

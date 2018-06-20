@@ -60,10 +60,8 @@ void Simulator::Simulate(std::ostream &out)
                 if (_airport->getController()->landingprotocol(_airplanes[x])) {
                     if (_airport->getWaitpoint1() == _airplanes[x]) {
                         _airport->removeWaitpoint1();
-                        _airplanes[x]->setStatus(FinalApproach);
-                        _airport->goingToBeUsedRunway(_airplanes[x]);
+                        _airplanes[x]->setStatus(Approaching);
                         _airplanes[x]->descend();
-
                     } else if (_airport->getWaitpoint2() == _airplanes[x]) {
                         _airport->removeWaitpoint2();
                         _airplanes[x]->setStatus(FinalApproach);
@@ -73,10 +71,14 @@ void Simulator::Simulate(std::ostream &out)
                 }
             }
             else if(_airport->runwayWaitChecker(_airplanes[x])){
-                if(_airport->isRunwayEmpty() && _airport->isRunwayNotUsed()){
-                    _airplanes[x]->setStatus(Departure);
-                    _airport->removeRunwayWait(_airplanes[x]);
-                    _airport->taxiToRunway(_airplanes[x]);
+                for(unsigned int i=0;i<_airport->getRunways().size();i++){
+                    if(_airport->validRunwayForPlane(_airplanes[x],_airport->getRunways()[i])){
+                        if(!_airport->getRunways()[i]->isGoingToBeUsed()){
+                            _airplanes[x]->setStatus(Departure);
+                            _airport->removeRunwayWait(_airplanes[x]);
+                            _airport->taxiToRunway(_airplanes[x]);
+                        }
+                    }
                 }
             }
                 /**TODO: noodlanding verder afwerken
@@ -136,46 +138,6 @@ void Simulator::Simulate(std::ostream &out)
                                 }
                             }
                         }
-
-//                        if(_airport->isARunwayCompletelyClear()){
-//                            _airplanes[x]->setControle(true);
-//                            _airport->goingToBeUsedRunway(_airplanes[x]);
-//                        }
-//                        else {
-//                            _airplanes[x]->setControle(true);
-//                            for(unsigned int y=0;y <_airplanes.size();y++){
-//                                if(_airplanes[y]->getStatus() == Departure) {
-//                                    for(unsigned int i = 0;i<_airport->getAmountRunways();i++){
-//                                        if(_airport->getRunways()[i]->getAirplane() == _airplanes[y]){
-//                                            _airport->getRunways()[i]->removeAirplane();
-//                                            _airport->addRunwayWait(_airplanes[y]);
-//                                            _airport->getRunways()[i]->setUsedStatus();
-//                                            _airport->getRunways()[i]->setGoingtobeusedby(_airplanes[x]);
-//                                            break;
-//                                        }
-//                                    }
-//                                    break;
-//                                } else if(_airplanes[y]->getHeight()>= 3000 && _airplanes[y]->getHeight() <=5000){
-//                                    for(unsigned int j = 0; j <_airport->getAmountRunways();j++){
-//                                        if(_airport->getRunways()[j]->getAirplane() == _airplanes[y]){
-//                                            _airport->getRunways()[j]->removeAirplane();
-//                                            _airport->getRunways()[j]->setGoingtobeusedby(_airplanes[x]);
-//                                            _airport->getRunways()[j]->setUsedStatus();
-//                                                if(_airport->getWaitpoint1() == NULL){
-//                                                    _airport->setWaitpoint1(_airplanes[y]);
-//                                                }
-//                                                else if(_airport->getWaitpoint2() == NULL){
-//                                                    _airport->setWaitpoint2(_airplanes[y]);
-//                                                } else{
-//                                                    _airplanes[y]->setHeight(10000);
-//                                                }
-//                                                break;
-//                                            }
-//                                        }
-//                                        break;
-//                                    }
-//                                }
-//                            }
                         } else {
                             if(_airplanes[x]->getHeight() ==9000) {
                             out << "This is " << _airplanes[x]->getCallsign()
@@ -281,18 +243,50 @@ void Simulator::Simulate(std::ostream &out)
                     } else {
                         _airport->gateprotocol(_airplanes[x], 50);
                         _airport->getController()->takeoffprotocol(_airplanes[x]);
-                        if(_airport->isRunwayEmpty() && _airport->isRunwayNotUsed()){
-                            _airport->taxiToRunway(_airplanes[x]);
-                            out << "--------------------------------------------------------------------------"<< std::endl;
+
+                        vector<Runway*> validrunways;
+                        bool checker = true;
+                        for(unsigned int j=0; j< _airport->getRunways().size();j++){
+                            if(_airport->validRunwayForPlane(_airplanes[x],_airport->getRunways()[j])){
+                                validrunways.push_back(_airport->getRunways()[j]);
+                            }
                         }
-                        else {
+                        for(unsigned int l=0; l < validrunways.size();l++){
+                            if(!validrunways[l]->isGoingToBeUsed()){
+                                for(unsigned int k=0;k<_airport->getRunways().size();k++){
+                                    if(_airport->getRunways()[k] == validrunways[l]){
+                                        _airport->removeAirplaneFromGate(_airplanes[x]);
+                                        _airport->getRunways()[k]->setGoingtobeusedby(_airplanes[x]);
+                                        _airport->getRunways()[k]->addAirplane(_airplanes[x]);
+                                        checker = false;
+                                        break;
+                                    }
+                                }
+                            }
+                        }
+                        if(checker){
                             out << "You, " << _airplanes[x]->getCallsign()<< " have to wait a few minutes for a clear runway" << std::endl;
                             _airport->addRunwayWait(_airplanes[x]);
                             _airplanes[x]->setStatus(WaitingAtRunway);
                             out << "--------------------------------------------------------------------------"<< std::endl;
                         }
+//                        for(unsigned int i = 0;i <_runways.size();i++){
+//                            if(_airport->validRunwayForPlane(_airplanes[x],_airport->getRunways()[i])){
+//                                if(!_airport->getRunways()[i]->isGoingToBeUsed()){
+//                                        _airport->taxiToRunway(_airplanes[x]);
+//                                        out << "--------------------------------------------------------------------------"<< std::endl;
+//                                        break;
+//                                    } else {
+//                                        out << "You, " << _airplanes[x]->getCallsign()<< " have to wait a few minutes for a clear runway" << std::endl;
+//                                        _airport->addRunwayWait(_airplanes[x]);
+//                                        _airplanes[x]->setStatus(WaitingAtRunway);
+//                                        out << "--------------------------------------------------------------------------"<< std::endl;
+//                                        break;
+//                                    }
+//                                }
+//                            }
+                        }
                     }
-                }
                     /**TO COLLISION SOLVER MET 2 OF MEERDERE VLIEGTUIGEN HIER
                      *
                      */

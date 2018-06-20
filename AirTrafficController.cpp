@@ -48,25 +48,33 @@ bool AirTrafficController::landingprotocol(Airplane *airplane, std::ostream& out
         return  true;
     }
     else if(airplane->getHeight() == 5000){
-        for(unsigned int x=0; x < _airport->getRunways().size();x++){
-            if(_airport->validRunwayForPlane(airplane, _airport->getRunways()[x])){
-                if(!_airport->getRunways()[x]->isGoingToBeUsed() && !_airport->getRunways()[x]->isOccupied()){
-                    return true;
-                } else{
-                    return false;
+        unsigned int checker = 0;
+        for(unsigned int x = 0; x<_airport->getRunways().size();x++){
+            if(_airport->validRunwayForPlane(airplane,_airport->getRunways()[x])){
+                if(!_airport->getRunways()[x]->isGoingToBeUsed()){
+                    checker +=1;
                 }
             }
         }
+        if(checker == 0){
+            return false;
+        } else {
+            return true;
+        }
     }
     else if(airplane->getHeight() == 3000){
-        for(unsigned int x=0; x < _airport->getRunways().size();x++){
-            if(_airport->validRunwayForPlane(airplane, _airport->getRunways()[x])){
-                if(!_airport->getRunways()[x]->isGoingToBeUsed() && !_airport->getRunways()[x]->isOccupied()){
-                    return true;
-                } else{
-                    return false;
+        unsigned int checker =0;
+        for(unsigned int x = 0; x<_airport->getRunways().size();x++){
+            if(_airport->validRunwayForPlane(airplane,_airport->getRunways()[x])){
+                if(!_airport->getRunways()[x]->isGoingToBeUsed()){
+                    checker +=1;
                 }
             }
+        }
+        if(checker ==0){
+            return false;
+        } else {
+            return true;
         }
     }
     else if(airplane->getStatus() == JustLanded){
@@ -88,6 +96,7 @@ bool AirTrafficController::takeoffprotocol(Airplane *airplane, std::ostream& out
         out << "This is " << _name << " you have permission to leave the gate" << std::endl;
         return true;
     } else if(airplane->getStatus() == Departure) {
+
         out << "This is " <<_name << " you may proceed to an empty runway" << std::endl;
         return true;
     } else if(airplane->getStatus() == StandingAtRunway){
