@@ -22,6 +22,7 @@ protected:
         string name = "LAX";
         testFlightplan = new Flightplan(name, 15, 45, 1);
         testAirplane = new Airplane("32", "callsign", "model", Departure, 110, 5000, 1, 1, 1, testFlightplan);
+        testAirplane2 = new Airplane("32", "callsign", "model", Departure, 110, 0, Airline, Jet, Large, testFlightplan);
 
 
     }
@@ -37,6 +38,7 @@ protected:
     AirTrafficController* John;
     Flightplan* testFlightplan;
     Airplane* testAirplane;
+    Airplane* testAirplane2;
 };
 
 // Tests the initialisation.
@@ -72,6 +74,17 @@ TEST_F(AirportTest, LandingProtocol)
     testAirport->landingprotocol(testAirplane, myfile);
     myfile.close();
     EXPECT_EQ((unsigned int)0, testAirplane->getHeight());
+}
+//Tests the landing protocol
+TEST_F(AirportTest, emergencyLandingProtocol)
+{
+    testAirplane2->setStatus(Approaching);
+    testAirplane2->setHeight(3000);
+    ofstream myfile;
+    myfile.open("testOutput/Output04.txt");
+    testAirport->landingprotocol(testAirplane2, myfile);
+    myfile.close();
+    EXPECT_EQ((unsigned int)0, testAirplane2->getHeight());
 }
 //Tests the takeoff protocol
 TEST_F(AirportTest, TakeoffProtocol)
