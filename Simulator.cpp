@@ -245,6 +245,7 @@ void Simulator::Simulate(std::ostream &out)
                         _airport->getController()->takeoffprotocol(_airplanes[x]);
 
                         vector<Runway*> validrunways;
+
                         bool checker = true;
                         for(unsigned int j=0; j< _airport->getRunways().size();j++){
                             if(_airport->validRunwayForPlane(_airplanes[x],_airport->getRunways()[j])){
@@ -255,13 +256,12 @@ void Simulator::Simulate(std::ostream &out)
                             if(!validrunways[l]->isGoingToBeUsed()){
                                 for(unsigned int k=0;k<_airport->getRunways().size();k++){
                                     if(_airport->getRunways()[k] == validrunways[l]){
-                                        _airport->removeAirplaneFromGate(_airplanes[x]);
-                                        _airport->getRunways()[k]->setGoingtobeusedby(_airplanes[x]);
-                                        _airport->getRunways()[k]->addAirplane(_airplanes[x]);
+                                        _airport->taxiToRunway(_airplanes[x]);
                                         checker = false;
                                         break;
                                     }
                                 }
+                                break;
                             }
                         }
                         if(checker){

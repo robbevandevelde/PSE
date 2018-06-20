@@ -120,9 +120,11 @@ bool AirTrafficController::emergencyprotocol(Airplane *airplane, std::ostream& o
     if(airplane->getFuel() == 0){
         if(airplane->getHeight() >= 3000){
             out << "We will make a free runway for you" << std::endl;
+            out << "--------------------------------------------------------------------------"<< std::endl;
             return true;
         } else if(airplane->getHeight() < 3000){
             out << "You will have to land outside of the airport, we are contacting an emergency line" << std::endl;
+            out << "--------------------------------------------------------------------------"<< std::endl;
             return false;
         }
     }

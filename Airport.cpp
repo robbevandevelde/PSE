@@ -183,6 +183,7 @@ void Airport::addAirplaneToRunway(Airplane *airplane, std::ostream& out)
                             std::endl;
                         _runways[x]->setGoingtobeusedby(airplane);
                         _runways[x]->addAirplane(airplane);
+                        out << "--------------------------------------------------------------------------"<< std::endl;
                         ENSURE(isAirplaneInRunway(airplane), "addAirplaneToRunway() failure");
                         break;
                     }
@@ -204,6 +205,7 @@ void Airport::addAirplaneToRunway(Airplane *airplane, std::ostream& out)
                             ENSURE(_runways[x]->getAirplane()->getStatus() == JustLanded,
                                    "Add airplane to runway failure");
                             ENSURE(isAirplaneInRunway(airplane), "addAirplaneToRunway() failure");
+                            out << "--------------------------------------------------------------------------"<< std::endl;
                             break;
                         }
                     }
@@ -281,6 +283,7 @@ void Airport::removeAirplaneFromGate(Airplane *airplane, std::ostream &out)
             out << airplane->getCallsign() << " is standing at Gate " << _gates[x]->getName() << std::endl;
             _gates[x]->getAirplane()->setStatus(Departure);
             _gates[x]->removeAirplane();
+            out << "--------------------------------------------------------------------------"<< std::endl;
             ENSURE(_gates[x]->getAirplane() == NULL,"Remove airplane of gate failure");
             break;
         }

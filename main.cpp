@@ -66,7 +66,7 @@ int main() {
 
     Airplane *airplane = new Airplane("Small", "Small Propeller", "Winchester", Approaching, 50, 50, Airline, Propeller, Small, fl);
     airplane->setHeight(4000);
-//    airplane->setFuel(0);
+    airplane->setFuel(0);
     Airplane *airplane1 = new Airplane("556", "F16", "Win100", Approaching, 50, 50, Airline, Jet, Medium, fl);
     airplane1->setHeight(4000);
     Airplane *airplane2 = new Airplane("6969", "HI99", "Wallonie", Approaching, 50,50 ,Airline, Jet, Medium, fl);
