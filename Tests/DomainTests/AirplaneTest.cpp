@@ -4,7 +4,7 @@
 
 
 #include <gtest/gtest.h>
-#include "../Airplane.h"
+#include "../../Airplane.h"
 
 class AirplaneTest: public ::testing::Test {
 protected:

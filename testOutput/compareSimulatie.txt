@@ -10,7 +10,7 @@ Airplane: Cessna 842 (N11842)
 
 Airplane: EF566 (N1)
 -> model: Winchester
--> type: Militairy
+-> type: Military
 -> engine: Jet
 -> size: Small
 

@@ -129,7 +129,7 @@ void LuchthavenParser::writeToFile(vector<Runway *> runwaysVect, vector<Airport 
             myfile <<"-> type: Airline" << endl;
         }
         if(airplanesVect[itAPL]->getType() == 2){
-            myfile <<"-> type: Militairy" << endl;
+            myfile <<"-> type: Military" << endl;
         }
         if(airplanesVect[itAPL]->getType() == 3){
             myfile <<"-> type: Emergency" << endl;

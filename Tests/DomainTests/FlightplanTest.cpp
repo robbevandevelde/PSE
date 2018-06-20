@@ -3,7 +3,7 @@
 //
 
 #include <gtest/gtest.h>
-#include "../Flightplan.h"
+#include "../../Flightplan.h"
 
 class FlightplanTest: public ::testing::Test {
 protected:

@@ -131,8 +131,8 @@ unsigned int AirplaneParser::Typecheck(string Ty)
     if (Ty== "private"){
         return Private;
     }
-    if (Ty== "militairy"){
-        return Militairy;
+    if (Ty== "military"){
+        return Military;
     }
     if (Ty== "airline"){
         return Airline;

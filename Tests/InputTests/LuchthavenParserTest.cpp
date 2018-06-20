@@ -6,8 +6,8 @@
 #include <iostream>
 #include <fstream>
 #include <gtest/gtest.h>
-#include "../Parsers/LuchthavenParser.h"
-#include "../AirportUtils.h"
+#include "../../Parsers/LuchthavenParser.h"
+#include "../../AirportUtils.h"
 
 
 

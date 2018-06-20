@@ -68,19 +68,19 @@ set(DEBUG_SOURCE_FILES
         Airport.h
         TestMain.cpp
         Runway.cpp
-        Runway.h Tests/RunwayTest.cpp
-        Tests/AirplaneTest.cpp Tests/AirportTest.cpp
-        Tests/GatesTest.cpp DesignByContract.h
-        Tests/LuchthavenParserTest.cpp AirportUtils.cpp
+        Runway.h Tests/DomainTests/RunwayTest.cpp
+        Tests/DomainTests/AirplaneTest.cpp Tests/DomainTests/AirportTest.cpp
+        Tests/DomainTests/GatesTest.cpp DesignByContract.h
+        Tests/InputTests/LuchthavenParserTest.cpp AirportUtils.cpp
         AirportUtils.h Flightplan.cpp
         Flightplan.h Gate.cpp Gate.h AirTrafficController.cpp AirTrafficController.h Simulator.cpp Simulator.h
         testInput testInput/Input01.xml
-        Tests/FlightplanTest.cpp
+        Tests/DomainTests/FlightplanTest.cpp
         testInput/Input02.xml
         testInput/Input03.xml
         testInput/Input04.xml
         testInput/Input05.xml
-        Tests/OutputTest.cpp)
+        Tests/OutputTests/OutputTest.cpp)
 
 add_executable(pse ${SOURCE_FILES})
 

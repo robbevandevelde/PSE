@@ -3,7 +3,7 @@
 //
 
 #include <gtest/gtest.h>
-#include "../Airport.h"
+#include "../../Airport.h"
 #include <iostream>
 #include <fstream>
 

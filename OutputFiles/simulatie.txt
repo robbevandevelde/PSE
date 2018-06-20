@@ -1,0 +1,28 @@
+Airport: Antwerp International Airport (ANR)
+-> gates: 10
+-> runways: 3
+
+Airplane: Echo50 (N420)
+-> model: Cessna 840
+-> type: Private
+-> engine: Propeller
+-> size: Small
+
+Airplane: Foxtrot69 (A90)
+-> model: Hawker 800
+-> type: Private
+-> engine: Jet
+-> size: Medium
+
+Airplane: Xray90 (T540)
+-> model: Airbus A400M
+-> type: Military
+-> engine: Propeller
+-> size: Large
+
+Airplane: India49 (A985)
+-> model: Hawker 800
+-> type: Private
+-> engine: Jet
+-> size: Medium
+

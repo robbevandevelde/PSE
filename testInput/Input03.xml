@@ -30,7 +30,7 @@
         <status>EmergencyLanding</status>
         <passengers>5</passengers>
         <fuel>5</fuel>
-        <type>militairy</type>
+        <type>military</type>
         <engine>jet</engine>
         <size>small</size>
         <FLIGHTPLAN>

@@ -4,9 +4,9 @@
 
 
 #include <gtest/gtest.h>
-#include "../Runway.h"
-#include "../Flightplan.h"
-#include "../Airplane.h"
+#include "../../Runway.h"
+#include "../../Flightplan.h"
+#include "../../Airplane.h"
 
 class RunwayTest: public ::testing::Test {
 protected:

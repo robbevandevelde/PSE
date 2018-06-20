@@ -6,9 +6,9 @@
 #include <iostream>
 #include <fstream>
 #include <gtest/gtest.h>
-#include "../Parsers/LuchthavenParser.h"
-#include "../AirportUtils.h"
-#include "../Airport.h"
+#include "../../Parsers/LuchthavenParser.h"
+#include "../../AirportUtils.h"
+#include "../../Airport.h"
 
 
 
@@ -29,7 +29,7 @@ protected:
         testAirport->assignController(John);
         string name = "LAX";
         testFlightplan = new Flightplan(name, 15, 45, 1);
-        testAirplane = new Airplane("32", "callsign", "model", Approaching, 110, 5000, 1, 1, 2, testFlightplan);
+        testAirplane = new Airplane("32", "callsign", "model", Approaching, 50, 500, Airline, Jet,Medium, testFlightplan);
 
     }
 
@@ -88,13 +88,15 @@ TEST_F(OutputTest, takeoffOutput)
     ofstream myfile2;
     myfile.open("testOutput/testOutput03.txt");
     myfile2.open("testOutput/extra.txt");
-    Runway* testRunway = new Runway(1,"R11",1,"ANT");
+    Runway* testRunway = new Runway(2000,"R11",Asphalt,"ANT");
     testAirport->addRunway(testRunway);
     testAirplane->setStatus(Approaching);
     testAirplane->setHeight(10000);
     testAirport->landingprotocol(testAirplane, myfile2);
     testAirport->addAirplaneToRunway(testAirplane, myfile2);
+
     testAirport->removeAirplaneFromRunway(testAirplane);
+    testAirplane->setStatus(JustLanded);
     testAirport->addAirplaneToGate(testAirplane, myfile2);
 
     testAirport->gateprotocol(testAirplane, 0, myfile2);

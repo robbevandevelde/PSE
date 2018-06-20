@@ -1,5 +1,6 @@
 This is John you may proceed to an empty runway
 callsign is taxiing to runway R11
+--------------------------------------------------------------------------
 callsign ascended to 1000 ft.
 callsign ascended to 2000 ft.
 callsign ascended to 3000 ft.
