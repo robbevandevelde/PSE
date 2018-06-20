@@ -1,0 +1,95 @@
+<?xml version="1.0" ?>
+<SIMULATIE>
+    <AIRPORT>
+        <name>Antwerp International Airport</name>
+        <iata>ANR</iata>
+        <callsign>Antwerp Tower</callsign>
+        <gates>10</gates>
+    </AIRPORT>
+    <AIRPLANE>
+        <number>N420</number>
+        <callsign>Echo50</callsign>
+        <model>Cessna 840</model>
+        <status>Approaching</status>
+        <passengers>112</passengers>
+        <fuel>500</fuel>
+        <type>private</type>
+        <engine>propeller</engine>
+        <size>small</size>
+        <FLIGHTPLAN>
+            <destination>LCY</destination>
+            <departure>15</departure>
+            <arrival>45</arrival>
+            <interval>1</interval>
+        </FLIGHTPLAN>
+    </AIRPLANE>
+    <AIRPLANE>
+        <number>A90</number>
+        <callsign>Foxtrot69</callsign>
+        <model>Hawker 800</model>
+        <status>Approaching</status>
+        <passengers>50</passengers>
+        <fuel>500</fuel>
+        <type>private</type>
+        <engine>jet</engine>
+        <size>medium</size>
+        <FLIGHTPLAN>
+            <destination>LCY</destination>
+            <departure>15</departure>
+            <arrival>45</arrival>
+            <interval>1</interval>
+        </FLIGHTPLAN>
+    </AIRPLANE>
+    <AIRPLANE>
+        <number>T540</number>
+        <callsign>Xray90</callsign>
+        <model>Airbus A400M</model>
+        <status>Approaching</status>
+        <passengers>50</passengers>
+        <fuel>0</fuel>
+        <type>military</type>
+        <engine>propeller</engine>
+        <size>large</size>
+        <FLIGHTPLAN>
+            <destination>LCY</destination>
+            <departure>15</departure>
+            <arrival>45</arrival>
+            <interval>1</interval>
+        </FLIGHTPLAN>
+    </AIRPLANE>
+    <AIRPLANE>
+        <number>A985</number>
+        <callsign>India49</callsign>
+        <model>Hawker 800</model>
+        <status>Approaching</status>
+        <passengers>50</passengers>
+        <fuel>500</fuel>
+        <type>private</type>
+        <engine>jet</engine>
+        <size>medium</size>
+        <FLIGHTPLAN>
+            <destination>LCY</destination>
+            <departure>15</departure>
+            <arrival>45</arrival>
+            <interval>1</interval>
+        </FLIGHTPLAN>
+    </AIRPLANE>
+    <RUNWAY>
+        <name>Alpha</name>
+        <airport>ANR</airport>
+        <type>grass</type>
+        <length>500</length>
+    </RUNWAY>
+    <RUNWAY>
+        <name>Bravo</name>
+        <airport>ANR</airport>
+        <type>asphalt</type>
+        <length>2000</length>
+    </RUNWAY>
+    <RUNWAY>
+        <name>Charlie</name>
+        <airport>ANR</airport>
+        <type>asphalt</type>
+        <length>3000</length>
+    </RUNWAY>
+</SIMULATIE>
