@@ -31,12 +31,6 @@ bool AirTrafficController::properlyInitialised()
  *@param airplane airplane
  *@return bool
  */
-/**TO DO: AIRPLANE OP JUISTE RUNWAY ZETTE FIXE
- *
- * @param airplane
- * @param out
- * @return
- */
 bool AirTrafficController::landingprotocol(Airplane *airplane, std::ostream& out)
 {
     REQUIRE(this->properlyInitialised(), "AirTrafficController wasn't properly initialised when calling landingprotocol()");

@@ -182,6 +182,7 @@ public:
     //    REQUIRE(airplane->getHeight() == 0, "Airplane must be on ground");
     void emergencyControle(Airplane* airplane, std::ostream& out);
 
+    //    REQUIRE(this->properlyInitialised(), "Airport wasn't properly initialised when calling validRunwayForPlane()");
     bool validRunwayForPlane(Airplane* airplane, Runway* runway);
 };
 #endif //PSE_AIRPORT_H

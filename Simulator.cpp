@@ -270,23 +270,8 @@ void Simulator::Simulate(std::ostream &out)
                             _airplanes[x]->setStatus(WaitingAtRunway);
                             out << "--------------------------------------------------------------------------"<< std::endl;
                         }
-//                        for(unsigned int i = 0;i <_runways.size();i++){
-//                            if(_airport->validRunwayForPlane(_airplanes[x],_airport->getRunways()[i])){
-//                                if(!_airport->getRunways()[i]->isGoingToBeUsed()){
-//                                        _airport->taxiToRunway(_airplanes[x]);
-//                                        out << "--------------------------------------------------------------------------"<< std::endl;
-//                                        break;
-//                                    } else {
-//                                        out << "You, " << _airplanes[x]->getCallsign()<< " have to wait a few minutes for a clear runway" << std::endl;
-//                                        _airport->addRunwayWait(_airplanes[x]);
-//                                        _airplanes[x]->setStatus(WaitingAtRunway);
-//                                        out << "--------------------------------------------------------------------------"<< std::endl;
-//                                        break;
-//                                    }
-//                                }
-//                            }
-                        }
                     }
+                }
                     /**TO COLLISION SOLVER MET 2 OF MEERDERE VLIEGTUIGEN HIER
                      *
                      */

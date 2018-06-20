@@ -208,6 +208,7 @@ void Runway::setUsedStatus()
     _goingtobeused = true;
     ENSURE(_goingtobeused, "setUsedStatus() failure");
 }
+
 /*Removed de gointobeused status
  *@param niks
  *@return niks
@@ -218,6 +219,7 @@ void Runway::removeUsedStatus()
     _goingtobeused = false;
     ENSURE(!_goingtobeused, "removeUsedStatus() failure");
 }
+
 /*Checkt of dat de runway gebruikt gaat worden
  *@param geen
  *@return bool goingtobeused
@@ -228,13 +230,23 @@ bool Runway::isGoingToBeUsed()
     return _goingtobeused;
 }
 
-Airplane *Runway::getGoingtobeusedby() {
+/*return de _goingtobeusedby
+ *@param geen
+ *@return airplane
+ */
+Airplane *Runway::getGoingtobeusedby()
+{
     REQUIRE(this->properlyInitialised(), "Gate wasn't properly initialised when calling getGoingtobeusedby()");
     return _goingtobeusedby;
 }
 
-void Runway::setGoingtobeusedby(Airplane *_goingtobeusedby) {
+/*set de _goingtobeusedby
+ *@param airplane
+ *@return niks
+ */
+void Runway::setGoingtobeusedby(Airplane *_goingtobeusedby)
+{
     REQUIRE(this->properlyInitialised(), "Gate wasn't properly initialised when calling setGoingtobeusedby");
-
     Runway::_goingtobeusedby = _goingtobeusedby;
+    ENSURE(this->getGoingtobeusedby() == _goingtobeusedby, "setGoingtobeusedby() failure");
 }

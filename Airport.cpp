@@ -599,6 +599,7 @@ bool Airport::runwayWaitChecker(Airplane *airplane)
     }
     return false;
 }
+
 /*Ziet of dat er een runway gebruikt wordt, zo niet zet op gebruikt
  *@param geen
  *@return geen
@@ -616,6 +617,7 @@ void Airport::goingToBeUsedRunway(Airplane *airplane)
         }
     }
 }
+
 /*checkt of dat er een runway compleet vrij is
  *@param geen
  *@return bool true als waar, false als niet waar
@@ -633,6 +635,10 @@ bool Airport::isARunwayCompletelyClear()
     return false;
 }
 
+/*checkt of dat een airplane in een runway zit;
+ *param airplane
+ *@return bool
+ */
 bool Airport::isAirplaneInRunway(Airplane *airplane)
 {
     REQUIRE(this->properlyInitialised(), "Airport wasn't properly initialised when calling isAirplaneInRunway");
@@ -642,6 +648,10 @@ bool Airport::isAirplaneInRunway(Airplane *airplane)
     return false;
 }
 
+/*checkt of dat een airplane in een gate zit
+ *param airplane
+ *@return bool
+ */
 bool Airport::isAirplaneInGate(Airplane *airplane)
 {
     REQUIRE(this->properlyInitialised(), "Airport wasn't properly initialised when calling isAirplaneInGate");
@@ -651,6 +661,10 @@ bool Airport::isAirplaneInGate(Airplane *airplane)
     return false;
 }
 
+/*voert de emergencycontrole voor een airplane uit
+ *@param airplane
+ *@return niks
+ */
 void Airport::emergencyControle(Airplane *airplane,std::ostream& out)
 {
     REQUIRE(this->properlyInitialised(), "Airport wasn't properly initialised when calling emergencyControle()");
@@ -659,19 +673,27 @@ void Airport::emergencyControle(Airplane *airplane,std::ostream& out)
     if(airplane->getStatus() == EmergencyControle1){
         out << airplane->getCallsign() << " has been checked for technical malfunctions" << std::endl;
         airplane->setStatus(EmergencyControle2);
+        ENSURE(airplane->getStatus() == EmergencyControle2, "Aiplane status failure");
     }
     else if(airplane->getStatus() == EmergencyControle2){
         airplane->setFuel(1000);
         out << airplane     ->getCallsign() << " has been refueled" << std::endl;
         out << airplane->getCallsign() << " may proceed to an empty gate" << std::endl;
         airplane->setStatus(JustLanded);
+        ENSURE(airplane->getStatus() == JustLanded, "Aiplane status failure");
         this->taxiToGate(airplane);
+        ENSURE(this->isAirplaneInGate(airplane),"Airplane to gate failure");
         this->gateprotocol(airplane, 0);
     }
 }
 
+/*checkt of dat een gegeven airplane op een gegeven runway mag landen
+ *@param airplane, runway
+ *@return bool
+ */
 bool Airport::validRunwayForPlane(Airplane *airplane, Runway* runway)
 {
+    REQUIRE(this->properlyInitialised(), "Airport wasn't properly initialised when calling validRunwayForPlane()");
     if(airplane->getSize() == Small){
         if(airplane->getEngine() == Propeller && runway->getType() == Grass && runway->getLength() >=500){
             return true;

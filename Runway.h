@@ -108,11 +108,11 @@ public:
 
     //    REQUIRE(this->properlyInitialised(), "Gate wasn't properly initialised when calling isUsedStatus()");
     bool isGoingToBeUsed();
-
+    //    REQUIRE(this->properlyInitialised(), "Gate wasn't properly initialised when calling getGoingtobeusedby()");
     Airplane *getGoingtobeusedby();
-
+    //    REQUIRE(this->properlyInitialised(), "Gate wasn't properly initialised when calling setGoingtobeusedby");
+    //    ENSURE(this->getAirplane() == _goingtobeusedby, "setGoingtobeusedby() failure");
     void setGoingtobeusedby(Airplane *_goingtobeusedby);
-
 };
 
 

@@ -128,10 +128,6 @@ public:
     //    REQUIRE(this->properlyInitialised(),"Airplane wasn't properly initialised when calling setCallsign()");
     //    ENSURE(getCallsign() == _callsign, "setCallsign() failure");
     void setCallsign(const std::string &_callsign);
-    //    REQUIRE(this->properlyInitialised(),"Airplane wasn't properly initialised when calling setFueled()");
-    //    ENSURE(_size == Small, "Airplane is too big to land on grass");
-    //    ENSURE(_engine == Propeller, "This engine is not a propeller");
-    bool isAllowedToLandOnGrass();
 
     //    REQUIRE(this->properlyInitialised(),"Airplane wasn't properly initialised when calling isControle()");
     bool isControle();

@@ -331,22 +331,22 @@ void Airplane::setFueled(bool _fueled) {
     ENSURE(isFueled() == _fueled, "setFueled fail");
 }
 
-bool Airplane::isAllowedToLandOnGrass() {
-    REQUIRE(this->properlyInitialised(),"Airplane wasn't properly initialised when calling setFueled()");
-    if(_size  == Small && _engine == Propeller){
-        return true;
-        ENSURE(_size == Small, "Airplane is too big to land on grass");
-        ENSURE(_engine == Propeller, "This engine is not a propeller");
-    }
-    return false;
-}
-
-bool Airplane::isControle() {
+/*return controle parameter
+ *@param geen
+ *@return bool
+ */
+bool Airplane::isControle()
+{
     REQUIRE(this->properlyInitialised(),"Airplane wasn't properly initialised when calling isControle()");
     return _controle;
 }
 
-void Airplane::setControle(bool _controle) {
+/*set de controle paramater
+ *@param bool
+ *@return niks
+ */
+void Airplane::setControle(bool _controle)
+{
     REQUIRE(this->properlyInitialised(),"Airplane wasn't properly initialised when calling setControle()");
     Airplane::_controle = _controle;
     ENSURE(isControle()== _controle, "Must be the same");

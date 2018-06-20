@@ -43,6 +43,7 @@ set(SOURCE_FILES
         AirTrafficController.cpp
         Simulator.cpp
         Simulator.h
+        InputFiles/luchthaven.xml
         )
 
 set(DEBUG_SOURCE_FILES
@@ -80,7 +81,9 @@ set(DEBUG_SOURCE_FILES
         testInput/Input03.xml
         testInput/Input04.xml
         testInput/Input05.xml
-        Tests/OutputTests/OutputTest.cpp)
+        Tests/OutputTests/OutputTest.cpp
+        InputFiles/luchthaven.xml
+        )
 
 add_executable(pse ${SOURCE_FILES})
 

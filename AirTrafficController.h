@@ -23,15 +23,15 @@ public:
     AirTrafficController(Airport *_airport, const std::string &_name);
 
     bool properlyInitialised();
-
+    //    REQUIRE(this->properlyInitialised(), "AirTrafficController wasn't properly initialised when calling landingprotocol()");
     bool landingprotocol(Airplane* airplane, std::ostream& out = std::cout);
-
+    //    REQUIRE(this->properlyInitialised(), "AirTrafficController wasn't properly initialised when calling takeoffprotocol");
     bool takeoffprotocol(Airplane* airplane, std::ostream& out = std::cout);
-
+    //    REQUIRE(this->properlyInitialised(), "AirTrafficController wasn't properly initialised when calling emergencyprotocol");
     bool emergencyprotocol(Airplane* airplane, std::ostream& out = std::cout);
-
+    //    REQUIRE(this->properlyInitialised(), "AirTrafficController wasn't properly initialised when calling getAirport()");
     Airport *getAirport();
-
+    //    REQUIRE(this->properlyInitialised(), "AirtrafficController wasn't properly initialised when calling getName");
     const std::string &getName();
 };
 
