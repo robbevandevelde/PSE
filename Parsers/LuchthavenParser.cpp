@@ -97,6 +97,7 @@ void LuchthavenParser::parseItems(TiXmlElement *elem)
             }
         }
     }
+
 }
 
 /*Loopt over de verschillende vectoren en print deze uit in een file in het juiste formaat
@@ -180,6 +181,7 @@ bool LuchthavenParser::loadFile(string filename)
  */
 TiXmlElement *LuchthavenParser::getRoot()
 {
+//    ENSURE(root!= NULL, "Root is not found");
     REQUIRE(this->properlyInitialised(), "Parser wasn't properly initialised when calling getRoot");
     return root;
 }

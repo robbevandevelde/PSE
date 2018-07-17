@@ -1,0 +1,9 @@
+<?xml version="1.0" ?>
+<SIMULATIE>
+	<AIRPORT>
+		<nam e>Antwerp International Airport</name>
+		<iata>ANR</iata>
+		<callsign>Antwerp Tower</callsign>
+		<gates>10</gates>
+	</AIRPORT>
+</SIMULATIE>

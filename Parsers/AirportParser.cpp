@@ -10,6 +10,7 @@ string AirportParser::readElement(TiXmlElement *elem, const char *tag)
     TiXmlElement* e = elem->FirstChildElement(tag);
     TiXmlNode* node = e->FirstChild();
     TiXmlText* text = node->ToText();
+    ENSURE(text != NULL, "the element cannot be none");
     return text->Value();
 }
 
