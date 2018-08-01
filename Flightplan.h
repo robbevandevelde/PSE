@@ -18,55 +18,38 @@ private:
     Flightplan* initCheck;
 
 public:
-    /* Contract
-    * PRE:
-    * POST:
-    */
+    //    REQUIRE(this->properlyInitialised(), "Flightplan wasn't properly initialised when calling getDestination()");
     bool properlyInitialised();
-    /* Contract
-    * PRE:
-    * POST:
-    */
+
+    //    REQUIRE(this->properlyInitialised(), "Flightplan wasn't properly initialised when calling setDestination()");
+    //    ENSURE(getDestination() == destination, "setDestination() failure");
     void setDestination(string &destination);
-    /* Contract
-    * PRE:Must be Properly initialised
-    * POST:destination is now the given parameter
-    */
+
+    //    REQUIRE(this->properlyInitialised(), "Flightplan wasn't properly initialised when calling setDeparture()");
+    //    ENSURE(getDeparture() == departure, "setDeparture() failure");
     void setDeparture(unsigned int departure);
-    /* Contract
-    * PRE:Must be Properly initialised
-    * POST:departure is now the given parameter
-    */
+
+    //    REQUIRE(this->properlyInitialised(), "Flightplan wasn't properly initialised when calling setArrival()");
+    //    ENSURE(getArrival() == arrival, "setArrival() failure");
     void setArrival(unsigned int arrival);
-    /* Contract
-    * PRE:Must be Properly initialised
-    * POST:arrival is now the given parameter
-    */
+
+    //    REQUIRE(this->properlyInitialised(), "Flightplan wasn't properly initialised when calling setInterval()");
+    //    ENSURE(getInterval() == interval, "setInterval() failure");
     void setInterval(unsigned int interval);
-    /* Contract
-    * PRE:Must be Properly initialised
-    * POST:interval is now the given parameter
-    */
+
+    //    REQUIRE(this->properlyInitialised(), "Flightplan wasn't properly initialised when calling getArrival()");
     unsigned int getArrival();
-    /* Contract
-    * PRE:Must be Properly initialised
-    * POST:returned arrival
-    */
+
+    //    REQUIRE(this->properlyInitialised(), "Flightplan wasn't properly initialised when calling getInterval()");
     unsigned int getInterval();
-    /* Contract
-    * PRE:Must be Properly initialised
-    * POST::returned arrival
-    */
+
+    //    REQUIRE(this->properlyInitialised(), "Flightplan wasn't properly initialised when calling getDeparture()");
     unsigned int getDeparture();
-    /* Contract
-    * PRE:Must be Properly initialised
-    * POST::returned arrival
-    */
+
+    //    REQUIRE(this->properlyInitialised(), "Flightplan wasn't properly initialised when calling getDestination()");
     string &getDestination();
-    /* Contract
-    * PRE:Must be Properly initialised
-    * POST::returned arrival
-    */
+
+    //    ENSURE(properlyInitialised(), "Constructor must end");
     Flightplan(std::string& dest, unsigned int dep, unsigned int arr, unsigned int inter);
 
 
