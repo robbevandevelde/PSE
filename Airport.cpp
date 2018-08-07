@@ -7,6 +7,11 @@
 #include "DesignByContract.h"
 #include "Airport.h"
 
+/** TO DO: ATC MEER MACHT GEVEN (Controles)
+ *
+ */
+
+
 /*Constructor van de airport
  *@param unsigned int gatesize, string name, string iata, string callsign
  *@return geen
@@ -91,6 +96,7 @@ void Airport::landingprotocol(Airplane *airplane , std::ostream& out)
 void Airport::gateprotocol(Airplane *airplane, unsigned int passengers, std::ostream& out)
 {
     REQUIRE(this->properlyInitialised(),"Airport wasn't properly initialised when calling gateprotocol()");
+    REQUIRE(airplane->getStatus() == JustLanded || airplane->getStatus() == StandingAtGate, "Failure");
     REQUIRE(airplane->getHeight() == 0 , "Airplane must be on the ground");
     if(airplane->getStatus() == JustLanded) {
         for(unsigned int x = 0; x < _gates.size();x++){
@@ -567,7 +573,7 @@ void Airport::addRunwayWait(Airplane *airplane)
 {
     REQUIRE(this->properlyInitialised(), "Airport wasn't properly initialised when calling addRunwayWait()");
     _RunwayWait.push_back(airplane);
-    ENSURE(runwayWaitChecker(airplane), "add airplane to runwaywait failure");
+    ENSURE(isAirplaneInRunwayWait(airplane), "add airplane to runwaywait failure");
 }
 
 /*removed gegeven airplane van de wacht"straat"
@@ -589,7 +595,7 @@ void Airport::removeRunwayWait(Airplane *airplane)
  *@param Airplane* airplane
  *@return bool
  */
-bool Airport::runwayWaitChecker(Airplane *airplane)
+bool Airport::isAirplaneInRunwayWait(Airplane *airplane)
 {
     REQUIRE(this->properlyInitialised(), "Airport wasn't properly initialised when calling RunWaitChecker()");
     for(unsigned int x = 0; x <_RunwayWait.size();x++){
@@ -677,7 +683,7 @@ void Airport::emergencyControle(Airplane *airplane,std::ostream& out)
     }
     else if(airplane->getStatus() == EmergencyControle2){
         airplane->setFuel(1000);
-        out << airplane     ->getCallsign() << " has been refueled" << std::endl;
+        out << airplane->getCallsign() << " has been refueled" << std::endl;
         out << airplane->getCallsign() << " may proceed to an empty gate" << std::endl;
         airplane->setStatus(JustLanded);
         ENSURE(airplane->getStatus() == JustLanded, "Aiplane status failure");
@@ -722,3 +728,243 @@ bool Airport::validRunwayForPlane(Airplane *airplane, Runway* runway)
         return false;
     }
 }
+
+bool Airport::isAirplaneInWaitPoint(Airplane *airplane) {
+    if(this->getWaitpoint1() == airplane || this->getWaitpoint2() == airplane){
+        return true;
+    } else {
+        return false;
+    }
+}
+
+void Airport::collisionSolverAirStart(Airplane *airplane, std::ostream &out) {
+    if(airplane->getHeight() == 5000) {
+        if (getWaitpoint1() == NULL) {
+            out << "You have to wait for an empty runway, do a waiting pattern around 5000 ft." << std::endl;
+            setWaitpoint1(airplane);
+            airplane->setStatus(Approaching);
+            out << "--------------------------------------------------------------------------" << std::endl;
+        } else if (getWaitpoint2() == NULL) {
+            out << "You have to wait for an empty runway, do a waiting pattern around 3000 ft." << std::endl;
+            airplane->descend();
+            airplane->descend();
+            setWaitpoint2(airplane);
+            out << "--------------------------------------------------------------------------" << std::endl;
+        } else {
+            out << airplane->getCallsign() << " has to ascend to 1000 ft. again" << std::endl;
+            airplane->setHeight(10000);
+        }
+    }
+    else if(airplane->getHeight() == 3000){
+        if(getWaitpoint2() == NULL){
+            out << airplane->getCallsign() <<" has to wait for an empty runway, do a waiting pattern around 3000 ft."
+                << std::endl;
+            setWaitpoint2(airplane);
+        } else if(getWaitpoint1() == NULL){
+            out << airplane->getCallsign() <<" has to ascend to 5000 ft. and do a waiting pattern"<< std::endl;
+            setWaitpoint1(airplane);
+        } else{
+            out << airplane->getCallsign() << " has to ascend to 1000 ft. again"<< std::endl;
+            airplane->setHeight(10000);
+        }
+        out << "--------------------------------------------------------------------------"<< std::endl;
+    }
+}
+
+void Airport::collisionSolverAirEnd(Airplane *airplane) {
+    if (getController()->landingprotocol(airplane)) {
+        if (getWaitpoint1() == airplane) {
+            removeWaitpoint1();
+            airplane->setStatus(Approaching);
+//            airplane->descend();
+        } else if (getWaitpoint2() == airplane) {
+            removeWaitpoint2();
+            airplane->setStatus(FinalApproach);
+            goingToBeUsedRunway(airplane);
+//            airplane->descend();
+        }
+    }
+}
+
+void Airport::collisionSolverRunwayStart(Airplane *airplane, std::ostream &out) {
+
+}
+
+void Airport::collissionSolverRunwayEnd(Airplane *airplane) {
+    for(unsigned int i=0;i< getRunways().size();i++){
+        if(validRunwayForPlane(airplane,getRunways()[i])){
+            if(!getRunways()[i]->isGoingToBeUsed()){
+                airplane->setStatus(Departure);
+                removeRunwayWait(airplane);
+                taxiToRunway(airplane);
+            }
+        }
+    }
+}
+
+void Airport::landingSequence(Airplane *airplane, std::ostream &out) {
+    REQUIRE(airplane->getStatus() == Approaching || airplane->getStatus() == FinalApproach,
+            "Aircontrole failure, aircraft isn't in the air");
+    if (airplane->getHeight() == 10000) {
+        out << airplane->getCallsign() << " is approaching Zaventem at " << airplane->getHeight()
+            << std::endl;
+        getController()->landingprotocol(airplane);
+        airplane->descend();
+        out << "--------------------------------------------------------------------------" << std::endl;
+    } else if (airplane->getHeight() == 5000) {
+        if (getController()->landingprotocol(airplane)) {
+            out << airplane->getCallsign() << " you have permission to descend to 3000 ft."
+                << std::endl;
+            airplane->descend();
+            out << "--------------------------------------------------------------------------" << std::endl;\
+
+        } else {
+            collisionSolverAirStart(airplane, out);
+        }
+    } else if (airplane->getHeight() == 3000) {
+        if (getController()->landingprotocol(airplane)) {
+            airplane->setStatus(FinalApproach);
+            goingToBeUsedRunway(airplane);
+            airplane->descend();
+            out << "--------------------------------------------------------------------------" << std::endl;
+        } else {
+            collisionSolverAirStart(airplane, out);
+        }
+    }
+    else if (airplane->getHeight() == 0) {
+        addAirplaneToRunway(airplane);
+        out << "--------------------------------------------------------------------------"<< std::endl;
+    }
+    else if (airplane->getHeight() < 10000) {
+        airplane->descend();
+        out << "--------------------------------------------------------------------------"<< std::endl;
+    }
+}
+
+void Airport::completeGateProtocol(Airplane* airplane, std::ostream & out){
+    REQUIRE(airplane->getStatus() == JustLanded || airplane->getStatus() == StandingAtGate, "Complete Gate protocol failure");
+    REQUIRE(airplane->getHeight() == 0, "GateProtocol failure");
+    if(!airplane->isFueled()){
+        gateprotocol(airplane,50);
+        out << "--------------------------------------------------------------------------"<< std::endl;
+    } else {
+        gateprotocol(airplane, 50);
+        getController()->takeoffprotocol(airplane);
+
+        vector<Runway*> validrunways;
+
+        bool checker = true;
+        for(unsigned int j=0; j< getRunways().size();j++){
+            if(validRunwayForPlane(airplane,getRunways()[j])){
+                validrunways.push_back(getRunways()[j]);
+            }
+        }
+        for(unsigned int l=0; l < validrunways.size();l++){
+            if(!validrunways[l]->isGoingToBeUsed()){
+                for(unsigned int k=0;k<getRunways().size();k++){
+                    if(getRunways()[k] == validrunways[l]){
+                        taxiToRunway(airplane);
+                        checker = false;
+                        break;
+                    }
+                }
+                break;
+            }
+        }
+        if(checker){
+            out << "You, " << airplane->getCallsign()<< " have to wait a few minutes for a clear runway" << std::endl;
+            addRunwayWait(airplane);
+            airplane->setStatus(WaitingAtRunway);
+            out << "--------------------------------------------------------------------------"<< std::endl;
+        }
+    }
+}
+
+void Airport::takeOffSequence(Airplane *airplane, std::ostream &out) {
+    REQUIRE(airplane->getStatus() == Departure, "Departure failure");
+    for (unsigned int i = 0; i < getRunways().size();i++) {
+        if(getRunways()[i]->getAirplane() == airplane){
+            if(airplane->getHeight() == 0){
+                out << "This is " << airplane->getCallsign() << " we are taking off " <<
+                    std::endl;
+                airplane->ascend();
+                out << "--------------------------------------------------------------------------"<< std::endl;
+            } else if(airplane->getHeight() == 5000){
+                removeAirplaneFromRunway(airplane);
+                airplane->setStatus(InTheAir);
+                out << airplane->getCallsign() << " has left " << getName() <<
+                    std::endl;
+                out << "--------------------------------------------------------------------------"<< std::endl;
+            }
+            else if(airplane->getHeight() < 5000){
+                airplane->ascend();
+                out << "--------------------------------------------------------------------------"<< std::endl;
+            }
+
+        }
+    }
+}
+
+void Airport::emergencySequence(Airplane* airplane, std::ostream& out) {
+    if (!airplane->isControle()) {
+        airplane->setStatus(EmergencyLanding);
+        if (getController()->emergencyprotocol(airplane)) {
+            out << "This is " << airplane->getCallsign()
+                << " we have almost no fuel and request an emergency landing" << std::endl;
+            out << "--------------------------------------------------------------------------" << std::endl;
+            for (unsigned int l = 0; l < getRunways().size(); l++) {
+                //There is a free valid runway for the emergency landing
+                if (validRunwayForPlane(airplane, getRunways()[l])) {
+                    if (!getRunways()[l]->isGoingToBeUsed()) {
+                        if (!getRunways()[l]->isOccupied()) {
+                            airplane->setControle(true);
+                            getRunways()[l]->setUsedStatus();
+                            getRunways()[l]->setGoingtobeusedby(airplane);
+                            break;
+                        }
+                    } else {
+                        //There is no free valid runway for the emergency landing
+                        //Make one free for the airplane
+                        if(validRunwayForPlane(airplane, getRunways()[l])){
+                            if(getRunways()[l]->getGoingtobeusedby()->getStatus() == Departure){
+                                Airplane* tempairplane = getRunways()[l]->getAirplane();
+                                getRunways()[l]->removeAirplane();
+                                addRunwayWait(tempairplane);
+                                getRunways()[l]->setUsedStatus();
+                                getRunways()[l]->setGoingtobeusedby(airplane);
+                                airplane->setControle(true);
+                            }
+                            else if(getRunways()[l]->getGoingtobeusedby()->getHeight() >= 3000 &&
+                                    getRunways()[l]->getGoingtobeusedby()->getHeight() <= 5000){
+                                Airplane* tempairplane = getRunways()[l]->getAirplane();
+                                getRunways()[l]->removeAirplane();
+                                collisionSolverAirStart(tempairplane, out);
+                                getRunways()[l]->setUsedStatus();
+                                getRunways()[l]->setGoingtobeusedby(airplane);
+                                airplane->setControle(true);
+                            }
+                        }
+                        break;
+                    }
+                }
+            }
+        }
+    }
+    /*TO DO: dees fixe
+     *
+     */
+//    if (_airplanes[x]->getHeight() == 0 && _airplanes[x]->getStatus() == EmergencyLanding) {
+//        _airport->addAirplaneToRunway(_airplanes[x]);
+//        out << "--------------------------------------------------------------------------"<< std::endl;
+//
+//    }else if(_airplanes[x]->getStatus() == EmergencyControle1 ||_airplanes[x]->getStatus() == EmergencyControle2){
+//        _airport->emergencyControle(_airplanes[x],out);
+//        out << "--------------------------------------------------------------------------"<< std::endl;
+//    } else {
+//        if(_airplanes[x]->getHeight() != 0){
+//            _airplanes[x]->descend();
+//            out << "--------------------------------------------------------------------------"<< std::endl;
+//        }
+//    }
+}
+

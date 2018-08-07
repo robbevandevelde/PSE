@@ -56,30 +56,11 @@ void Simulator::Simulate(std::ostream &out)
     REQUIRE(this->properlyInitialised(), "Simulator wasn't properly initialised when calling Simulate()");
     while (!_airplanes.empty()) {
         for (unsigned int x = 0; x < _airplanes.size(); x++) {
-            if (_airport->getWaitpoint1() == _airplanes[x] || _airport->getWaitpoint2() == _airplanes[x]) {
-                if (_airport->getController()->landingprotocol(_airplanes[x])) {
-                    if (_airport->getWaitpoint1() == _airplanes[x]) {
-                        _airport->removeWaitpoint1();
-                        _airplanes[x]->setStatus(Approaching);
-                        _airplanes[x]->descend();
-                    } else if (_airport->getWaitpoint2() == _airplanes[x]) {
-                        _airport->removeWaitpoint2();
-                        _airplanes[x]->setStatus(FinalApproach);
-                        _airport->goingToBeUsedRunway(_airplanes[x]);
-                        _airplanes[x]->descend();
-                    }
-                }
+            if (_airport->isAirplaneInWaitPoint(_airplanes[x])) {
+                _airport->collisionSolverAirEnd(_airplanes[x]);
             }
-            else if(_airport->runwayWaitChecker(_airplanes[x])){
-                for(unsigned int i=0;i<_airport->getRunways().size();i++){
-                    if(_airport->validRunwayForPlane(_airplanes[x],_airport->getRunways()[i])){
-                        if(!_airport->getRunways()[i]->isGoingToBeUsed()){
-                            _airplanes[x]->setStatus(Departure);
-                            _airport->removeRunwayWait(_airplanes[x]);
-                            _airport->taxiToRunway(_airplanes[x]);
-                        }
-                    }
-                }
+            else if(_airport->isAirplaneInRunwayWait(_airplanes[x])){
+                _airport->collissionSolverRunwayEnd(_airplanes[x]);
             }
                 /**TODO: noodlanding verder afwerken
                 */
@@ -138,8 +119,8 @@ void Simulator::Simulate(std::ostream &out)
                                 }
                             }
                         }
-                        } else {
-                            if(_airplanes[x]->getHeight() ==9000) {
+                    } else {
+                        if(_airplanes[x]->getHeight() == 9000) {
                             out << "This is " << _airplanes[x]->getCallsign()
                                 << " we have almost no fuel and request an emergency landing" << std::endl;
                             out << "--------------------------------------------------------------------------"
@@ -164,139 +145,29 @@ void Simulator::Simulate(std::ostream &out)
                     }
                 }
             }
+                // end of emergencylanding
             else {
-                if (_airplanes[x]->getStatus() == Approaching || _airplanes[x]->getStatus() == FinalApproach) {
-                    if (_airplanes[x]->getHeight() == 10000) {
-                        out << _airplanes[x]->getCallsign() << " is approaching Zaventem at " << _airplanes[x]->getHeight()
-                                  << std::endl;
-                        _airport->getController()->landingprotocol(_airplanes[x]);
-                        _airplanes[x]->descend();
-                        out << "--------------------------------------------------------------------------"<< std::endl;
-                    }
-                    else if (_airplanes[x]->getHeight() == 5000) {
-                        if (_airport->getController()->landingprotocol(_airplanes[x])) {
-                            out << _airplanes[x]->getCallsign() << " you have permission to descend to 3000 ft."
-                                      << std::endl;
-                            _airplanes[x]->descend();
-                            out << "--------------------------------------------------------------------------"<< std::endl;
-                        } else {
-                            if (_airport->getWaitpoint1() == NULL) {
-                                out << "You have to wait for an empty runway, do a waiting pattern around 5000 ft."
-                                          << std::endl;
-                                _airport->setWaitpoint1(_airplanes[x]);
-                                _airplanes[x]->setStatus(Approaching);
-                                out << "--------------------------------------------------------------------------"<< std::endl;
-                            } else if(_airport->getWaitpoint2() == NULL) {
-                                out << "You have to wait for an empty runway, do a waiting pattern around 3000 ft." << std::endl;
-                                _airplanes[x]->descend();
-                                _airplanes[x]->descend();
-                                _airport->setWaitpoint2(_airplanes[x]);
-                                out << "--------------------------------------------------------------------------"<< std::endl;
-                            } else {
-                                out << _airplanes[x]->getCallsign() << " has to ascend to 1000 ft. again"<< std::endl;
-                                _airplanes[x]->setHeight(10000);
-                            }
-                        }
-                    }
-                    else if (_airplanes[x]->getHeight() == 3000) {
-                        if (_airport->getController()->landingprotocol(_airplanes[x])) {
-                            _airplanes[x]->setStatus(FinalApproach);
-                            _airport->goingToBeUsedRunway(_airplanes[x]);
-                            _airplanes[x]->descend();
-                            out << "--------------------------------------------------------------------------"<< std::endl;
-                        } else {
-                            if(_airport->getWaitpoint2() == NULL){
-                                out << _airplanes[x]->getCallsign() <<" has to wait for an empty runway, do a waiting pattern around 3000 ft."
-                                    << std::endl;
-                                _airport->setWaitpoint2(_airplanes[x]);
-                            } else if(_airport->getWaitpoint1() == NULL){
-                                out << _airplanes[x]->getCallsign() <<" has to ascend to 5000 ft. and do a waiting pattern"<< std::endl;
-                                _airport->setWaitpoint1(_airplanes[x]);
-                            } else{
-                                out << _airplanes[x]->getCallsign() << " has to ascend to 1000 ft. again"<< std::endl;
-                                _airplanes[x]->setHeight(10000);
-                            }
-
-                            out << "--------------------------------------------------------------------------"<< std::endl;
-                        }
-                    }
-                    else if (_airplanes[x]->getHeight() == 0) {
-                        _airport->addAirplaneToRunway(_airplanes[x]);
-                        out << "--------------------------------------------------------------------------"<< std::endl;
-                    }
-                    else if (_airplanes[x]->getHeight() < 10000) {
-                        _airplanes[x]->descend();
-                        out << "--------------------------------------------------------------------------"<< std::endl;
-                    }
-
+                //Start of landing procedure
+                if(_airplanes[x]->getStatus() == Approaching || _airplanes[x]->getStatus() == FinalApproach) {
+                    _airport->landingSequence(_airplanes[x], out);
                 }
+                    //end of landing procedure
+                    //Airplane should be "JustLanded" or "EmergencyLanding"
+
                 else if (_airplanes[x]->getStatus() == JustLanded) {
                     _airport->taxiToGate(_airplanes[x]);
                     _airport->gateprotocol(_airplanes[x], 0);
                     out << "--------------------------------------------------------------------------"<< std::endl;
-
                 }
+                    //Begin gate procedure
                 else if (_airplanes[x]->getStatus() == StandingAtGate) {
-                    if(!_airplanes[x]->isFueled()){
-                        _airport->gateprotocol(_airplanes[x],50);
-                        out << "--------------------------------------------------------------------------"<< std::endl;
-                    } else {
-                        _airport->gateprotocol(_airplanes[x], 50);
-                        _airport->getController()->takeoffprotocol(_airplanes[x]);
-
-                        vector<Runway*> validrunways;
-
-                        bool checker = true;
-                        for(unsigned int j=0; j< _airport->getRunways().size();j++){
-                            if(_airport->validRunwayForPlane(_airplanes[x],_airport->getRunways()[j])){
-                                validrunways.push_back(_airport->getRunways()[j]);
-                            }
-                        }
-                        for(unsigned int l=0; l < validrunways.size();l++){
-                            if(!validrunways[l]->isGoingToBeUsed()){
-                                for(unsigned int k=0;k<_airport->getRunways().size();k++){
-                                    if(_airport->getRunways()[k] == validrunways[l]){
-                                        _airport->taxiToRunway(_airplanes[x]);
-                                        checker = false;
-                                        break;
-                                    }
-                                }
-                                break;
-                            }
-                        }
-                        if(checker){
-                            out << "You, " << _airplanes[x]->getCallsign()<< " have to wait a few minutes for a clear runway" << std::endl;
-                            _airport->addRunwayWait(_airplanes[x]);
-                            _airplanes[x]->setStatus(WaitingAtRunway);
-                            out << "--------------------------------------------------------------------------"<< std::endl;
-                        }
-                    }
+                    _airport->completeGateProtocol(_airplanes[x],out);
                 }
                     /**TO COLLISION SOLVER MET 2 OF MEERDERE VLIEGTUIGEN HIER
                      *
                      */
                 else if (_airplanes[x]->getStatus() == Departure) {
-                    for (unsigned int i = 0; i < _airport->getRunways().size();i++) {
-                        if(_airport->getRunways()[i]->getAirplane() == _airplanes[x]){
-                            if(_airplanes[x]->getHeight() == 0){
-                                out << "This is " << _airplanes[x]->getCallsign() << " we are taking off " <<
-                                          std::endl;
-                                _airplanes[x]->ascend();
-                                out << "--------------------------------------------------------------------------"<< std::endl;
-                            } else if(_airplanes[x]->getHeight() == 5000){
-                                _airport->removeAirplaneFromRunway(_airplanes[x]);
-                                _airplanes[x]->setStatus(InTheAir);
-                                out << _airplanes[x]->getCallsign() << " has left " << _airport->getName() <<
-                                          std::endl;
-                                out << "--------------------------------------------------------------------------"<< std::endl;
-                            }
-                            else if(_airplanes[x]->getHeight() < 5000){
-                                _airplanes[x]->ascend();
-                                out << "--------------------------------------------------------------------------"<< std::endl;
-                            }
-
-                        }
-                    }
+                    _airport->takeOffSequence(_airplanes[x],out);
                 }
                 else if (_airplanes[x]->getStatus() == InTheAir || _airplanes[x]->getStatus() == EmergencyLanding) {
                     _airplanes.erase(_airplanes.begin() + x);

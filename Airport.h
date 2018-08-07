@@ -5,7 +5,9 @@
  */
 #ifndef PSE_AIRPORT_H
 #define PSE_AIRPORT_H
-
+/**
+ * TODO: PRIVATE VARIABLES IN CONTRACTEN WEG DOEN KAK
+ */
 #include <vector>
 #include <sstream>
 #include <iostream>
@@ -162,12 +164,12 @@ public:
     //    REQUIRE(this->properlyInitialised(), "Airprort wasn't properly initialised when calling getRunways()");
     const vector<Runway *> &getRunways();
     //    REQUIRE(this->properlyInitialised(), "Airport wasn't properly initialised when calling addRunwayWait()");
-    //    ENSURE(runwayWaitChecker(airplane), "add airplane to runwaywait failure");
+    //    ENSURE(isAirplaneInRunwayWait(airplane), "add airplane to runwaywait failure");
     void addRunwayWait(Airplane* airplane);
     //    REQUIRE(this->properlyInitialised(), "Airport wasn't properly initialised when calling removeRunwayWait()");
     void removeRunwayWait(Airplane* airplane);
     //    REQUIRE(this->properlyInitialised(), "Airport wasn't properly initialised when calling RunWaitChecker()");
-    bool runwayWaitChecker(Airplane *airplane);
+    bool isAirplaneInRunwayWait(Airplane *airplane);
     //    REQUIRE(this->properlyInitialised(), "Airport wasn't properly initialised when calling goingToBeUsedRunway()");
     void goingToBeUsedRunway(Airplane *airplane);
     //    REQUIRE(this->properlyInitialised(), "Airport wasn't properly initialised when calling isARunwayCompletelyClear()");
@@ -184,5 +186,21 @@ public:
 
     //    REQUIRE(this->properlyInitialised(), "Airport wasn't properly initialised when calling validRunwayForPlane()");
     bool validRunwayForPlane(Airplane* airplane, Runway* runway);
+
+    bool isAirplaneInWaitPoint(Airplane* airplane);
+
+
+    void collisionSolverAirStart(Airplane *airplane,std::ostream &out);
+
+    void collisionSolverAirEnd(Airplane *airplane);
+
+    void collisionSolverRunwayStart(Airplane *airplane,std::ostream &out);
+
+    void collissionSolverRunwayEnd(Airplane *airplane);
+
+    void landingSequence(Airplane *airplane, std::ostream &out);
+    void completeGateProtocol(Airplane* airplane, std::ostream & out);
+    void takeOffSequence(Airplane* airplane, std::ostream &out);
+    void emergencySequence(Airplane* airplane, std::ostream& out);
 };
 #endif //PSE_AIRPORT_H
