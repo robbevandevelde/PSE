@@ -139,7 +139,7 @@ TEST_F(AirportTest,  gateprotDeathtest)
     testAirplane->setHeight(500);
     ofstream myfile;
     myfile.open("testOutput/Output01.txt");
-    EXPECT_DEATH(testAirport->gateprotocol(testAirplane, 20), "Airplane must be on the ground");
+    EXPECT_DEATH(testAirport->gateprotocol(testAirplane, 20), "Failure");
     myfile.close();
 }
 //Tests the takeoff protocol with expected death
