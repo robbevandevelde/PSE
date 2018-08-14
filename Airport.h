@@ -162,7 +162,7 @@ public:
     //    REQUIRE(this->properlyInitialised(), "Airport wasn't properly initialised when calling getFreeRunwaySpot()");
     unsigned int getFreeRunwaySpot();
     //    REQUIRE(this->properlyInitialised(), "Airprort wasn't properly initialised when calling getRunways()");
-    const vector<Runway *> &getRunways();
+    vector<Runway *> &getRunways();
     //    REQUIRE(this->properlyInitialised(), "Airport wasn't properly initialised when calling addRunwayWait()");
     //    ENSURE(isAirplaneInRunwayWait(airplane), "add airplane to runwaywait failure");
     void addRunwayWait(Airplane* airplane);

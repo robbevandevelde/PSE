@@ -544,7 +544,7 @@ unsigned int Airport::getFreeRunwaySpot()
  *@param geen
  *@return vector<runway*> runway
  */
-const vector<Runway*> &Airport::getRunways()
+vector<Runway*> &Airport::getRunways()
 {
     REQUIRE(this->properlyInitialised(), "Airprort wasn't properly initialised when calling getRunways()");
     return _runways;
@@ -908,6 +908,7 @@ void Airport::takeOffSequence(Airplane *airplane, std::ostream &out) {
 }
 
 void Airport::emergencySequence(Airplane* airplane, std::ostream& out) {
+    //TODO: Emergency landing voltooien (buiten airport landen)
     if (!airplane->isControle()) {
         airplane->setStatus(EmergencyLanding);
         if (getController()->emergencyprotocol(airplane)) {
