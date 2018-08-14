@@ -24,6 +24,11 @@ public:
     FlightplanParser();
     //    ENSURE(properlyInitialised(), "FlightplanParser wasn't properly initialised when calling destructor");
     virtual ~FlightplanParser();
+
+    //    REQUIRE(Destination!= "", "Destination cannot be None");
+    //    REQUIRE(readElement(elem, "departure")!= "", "Departure cannot be None");
+    //    REQUIRE(readElement(elem, "arrival")!= "", "Arrival cannot be None");
+    //    REQUIRE(readElement(elem, "interval")!= "", "Interval cannot be None");
     //    REQUIRE(this->properlyInitialised(), "FlightplanParser wasn't properly initialised when calling parseFlightplan");
     //    ENSURE(flightplan->getDeparture() == Departure, "Departure not equal");
     //    ENSURE(flightplan->getArrival() == Arrival, "Arrival not equal");

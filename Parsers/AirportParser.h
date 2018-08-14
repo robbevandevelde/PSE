@@ -23,6 +23,11 @@ public:
     AirportParser();
     //    ENSURE(properlyInitialised(), "Destructor must end");
     virtual ~AirportParser();
+
+    //    REQUIRE(Iata != "", "IATA has not been set properly");
+    //    REQUIRE(Name != "", "Name has not been set properly");
+    //    REQUIRE(Callsign != "", "Callsign has not been set properly");
+    //    REQUIRE(readElement(elem, "gates") != "", "gates has not been set properly");
     //    REQUIRE(this->properlyInitialised(), "AirportParser wasn't properly initialised when calling parseAirport()");
     //    ENSURE(airport->getGatesize() == Gates, "Gates not equal");
     //    ENSURE(airport->getName() == Name, "Name not equal");

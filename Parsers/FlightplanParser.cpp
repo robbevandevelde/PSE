@@ -32,6 +32,10 @@ Flightplan *FlightplanParser::parseFlightplan(TiXmlElement *elem)
     unsigned int Departure = atoi(readElement(elem, "departure").c_str());
     unsigned int Arrival = atoi(readElement(elem, "arrival").c_str());
     unsigned int Interval = atoi(readElement(elem, "interval").c_str());
+    REQUIRE(Destination!= "", "Destination cannot be None");
+    REQUIRE(readElement(elem, "departure")!= "", "Departure cannot be None");
+    REQUIRE(readElement(elem, "arrival")!= "", "Arrival cannot be None");
+    REQUIRE(readElement(elem, "interval")!= "", "Interval cannot be None");
     Flightplan* flightplan = new Flightplan(Destination, Departure, Arrival, Interval);
     ENSURE(flightplan->getDeparture() == Departure, "Departure not equal");
     ENSURE(flightplan->getArrival() == Arrival, "Arrival not equal");

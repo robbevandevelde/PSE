@@ -33,6 +33,10 @@ Airport *AirportParser::parseAirport(TiXmlElement *elem)
     string Name = readElement(elem, "name");
     string Callsign = readElement(elem, "callsign");
     unsigned int Gates = atoi(readElement(elem, "gates").c_str());
+    REQUIRE(Iata != "", "IATA has not been set properly");
+    REQUIRE(Name != "", "Name has not been set properly");
+    REQUIRE(Callsign != "", "Callsign has not been set properly");
+    REQUIRE(readElement(elem, "gates") != "", "gates has not been set properly");
 
      Airport* airport = new Airport(Gates, Name, Iata, Callsign);
     ENSURE(airport->getGatesize() == Gates, "Gates not equal");

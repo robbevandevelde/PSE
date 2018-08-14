@@ -128,19 +128,4 @@ TEST_F(OutputTest, simulatieTest)
     testParser->writeToFile(runwaysVect, airportsVect, airplanesVect, "testOutput/simulatieTest.txt");
     EXPECT_TRUE(APU->compareFiles("testOutput/simulatieTest.txt", "testOutput/compareSimulatie.txt"));
 }
-//Tests the failed writetofile of a broken/empty simulation
-TEST_F(OutputTest, simulatieTestFail)
-{
-    ASSERT_TRUE(APU->DirectoryExists("testInput"));
-    SuccessEnum yes= PartialImport;
-    testParser->setSuccessEnum(yes);
-    ASSERT_TRUE(APU->FileExists("testInput/Input04.xml"));
-    testParser->loadFile("testInput/Input04.xml");
-    testParser->parseItems(testParser->getRoot());
-    EXPECT_TRUE(testParser->getSuccessEnum() == ImportAborted);
-    vector<Runway*> runwaysVect = testParser->getRunways();
-    vector<Airport*> airportsVect = testParser->getAirports();
-    vector<Airplane*> airplanesVect = testParser->getAirplanes();
-    testParser->writeToFile(runwaysVect, airportsVect, airplanesVect, "testOutput/simulatieTestFail.txt");
-    EXPECT_TRUE(APU->compareFiles("testOutput/simulatieTestFail.txt", "testOutput/compareFail.txt"));
-}
+

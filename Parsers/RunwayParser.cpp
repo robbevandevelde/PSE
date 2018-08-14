@@ -31,6 +31,10 @@ Runway *RunwayParser::parseRunway(TiXmlElement *elem)
     string Name = readElement(elem, "name");
     string Type = readElement(elem, "type");
     unsigned int Length = atoi(readElement(elem, "length").c_str());
+    REQUIRE(Airport != "", "Airport cannot be none");
+    REQUIRE(Name != "", "Name cannot be none");
+    REQUIRE(Type != "", "Type cannot be none");
+    REQUIRE(readElement(elem, "length") != "", "Length cannot be none");
     Runway* runway = new Runway(Length, Name, rwTypeCheck(Type), Airport);
     ENSURE(runway->getLength() == Length, "Length is not equal");
     ENSURE(runway->getName() == Name, "Length is not equal");

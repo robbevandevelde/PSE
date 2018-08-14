@@ -22,6 +22,16 @@ public:
     AirplaneParser();
     //    ENSURE(properlyInitialised(), "Constructor must end");
     virtual ~AirplaneParser();
+
+    //    REQUIRE(Number != "", "Number cannot be set to none");
+    //    REQUIRE(Model != "", "Model cannot be set to none");
+    //    REQUIRE(Callsign != "", "Callsign cannot be set to none");
+    //    REQUIRE(Status != "", "Status cannot be set to none");
+    //    REQUIRE(readElement(elem, "passengers") != "", "Passengers cannot be set to none");
+    //    REQUIRE(readElement(elem, "fuel") != "", "Fuel cannot be set to none");
+    //    REQUIRE(Type != "", "Type cannot be set to none");
+    //    REQUIRE(Engine != "", "Engine cannot be set to none");
+    //    REQUIRE(Size != "", "Size cannot be set to none");
     //    REQUIRE(this->properlyInitialised(), "airplaneParser wasn't properly initialised when calling parseAirplane()");
     //    ENSURE( airplane->getNumber() == Number, "number not equal");
     //    ENSURE( airplane->getCallsign() == Callsign, "Callsign not equal");

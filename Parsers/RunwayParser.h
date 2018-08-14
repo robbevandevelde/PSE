@@ -25,6 +25,10 @@ public:
     RunwayParser();
     //    ENSURE(properlyInitialised(), "Constructor must end");
     virtual ~RunwayParser();
+    //    REQUIRE(Airport != "", "Airport cannot be none");
+    //    REQUIRE(Name != "", "Name cannot be none");
+    //    REQUIRE(Type != "", "Type cannot be none");
+    //    REQUIRE(readElement(elem, "length") != "", "Length cannot be none");
     //    REQUIRE(this->properlyInitialised(), "RunwayParse wasn't properly initialised when calling parseRunway()");
     //    ENSURE(runway->getLength() == Length, "Length is not equal");
     //    ENSURE(runway->getName() == Name, "Length is not equal");

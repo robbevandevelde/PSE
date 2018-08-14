@@ -43,6 +43,8 @@ public:
     LuchthavenParser();
     //    ENSURE(properlyInitialised(), "Destructor must end");
     virtual ~LuchthavenParser();
+
+    //    REQUIRE(elemName == "RUNWAY" || elemName == "AIRPLANE" || elemName == "AIRPORT", "The element is not recognised");
     //    REQUIRE(this->properlyInitialised(), "Parser wasn't properly initialised when calling loadFile()");
     void parseItems(TiXmlElement* elem);
     //    REQUIRE(this->properlyInitialised(), "Parser wasn't properly initialised when calling loadFile()");

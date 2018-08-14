@@ -40,7 +40,6 @@ Airplane *AirplaneParser::parseAirplane(TiXmlElement *elem)
     string Engine = readElement(elem, "engine");
     string Size = readElement(elem, "size");
     Flightplan* fp = NULL;
-
     for (TiXmlElement *p = elem->FirstChildElement(); p != NULL; p = p->NextSiblingElement()) {
         string elemName = p->Value();
         if (elemName == "FLIGHTPLAN") {
@@ -48,6 +47,15 @@ Airplane *AirplaneParser::parseAirplane(TiXmlElement *elem)
             fp = fpp.parseFlightplan(p);
         }
     }
+    REQUIRE(Number != "", "Number cannot be set to none");
+    REQUIRE(Model != "", "Model cannot be set to none");
+    REQUIRE(Callsign != "", "Callsign cannot be set to none");
+    REQUIRE(Status != "", "Status cannot be set to none");
+    REQUIRE(readElement(elem, "passengers") != "", "Passengers cannot be set to none");
+    REQUIRE(readElement(elem, "fuel") != "", "Fuel cannot be set to none");
+    REQUIRE(Type != "", "Type cannot be set to none");
+    REQUIRE(Engine != "", "Engine cannot be set to none");
+    REQUIRE(Size != "", "Size cannot be set to none");
     Airplane* airplane = new Airplane(Number, Callsign, Model, Statuscheck(Status), Passengers, Fuel, Typecheck(Type),
                                       Enginecheck(Engine), Sizecheck(Size), fp);
     ENSURE( airplane->getNumber() == Number, "number not equal");

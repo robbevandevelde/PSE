@@ -81,8 +81,9 @@ TEST_F(LuchthavenParserTest, FalseTest)
     SuccessEnum yes= PartialImport;
     testParser->setSuccessEnum(yes);
     testParser->loadFile("testInput/Input02.xml");
-    testParser->parseItems(testParser->getRoot());
-    EXPECT_TRUE(testParser->getSuccessEnum() == ImportAborted);
+    TiXmlElement* Root = testParser->getRoot();
+    EXPECT_DEATH(testParser->parseItems(Root), "");
+//    EXPECT_TRUE(testParser->getSuccessEnum() == ImportAborted);
 }
 //Tests if it cannot open false files
 TEST_F(LuchthavenParserTest, Fileopen)
@@ -98,8 +99,8 @@ TEST_F(LuchthavenParserTest, FalseTest2)
     SuccessEnum yes= PartialImport;
     testParser->setSuccessEnum(yes);
     testParser->loadFile("testInput/Input04.xml");
-    testParser->parseItems(testParser->getRoot());
-    EXPECT_TRUE(testParser->getSuccessEnum() == ImportAborted);
+    EXPECT_DEATH(testParser->parseItems(testParser->getRoot()), "");
+    //EXPECT_TRUE(testParser->getSuccessEnum() == ImportAborted);
 }
 //tests good file without any names
 TEST_F(LuchthavenParserTest, FalseTest3)
@@ -108,8 +109,8 @@ TEST_F(LuchthavenParserTest, FalseTest3)
     SuccessEnum yes= PartialImport;
     testParser->setSuccessEnum(yes);
     testParser->loadFile("testInput/Input05.xml");
-    testParser->parseItems(testParser->getRoot());
-    EXPECT_TRUE(testParser->getSuccessEnum() == ImportAborted);
+    EXPECT_DEATH(testParser->parseItems(testParser->getRoot()), "");
+//    EXPECT_TRUE(testParser->getSuccessEnum() == ImportAborted);
 }
 TEST_F(LuchthavenParserTest, FalseTest4)
 {
@@ -117,8 +118,9 @@ TEST_F(LuchthavenParserTest, FalseTest4)
     SuccessEnum yes= PartialImport;
     testParser->setSuccessEnum(yes);
     testParser->loadFile("testInput/Input06.xml");
-    testParser->parseItems(testParser->getRoot());
-    EXPECT_TRUE(testParser->getSuccessEnum() == ImportAborted);
+    TiXmlElement* Root = testParser->getRoot();
+    EXPECT_DEATH( testParser->parseItems(Root), "");
+    //EXPECT_TRUE(testParser->getSuccessEnum() == ImportAborted);
 }
 TEST_F(LuchthavenParserTest, FalseTest5)
 {
@@ -126,8 +128,9 @@ TEST_F(LuchthavenParserTest, FalseTest5)
     SuccessEnum yes= PartialImport;
     testParser->setSuccessEnum(yes);
     testParser->loadFile("testInput/Input07.xml");
-    testParser->parseItems(testParser->getRoot());
-    EXPECT_TRUE(testParser->getSuccessEnum() == ImportAborted);
+    EXPECT_DEATH( testParser->parseItems(testParser->getRoot()), "");
+
+    //EXPECT_TRUE(testParser->getSuccessEnum() == ImportAborted);
 }
 TEST_F(LuchthavenParserTest, FalseTest6)
 {
@@ -139,40 +142,40 @@ TEST_F(LuchthavenParserTest, FalseTest6)
     EXPECT_DEATH(testParser->parseItems(testParser->getRoot()), "");
     //EXPECT_TRUE(testParser->getSuccessEnum() == ImportAborted);
 }
-// TEST_F(LuchthavenParserTest, FalseTest7)
-//{
-//    ASSERT_TRUE(APU->DirectoryExists("testInput"));
-//    SuccessEnum yes= PartialImport;
-//    testParser->setSuccessEnum(yes);
-//    testParser->loadFile("testInput/Input09.xml");
-//    testParser->parseItems(testParser->getRoot());
-//    EXPECT_TRUE(testParser->getSuccessEnum() == ImportAborted);
-//}
-//TEST_F(LuchthavenParserTest, FalseTest8)
-//{
-//    ASSERT_TRUE(APU->DirectoryExists("testInput"));
-//    SuccessEnum yes= PartialImport;
-//    testParser->setSuccessEnum(yes);
-//    testParser->loadFile("testInput/Input10.xml");
-//    testParser->parseItems(testParser->getRoot());
-//    EXPECT_TRUE(testParser->getSuccessEnum() == ImportAborted);
-//}
-//TEST_F(LuchthavenParserTest, FalseTest9)
-//{
-//    ASSERT_TRUE(APU->DirectoryExists("testInput"));
-//    SuccessEnum yes= PartialImport;
-//    testParser->setSuccessEnum(yes);
-//    testParser->loadFile("testInput/Input11.xml");
-//    EXPECT_DEATH(testParser->parseItems(testParser->getRoot()), "");
-//}
-//TEST_F(LuchthavenParserTest, FalseTest10)
-//{
-//    ASSERT_TRUE(APU->DirectoryExists("testInput"));
-//    SuccessEnum yes= PartialImport;
-//    testParser->setSuccessEnum(yes);
-//    testParser->loadFile("testInput/Input12.xml");
-//    EXPECT_DEATH(testParser->parseItems(testParser->getRoot()), "");
-//}
+ TEST_F(LuchthavenParserTest, FalseTest7)
+{
+    ASSERT_TRUE(APU->DirectoryExists("testInput"));
+    SuccessEnum yes= PartialImport;
+    testParser->setSuccessEnum(yes);
+    testParser->loadFile("testInput/Input09.xml");
+    testParser->parseItems(testParser->getRoot());
+    EXPECT_TRUE(testParser->getSuccessEnum() == ImportAborted);
+}
+TEST_F(LuchthavenParserTest, FalseTest8)
+{
+    ASSERT_TRUE(APU->DirectoryExists("testInput"));
+    SuccessEnum yes= PartialImport;
+    testParser->setSuccessEnum(yes);
+    testParser->loadFile("testInput/Input10.xml");
+    testParser->parseItems(testParser->getRoot());
+    EXPECT_TRUE(testParser->getSuccessEnum() == ImportAborted);
+}
+TEST_F(LuchthavenParserTest, FalseTest9)
+{
+    ASSERT_TRUE(APU->DirectoryExists("testInput"));
+    SuccessEnum yes= PartialImport;
+    testParser->setSuccessEnum(yes);
+    testParser->loadFile("testInput/Input11.xml");
+    EXPECT_DEATH(testParser->parseItems(testParser->getRoot()), "");
+}
+TEST_F(LuchthavenParserTest, FalseTest10)
+{
+    ASSERT_TRUE(APU->DirectoryExists("testInput"));
+    SuccessEnum yes= PartialImport;
+    testParser->setSuccessEnum(yes);
+    testParser->loadFile("testInput/Input12.xml");
+    EXPECT_DEATH(testParser->parseItems(testParser->getRoot()), "");
+}
 //Test the iputted values
 TEST_F(LuchthavenParserTest, InputValueTest)
 {
