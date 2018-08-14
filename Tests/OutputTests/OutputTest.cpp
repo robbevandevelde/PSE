@@ -45,6 +45,7 @@ protected:
     AirTrafficController* John;
     Flightplan* testFlightplan;
     Airplane* testAirplane;
+    AirportUtils* APU;
 };
 //initcheck
 TEST_F(OutputTest, InitCheck)
@@ -54,20 +55,20 @@ TEST_F(OutputTest, InitCheck)
 //tests output of landingprotocol
 TEST_F(OutputTest, LandingProtocolOutput)
 {
-    EXPECT_TRUE(DirectoryExists("testOutput"));
+    EXPECT_TRUE(APU->DirectoryExists("testOutput"));
     ofstream myfile;
     myfile.open("testOutput/testOutput01.txt");
     testAirport->landingprotocol(testAirplane, myfile);
     myfile.close();
     EXPECT_EQ((unsigned int)0, testAirplane->getHeight());
-    EXPECT_TRUE(FileExists("testOutput/testOutput01.txt"));
-    EXPECT_TRUE(FileExists("testOutput/compareLanding.txt"));
-    EXPECT_TRUE(FileCompare("testOutput/testOutput01.txt", "testOutput/compareLanding.txt"));
+    EXPECT_TRUE(APU->FileExists("testOutput/testOutput01.txt"));
+    EXPECT_TRUE(APU->FileExists("testOutput/compareLanding.txt"));
+    EXPECT_TRUE(APU->compareFiles("testOutput/testOutput01.txt", "testOutput/compareLanding.txt"));
 }
 //tests output of gateprotocol
 TEST_F(OutputTest, gateProtocolOutput)
 {
-    EXPECT_TRUE(DirectoryExists("testOutput"));
+    EXPECT_TRUE(APU->DirectoryExists("testOutput"));
     ofstream myfile;
     myfile.open("testOutput/testOutput02.txt");
     testAirplane->setStatus(JustLanded);
@@ -76,14 +77,14 @@ TEST_F(OutputTest, gateProtocolOutput)
     testAirport->gateprotocol(testAirplane, 10, myfile);
     myfile.close();
     EXPECT_EQ((unsigned int)0, testAirplane->getHeight());
-    EXPECT_TRUE(FileExists("testOutput/testOutput02.txt"));
-    EXPECT_TRUE(FileExists("testOutput/compareGateprot.txt"));
-    EXPECT_TRUE(FileCompare("testOutput/testOutput02.txt", "testOutput/compareGateprot.txt"));
+    EXPECT_TRUE(APU->FileExists("testOutput/testOutput02.txt"));
+    EXPECT_TRUE(APU->FileExists("testOutput/compareGateprot.txt"));
+    EXPECT_TRUE(APU->compareFiles("testOutput/testOutput02.txt", "testOutput/compareGateprot.txt"));
 }
 //tests output of takeoffprotocol
 TEST_F(OutputTest, takeoffOutput)
 {
-    EXPECT_TRUE(DirectoryExists("testOutput"));
+    EXPECT_TRUE(APU->DirectoryExists("testOutput"));
     ofstream myfile;
     ofstream myfile2;
     myfile.open("testOutput/testOutput03.txt");
@@ -107,17 +108,17 @@ TEST_F(OutputTest, takeoffOutput)
     myfile.close();
     myfile2.close();
     EXPECT_EQ((unsigned int)5000, testAirplane->getHeight());
-    EXPECT_TRUE(FileExists("testOutput/testOutput03.txt"));
-    EXPECT_TRUE(FileExists("testOutput/compareTakeOff.txt"));
-    EXPECT_TRUE(FileCompare("testOutput/testOutput03.txt", "testOutput/compareTakeOff.txt"));
+    EXPECT_TRUE(APU->FileExists("testOutput/testOutput03.txt"));
+    EXPECT_TRUE(APU->FileExists("testOutput/compareTakeOff.txt"));
+    EXPECT_TRUE(APU->compareFiles("testOutput/testOutput03.txt", "testOutput/compareTakeOff.txt"));
 }
 //Tests the writetofile of a complete simulation
 TEST_F(OutputTest, simulatieTest)
 {
-    ASSERT_TRUE(DirectoryExists("testInput"));
+    ASSERT_TRUE(APU->DirectoryExists("testInput"));
     SuccessEnum yes= PartialImport;
     testParser->setSuccessEnum(yes);
-    ASSERT_TRUE(FileExists("testInput/Input03.xml"));
+    ASSERT_TRUE(APU->FileExists("testInput/Input03.xml"));
     testParser->loadFile("testInput/Input03.xml");
     testParser->parseItems(testParser->getRoot());
     EXPECT_TRUE(testParser->getSuccessEnum() == Success);
@@ -125,15 +126,15 @@ TEST_F(OutputTest, simulatieTest)
     vector<Airport*> airportsVect = testParser->getAirports();
     vector<Airplane*> airplanesVect = testParser->getAirplanes();
     testParser->writeToFile(runwaysVect, airportsVect, airplanesVect, "testOutput/simulatieTest.txt");
-    EXPECT_TRUE(FileCompare("testOutput/simulatieTest.txt", "testOutput/compareSimulatie.txt"));
+    EXPECT_TRUE(APU->compareFiles("testOutput/simulatieTest.txt", "testOutput/compareSimulatie.txt"));
 }
 //Tests the failed writetofile of a broken/empty simulation
 TEST_F(OutputTest, simulatieTestFail)
 {
-    ASSERT_TRUE(DirectoryExists("testInput"));
+    ASSERT_TRUE(APU->DirectoryExists("testInput"));
     SuccessEnum yes= PartialImport;
     testParser->setSuccessEnum(yes);
-    ASSERT_TRUE(FileExists("testInput/Input04.xml"));
+    ASSERT_TRUE(APU->FileExists("testInput/Input04.xml"));
     testParser->loadFile("testInput/Input04.xml");
     testParser->parseItems(testParser->getRoot());
     EXPECT_TRUE(testParser->getSuccessEnum() == ImportAborted);
@@ -141,5 +142,5 @@ TEST_F(OutputTest, simulatieTestFail)
     vector<Airport*> airportsVect = testParser->getAirports();
     vector<Airplane*> airplanesVect = testParser->getAirplanes();
     testParser->writeToFile(runwaysVect, airportsVect, airplanesVect, "testOutput/simulatieTestFail.txt");
-    EXPECT_TRUE(compareFiles("testOutput/simulatieTestFail.txt", "testOutput/compareFail.txt"));
+    EXPECT_TRUE(APU->compareFiles("testOutput/simulatieTestFail.txt", "testOutput/compareFail.txt"));
 }

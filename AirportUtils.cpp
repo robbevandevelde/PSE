@@ -16,12 +16,14 @@ using namespace std;
 /**
 Auxiliary functions for file manipulation.
 */
-bool DirectoryExists(const std::string dirname) {
+bool AirportUtils::DirectoryExists(const std::string dirname) {
+    REQUIRE(this->properlyInitialised(), "AirportUtils wasn't properly initialised when calling directoryExists()");
     struct stat st;
     return stat(dirname.c_str(), &st) == 0;
 }
 
-bool FileExists(const std::string filename) {
+bool AirportUtils::FileExists(const std::string filename) {
+    REQUIRE(this->properlyInitialised(), "Flightplan wasn't properly initialised when calling fileExists()");
     struct stat st;
     if (stat(filename.c_str(), &st) != 0) return false;
     ifstream f(filename.c_str());
@@ -34,47 +36,16 @@ bool FileExists(const std::string filename) {
     }
 }
 
-bool FileIsEmpty(const std::string filename) {
+bool AirportUtils::FileIsEmpty(const std::string filename) {
+    REQUIRE(this->properlyInitialised(), "AirportUtils wasn't properly initialised when calling FileIsempty()");
     struct stat st;
     if (stat(filename.c_str(), &st) != 0) return true; // File does not exist; thus it is empty
     return st.st_size == 0;
 }
 
-bool FileCompare(const std::string leftFileName, const std::string rightFileName) {
-    ifstream leftFile;
-    ifstream rightFile;
-    char leftRead;
-    char rightRead;
-    bool result;
-
-    // Open the two files.
-    leftFile.open(leftFileName.c_str());
-    if (!leftFile.is_open()) {
-        return false;
-    };
-    rightFile.open(rightFileName.c_str());
-    if (!rightFile.is_open()) {
-        leftFile.close();
-        return false;
-    };
-
-    result = true; // files exist and are open; assume equality unless a counterexamples shows up.
-    while (result && leftFile.good() && rightFile.good()) {
-        leftFile.get(leftRead);
-        rightFile.get(rightRead);
-        result = (leftRead == rightRead);
-    };
-    if (result) {
-        // last read was still equal; are we at the end of both files ?
-        result = (!leftFile.good()) && (!rightFile.good());
-    };
-
-    leftFile.close();
-    rightFile.close();
-    return result;
-}
-bool compareFiles(const std::string leftFileName, const std::string rightFileName)
+bool AirportUtils::compareFiles(const std::string leftFileName, const std::string rightFileName)
     {
+        REQUIRE(this->properlyInitialised(), "AirportUtils wasn't properly initialised when calling compareFiles()");
         ifstream leftFile;
         ifstream rightFile;
         bool equal = true;
@@ -96,9 +67,11 @@ bool compareFiles(const std::string leftFileName, const std::string rightFileNam
             getline(rightFile,line2);
             if(line ==line2){
                 equal = true;
+                ENSURE(line== line2, "Lines are not equal");
             }
             else{
                 equal = false;
+                ENSURE(line!= line2, "Lines are equal");
                 break;
             }
         }
@@ -110,7 +83,8 @@ bool compareFiles(const std::string leftFileName, const std::string rightFileNam
     }
 
 
-string to_string( int x ) {
+string AirportUtils::to_string( int x ) {
+    REQUIRE(this->properlyInitialised(), "AirportUtils wasn't properly initialised when calling to_string()");
     int length = snprintf( NULL, 0, "%d", x );
     char* buf = new char[length + 1];
     snprintf( buf, length + 1, "%d", x );
@@ -119,3 +93,7 @@ string to_string( int x ) {
     return str;
 }
 
+bool AirportUtils::properlyInitialised()
+{
+    return initCheck==this;
+}
