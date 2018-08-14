@@ -12,7 +12,7 @@
 #include <iostream>
 
 enum Status {JustLanded, StandingAtGate, WaitingAtRunway, StandingAtRunway , Departure, InTheAir,FinalApproach,
-    Approaching, EmergencyLanding, EmergencyControle1, EmergencyControle2};
+    Approaching, EmergencyLanding, EmergencyControle1, EmergencyControle2, EmergencyLandingOutside};
 
 enum Type {Private, Airline, Military, Emergency};
 enum Size {Small, Medium, Large};

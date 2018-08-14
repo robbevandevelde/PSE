@@ -44,7 +44,7 @@ set(SOURCE_FILES
         Simulator.cpp
         Simulator.h
         InputFiles/luchthaven.xml
-        )
+        Communication.cpp Communication.h)
 
 set(DEBUG_SOURCE_FILES
         Parsers/AirplaneParser.cpp
