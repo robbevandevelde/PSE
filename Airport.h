@@ -5,9 +5,9 @@
  */
 #ifndef PSE_AIRPORT_H
 #define PSE_AIRPORT_H
-/**
- * TODO: PRIVATE VARIABLES IN CONTRACTEN WEG DOEN KAK
- */
+
+//TODO: PRIVATE VARIABLES IN CONTRACTEN WEG DOEN KAK LEMAW XDDDDDDDDDDD
+
 #include <vector>
 #include <sstream>
 #include <iostream>
@@ -202,5 +202,7 @@ public:
     void completeGateProtocol(Airplane* airplane, std::ostream & out);
     void takeOffSequence(Airplane* airplane, std::ostream &out);
     void emergencySequence(Airplane* airplane, std::ostream& out);
+
+    vector<Gate *> &getGates();
 };
 #endif //PSE_AIRPORT_H

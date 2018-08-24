@@ -7,12 +7,13 @@
 
 class Airport;
 class Airplane;
+class Runway;
+class Gate;
 class AirTrafficController;
 
 #include <string>
 #include <vector>
 #include "DesignByContract.h"
-//TODO: ZEGGEN TEGEN ROBBE DA DIE OOK SQUAWK CODE MOET KUNNEN PARSEN
 
 //TODO: PROPERLY INITIALISED MAKEN
 
@@ -34,17 +35,17 @@ public:
 
     //TODO:Finish communication functions
     //For Take off sequence
-    void ATC_Airplane_At_Gate_Comm(AirTrafficController* airTrafficController, Airplane* airplane);
-    void ATC_Airplane_At_Gate_After_IFR_Comm(AirTrafficController* airTrafficController, Airplane* airplane);
-    void ATC_Airplane_Of_Gate_Comm(AirTrafficController* airTrafficController, Airplane* airplane);
-    void ATC_Airplane_Wait_At_Runway_Comm(AirTrafficController* airTrafficController, Airplane* airplane);
-    void ATC_Airplane_Enter_Permission_Granted_Runway_Comm(AirTrafficController* airTrafficController, Airplane* airplane);
-    void ATC_Airplane_Enter_TakeOff_Permission_Granted_Runway_Comm(AirTrafficController* airTrafficController, Airplane* airplane);
-    void ATC_Airplane_TakeOff_Permission_Granted_Runway_Comm(AirTrafficController* airTrafficController, Airplane* airplane);
+    void ATC_Airplane_At_Gate_Comm(AirTrafficController* airTrafficController, Airplane* airplane, std::ostream &out);
+    void ATC_Airplane_At_Gate_After_IFR_Comm(AirTrafficController* airTrafficController, Airplane* airplane, std::ostream &out);
+    void ATC_Airplane_Of_Gate_Comm(AirTrafficController* airTrafficController, Airplane* airplane, std::ostream &out);
+    void ATC_Airplane_Wait_At_Runway_Comm(AirTrafficController* airTrafficController, Airplane* airplane, std::ostream &out);
+    void ATC_Airplane_Enter_Permission_Granted_Runway_Comm(AirTrafficController* airTrafficController, Airplane* airplane, std::ostream &out);
+    void ATC_Airplane_Enter_TakeOff_Permission_Granted_Runway_Comm(AirTrafficController* airTrafficController, Airplane* airplane, std::ostream &out);
+    void ATC_Airplane_TakeOff_Permission_Granted_Runway_Comm(AirTrafficController* airTrafficController, Airplane* airplane, std::ostream &out);
 
     //For Emergency
-    void ATC_Airplane_More_Than_3000ft_Emergency(AirTrafficController* airTrafficController, Airplane* airplane);
-    void ATC_Airplane_Less_Than_3000ft_Emergency(AirTrafficController* airTrafficController, Airplane* airplane);
+    void ATC_Airplane_More_Than_3000ft_Emergency(AirTrafficController* airTrafficController, Airplane* airplane, std::ostream &out);
+    void ATC_Airplane_Less_Than_3000ft_Emergency(AirTrafficController* airTrafficController, Airplane* airplane, std::ostream &out);
 };
 
 
