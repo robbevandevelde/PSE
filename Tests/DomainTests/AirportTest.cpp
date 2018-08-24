@@ -4,6 +4,7 @@
 
 #include <gtest/gtest.h>
 #include "../../Airport.h"
+#include "../../Runway.h"
 #include <iostream>
 #include <fstream>
 
@@ -21,9 +22,11 @@ protected:
         testAirport->assignController(John);
         string name = "LAX";
         testFlightplan = new Flightplan(name, 15, 45, 1);
-        testAirplane = new Airplane("32", "callsign", "model", Departure, 110, 5000, 1, 1, 1, testFlightplan);
+        testAirplane = new Airplane("32", "callsign", "model", Departure, 110, 5000, Airline, Jet, Medium, testFlightplan);
         testAirplane2 = new Airplane("32", "callsign", "model", Departure, 110, 0, Airline, Jet, Large, testFlightplan);
 
+        testRunway1 = new Runway(20, name, Grass, name);
+        testRunway2 = new Runway(20000, name, Asphalt, name);
 
     }
 
@@ -39,6 +42,8 @@ protected:
     Flightplan* testFlightplan;
     Airplane* testAirplane;
     Airplane* testAirplane2;
+    Runway* testRunway1;
+    Runway* testRunway2;
 };
 
 // Tests the initialisation.
@@ -170,5 +175,30 @@ TEST_F(AirportTest,  apl2gtDeathtest)
     myfile.open("testOutput/Output01.txt");
     EXPECT_DEATH(testAirport->addAirplaneToGate(testAirplane, myfile), "Airplane has to be just landed at the runway in order to taxi");
     myfile.close();
+}
+TEST_F(AirportTest, validRunway)
+{
+    EXPECT_FALSE(testAirport->validRunwayForPlane(testAirplane2, testRunway1));
+    EXPECT_TRUE(testAirport->validRunwayForPlane(testAirplane2, testRunway2));
+    EXPECT_FALSE(testAirport->validRunwayForPlane(testAirplane, testRunway1));
+    EXPECT_TRUE(testAirport->validRunwayForPlane(testAirplane, testRunway2));
+}
+TEST_F(AirportTest, WaitPointTests)
+{
+    testAirport->setWaitpoint1(testAirplane);
+    EXPECT_TRUE(testAirport->isAirplaneInWaitPoint(testAirplane));
+    EXPECT_FALSE(testAirport->isAirplaneInWaitPoint(testAirplane2));
+    testAirport->removeWaitpoint1();
+    EXPECT_FALSE(testAirport->isAirplaneInWaitPoint(testAirplane));
+}
+TEST_F(AirportTest, collisiontest)
+{
+    testAirplane->setHeight(5000);
+    //testAirplane->setStatus(Departure);
+    ofstream myfile;
+    myfile.open("OutputFiles/testoutputx.txt");
+    testAirport->collisionSolverAirStart(testAirplane, myfile);
+    myfile.close();
+    EXPECT_EQ(Approaching, testAirplane->getStatus());
 }
 

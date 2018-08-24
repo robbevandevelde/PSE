@@ -120,8 +120,8 @@ TEST_F(LuchthavenParserTest, FalseTest4)
     SuccessEnum yes= PartialImport;
     testParser->setSuccessEnum(yes);
     testParser->loadFile("testInput/Input06.xml");
-    TiXmlElement* Root = testParser->getRoot();
-    EXPECT_DEATH( testParser->parseItems(Root), "");
+    //TiXmlElement* Root = testParser->getRoot();
+    EXPECT_DEATH( testParser->parseItems(testParser->getRoot()), "");
     //EXPECT_TRUE(testParser->getSuccessEnum() == ImportAborted);
 }
 TEST_F(LuchthavenParserTest, FalseTest5)
