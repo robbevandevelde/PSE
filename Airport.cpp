@@ -11,6 +11,9 @@
  *
  */
 
+//TODO: NIET GEBRUIKTE FUNCTIES WEGHALEN
+//TODO: WACHT SYSTEEM MET RUNWAYS AANPASSEN (OP DE RUNWAY ZELF IPV IN EEN WACHT VECTOR)
+
 
 /*Constructor van de airport
  *@param unsigned int gatesize, string name, string iata, string callsign
@@ -957,9 +960,6 @@ void Airport::emergencySequence(Airplane* airplane, std::ostream& out) {
             }
         }
     }
-    /*TO DO: dees fixe
-     *
-     */
     if (airplane->getHeight() == 0 && airplane->getStatus() == EmergencyLanding) {
         addAirplaneToRunway(airplane);
         out << "--------------------------------------------------------------------------"<< std::endl;
@@ -973,5 +973,10 @@ void Airport::emergencySequence(Airplane* airplane, std::ostream& out) {
             out << "--------------------------------------------------------------------------"<< std::endl;
         }
     }
+}
+
+vector<Gate *> &Airport::getGates() {
+    REQUIRE(this->properlyInitialised(), "Not properaly initialised");
+    return _gates;
 }
 

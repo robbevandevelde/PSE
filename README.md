@@ -1,2 +1,2 @@
 # PSE
-Project Software Engeneering
+Project Software Engineering
