@@ -95,5 +95,5 @@ string AirportUtils::to_string( int x ) {
 
 bool AirportUtils::properlyInitialised()
 {
-    return initCheck==this;
+    return _initCheck==this;
 }

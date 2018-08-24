@@ -23,6 +23,7 @@ protected:
     // Otherwise, this can be skipped.
     virtual void SetUp() {
         testParser = new LuchthavenParser();
+        APU = new AirportUtils();
     }
 
     // virtual void TearDown() will be called after each test is run.
@@ -99,7 +100,8 @@ TEST_F(LuchthavenParserTest, FalseTest2)
     SuccessEnum yes= PartialImport;
     testParser->setSuccessEnum(yes);
     testParser->loadFile("testInput/Input04.xml");
-    EXPECT_DEATH(testParser->parseItems(testParser->getRoot()), "");
+    testParser->parseItems(testParser->getRoot());
+    //EXPECT_DEATH(testParser->parseItems(testParser->getRoot()), "");
     //EXPECT_TRUE(testParser->getSuccessEnum() == ImportAborted);
 }
 //tests good file without any names
@@ -148,8 +150,7 @@ TEST_F(LuchthavenParserTest, FalseTest6)
     SuccessEnum yes= PartialImport;
     testParser->setSuccessEnum(yes);
     testParser->loadFile("testInput/Input09.xml");
-    testParser->parseItems(testParser->getRoot());
-    EXPECT_TRUE(testParser->getSuccessEnum() == ImportAborted);
+    EXPECT_DEATH(testParser->parseItems(testParser->getRoot()), "");
 }
 TEST_F(LuchthavenParserTest, FalseTest8)
 {
@@ -157,8 +158,7 @@ TEST_F(LuchthavenParserTest, FalseTest8)
     SuccessEnum yes= PartialImport;
     testParser->setSuccessEnum(yes);
     testParser->loadFile("testInput/Input10.xml");
-    testParser->parseItems(testParser->getRoot());
-    EXPECT_TRUE(testParser->getSuccessEnum() == ImportAborted);
+    EXPECT_DEATH(testParser->parseItems(testParser->getRoot()), "");
 }
 TEST_F(LuchthavenParserTest, FalseTest9)
 {
@@ -174,6 +174,14 @@ TEST_F(LuchthavenParserTest, FalseTest10)
     SuccessEnum yes= PartialImport;
     testParser->setSuccessEnum(yes);
     testParser->loadFile("testInput/Input12.xml");
+    EXPECT_DEATH(testParser->parseItems(testParser->getRoot()), "");
+}
+TEST_F(LuchthavenParserTest, FalseTest11)
+{
+    ASSERT_TRUE(APU->DirectoryExists("testInput"));
+    SuccessEnum yes= PartialImport;
+    testParser->setSuccessEnum(yes);
+    testParser->loadFile("testInput/Input13.xml");
     EXPECT_DEATH(testParser->parseItems(testParser->getRoot()), "");
 }
 //Test the iputted values

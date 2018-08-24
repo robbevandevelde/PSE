@@ -71,35 +71,33 @@ void LuchthavenParser::parseItems(TiXmlElement *elem)
     if (elem != NULL) {
         for (TiXmlElement *e = elem->FirstChildElement(); e != NULL; e = e->NextSiblingElement()) {
             string elemName = e->Value();
-            REQUIRE(elemName == "RUNWAY" || elemName == "AIRPLANE" || elemName == "AIRPORT", "The element is not recognised");
+            REQUIRE(elemName == "RUNWAY" || elemName == "AIRPLANE" || elemName == "AIRPORT" || elemName == "SIMULATIE",
+                    "The element is not recognised");
             if (elemName == "RUNWAY") {
                 RunwayParser rwp;
                 Runway *rw = rwp.parseRunway(e);
-                //if(rw->isConsistent()){
                 runways.push_back(rw);
                 successEnum= Success;
             }
             if (elemName == "AIRPLANE") {
                 AirplaneParser aplp;
                 Airplane *apl = aplp.parseAirplane(e);
-                //if(apl->isConsistent()){
                 airplanes.push_back(apl);
                 successEnum= Success;
-
-                //}
             }
             if (elemName == "AIRPORT") {
                 AirportParser apop;
                 Airport *apo = apop.parseAirport(e);
-                //if(apo->isConsistent()){
                 airports.push_back(apo);
                 successEnum= Success;
-
-                //}
+            }
+            if (elemName == "SIMULATIE") {
+                successEnum= Success;
             }
 
         }
     }
+    REQUIRE(doc.Error() == false, "an error as occured while parsing");
 
 }
 
@@ -172,6 +170,7 @@ bool LuchthavenParser::loadFile(string filename)
     }
 
     root = doc.FirstChildElement();
+    REQUIRE(root!=NULL, "root cannot be NULL");
     if(root == NULL){
         cerr << "Failed to load file: No root element." << endl;
         doc.Clear();
@@ -184,7 +183,7 @@ bool LuchthavenParser::loadFile(string filename)
  */
 TiXmlElement *LuchthavenParser::getRoot()
 {
-//    ENSURE(root!= NULL, "Root is not found");
+    REQUIRE(root!= NULL, "Root is not found");
     REQUIRE(this->properlyInitialised(), "Parser wasn't properly initialised when calling getRoot");
     return root;
 }

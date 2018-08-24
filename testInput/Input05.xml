@@ -2,7 +2,7 @@
 <SIMULATIE>
     <AL>
         <name></name>
-        <iata></iata>
+        <iata>ANR</iata>
         <callsign>Antwerp Tower</callsign>
         <gates>10</gates>
     </AL>

@@ -10,8 +10,12 @@
 
 class AirportUtils{
 private:
-    AirportUtils* initCheck;
+    AirportUtils* _initCheck;
 public:
+    AirportUtils(){
+        _initCheck = this;
+        ENSURE(properlyInitialised(), "Airportutils wasn't properly initialised");
+    }
     //    REQUIRE(this->properlyInitialised(), "AirportUtils wasn't properly initialised when calling directoryExists()");
     bool DirectoryExists(const std::string dirname);
 
