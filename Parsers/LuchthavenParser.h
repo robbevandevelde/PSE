@@ -46,7 +46,7 @@ public:
 
     //    REQUIRE(elemName == "RUNWAY" || elemName == "AIRPLANE" || elemName == "AIRPORT", "The element is not recognised");
     //    REQUIRE(this->properlyInitialised(), "Parser wasn't properly initialised when calling loadFile()");
-    void parseItems(TiXmlElement* elem);
+    void parseItems(const char* file);
     //    REQUIRE(this->properlyInitialised(), "Parser wasn't properly initialised when calling loadFile()");
     void writeToFile(vector<Runway*> runwaysVect, vector<Airport*> airportsVect, vector<Airplane*> airplanesVect, string name);
     //    REQUIRE(this->properlyInitialised(), "Parser wasn't properly initialised when calling loadFile()");

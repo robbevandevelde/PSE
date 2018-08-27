@@ -18,7 +18,7 @@ using namespace std;
 int main() {
     LuchthavenParser* parser = new LuchthavenParser();
     if(parser->loadFile("InputFiles/luchthaven.xml")){
-        parser->parseItems(parser->getRoot());
+        parser->parseItems("InputFiles/luchthaven.xml");
 
         vector<Runway*> runwaysVect = parser->getRunways();
         vector<Airport*> airportsVect = parser->getAirports();
