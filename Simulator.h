@@ -32,7 +32,7 @@ public:
     //    ENSURE(_airport->getAmountRunways() == _runways.size(), "Runway size dont match");
     void addRunways();
 
-    REQUIRE(this->properlyInitialised(), "Simulator wasn't properly initialised when calling Simulate()");
+    //    REQUIRE(this->properlyInitialised(), "Simulator wasn't properly initialised when calling Simulate()");
     void doStep(ostream &out);
 };
 
