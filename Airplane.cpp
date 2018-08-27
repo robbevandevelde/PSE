@@ -352,14 +352,4 @@ void Airplane::setControle(bool _controle)
     ENSURE(isControle()== _controle, "Controle set error, must be the same");
 }
 
-unsigned int Airplane::get_squawkcode(){
-    REQUIRE(this->properlyInitialised(), "Airplane wasn't properly initialised when calling getSquawkcode()");
-    return _squawkcode;
-}
-
-void Airplane::set_squawkcode(unsigned int _squawkcode) {
-    REQUIRE(this->properlyInitialised(), "Airplane wasn't properly initialised when calling setSquawkcode()");
-    Airplane::_squawkcode = _squawkcode;
-    ENSURE(_squawkcode == get_squawkcode(), "Squawkcode set error, must be the same");
-}
 

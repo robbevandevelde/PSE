@@ -30,7 +30,7 @@ public:
     void ATC_Airplane_10000ft_Comm(AirTrafficController* airTrafficController, Airplane* airplane, std::ostream& out);
     void ATC_Airplane_WaitPattern_Comm(AirTrafficController* airTrafficController, Airplane* airplane, std::ostream& out);
     void ATC_Airplane_5000ft_Comm(AirTrafficController* airTrafficController, Airplane* airplane, std::ostream& out);
-    void ATC_Airplane_3000ft_Comm(AirTrafficController* airTrafficController, Airplane* airplane, Airport* airport, std::ostream& out);
+    void ATC_Airplane_3000ft_Comm(AirTrafficController* airTrafficController, Airplane* airplane, std::ostream& out);
     void ATC_Airplane_After_Landing_Comm(AirTrafficController* airTrafficController, Airplane* airplane, std::ostream& out);
 
     //TODO:Finish communication functions

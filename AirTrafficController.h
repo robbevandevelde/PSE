@@ -10,12 +10,15 @@
 class Airport;
 class Airplane;
 class Runway;
+class Communication;
 
 class AirTrafficController {
 private:
     AirTrafficController* _initcheck;
 
     Airport* _airport;
+
+    Communication* _comm;
 
     std::string _name;
 
@@ -33,6 +36,9 @@ public:
     Airport *getAirport();
     //    REQUIRE(this->properlyInitialised(), "AirtrafficController wasn't properly initialised when calling getName");
     const std::string &getName();
+
+    void takeOffClearance(Airplane* airplane, std::ostream& out);
+
 };
 
 

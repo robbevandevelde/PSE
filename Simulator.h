@@ -25,6 +25,8 @@ public:
 
     void Simulate(std::ostream &out = std::cout);
     void addRunways();
+
+    void doStep(ostream &out);
 };
 
 

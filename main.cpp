@@ -36,11 +36,6 @@ int main() {
     }else{
         cout<< "unable to parse file" << endl;
     }
-//    Airport* testAirport = new Airport(10, "Antwerp Airport", "ANR", "callsign");
-//    string name = "gggg";
-//    Flightplan* testFlightplan = new Flightplan(name, 15, 45, 1);
-//    Airplane* testAirplane = new Airplane("32", "callsign", "model", JustLanded, 110, 5000, 1, 1, 2, testFlightplan);
-//    testAirport->landingprotocol(testAirplane);
 }
 #include <iostream>
 #include "Airplane.h"

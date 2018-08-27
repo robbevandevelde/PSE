@@ -135,9 +135,7 @@ public:
 
     //    REQUIRE(this->properlyInitialised(),"Airplane wasn't properly initialised when calling setControle()");
     void setControle(bool _controle);
-    //TODO: contracten hier regelen
-    unsigned int get_squawkcode();
-    void set_squawkcode(unsigned int _squawkcode);
+
 };
 
 

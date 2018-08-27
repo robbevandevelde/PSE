@@ -55,48 +55,50 @@ void Simulator::Simulate(std::ostream &out)
 {
     REQUIRE(this->properlyInitialised(), "Simulator wasn't properly initialised when calling Simulate()");
     while (!_airplanes.empty()) {
-        for (unsigned int x = 0; x < _airplanes.size(); x++) {
-            if (_airport->isAirplaneInWaitPoint(_airplanes[x])) {
-                //end of a collision
-                _airport->collisionSolverAirEnd(_airplanes[x]);
-            }
-            else if(_airport->isAirplaneInRunwayWait(_airplanes[x])){
-                //End of a collision
-                _airport->collissionSolverRunwayEnd(_airplanes[x]);
-            }
+        doStep(out);
+    }
+}
 
-            else if(_airplanes[x]->getFuel() == 0) {
-                //TODO:: EMERGENCY LANDING VERDER AFWERKEN (NOODLANDING BUITEN VLIEGVELD)
-                _airport->emergencySequence(_airplanes[x], out);
-            }
-                // end of emergencylanding
-            else {
-                //Start of landing procedure
-                if(_airplanes[x]->getStatus() == Approaching || _airplanes[x]->getStatus() == FinalApproach) {
-                    _airport->landingSequence(_airplanes[x], out);
-                }
-                    //end of landing procedure
-                    //Airplane should be "JustLanded" or "EmergencyLanding"
+void Simulator::doStep(ostream &out)
+{
+    for (unsigned int x = 0; x < _airplanes.size(); x++) {
+        if (_airport->isAirplaneInWaitPoint(_airplanes[x])) {
+            //end of a collision
+            _airport->collisionSolverAirEnd(_airplanes[x], out);
+        }
+        else if(_airport->isAirplaneInRunwayWait(_airplanes[x])){
+            //End of a collision
+            _airport->_comm->ATC_Airplane_TakeOff_Permission_Granted_Runway_Comm(_airport->getController(),_airplanes[x], out);
+            _airport->collissionSolverRunwayEnd(_airplanes[x]);
+        }
 
-                else if (_airplanes[x]->getStatus() == JustLanded) {
-                    _airport->taxiToGate(_airplanes[x]);
-                    _airport->gateprotocol(_airplanes[x], 0);
-                    out << "--------------------------------------------------------------------------"<< std::endl;
-                }
-                    //Begin gate procedure
-                else if (_airplanes[x]->getStatus() == StandingAtGate) {
-                    _airport->completeGateProtocol(_airplanes[x],out);
-                }
-                    /**TO COLLISION SOLVER MET 2 OF MEERDERE VLIEGTUIGEN HIER
-                     *
-                     */
-                else if (_airplanes[x]->getStatus() == Departure) {
-                    //Start of take off sequence
-                    _airport->takeOffSequence(_airplanes[x],out);
-                }
-                else if (_airplanes[x]->getStatus() == InTheAir || _airplanes[x]->getStatus() == EmergencyLanding || _airplanes[x]->getStatus() == EmergencyLandingOutside) {
-                    _airplanes.erase(_airplanes.begin() + x);
-                }
+        else if(_airplanes[x]->getFuel() == 0) {
+            _airport->emergencySequence(_airplanes[x], out);
+        }
+            // end of emergencylanding
+        else {
+            //Start of landing procedure
+            if(_airplanes[x]->getStatus() == Approaching || _airplanes[x]->getStatus() == FinalApproach) {
+                _airport->landingSequence(_airplanes[x], out);
+            }
+                //end of landing procedure
+                //Airplane should be "JustLanded" or "EmergencyLanding"
+
+            else if (_airplanes[x]->getStatus() == JustLanded) {
+                _airport->taxiToGate(_airplanes[x]);
+                _airport->gateprotocol(_airplanes[x], 0);
+                out << "--------------------------------------------------------------------------"<< endl;
+            }
+                //Begin gate procedure
+            else if (_airplanes[x]->getStatus() == StandingAtGate) {
+                _airport->completeGateProtocol(_airplanes[x], out);
+            }
+            else if (_airplanes[x]->getStatus() == Departure) {
+                //Start of take off sequence
+                _airport->takeOffSequence(_airplanes[x], out);
+            }
+            else if (_airplanes[x]->getStatus() == InTheAir || _airplanes[x]->getStatus() == EmergencyLanding || _airplanes[x]->getStatus() == EmergencyLandingOutside) {
+                _airplanes.erase(_airplanes.begin() + x);
             }
         }
     }

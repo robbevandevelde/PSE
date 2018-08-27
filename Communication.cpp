@@ -27,10 +27,10 @@ std::string Communication::NATOtranslator(const std::string string) {
         if(string[x] == 'B' || string[x] == 'b'){
             string1 = string1 + "BRAVO ";
         }
-        if(string[x] == 'C' || string[x] == 'c'){
+        else if(string[x] == 'C' || string[x] == 'c'){
             string1 = string1 + "CHARLIE ";
         }
-        if(string[x] == 'D' || string[x] == 'd'){
+        else if(string[x] == 'D' || string[x] == 'd'){
             string1 = string1 + "DELTA ";
         }
         if(string[x] == 'E' || string[x] == 'e'){
@@ -135,6 +135,7 @@ std::string Communication::NATOtranslator(const std::string string) {
 
 void Communication::ATC_Airplane_10000ft_Comm(AirTrafficController *airTrafficController, Airplane *airplane,
                                               std::ostream &out) {
+
     REQUIRE(this->properlyInitialised(), "Initialise error");
 
     unsigned int counter= 1;
@@ -147,18 +148,19 @@ void Communication::ATC_Airplane_10000ft_Comm(AirTrafficController *airTrafficCo
 
     out << "[" << counter << "] " << "[" << airTrafficController->getName() << "]" << std::endl;
     out << "$ " << NATOtranslator(airplane->getCallsign()) << ", radar contact, descend and maintain "
-            "five thousand feet, squawk " <<  airplane->get_squawkcode() << "." <<std::endl;
+            "five thousand feet." <<std::endl;
 
     counter++;
 
     out << "[" << counter << "] " << "[" << airplane->getCallsign() << "]" << std::endl;
-    out << "$ " << "Descend and maintain five thousand feet, squawking " << airplane->get_squawkcode()
-        << " , " << NATOtranslator(airplane->getCallsign()) << "."<< std::endl;
+    out << "$ " << "Descend and maintain five thousand feet, " << NATOtranslator(airplane->getCallsign()) << "."<< std::endl;
+    out << "--------------------------------------------------------------------------" << std::endl;
 
 }
 
 void Communication::ATC_Airplane_WaitPattern_Comm(AirTrafficController *airTrafficController, Airplane *airplane,
                                                   std::ostream &out) {
+
     REQUIRE(this->properlyInitialised(), "Initialise error");
     unsigned int counter = 1;
 
@@ -171,6 +173,7 @@ void Communication::ATC_Airplane_WaitPattern_Comm(AirTrafficController *airTraff
     out << "[" << counter << "] " << "[" << airplane->getCallsign() << "]" << std::endl;
     out << "$ Holding south on the eighty radial " << NATOtranslator(airplane->getCallsign()) << "."
                                                                                         << std::endl;
+    out << "--------------------------------------------------------------------------" << std::endl;
 
 }
 
@@ -187,39 +190,57 @@ void Communication::ATC_Airplane_5000ft_Comm(AirTrafficController *airTrafficCon
     out << "[" << counter << "] " << "[" << airplane->getCallsign() << "]" << std::endl;
     out << "$ Descend and maintain three thousand feet " << NATOtranslator(airplane->getCallsign())
         << "." << std::endl;
+    out << "--------------------------------------------------------------------------" << std::endl;
+
 }
 
 void Communication::ATC_Airplane_3000ft_Comm(AirTrafficController *airTrafficController, Airplane *airplane,
-                                             Airport* airport, std::ostream &out) {
+                                             std::ostream &out) {
     REQUIRE(this->properlyInitialised(), "Initialise error");
     unsigned int counter = 1;
     out << "[" << counter << "] " << "[" << airTrafficController->getName() << "]" << std::endl;
 
-    out << "$ " << NATOtranslator(airplane->getCallsign()) << " cleared ILS approach runway " << "runwayname"
-                                                                        << "." << std::endl;
+    for (unsigned int x = 0; x < airTrafficController->getAirport()->getRunways().size(); x++) {
+        if (!airTrafficController->getAirport()->getRunways()[x]->isOccupied()) {
+            if (!airTrafficController->getAirport()->getRunways()[x]->isGoingToBeUsed()) {
+                if (airTrafficController->getAirport()->validRunwayForPlane(airplane,
+                                                                            airTrafficController->getAirport()->getRunways()[x])) {
+                    out << "$ " << NATOtranslator(airplane->getCallsign()) << " cleared ILS approach runway " <<
+                        airTrafficController->getAirport()->getRunways()[x]->getName() << "." << std::endl;
+                    break;
+                }
+            }
+        }
+    }
     counter++;
 
     out << "[" << counter << "] " << "[" << airplane->getCallsign() << "]" << std::endl;
-    for(unsigned int x=0; x < airTrafficController->getAirport()->getRunways().size();x++){
-        if(airTrafficController->getAirport()->getRunways()[x]->getAirplane() == airplane){
-            out << "$ Cleared ILS approach runway " << airTrafficController->getAirport()->getRunways()[x]->getName()
-                << " "<< NATOtranslator(airplane->getCallsign()) << "." << std::endl;
-            break;
+    for (unsigned int x = 0; x < airTrafficController->getAirport()->getRunways().size(); x++) {
+        if (!airTrafficController->getAirport()->getRunways()[x]->isOccupied()) {
+            if (!airTrafficController->getAirport()->getRunways()[x]->isGoingToBeUsed()) {
+                if (airTrafficController->getAirport()->validRunwayForPlane(airplane,
+                                                                            airTrafficController->getAirport()->getRunways()[x])) {
+                    out << "$ Cleared ILS approach runway "
+                        << airTrafficController->getAirport()->getRunways()[x]->getName()
+                        << " " << NATOtranslator(airplane->getCallsign()) << "." << std::endl;
+                    break;
+                }
+            }
         }
     }
+    out << "--------------------------------------------------------------------------" << std::endl;
 }
 
 void Communication::ATC_Airplane_After_Landing_Comm(AirTrafficController *airTrafficController, Airplane *airplane,
                                                     std::ostream &out) {
     REQUIRE(this->properlyInitialised(), "Initialise error");
     unsigned int counter = 1;
-    //TODO:: Runway naam erbij zetten
     out << "[" << counter << "] " << "[" << airplane->getCallsign() << "]" << std::endl;
 
     for(unsigned int x=0; x < airTrafficController->getAirport()->getRunways().size();x++){
         if(airTrafficController->getAirport()->getRunways()[x]->getAirplane() == airplane){
             out << "$ " << airTrafficController->getName() << ", " << NATOtranslator(airplane->getCallsign())
-                << " , runway " << airTrafficController->getAirport()->getRunways()[x]->getName() << "vacated." << std::endl;
+                << " , runway " << airTrafficController->getAirport()->getRunways()[x]->getName() << " vacated." << std::endl;
             break;
         }
     }
@@ -227,7 +248,8 @@ void Communication::ATC_Airplane_After_Landing_Comm(AirTrafficController *airTra
     counter++;
 
     out << "[" << counter << "] " << "[" << airTrafficController->getName() << "]" << std::endl;
-    out << " Proceed to an empty gate. " << std::endl;
+    out << "$ Proceed to an empty gate. " << std::endl;
+    out << "--------------------------------------------------------------------------" << std::endl;
 }
 
 void Communication::ATC_Airplane_At_Gate_Comm(AirTrafficController *airTrafficController, Airplane *airplane, std::ostream &out) {
@@ -241,20 +263,20 @@ void Communication::ATC_Airplane_At_Gate_Comm(AirTrafficController *airTrafficCo
 
     out << "[" << counter << "] " << "[" << airTrafficController->getName() << "]" << std::endl;
     out << "$ " << airplane->getCallsign() << ", " << airTrafficController->getName() << ", cleared to destination, "
-            "maintain five thousand, expect flight level one zero zero - ten minutes after departure, squawk."
+            "maintain five thousand, expect flight level one zero zero - ten minutes after departure."
                                                                               << std::endl;
 
     counter ++;
 
     out << "[" << counter << "] " << "[" << airplane->getCallsign() << "]" << std::endl;
-    out << "$ Cleared to destination, initial altitude five thousand, expecting one zero zero in ten, squawk, "
+    out << "$ Cleared to destination, initial altitude five thousand, expecting one zero zero in ten, "
         << airplane->getCallsign() << "." << std::endl;
+    out << "--------------------------------------------------------------------------" << std::endl;
 }
 
 void
 Communication::ATC_Airplane_At_Gate_After_IFR_Comm(AirTrafficController *airTrafficController, Airplane *airplane, std::ostream &out) {
     REQUIRE(this->properlyInitialised(), "Initialise error");
-
     unsigned int counter = 1;
     out << "[" << counter << "] " << "[" << airplane->getCallsign() << "]" << std::endl;
     for(unsigned int x = 0; x < airTrafficController->getAirport()->getGatesize(); x++){
@@ -273,6 +295,7 @@ Communication::ATC_Airplane_At_Gate_After_IFR_Comm(AirTrafficController *airTraf
 
     out << "[" << counter << "] " << "[" << airplane->getCallsign() << "]" << std::endl;
     out << "$ Pushback approved, " << airplane->getCallsign() << "." << std::endl;
+    out << "--------------------------------------------------------------------------" << std::endl;
 }
 
 void Communication::ATC_Airplane_Of_Gate_Comm(AirTrafficController *airTrafficController, Airplane *airplane, std::ostream &out) {
@@ -282,12 +305,13 @@ void Communication::ATC_Airplane_Of_Gate_Comm(AirTrafficController *airTrafficCo
     out << "$ " << airplane->getCallsign() << " is ready to taxi."<< std::endl;
     counter ++;
     out << "[" << counter << "] " << "[" << airTrafficController->getName() << "]" << std::endl;
-    out << "Proceed." << std::endl;
-
+    out << "$ Proceed to your runway." << std::endl;
+    out << "--------------------------------------------------------------------------" << std::endl;
 }
 
 void Communication::ATC_Airplane_Wait_At_Runway_Comm(AirTrafficController *airTrafficController, Airplane *airplane, std::ostream &out) {
     REQUIRE(this->properlyInitialised(), "Initialise error");
+
     unsigned int counter = 1;
     out << "[" << counter << "] " << "[" << airplane->getCallsign() << "]" << std::endl;
     out << "$ " << airTrafficController->getName() << ", " << airplane->getCallsign() << ", holding short." << std::endl;
@@ -301,6 +325,7 @@ void Communication::ATC_Airplane_Wait_At_Runway_Comm(AirTrafficController *airTr
 
     out << "[" << counter << "] " << "[" << airplane->getCallsign() << "]" << std::endl;
     out << "$ Holding position, " << airplane->getCallsign() << "." << std::endl;
+    out << "--------------------------------------------------------------------------" << std::endl;
 }
 
 void Communication::ATC_Airplane_Enter_Permission_Granted_Runway_Comm(AirTrafficController *airTrafficController,
@@ -318,9 +343,9 @@ void Communication::ATC_Airplane_Enter_Permission_Granted_Runway_Comm(AirTraffic
         if(airTrafficController->getAirport()->validRunwayForPlane(airplane,airTrafficController->getAirport()->getRunways()[x])){
             out << "$ " << airplane->getCallsign() << ", line-up runway " << airTrafficController->getAirport()->getRunways()[x]->getName()
                                                                          << " and wait." << std::endl;
-
+            break;
         }
-        break;
+
     }
     counter ++;
 
@@ -329,9 +354,10 @@ void Communication::ATC_Airplane_Enter_Permission_Granted_Runway_Comm(AirTraffic
         if(airTrafficController->getAirport()->validRunwayForPlane(airplane,airTrafficController->getAirport()->getRunways()[x])){
             out << "$ Lining up runway " << airTrafficController->getAirport()->getRunways()[x]->getName() << " and wait, "
                 << airplane->getCallsign() << "." << std::endl;
+            break;
         }
-        break;
     }
+    out << "--------------------------------------------------------------------------" << std::endl;
 }
 
 void
@@ -345,9 +371,8 @@ Communication::ATC_Airplane_Enter_TakeOff_Permission_Granted_Runway_Comm(AirTraf
             out << "$ " << airTrafficController->getName() << ", "  << airplane->getCallsign()
                 << ", holding short at " << airTrafficController->getAirport()->getRunways()[x]->getName() << "."
                 <<std::endl;
-
+            break;
         }
-    break;
     }
 
     counter++;
@@ -357,8 +382,8 @@ Communication::ATC_Airplane_Enter_TakeOff_Permission_Granted_Runway_Comm(AirTraf
         if(airTrafficController->getAirport()->getRunways()[x]->getAirplane() == airplane){
             out << "$ " << airplane->getCallsign() << ", runway " << airTrafficController->getAirport()->getRunways()[x]->getName()
                                                                   <<  " cleared to take-off" << std::endl;
+            break;
         }
-        break;
     }
 
     counter++;
@@ -366,11 +391,12 @@ Communication::ATC_Airplane_Enter_TakeOff_Permission_Granted_Runway_Comm(AirTraf
     out << "[" << counter << "] " << "[" << airplane->getCallsign() << "]" << std::endl;
     for(unsigned int x = 0; x < airTrafficController->getAirport()->getRunways().size(); x++){
         if(airTrafficController->getAirport()->getRunways()[x]->getAirplane() == airplane){
-            out << "$ Runway" << airTrafficController->getAirport()->getRunways()[x]->getName()
+            out << "$ Runway " << airTrafficController->getAirport()->getRunways()[x]->getName()
                 << " cleared for take-off, " << airplane->getCallsign() << "." << std::endl;
+            break;
         }
-        break;
     }
+    out << "--------------------------------------------------------------------------" << std::endl;
 }
 
 void Communication::ATC_Airplane_TakeOff_Permission_Granted_Runway_Comm(AirTrafficController *airTrafficController,
@@ -378,24 +404,25 @@ void Communication::ATC_Airplane_TakeOff_Permission_Granted_Runway_Comm(AirTraff
     REQUIRE(this->properlyInitialised(), "Initialise error");
     unsigned int counter = 1;
     out << "[" << counter << "] " << "[" << airTrafficController->getName() << "]" << std::endl;
-    for(unsigned int x = 0; x < airTrafficController->getAirport()->getRunways().size(); x++){
-        if(airTrafficController->getAirport()->getRunways()[x]->getAirplane() == airplane){
+    for(unsigned int x = 0; x < airTrafficController->getAirport()->getRunwayWait().size(); x++){
+        if(airTrafficController->getAirport()->getRunwayWait()[x] == airplane){
             out << airplane->getCallsign() << ", runway " << airTrafficController->getAirport()->getRunways()[x]->getName()
                                                           << " cleared for take-off." << std::endl;
+            break;
         }
-        break;
     }
 
     counter++;
 
     out << "[" << counter << "] " << "[" << airplane->getCallsign() << "]" << std::endl;
-    for(unsigned int x = 0; x < airTrafficController->getAirport()->getRunways().size(); x++){
-        if(airTrafficController->getAirport()->getRunways()[x]->getAirplane() == airplane){
+    for(unsigned int x = 0; x < airTrafficController->getAirport()->getRunwayWait().size(); x++){
+        if(airTrafficController->getAirport()->getRunwayWait()[x] == airplane){
             out << "$ Runway" << airTrafficController->getAirport()->getRunways()[x]->getName()
                 << " cleared for take-off, " << airplane->getCallsign() << "." << std::endl;
+            break;
         }
-        break;
     }
+    out << "--------------------------------------------------------------------------" << std::endl;
 }
 
 void
@@ -410,9 +437,10 @@ Communication::ATC_Airplane_More_Than_3000ft_Emergency(AirTrafficController *air
     counter++;
 
     out << "[" << counter << "] " << "[" << airTrafficController->getName() << "]" << std::endl;
-    //TODO: runway name erbij zetten
     out << "$ " << airplane->getCallsign() << ", roger mayday, squawk seven seven zero zero, cleared"
-            "ILS landing runway." << std::endl;
+            " ILS landing." << std::endl;
+    out << "--------------------------------------------------------------------------" << std::endl;
+
 }
 
 void
@@ -427,7 +455,8 @@ Communication::ATC_Airplane_Less_Than_3000ft_Emergency(AirTrafficController *air
     counter++;
 
     out << "[" << counter << "] " << "[" << airTrafficController->getName() << "]" << std::endl;
-    out << "$ " << airplane->getCallsign() << ", roger mayday, squawk seven seven zero zero, emergency"
+    out << "$ " << NATOtranslator(airplane->getCallsign()) << ", roger mayday, squawk seven seven zero zero, emergency"
             "personal on standby, good luck!" << std::endl;
+    out << "--------------------------------------------------------------------------" << std::endl;
 }
 

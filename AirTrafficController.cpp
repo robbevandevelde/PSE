@@ -14,6 +14,7 @@
 AirTrafficController::AirTrafficController(Airport *_airport, const std::string &_name) : _airport(_airport),
                                                                                           _name(_name) {
     _initcheck = this;
+    _comm = new Communication();
     ENSURE(properlyInitialised(), "Constructor must end");
     ENSURE(getAirport() == _airport && getName() == _name, "AirTraffic controller failure");
 }
@@ -36,9 +37,7 @@ bool AirTrafficController::landingprotocol(Airplane *airplane, std::ostream& out
     REQUIRE(this->properlyInitialised(), "AirTrafficController wasn't properly initialised when calling landingprotocol()");
     if(airplane->getHeight() == 10000){
         REQUIRE(airplane->getHeight() == 10000, "Airplane must be at 10000 ft");
-        out << airplane->getCallsign() << " is asking permission to land in " << _airport->getName() << std::endl;
-        out << "This is " << _name << " from " << _airport->getName() << " you have permission to descend to 5000 ft"
-                  << std::endl;
+        _comm->ATC_Airplane_10000ft_Comm(this, airplane, out);
         return  true;
     }
     else if(airplane->getHeight() == 5000){
@@ -72,7 +71,7 @@ bool AirTrafficController::landingprotocol(Airplane *airplane, std::ostream& out
         }
     }
     else if(airplane->getStatus() == JustLanded){
-        out << airplane->getCallsign() << " proceed to an empty gate as soon as possible" << std::endl;
+        _comm->ATC_Airplane_After_Landing_Comm(this, airplane, out);
         return true;
     }
     return false;
@@ -86,8 +85,7 @@ bool AirTrafficController::takeoffprotocol(Airplane *airplane, std::ostream& out
 {
     REQUIRE(this->properlyInitialised(), "AirTrafficController wasn't properly initialised when calling takeoffprotocol");
     if(airplane->getStatus() == StandingAtGate){
-        out << airplane->getCallsign() << " is asking permission to leave " << _airport->getName() << std::endl;
-        out << "This is " << _name << " you have permission to leave the gate" << std::endl;
+        _comm->ATC_Airplane_At_Gate_Comm(this, airplane, out);
         return true;
     } else if(airplane->getStatus() == Departure) {
 
@@ -113,12 +111,10 @@ bool AirTrafficController::emergencyprotocol(Airplane *airplane, std::ostream& o
     REQUIRE(this->properlyInitialised(), "AirTrafficController wasn't properly initialised when calling emergencyprotocol");
     if(airplane->getFuel() == 0){
         if(airplane->getHeight() >= 3000){
-            out << "We will make a free runway for you" << std::endl;
-            out << "--------------------------------------------------------------------------"<< std::endl;
+            _comm->ATC_Airplane_More_Than_3000ft_Emergency(this, airplane, out);
             return true;
         } else if(airplane->getHeight() < 3000){
-            out << "You will have to land outside of the airport, we are contacting an emergency line" << std::endl;
-            out << "--------------------------------------------------------------------------"<< std::endl;
+            _comm->ATC_Airplane_Less_Than_3000ft_Emergency(this, airplane,out);
             return false;
         }
     }
@@ -146,4 +142,39 @@ const string &AirTrafficController::getName()
     return _name;
 }
 
+void AirTrafficController::takeOffClearance(Airplane* airplane, std::ostream& out) {
+    REQUIRE(this->properlyInitialised(),
+            "AirtrafficController wasn't properly initialised when calling takeOffClearance");
+
+    _comm->ATC_Airplane_At_Gate_Comm(this, airplane, out);
+
+    vector<Runway *> validrunways;
+
+    bool checker = true;
+    for (unsigned int j = 0; j < _airport->getRunways().size(); j++) {
+        if (_airport->validRunwayForPlane(airplane, _airport->getRunways()[j])) {
+            validrunways.push_back(_airport->getRunways()[j]);
+        }
+    }
+    for (unsigned int l = 0; l < validrunways.size(); l++) {
+        if (!validrunways[l]->isGoingToBeUsed()) {
+            for (unsigned int k = 0; k < _airport->getRunways().size(); k++) {
+                if (_airport->getRunways()[k] == validrunways[l]) {
+
+                    _comm->ATC_Airplane_At_Gate_After_IFR_Comm(this, airplane, out);
+
+                    _airport->taxiToRunway(airplane);
+                    checker = false;
+                    break;
+                }
+            }
+            break;
+        }
+    }
+    if (checker) {
+        _comm->ATC_Airplane_Enter_Permission_Granted_Runway_Comm(this, airplane, out);
+
+        _airport->collisionSolverRunwayStart(airplane, out);
+    }
+}
 
