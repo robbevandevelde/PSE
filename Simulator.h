@@ -12,6 +12,8 @@
 #include "Airplane.h"
 #include "Airport.h"
 #include "DesignByContract.h"
+#include "Communication.h"
+
 class Simulator {
 private:
     Simulator* _initcheck;

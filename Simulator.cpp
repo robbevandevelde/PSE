@@ -47,10 +47,7 @@ void Simulator::addRunways()
  *@param geen
  *@return geen
  */
-/** TODO: Checken of dat vliegtuig op juiste landingsbaan kan landen
- *
- * @param out
- */
+
 void Simulator::Simulate(std::ostream &out)
 {
     REQUIRE(this->properlyInitialised(), "Simulator wasn't properly initialised when calling Simulate()");

@@ -6,13 +6,15 @@
 #include "Airplane.h"
 #include "Airport.h"
 #include "Runway.h"
+#include "Communication.h"
 
 /*Constructor van airtrafficcontroller
  *@param airport airport, string name
  *@return niks
  */
 AirTrafficController::AirTrafficController(Airport *_airport, const std::string &_name) : _airport(_airport),
-                                                                                          _name(_name) {
+                                                                                          _name(_name)
+{
     _initcheck = this;
     _comm = new Communication();
     ENSURE(properlyInitialised(), "Constructor must end");
@@ -147,8 +149,7 @@ const string &AirTrafficController::getName()
  * @return none
  */
 void AirTrafficController::takeOffClearance(Airplane* airplane, std::ostream& out) {
-    REQUIRE(this->properlyInitialised(),
-            "AirtrafficController wasn't properly initialised when calling takeOffClearance");
+    REQUIRE(this->properlyInitialised(), "AirtrafficController wasn't properly initialised when calling takeOffClearance");
 
     _comm->ATC_Airplane_At_Gate_Comm(this, airplane, out);
 

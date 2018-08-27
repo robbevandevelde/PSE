@@ -13,10 +13,10 @@
 #include <iostream>
 #include "Airplane.h"
 #include "AirTrafficController.h"
-#include "Communication.h"
 
 class Gate;
 class Runway;
+class Communication;
 
 class DesignByContract;
 
@@ -44,9 +44,9 @@ private:
 public:
     Communication* _comm;
     //    ENSURE(properlyInitialised(), "Constructor must end");
-    //    ENSURE(_gates.size() == _gatesize, "Gates has to be initialised correctly");
-    //    ENSURE(_waitpoint1 == NULL && _waitpoint2 == NULL && _controller == NULL, "Values must point to NULL");
-    //    ENSURE(_amountRunways == 0, "Amount of runways must be zero");
+    //    ENSURE(getGates().size() == _gatesize, "Gates has to be initialised correctly");
+    //    ENSURE(getWaitpoint1() == NULL && getWaitpoint2() == NULL && _controller == NULL, "Values must point to NULL");
+    //    ENSURE(getRunways().size() == 0, "Amount of runways must be zero");
     //    ENSURE(getGatesize() == gatesize && getName() == name && getIata() == iata && getCallsign() == callsign, "Constructor failure");
     Airport(unsigned int _gatesize, const std::string &_name, const std::string &_iata,
             const std::string &_callsign);
@@ -55,7 +55,6 @@ public:
     bool properlyInitialised();
 
     //    REQUIRE(this->properlyInitialised(),"Airport wasn't properly initialised when calling gateprotocol()");
-    //    REQUIRE(airplane->getStatus() == JustLanded || airplane->getStatus() == StandingAtGate, "Failure");
     //    REQUIRE(airplane->getHeight() == 0 , "Airplane must be on the ground");
     //    3 post condities:
     //    Post conditie 1:
@@ -73,7 +72,7 @@ public:
     void taxiToRunway(Airplane *airplane);
     //    REQUIRE(this->properlyInitialised(),"Airport wasn't properly initialised when calling addAirplaneToGate()");
     //    REQUIRE(airplane->getStatus() == JustLanded, "Airplane has to be standing at the runway in order to taxi");
-    //    REQUIRE(_gates.size() == _gatesize, "Amount of gates don't match with the given amount of gates");
+    //    REQUIRE(getGates().size() == _gatesize, "Amount of gates don't match with the given amount of gates");
     //    ENSURE(isAirplaneInGate(airplane), "Airplane in gate doesn't match added airplane");
     void addAirplaneToGate(Airplane* airplane, std::ostream& out = std::cout);
     //    REQUIRE(this->properlyInitialised(),"Airport wasn't initialised when calling addAirplaneToRunway");
@@ -162,58 +161,51 @@ public:
     //    REQUIRE(this->properlyInitialised(), "Airport wasn't properly initialised when calling emergencyControle()");
     //    REQUIRE(airplane->getStatus() == EmergencyControle1, "Not valid status for airplane status");
     //    REQUIRE(airplane->getHeight() == 0, "Airplane must be on ground");
-    //    ENSURE(airplane->getStatus() == EmergencyControle2, "Aiplane status failure");
-    //    ENSURE(airplane->getStatus() == JustLanded, "Aiplane status failure");
-    //    ENSURE(this->isAirplaneInGate(airplane),"Airplane to gate failure");
-
     void emergencyControle(Airplane* airplane, std::ostream& out);
 
     //    REQUIRE(this->properlyInitialised(), "Airport wasn't properly initialised when calling validRunwayForPlane()");
     bool validRunwayForPlane(Airplane* airplane, Runway* runway);
-
-    //    REQUIRE(this->properlyInitialised(), "Airport wasn't properly initialised when calling validRunwayForPlane()");
+    //    REQUIRE(this->properlyInitialised(), "Airport wasn't properly initialised when calling isAirplaneInWaitPoint()");
     bool isAirplaneInWaitPoint(Airplane* airplane);
-
-    //    REQUIRE(this->properlyInitialised(), "Airport wasn't properly initialised when calling validRunwayForPlane()");
+    //    REQUIRE(this->properlyInitialised(), "Airport wasn't properly initialised when calling collisionSolverAirStart()");
+    //    ENSURE(getWaitpoint2() == airplane || getWaitpoint1() == airplane || airplane->getHeight() == 10000, "Collisionsolver failure");
     void collisionSolverAirStart(Airplane *airplane,std::ostream &out);
-
-    //    REQUIRE(this->properlyInitialised(), "Airport wasn't properly initialised when calling validRunwayForPlane()");
+    //    REQUIRE(this->properlyInitialised(), "Airport wasn't properly initialised when calling collisionSolverAirEnd()");
+    //    ENSURE(airplane->getStatus() == Approaching || airplane->getStatus() == FinalApproach, "Collisionsolver failure");
     void collisionSolverAirEnd(Airplane *airplane, std::ostream &out);
-
-    //    REQUIRE(this->properlyInitialised(), "Airport wasn't properly initialised when calling validRunwayForPlane()");
+    //    REQUIRE(this->properlyInitialised(), "Airport wasn't properly initialised when calling collisionSolverRunwayStart()");
+    //    ENSURE(airplane->getStatus() == WaitingAtRunway, "Collisionsolver failure");
     void collisionSolverRunwayStart(Airplane *airplane,std::ostream &out);
-
-    //    REQUIRE(this->properlyInitialised(), "Airport wasn't properly initialised when calling validRunwayForPlane()");
+    //    REQUIRE(this->properlyInitialised(), "Airport wasn't properly initialised when calling collisionSolverRunwayEnd()");
+    //    ENSURE(isAirplaneInRunway(airplane),"Collisionsolver failure");
+    //    ENSURE(isAirplaneInRunwayWait(airplane), "Collisionsolver failure");
     void collissionSolverRunwayEnd(Airplane *airplane);
-
-    //    REQUIRE(airplane->getStatus() == Approaching || airplane->getStatus() == FinalApproach,
-    //            "Aircontrole failure, aircraft isn't in the air");
-    //    REQUIRE(this->properlyInitialised(), "Airport wasn't properly initialised when calling validRunwayForPlane()");
+    //    REQUIRE(this->properlyInitialised(), "Airport wasn't properly initialised when calling landingSequence()");
+    //    REQUIRE(airplane->getStatus() == Approaching || airplane->getStatus() == FinalApproach,"Aircontrole failure, aircraft isn't in the air");
     void landingSequence(Airplane *airplane, std::ostream &out);
-
+    //    REQUIRE(this->properlyInitialised(), "Airport wasn't properly initialised when calling completeGateProtocol()");
     //    REQUIRE(airplane->getStatus() == JustLanded || airplane->getStatus() == StandingAtGate, "Complete Gate protocol failure");
     //    REQUIRE(airplane->getHeight() == 0, "GateProtocol failure");
-    //    REQUIRE(this->properlyInitialised(), "Airport wasn't properly initialised when calling validRunwayForPlane()");
     void completeGateProtocol(Airplane* airplane, std::ostream & out);
-
-    //    REQUIRE(this->properlyInitialised(), "Airport wasn't properly initialised when calling validRunwayForPlane()");
+    //    REQUIRE(this->properlyInitialised(), "Airport wasn't properly initialised when calling takeOffSequence()");
     //    REQUIRE(airplane->getStatus() == Departure, "Departure failure");
-    //    REQUIRE(this->properlyInitialised(), "Airport wasn't properly initialised when calling validRunwayForPlane()");
+    //    REQUIRE(isAirplaneInRunway(airplane), "Airplane isn't on a runway");
+    //    ENSURE(!isAirplaneInRunway(airplane), "Take off failure");
+    //    ENSURE(airplane->getStatus() == InTheAir, "Take off failure");
     void takeOffSequence(Airplane* airplane, std::ostream &out);
-
-    //    REQUIRE(this->properlyInitialised(), "Airport wasn't properly initialised when calling validRunwayForPlane()");
+    //    REQUIRE(this->properlyInitialised(), "Airport wasn't properly initialised");
+    //    REQUIRE(airplane->getFuel() == 0, "Fuel isn't empty");
+    //    ENSURE(airplane->getStatus() == EmergencyLandingOutside, "Emergencylanding outside failure");
+    //    ENSURE(isAirplaneInRunway(airplane), "Emergency landing failure");
     void emergencySequence(Airplane* airplane, std::ostream& out);
 
-    //    REQUIRE(this->properlyInitialised(), "Airport wasn't properly initialised when calling validRunwayForPlane()");
+    //    REQUIRE(this->properlyInitialised(), "Not properly initialised");
     vector<Gate *> &getGates();
-
-    //    REQUIRE(this->properlyInitialised(), "Airport wasn't properly initialised when calling validRunwayForPlane()");
+    //    REQUIRE(this->properlyInitialised(), "Not properly initialised");
     bool isAirplaneRemovedFromGate(Airplane* airplane);
-
-    //    REQUIRE(this->properlyInitialised(), "Airport wasn't properly initialised when calling validRunwayForPlane()");
+    //    REQUIRE(this->properlyInitialised(), "Not properly initialised");
     bool isAirplaneRemovedFromRunway(Airplane* airplane);
-
-    //    REQUIRE(this->properlyInitialised(), "Airport wasn't properly initialised when calling validRunwayForPlane()");
+    //    REQUIRE(this->properlyInitialised(), "Airport wasn't properly initialised");
     const vector<Airplane *> &getRunwayWait();
 };
 #endif //PSE_AIRPORT_H

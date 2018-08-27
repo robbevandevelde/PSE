@@ -41,7 +41,7 @@ public:
     Airport *getAirport();
     //    REQUIRE(this->properlyInitialised(), "AirtrafficController wasn't properly initialised when calling getName");
     const std::string &getName();
-
+    //    REQUIRE(this->properlyInitialised(), "AirtrafficController wasn't properly initialised when calling takeOffClearance");
     void takeOffClearance(Airplane* airplane, std::ostream& out);
 
 };

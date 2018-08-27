@@ -19,7 +19,7 @@ class Gate {
     bool _occupied;
 public:
     //    ENSURE(properlyInitialised(), "Constructor must end");
-    //    ENSURE(_airplane == NULL, "Airplane must point to nullptr");
+    //    ENSURE(getAirplane() == NULL, "Airplane must point to nullptr");
     //    ENSURE(getName() == _name, "Gate constructor failure");
     Gate(unsigned int _name);
     //    Geen pre of post condities
@@ -33,13 +33,12 @@ public:
 
     //    REQUIRE(this->properlyInitialised(),"Gate wasn't properly initialised when calling removeAirplane()");
     //    ENSURE(getAirplane() == NULL, "Airplane must point to NULL");
-    //    ENSURE(!_occupied, "Occupied must be false");
+    //    ENSURE(!isOccupied(), "Occupied must be false");
     void removeAirplane();
-    //    REQUIRE(_airplane != NULL, "Airplane cannot be NULL");
-    //    REQUIRE(airplane != NULL, "Airplane cannot be nothing");
+    //    REQUIRE(getAirplane() != NULL, "Airplane cannot be NULL");
     //    REQUIRE(this->properlyInitialised(), "Gate wasn't properly initialised when calling addAirplane()");
     //    ENSURE(getAirplane() == airplane, "addAirplane() failure");
-    //    ENSURE(_occupied, "Occupied must be true");
+    //    ENSURE(isOccupied(), "Occupied must be true");
     void addAirplane(Airplane * airplane);
 };
 

@@ -1,6 +1,3 @@
-//
-// Created by uauser on 4/23/18.
-//
 
 #include "Gate.h"
 
@@ -14,7 +11,7 @@ Gate::Gate(unsigned int _name) : _name(_name)
     _occupied = false;
     _airplane = NULL;
     ENSURE(properlyInitialised(), "Constructor must end");
-    ENSURE(_airplane == NULL, "Airplane must point to nullptr");
+    ENSURE(getAirplane() == NULL, "Airplane must point to nullptr");
     ENSURE(getName() == _name, "Gate constructor failure");
 }
 
@@ -38,7 +35,7 @@ void Gate::addAirplane(Airplane *airplane)
     _airplane = airplane;
     _occupied = true;
     ENSURE(getAirplane() == airplane, "addAirplane() failure");
-    ENSURE(_occupied, "Occupied must be true");
+    ENSURE(isOccupied(), "Occupied must be true");
 }
 
 /*Removed een airplane van de gate
@@ -47,12 +44,12 @@ void Gate::addAirplane(Airplane *airplane)
  */
 void Gate::removeAirplane()
 {
-    REQUIRE(_airplane != NULL, "Airplane cannot be NULL");
+    REQUIRE(getAirplane() != NULL, "Airplane cannot be NULL");
     REQUIRE(this->properlyInitialised(),"Gate wasn't properly initialised when calling removeAirplane()");
     _airplane = NULL;
     _occupied = false;
     ENSURE(getAirplane() == NULL, "Airplane must point to NULL");
-    ENSURE(!_occupied, "Occupied must be false");
+    ENSURE(!isOccupied(), "Occupied must be false");
 }
 
 /*return de status van de gate

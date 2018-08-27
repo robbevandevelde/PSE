@@ -19,8 +19,8 @@ Runway::Runway(unsigned int _length, const std::string &_name, unsigned int _typ
     _airplane = NULL;
     _goingtobeusedby = NULL;
     ENSURE(properlyInitialised(), "Constructor must end");
-    ENSURE(!_status && !_goingtobeused, "Status must be false after initialising");
-    ENSURE(_airplane == NULL, "Airplane must point to a nullptr after initialising");
+    ENSURE(!isStatus() && !isGoingToBeUsed(), "Status must be false after initialising");
+    ENSURE(getAirplane() == NULL, "Airplane must point to a nullptr after initialising");
 }
 
 /*initcheck
@@ -39,16 +39,16 @@ bool Runway::properlyInitialised()
 void Runway::addAirplane(Airplane *airplane)
 {
     REQUIRE(this->properlyInitialised(), "Runway wasn't properly initialised when calling addAirplane()");
-    REQUIRE(!_status, "Status must be false");
-    REQUIRE(_airplane == NULL, "Airplane must point to a nullptr");
-    REQUIRE(_goingtobeusedby == airplane, "Airplanes don't match");
+    REQUIRE(!isStatus(), "Status must be false");
+    REQUIRE(getAirplane() == NULL, "Airplane must point to a nullptr");
+    REQUIRE(getGoingtobeusedby()== airplane, "Airplanes don't match");
     _airplane = airplane;
     _status = true;
     _goingtobeused = true;
-    ENSURE(_airplane->getHeight() == 0, "Added airplane's height isn't set to 0");
+    ENSURE(getAirplane()->getHeight() == 0, "Added airplane's height isn't set to 0");
     ENSURE(getAirplane() == airplane, "Added airplane doesn't match airplane");
     ENSURE(getAirplane() == airplane, "Airplane must point to the given airplane");
-    ENSURE(_status,"Status must be true after adding an airplane");
+    ENSURE(isStatus(),"Status must be true after adding an airplane");
 }
 
 /*remove een airplane van de runway
@@ -58,24 +58,24 @@ void Runway::addAirplane(Airplane *airplane)
 void Runway::removeAirplane()
 {
     REQUIRE(this->properlyInitialised(), "Runway wasn't properly initialised when calling removeAirplane()");
-    REQUIRE(_airplane != NULL, "Airplane must point to an airplane and not a nullptr");
-    REQUIRE(_status, "Status must be true because the space is occupied");
+    REQUIRE(getAirplane() != NULL, "Airplane must point to an airplane and not a nullptr");
+    REQUIRE(isStatus(), "Status must be true because the space is occupied");
 
     _airplane = NULL;
     _status = false;
     _goingtobeused = false;
     _goingtobeusedby = NULL;
 
-    ENSURE(!_goingtobeused, " remove airplane failure");
-    ENSURE(_airplane == NULL && _goingtobeusedby == NULL, "Airplane must point to a nullptr after removing a plane");
-    ENSURE(!_status,"Status must be false after removing a plane");
+    ENSURE(!isGoingToBeUsed(), " remove airplane failure");
+    ENSURE(getAirplane() == NULL && getGoingtobeusedby() == NULL, "Airplane must point to a nullptr after removing a plane");
+    ENSURE(!isStatus(),"Status must be false after removing a plane");
 }
 
 /*get de name
  *@param geen
  *@return string name
  */
-const std::string &Runway::getName()
+std::string &Runway::getName()
 {
     REQUIRE(this->properlyInitialised(), "Runway wasn't properly initialised when calling getName()");
     return _name;
@@ -118,7 +118,7 @@ void Runway::setType(unsigned int _type)
  *@param geen
  *@return string airport
  */
-const std::string &Runway::getAirport()
+std::string &Runway::getAirport()
 {
     REQUIRE(this->properlyInitialised(), "Runway wasn't properly initialised when calling getAirport()");
     return _airport;
@@ -204,9 +204,9 @@ void Runway::setStatus(bool _status)
 void Runway::setUsedStatus()
 {
     REQUIRE(this->properlyInitialised(), "Gate wasn't properly initialised when calling setUsedStatus()");
-    REQUIRE(!_goingtobeused, "setUsedSatus() failure");
+    REQUIRE(!isGoingToBeUsed(), "setUsedSatus() failure");
     _goingtobeused = true;
-    ENSURE(_goingtobeused, "setUsedStatus() failure");
+    ENSURE(isGoingToBeUsed(), "setUsedStatus() failure");
 }
 
 /*Removed de gointobeused status
@@ -217,7 +217,7 @@ void Runway::removeUsedStatus()
 {
     REQUIRE(this->properlyInitialised(), "Gate wasn't properly initialised when calling removeUsedStatus()");
     _goingtobeused = false;
-    ENSURE(!_goingtobeused, "removeUsedStatus() failure");
+    ENSURE(!isGoingToBeUsed(), "removeUsedStatus() failure");
 }
 
 /*Checkt of dat de runway gebruikt gaat worden
@@ -248,5 +248,10 @@ void Runway::setGoingtobeusedby(Airplane *_goingtobeusedby)
 {
     REQUIRE(this->properlyInitialised(), "Gate wasn't properly initialised when calling setGoingtobeusedby");
     Runway::_goingtobeusedby = _goingtobeusedby;
-    ENSURE(this->getGoingtobeusedby() == _goingtobeusedby, "setGoingtobeusedby() failure");
+    ENSURE(getGoingtobeusedby() == _goingtobeusedby, "setGoingtobeusedby() failure");
+}
+
+bool Runway::isStatus()  {
+    REQUIRE(this->properlyInitialised(), "Gate wasn't properly initialised when calling isStatus()");
+    return _status;
 }
