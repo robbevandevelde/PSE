@@ -114,7 +114,6 @@ void LuchthavenParser::parseItems(const char* file) {
         else{
             setSuccessEnum(PartialImport);
         }
-        REQUIRE(doc.Error() == false, "an error as occured while parsing");
     }
 
 }
