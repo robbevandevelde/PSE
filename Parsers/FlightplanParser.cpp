@@ -6,10 +6,13 @@
 
 string FlightplanParser::readElement(TiXmlElement *elem, const char *tag)
 {
-    REQUIRE(this->properlyInitialised(), "FlightplanParser wasn't properly initialised when calling readElement");
+    REQUIRE(this->properlyInitialised(), "FlightplanParser wasn't properly initialised when calling readElement()");
     TiXmlElement* e = elem->FirstChildElement(tag);
+    REQUIRE(e != NULL, "Please check if the tags in flightplan are either: destination, departure, arrival or interval.");
     TiXmlNode* node = e->FirstChild();
+    REQUIRE(node != NULL, "An item in flightplan is none, cannot parse further");
     TiXmlText* text = node->ToText();
+    ENSURE(text != NULL, "the element cannot be none");
     return text->Value();
 }
 

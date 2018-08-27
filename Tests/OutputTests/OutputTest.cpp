@@ -120,7 +120,7 @@ TEST_F(OutputTest, simulatieTest)
     testParser->setSuccessEnum(yes);
     ASSERT_TRUE(APU->FileExists("testInput/Input03.xml"));
     testParser->loadFile("testInput/Input03.xml");
-    testParser->parseItems(testParser->getRoot());
+    testParser->parseItems("testInput/Input03.xml");
     EXPECT_TRUE(testParser->getSuccessEnum() == Success);
     vector<Runway*> runwaysVect = testParser->getRunways();
     vector<Airport*> airportsVect = testParser->getAirports();
