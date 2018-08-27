@@ -3,7 +3,11 @@
 //
 
 #include "AirportParser.h"
-
+/*
+ * reads element
+ * @param, xml element and tag
+ * @return string of value
+ */
 string AirportParser::readElement(TiXmlElement *elem, const char *tag)
 {
     REQUIRE(this->properlyInitialised(), "AirportParser wasn't properly initialised when calling readElement()");
@@ -15,19 +19,27 @@ string AirportParser::readElement(TiXmlElement *elem, const char *tag)
     ENSURE(text != NULL, "the element cannot be none");
     return text->Value();
 }
-
+/*
+ * constructor
+ */
 AirportParser::AirportParser()
 {
     initCheck = this;
     ENSURE(properlyInitialised(), "Constructor must end");
 }
-
+/*
+ * destructor
+ */
 AirportParser::~AirportParser()
 {
     ENSURE(properlyInitialised(), "Destructor must end");
 
 }
-
+/*
+ * parses al the elements
+ * @param XML element
+ * @return airport
+ */
 Airport *AirportParser::parseAirport(TiXmlElement *elem)
 {
     REQUIRE(this->properlyInitialised(), "AirportParser wasn't properly initialised when calling parseAirport()");
@@ -47,7 +59,11 @@ Airport *AirportParser::parseAirport(TiXmlElement *elem)
     ENSURE(airport->getCallsign() == Callsign, "Callsign not equal");
     return airport;
 }
-
+/*
+ * returns the airport
+ * @param none
+ * @return airport
+ */
 Airport *AirportParser::getAirport()
 {
     REQUIRE(this->properlyInitialised(), "AirportParser wasn't properly initialised when calling getAirport()");

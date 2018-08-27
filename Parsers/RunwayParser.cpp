@@ -3,7 +3,11 @@
 //
 
 #include "RunwayParser.h"
-
+/*
+ * reads element
+ * @param, xml element and tag
+ * @return string of value
+ */
 string RunwayParser::readElement(TiXmlElement *elem, const char *tag)
 {
     REQUIRE(this->properlyInitialised(), "RunwayParser wasn't properly initialised when calling readElement()");
@@ -15,19 +19,27 @@ string RunwayParser::readElement(TiXmlElement *elem, const char *tag)
     ENSURE(text != NULL, "the element cannot be none");
     return text->Value();
 }
-
+/*
+ * constructor
+ */
 RunwayParser::RunwayParser()
 {
     initCheck = this;
     ENSURE(properlyInitialised(), "Constructor must end");
 
 }
-
+/*
+ * destructor
+ */
 RunwayParser::~RunwayParser()
 {
 
 }
-
+/*
+ * parses al the elements
+ * @param XML element
+ * @return runway
+ */
 Runway *RunwayParser::parseRunway(TiXmlElement *elem)
 {
     REQUIRE(this->properlyInitialised(), "RunwayParse wasn't properly initialised when calling parseRunway()");
@@ -45,7 +57,11 @@ Runway *RunwayParser::parseRunway(TiXmlElement *elem)
     ENSURE(runway->getType() == rwTypeCheck(Type), "Type is not equal");
     ENSURE(runway->getAirport() == Airport, "Airport is not equal");
     return runway;}
-
+/*
+ * returns runway
+ * @param none
+ * @return runway
+ */
 Runway *RunwayParser::getRunway()
 {
     REQUIRE(this->properlyInitialised(), "RunwayParse wasn't properly initialised when calling readElement()");
@@ -56,7 +72,11 @@ bool RunwayParser::properlyInitialised()
 {
     return initCheck == this;
 }
-
+/*
+ * gives strings the right enum
+ * @param the string
+ * @return enum
+ */
 unsigned int RunwayParser::rwTypeCheck(string rw)
 {
     REQUIRE(this->properlyInitialised(), "RunwayParse wasn't properly initialised when calling readElement()");

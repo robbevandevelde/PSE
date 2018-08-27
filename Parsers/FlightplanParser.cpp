@@ -3,7 +3,11 @@
 //
 
 #include "FlightplanParser.h"
-
+/*
+ * reads element
+ * @param, xml element and tag
+ * @return string of value
+ */
 string FlightplanParser::readElement(TiXmlElement *elem, const char *tag)
 {
     REQUIRE(this->properlyInitialised(), "FlightplanParser wasn't properly initialised when calling readElement()");
@@ -15,19 +19,27 @@ string FlightplanParser::readElement(TiXmlElement *elem, const char *tag)
     ENSURE(text != NULL, "the element cannot be none");
     return text->Value();
 }
-
+/*
+ * constructor
+ */
 FlightplanParser::FlightplanParser()
 {
     initCheck=this;
     ENSURE(properlyInitialised(), "FlightplanParser wasn't properly initialised when calling constructor");
 }
-
+/*
+ * destructor
+ */
 FlightplanParser::~FlightplanParser()
 {
     ENSURE(properlyInitialised(), "FlightplanParser wasn't properly initialised when calling destructor");
 
 }
-
+/*
+ * parses al the elements
+ * @param XML element
+ * @return flightplane
+ */
 Flightplan *FlightplanParser::parseFlightplan(TiXmlElement *elem)
 {
     REQUIRE(this->properlyInitialised(), "FlightplanParser wasn't properly initialised when calling parseFlightplan");
@@ -47,7 +59,11 @@ Flightplan *FlightplanParser::parseFlightplan(TiXmlElement *elem)
     return flightplan;
 
 }
-
+/*
+ * returns the flightplane
+ * @param none
+ * @return flightplan
+ */
 Flightplan *FlightplanParser::getFlightplan()
 {
     REQUIRE(this->properlyInitialised(), "FlightplanParser wasn't properly initialised when calling parseFlightplan");

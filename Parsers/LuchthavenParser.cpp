@@ -4,28 +4,39 @@
 
 #include "LuchthavenParser.h"
 
-//Return vector runways
+/*
+ * returns runways vect
+ * @param none
+ * @return reunways vector
+ */
 vector<Runway *> LuchthavenParser::getRunways()
 {
     REQUIRE(this->properlyInitialised(), "Parser wasn't properly initialised when calling getRunways");
     return runways;
 }
 
-//REturn vector airplanes
-vector<Airplane *> LuchthavenParser::getAirplanes()
+/*
+ * returns airplanes vect
+ * @param none
+ * @returnairplanes vector
+ */vector<Airplane *> LuchthavenParser::getAirplanes()
 {
     REQUIRE(this->properlyInitialised(), "Parser wasn't properly initialised when calling getAirplanes");
     return airplanes;
 }
-
-//Return vector airports
+/*
+ * returns airports vect
+ * @param none
+ * @return vector of airports
+ */
 vector<Airport *> LuchthavenParser::getAirports()
 {
     REQUIRE(this->properlyInitialised(), "Parser wasn't properly initialised when calling getAirports");
     return airports;
 }
-
-//Default constructor
+/*
+ * constructs parser
+ */
 LuchthavenParser::LuchthavenParser()
 {
     runways = vector<Runway*>();
@@ -35,7 +46,9 @@ LuchthavenParser::LuchthavenParser()
     ENSURE(properlyInitialised(), "Constructor must end");
 }
 
-//Default destructor
+/*
+ * destructs parser
+ */
 LuchthavenParser::~LuchthavenParser()
 {
     ENSURE(properlyInitialised(), "Destructor must end");
@@ -60,7 +73,7 @@ void LuchthavenParser::isRunAirEqual(vector<Runway*> runwaysVect, vector<Airport
 }
 
 /*Kijkt eerst na of dat datatype runway of airplane is en gebruikt dan de juiste parser van de hulpparsers om het te parsen
- *@param eerste element van xml file
+ *@param file naam
  *@return niks void functie
  */
 void LuchthavenParser::parseItems(const char* file) {
@@ -176,7 +189,9 @@ void LuchthavenParser::writeToFile(vector<Runway *> runwaysVect, vector<Airport 
 
 }
 /*
- * loads the given file
+ * loads the given file, requires right syntax
+ * @param filename
+ * @return bool
  */
 bool LuchthavenParser::loadFile(string filename)
 {

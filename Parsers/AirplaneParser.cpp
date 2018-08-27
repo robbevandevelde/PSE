@@ -5,7 +5,11 @@
 #include <iostream>
 #include "AirplaneParser.h"
 #include "FlightplanParser.h"
-
+/*
+ * reads element
+ * @param, xml element and tag
+ * @return string of value
+ */
 string AirplaneParser::readElement(TiXmlElement *elem, const char *tag)
 {
     REQUIRE(this->properlyInitialised(), "AirplaneParser wasn't properly initialised when calling readElement()");
@@ -17,19 +21,27 @@ string AirplaneParser::readElement(TiXmlElement *elem, const char *tag)
     ENSURE(text != NULL, "the element cannot be none");
     return text->Value();
 }
-
+/*
+ * constructor
+ */
 AirplaneParser::AirplaneParser()
 {
     initCheck = this;
     ENSURE(properlyInitialised(), "Constructor must end");
 }
-
+/*
+ * destructor
+ */
 AirplaneParser::~AirplaneParser()
 {
     ENSURE(properlyInitialised(), "Constructor must end");
 
 }
-
+/*
+ * parses all the elements
+ * @param XML element
+ * @return Airplane
+ */
 Airplane *AirplaneParser::parseAirplane(TiXmlElement *elem)
 {
     REQUIRE(this->properlyInitialised(), "airplaneParser wasn't properly initialised when calling parseAirplane()");
@@ -72,13 +84,21 @@ Airplane *AirplaneParser::parseAirplane(TiXmlElement *elem)
     ENSURE( airplane->getFlightplan() == fp, "Flightplan not equal");
 
     return airplane;}
-
+/*
+ * returns airplane
+ * @param none
+ * @return airplane
+ */
 Airplane *AirplaneParser::getAirplane()
 {
     REQUIRE(this->properlyInitialised(), "airplaneParser wasn't properly initialised when calling readElement()");
     return airplane;
 }
-
+/*
+ * gives strings the right enum
+ * @param the string
+ * @return enum
+ */
 unsigned int AirplaneParser::Statuscheck(string St)
 {
     REQUIRE(this->properlyInitialised(), "airplaneParser wasn't properly initialised when calling readElement()");
@@ -122,7 +142,11 @@ bool AirplaneParser::properlyInitialised()
 {
     return initCheck == this;
 }
-
+/*
+ * gives strings the right enum
+ * @param the string
+ * @return enum
+ */
 unsigned int AirplaneParser::Enginecheck(string En)
 {
     REQUIRE(this->properlyInitialised(), "airplaneParser wasn't properly initialised when calling readElement()");
@@ -135,7 +159,11 @@ unsigned int AirplaneParser::Enginecheck(string En)
     return  -1;
 
 }
-
+/*
+ * gives strings the right enum
+ * @param the string
+ * @return enum
+ */
 unsigned int AirplaneParser::Typecheck(string Ty)
 {
     REQUIRE(this->properlyInitialised(), "airplaneParser wasn't properly initialised when calling readElement()");
@@ -153,7 +181,11 @@ unsigned int AirplaneParser::Typecheck(string Ty)
     }
     return -1;
 }
-
+/*
+ * gives strings the right enum
+ * @param the string
+ * @return enum
+ */
 unsigned int AirplaneParser::Sizecheck(string Si)
 {
     REQUIRE(this->properlyInitialised(), "airplaneParser wasn't properly initialised when calling readElement()");
