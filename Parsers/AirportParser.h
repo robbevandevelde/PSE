@@ -14,6 +14,10 @@ class AirportParser{
 private:
     AirportParser* initCheck;
     //    REQUIRE(this->properlyInitialised(), "AirportParser wasn't properly initialised when calling readElement()");
+    //    REQUIRE(e != NULL, "Please check if the tags in airport are either: iata, name, callsign or gates.");
+    //    REQUIRE(node != NULL, "An item in airport is none, cannot parse further");
+    //    ENSURE(text != NULL, "the element cannot be none");
+
     string readElement(TiXmlElement* elem, const char* tag);
     Airport* airport;
 public:

@@ -72,6 +72,7 @@ void LuchthavenParser::parseItems(const char* file) {
         cerr << doc.ErrorDesc() << endl;
     }
     string elemName = root->Value();
+    REQUIRE(elemName == "SIMULATIE", "The simulation could not start");
     if (elemName == "SIMULATIE") {
         for (TiXmlElement *e = root->FirstChildElement(); e != NULL; e = e->NextSiblingElement()) {
             string elemName = e->Value();
@@ -82,14 +83,13 @@ void LuchthavenParser::parseItems(const char* file) {
                 AirportParser apop;
                 Airport *apo = apop.parseAirport(e);
                 airports.push_back(apo);
-                successEnum = Success;
             }
             if (elemName == "RUNWAY") {
                 RunwayParser rwp;
                 Runway *rw = rwp.parseRunway(e);
                 bool hasAirport = false;
                 for(unsigned int i= 0; i < airports.size();i++){
-                    if(airports[i]->getName() == rw->getAirport()){
+                    if(airports[i]->getIata() == rw->getAirport()){
                         hasAirport = true;
                     }
                 }
@@ -97,13 +97,11 @@ void LuchthavenParser::parseItems(const char* file) {
                     cerr<< "There was no existing Airport assigned to that runway"<<endl;
                 }
                 runways.push_back(rw);
-                successEnum = Success;
             }
             if (elemName == "AIRPLANE") {
                 AirplaneParser aplp;
                 Airplane *apl = aplp.parseAirplane(e);
                 airplanes.push_back(apl);
-                successEnum = Success;
             }
         }
         if(airports.size() == 0 and runways.size() == 0 and airplanes.size() == 0){
@@ -116,11 +114,8 @@ void LuchthavenParser::parseItems(const char* file) {
         else{
             setSuccessEnum(PartialImport);
         }
-
-
-            REQUIRE(doc.Error() == false, "an error as occured while parsing");
-
     }
+
 }
 
 /*Loopt over de verschillende vectoren en print deze uit in een file in het juiste formaat
@@ -186,10 +181,8 @@ void LuchthavenParser::writeToFile(vector<Runway *> runwaysVect, vector<Airport 
 bool LuchthavenParser::loadFile(string filename)
 {
     REQUIRE(this->properlyInitialised(), "Parser wasn't properly initialised when calling loadFile()");
-    if(!doc.LoadFile(filename.c_str())){
-        cerr << doc.ErrorDesc() << endl;
-        return false;
-    }
+    bool result = doc.LoadFile(filename.c_str());
+    REQUIRE(result, "Error reading the end or begin tags");
 
     root = doc.FirstChildElement();
     REQUIRE(root!=NULL, "root cannot be NULL");

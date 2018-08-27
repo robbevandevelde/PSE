@@ -8,7 +8,9 @@ string AirportParser::readElement(TiXmlElement *elem, const char *tag)
 {
     REQUIRE(this->properlyInitialised(), "AirportParser wasn't properly initialised when calling readElement()");
     TiXmlElement* e = elem->FirstChildElement(tag);
+    REQUIRE(e != NULL, "Please check if the tags in airport are either: iata, name, callsign or gates.");
     TiXmlNode* node = e->FirstChild();
+    REQUIRE(node != NULL, "An item in airport is none, cannot parse further");
     TiXmlText* text = node->ToText();
     ENSURE(text != NULL, "the element cannot be none");
     return text->Value();

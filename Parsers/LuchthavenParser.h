@@ -31,32 +31,49 @@ private:
 public:
 
     bool properlyInitialised();
+
     //    REQUIRE(this->properlyInitialised(), "Parser wasn't properly initialised when calling loadFile()");
     void isRunAirEqual(vector<Runway*> runwaysVect, vector<Airport*> airportsVect);
+
     //    REQUIRE(this->properlyInitialised(), "Parser wasn't properly initialised when calling loadFile()");
     vector<Runway*> getRunways();
+
     //    REQUIRE(this->properlyInitialised(), "Parser wasn't properly initialised when calling loadFile()");
     vector<Airplane*> getAirplanes();
+
     //    REQUIRE(this->properlyInitialised(), "Parser wasn't properly initialised when calling loadFile()");
     vector<Airport*> getAirports();
+    //    REQUIRE(elemName == "SIMULATIE", "The simulation could not start");
+    //    REQUIRE(elemName == "RUNWAY" || elemName == "AIRPLANE" || elemName == "AIRPORT",
+    //            "The element is not recognised");
     //    ENSURE(properlyInitialised(), "Constructor must end");
     LuchthavenParser();
+
     //    ENSURE(properlyInitialised(), "Destructor must end");
     virtual ~LuchthavenParser();
 
     //    REQUIRE(elemName == "RUNWAY" || elemName == "AIRPLANE" || elemName == "AIRPORT", "The element is not recognised");
     //    REQUIRE(this->properlyInitialised(), "Parser wasn't properly initialised when calling loadFile()");
     void parseItems(const char* file);
+
     //    REQUIRE(this->properlyInitialised(), "Parser wasn't properly initialised when calling loadFile()");
     void writeToFile(vector<Runway*> runwaysVect, vector<Airport*> airportsVect, vector<Airplane*> airplanesVect, string name);
+
+    //    REQUIRE(result, "Error reading the end or begin tags");
+    //    REQUIRE(root!=NULL, "root cannot be NULL");
     //    REQUIRE(this->properlyInitialised(), "Parser wasn't properly initialised when calling loadFile()");
     bool loadFile(string filename);
+
+    //    REQUIRE(root!= NULL, "Root is not found");
     //    REQUIRE(this->properlyInitialised(), "Parser wasn't properly initialised when calling loadFile()");
     TiXmlElement *getRoot();
+
     //    REQUIRE(this->properlyInitialised(), "Parser wasn't properly initialised when calling loadFile()");
     void setRoot(TiXmlElement *root);
+
     //    REQUIRE(this->properlyInitialised(), "Parser wasn't properly initialised when calling loadFile()");
     SuccessEnum getSuccessEnum();
+
     //    REQUIRE(this->properlyInitialised(), "Parser wasn't properly initialised when calling loadFile()");
     void setSuccessEnum(SuccessEnum successEnum);
 };

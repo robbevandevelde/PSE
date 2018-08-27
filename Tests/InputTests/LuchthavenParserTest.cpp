@@ -46,7 +46,6 @@ TEST_F(LuchthavenParserTest, InputHappyday1)
 {
     ASSERT_TRUE(APU->DirectoryExists("testInput"));
     ASSERT_FALSE(APU->DirectoryExists("testIut"));
-    testParser->setSuccessEnum(PartialImport);
     ofstream myfile;
     myfile.open("../testInput/Input01.xml");
     myfile << "<?xml version=\"1.0\" ?>" << endl
@@ -61,29 +60,24 @@ TEST_F(LuchthavenParserTest, InputHappyday1)
     myfile.close();
     ASSERT_TRUE(APU->FileExists("testInput/Input01.xml"));
     testParser->loadFile("testInput/Input01.xml");
-    testParser->parseItems(testParser->getRoot());
-    EXPECT_TRUE(testParser->getSuccessEnum() == Success);
+    testParser->parseItems("testInput/Input01.xml");
+    EXPECT_TRUE(testParser->getSuccessEnum() == PartialImport);
 }
 //Second happy day, now with pre loaded file
 TEST_F(LuchthavenParserTest, InputHappyday2)
 {
     ASSERT_TRUE(APU->DirectoryExists("testInput"));
-    SuccessEnum yes= PartialImport;
-    testParser->setSuccessEnum(yes);
     ASSERT_TRUE(APU->FileExists("testInput/Input03.xml"));
     testParser->loadFile("testInput/Input03.xml");
-    testParser->parseItems(testParser->getRoot());
+    testParser->parseItems("testInput/Input03.xml");
     EXPECT_TRUE(testParser->getSuccessEnum() == Success);
 }
 //Failtest, not able to parse "<AL>"
 TEST_F(LuchthavenParserTest, FalseTest)
 {
     ASSERT_TRUE(APU->DirectoryExists("testInput"));
-    SuccessEnum yes= PartialImport;
-    testParser->setSuccessEnum(yes);
     testParser->loadFile("testInput/Input02.xml");
-    TiXmlElement* Root = testParser->getRoot();
-    EXPECT_DEATH(testParser->parseItems(Root), "");
+    EXPECT_DEATH(testParser->parseItems("testInput/Input02.xml"), "The element is not recognised");
 //    EXPECT_TRUE(testParser->getSuccessEnum() == ImportAborted);
 }
 //Tests if it cannot open false files
@@ -100,7 +94,7 @@ TEST_F(LuchthavenParserTest, FalseTest2)
     SuccessEnum yes= PartialImport;
     testParser->setSuccessEnum(yes);
     testParser->loadFile("testInput/Input04.xml");
-    testParser->parseItems(testParser->getRoot());
+    EXPECT_DEATH(testParser->parseItems("testInput/Input04.xml"), "The simulation could not start");
     //EXPECT_DEATH(testParser->parseItems(testParser->getRoot()), "");
     //EXPECT_TRUE(testParser->getSuccessEnum() == ImportAborted);
 }
@@ -108,83 +102,61 @@ TEST_F(LuchthavenParserTest, FalseTest2)
 TEST_F(LuchthavenParserTest, FalseTest3)
 {
     ASSERT_TRUE(APU->DirectoryExists("testInput"));
-    SuccessEnum yes= PartialImport;
-    testParser->setSuccessEnum(yes);
     testParser->loadFile("testInput/Input05.xml");
-    EXPECT_DEATH(testParser->parseItems(testParser->getRoot()), "");
+    EXPECT_DEATH(testParser->parseItems("testInput/Input05.xml"), "An item in airport is none, cannot parse further");
 //    EXPECT_TRUE(testParser->getSuccessEnum() == ImportAborted);
 }
 TEST_F(LuchthavenParserTest, FalseTest4)
 {
     ASSERT_TRUE(APU->DirectoryExists("testInput"));
-    SuccessEnum yes= PartialImport;
-    testParser->setSuccessEnum(yes);
-    testParser->loadFile("testInput/Input06.xml");
-    //TiXmlElement* Root = testParser->getRoot();
-    EXPECT_DEATH( testParser->parseItems(testParser->getRoot()), "");
-    //EXPECT_TRUE(testParser->getSuccessEnum() == ImportAborted);
+    ASSERT_TRUE(APU->FileExists("testInput/Input06.xml"));
+    EXPECT_DEATH(testParser->loadFile("testInput/Input06.xml"), "Error reading the end or begin tags");
+
 }
 TEST_F(LuchthavenParserTest, FalseTest5)
 {
     ASSERT_TRUE(APU->DirectoryExists("testInput"));
-    SuccessEnum yes= PartialImport;
-    testParser->setSuccessEnum(yes);
-    testParser->loadFile("testInput/Input07.xml");
-    EXPECT_DEATH( testParser->parseItems(testParser->getRoot()), "");
-
-    //EXPECT_TRUE(testParser->getSuccessEnum() == ImportAborted);
+    EXPECT_DEATH(testParser->loadFile("testInput/Input07.xml"), "Error reading the end or begin tags");
 }
 TEST_F(LuchthavenParserTest, FalseTest6)
 {
     ASSERT_TRUE(APU->DirectoryExists("testInput"));
-    SuccessEnum yes= PartialImport;
-    testParser->setSuccessEnum(yes);
-    testParser->loadFile("testInput/Input08.xml");
-    //testParser->parseItems(testParser->getRoot());
-    EXPECT_DEATH(testParser->parseItems(testParser->getRoot()), "");
-    //EXPECT_TRUE(testParser->getSuccessEnum() == ImportAborted);
+    ASSERT_TRUE(testParser->loadFile("testInput/Input08.xml"));
+    EXPECT_DEATH(testParser->parseItems("testInput/Input08.xml"), "Please check if the tags in airport are either: iata, name, callsign or gates.");
 }
  TEST_F(LuchthavenParserTest, FalseTest7)
 {
     ASSERT_TRUE(APU->DirectoryExists("testInput"));
-    SuccessEnum yes= PartialImport;
-    testParser->setSuccessEnum(yes);
-    testParser->loadFile("testInput/Input09.xml");
-    EXPECT_DEATH(testParser->parseItems(testParser->getRoot()), "");
+    EXPECT_DEATH(testParser->loadFile("testInput/Input09.xml"), "Error reading the end or begin tags");
 }
 TEST_F(LuchthavenParserTest, FalseTest8)
 {
     ASSERT_TRUE(APU->DirectoryExists("testInput"));
-    SuccessEnum yes= PartialImport;
-    testParser->setSuccessEnum(yes);
-    testParser->loadFile("testInput/Input10.xml");
-    EXPECT_DEATH(testParser->parseItems(testParser->getRoot()), "");
+    EXPECT_DEATH(testParser->loadFile("testInput/Input10.xml"), "Error reading the end or begin tags");
 }
 TEST_F(LuchthavenParserTest, FalseTest9)
 {
     ASSERT_TRUE(APU->DirectoryExists("testInput"));
-    SuccessEnum yes= PartialImport;
-    testParser->setSuccessEnum(yes);
-    testParser->loadFile("testInput/Input11.xml");
-    EXPECT_DEATH(testParser->parseItems(testParser->getRoot()), "");
+    ASSERT_TRUE(testParser->loadFile("testInput/Input11.xml"));
+    EXPECT_DEATH(testParser->parseItems("testInput/Input11.xml"), "Please check if the tags in airplane are either:"
+            " model, number, callsign, status, passengers, fuel, type, engine or size.");
 }
+
 TEST_F(LuchthavenParserTest, FalseTest10)
 {
     ASSERT_TRUE(APU->DirectoryExists("testInput"));
-    SuccessEnum yes= PartialImport;
-    testParser->setSuccessEnum(yes);
-    testParser->loadFile("testInput/Input12.xml");
-    EXPECT_DEATH(testParser->parseItems(testParser->getRoot()), "");
+    ASSERT_TRUE(testParser->loadFile("testInput/Input12.xml"));
+    EXPECT_DEATH(testParser->parseItems("testInput/Input12.xml"), "Please check if the tags in airport are either:"
+            " iata, name, callsign or gates.");
+
 }
 TEST_F(LuchthavenParserTest, FalseTest11)
 {
     ASSERT_TRUE(APU->DirectoryExists("testInput"));
-    SuccessEnum yes= PartialImport;
-    testParser->setSuccessEnum(yes);
-    testParser->loadFile("testInput/Input13.xml");
-    EXPECT_DEATH(testParser->parseItems(testParser->getRoot()), "");
+    EXPECT_DEATH(testParser->loadFile("testInput/Input13.xml"), "Error reading the end or begin tags");
+
 }
-//Test the iputted values
+//Test the inputted values
 TEST_F(LuchthavenParserTest, InputValueTest)
 {
     ASSERT_TRUE(APU->DirectoryExists("testInput"));
@@ -192,7 +164,7 @@ TEST_F(LuchthavenParserTest, InputValueTest)
     testParser->setSuccessEnum(yes);
     ASSERT_TRUE(APU->FileExists("testInput/Input03.xml"));
     testParser->loadFile("testInput/Input03.xml");
-    testParser->parseItems(testParser->getRoot());
+    testParser->parseItems("testInput/Input03.xml");
     EXPECT_TRUE(testParser->getSuccessEnum() == Success);
     EXPECT_EQ(Small, testParser->getAirplanes()[0]->getSize());
     EXPECT_EQ("Cessna 842", testParser->getAirplanes()[0]->getCallsign());

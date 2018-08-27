@@ -15,6 +15,9 @@ using namespace std;
 class FlightplanParser {
 private:
     //    REQUIRE(this->properlyInitialised(), "FlightplanParser wasn't properly initialised when calling readElement");
+    //    REQUIRE(e != NULL, "Please check if the tags in flightplan are either: destination, departure, arrival or interval.");
+    //    REQUIRE(node != NULL, "An item in flightplan is none, cannot parse further");
+    //    ENSURE(text != NULL, "the element cannot be none");
     string readElement(TiXmlElement* elem, const char* tag);
     Flightplan* flightplan;
     FlightplanParser* initCheck;

@@ -13,6 +13,10 @@ using namespace std;
 class AirplaneParser{
 private:
     AirplaneParser* initCheck;
+    //    REQUIRE(this->properlyInitialised(), "AirplaneParser wasn't properly initialised when calling readElement()");
+    //    REQUIRE(node != NULL, "An item in aiplane is none, cannot parse further");
+    //    ENSURE(text != NULL, "the element cannot be none");
+    //    REQUIRE(e != NULL, "Please check if the tags in airplane are either: model, number, callsign, status, passengers, fuel, type, engine or size.")
     string readElement(TiXmlElement* elem, const char* tag);
     Airplane* airplane;
 public:

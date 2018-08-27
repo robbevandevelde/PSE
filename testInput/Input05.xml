@@ -1,9 +1,9 @@
 <?xml version="1.0" ?>
 <SIMULATIE>
-    <AL>
+    <AIRPORT>
         <name></name>
         <iata>ANR</iata>
         <callsign>Antwerp Tower</callsign>
         <gates>10</gates>
-    </AL>
+    </AIRPORT>
 </SIMULATIE>

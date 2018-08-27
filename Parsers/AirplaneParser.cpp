@@ -8,10 +8,13 @@
 
 string AirplaneParser::readElement(TiXmlElement *elem, const char *tag)
 {
-    REQUIRE(this->properlyInitialised(), "airplaneParser wasn't properly initialised when calling readElement()");
+    REQUIRE(this->properlyInitialised(), "AirplaneParser wasn't properly initialised when calling readElement()");
     TiXmlElement* e = elem->FirstChildElement(tag);
+    REQUIRE(e != NULL, "Please check if the tags in airplane are either: model, number, callsign, status, passengers, fuel, type, engine or size.");
     TiXmlNode* node = e->FirstChild();
+    REQUIRE(node != NULL, "An item in aiplane is none, cannot parse further");
     TiXmlText* text = node->ToText();
+    ENSURE(text != NULL, "the element cannot be none");
     return text->Value();
 }
 

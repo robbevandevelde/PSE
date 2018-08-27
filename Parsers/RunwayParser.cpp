@@ -6,11 +6,15 @@
 
 string RunwayParser::readElement(TiXmlElement *elem, const char *tag)
 {
-    REQUIRE(this->properlyInitialised(), "RunwayParse wasn't properly initialised when calling readElement()");
+    REQUIRE(this->properlyInitialised(), "RunwayParser wasn't properly initialised when calling readElement()");
     TiXmlElement* e = elem->FirstChildElement(tag);
+    REQUIRE(e != NULL, "Please check if the tags in runway are either: airport, type or length.");
     TiXmlNode* node = e->FirstChild();
+    REQUIRE(node != NULL, "An item in airport is none, cannot parse further");
     TiXmlText* text = node->ToText();
-    return text->Value();}
+    ENSURE(text != NULL, "the element cannot be none");
+    return text->Value();
+}
 
 RunwayParser::RunwayParser()
 {

@@ -16,6 +16,9 @@ class RunwayParser{
 private:
     RunwayParser* initCheck;
     //    REQUIRE(this->properlyInitialised(), "RunwayParse wasn't properly initialised when calling readElement()");
+    //    REQUIRE(e != NULL, "Please check if the tags in runway are either: airport, type or length.");
+    //    REQUIRE(node != NULL, "An item in airport is none, cannot parse further");
+    //    ENSURE(text != NULL, "the element cannot be none");
     string readElement(TiXmlElement* elem, const char* tag);
     Runway* runway;
 public:
