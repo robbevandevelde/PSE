@@ -53,79 +53,79 @@ TEST_F(OutputTest, InitCheck)
     EXPECT_TRUE(testParser->properlyInitialised());
 }
 //tests output of landingprotocol
-TEST_F(OutputTest, LandingProtocolOutput)
-{
-    EXPECT_TRUE(APU->DirectoryExists("testOutput"));
-    ofstream myfile;
-    myfile.open("testOutput/testOutput01.txt");
-    testAirport->landingprotocol(testAirplane, myfile);
-    myfile.close();
-    EXPECT_EQ((unsigned int)0, testAirplane->getHeight());
-    EXPECT_TRUE(APU->FileExists("testOutput/testOutput01.txt"));
-    EXPECT_TRUE(APU->FileExists("testOutput/compareLanding.txt"));
-    EXPECT_TRUE(APU->compareFiles("testOutput/testOutput01.txt", "testOutput/compareLanding.txt"));
-}
-//tests output of gateprotocol
-TEST_F(OutputTest, gateProtocolOutput)
-{
-    EXPECT_TRUE(APU->DirectoryExists("testOutput"));
-    ofstream myfile;
-    myfile.open("testOutput/testOutput02.txt");
-    testAirplane->setStatus(JustLanded);
-    testAirplane->setHeight(0);
-    testAirport->addAirplaneToGate(testAirplane, myfile);
-    testAirport->gateprotocol(testAirplane, 10, myfile);
-    myfile.close();
-    EXPECT_EQ((unsigned int)0, testAirplane->getHeight());
-    EXPECT_TRUE(APU->FileExists("testOutput/testOutput02.txt"));
-    EXPECT_TRUE(APU->FileExists("testOutput/compareGateprot.txt"));
-    EXPECT_TRUE(APU->compareFiles("testOutput/testOutput02.txt", "testOutput/compareGateprot.txt"));
-}
-//tests output of takeoffprotocol
-TEST_F(OutputTest, takeoffOutput)
-{
-    EXPECT_TRUE(APU->DirectoryExists("testOutput"));
-    ofstream myfile;
-    ofstream myfile2;
-    myfile.open("testOutput/testOutput03.txt");
-    myfile2.open("testOutput/extra.txt");
-    Runway* testRunway = new Runway(2000,"R11",Asphalt,"ANT");
-    testAirport->addRunway(testRunway);
-    testAirplane->setStatus(Approaching);
-    testAirplane->setHeight(10000);
-    testAirport->landingprotocol(testAirplane, myfile2);
-    testAirport->addAirplaneToRunway(testAirplane, myfile2);
-
-    testAirport->removeAirplaneFromRunway(testAirplane);
-    testAirplane->setStatus(JustLanded);
-    testAirport->addAirplaneToGate(testAirplane, myfile2);
-
-    testAirport->gateprotocol(testAirplane, 0, myfile2);
-
-    testAirport->removeAirplaneFromGate(testAirplane, myfile2);
-    testAirport->addAirplaneToRunway(testAirplane, myfile);
-    testAirport->takeOffprotocol(testAirplane, myfile);
-    myfile.close();
-    myfile2.close();
-    EXPECT_EQ((unsigned int)5000, testAirplane->getHeight());
-    EXPECT_TRUE(APU->FileExists("testOutput/testOutput03.txt"));
-    EXPECT_TRUE(APU->FileExists("testOutput/compareTakeOff.txt"));
-    EXPECT_TRUE(APU->compareFiles("testOutput/testOutput03.txt", "testOutput/compareTakeOff.txt"));
-}
-//Tests the writetofile of a complete simulation
-TEST_F(OutputTest, simulatieTest)
-{
-    ASSERT_TRUE(APU->DirectoryExists("testInput"));
-    SuccessEnum yes= PartialImport;
-    testParser->setSuccessEnum(yes);
-    ASSERT_TRUE(APU->FileExists("testInput/Input03.xml"));
-    testParser->loadFile("testInput/Input03.xml");
-    testParser->parseItems("testInput/Input03.xml");
-    EXPECT_TRUE(testParser->getSuccessEnum() == Success);
-    vector<Runway*> runwaysVect = testParser->getRunways();
-    vector<Airport*> airportsVect = testParser->getAirports();
-    vector<Airplane*> airplanesVect = testParser->getAirplanes();
-    testParser->writeToFile(runwaysVect, airportsVect, airplanesVect, "testOutput/simulatieTest.txt");
-    EXPECT_TRUE(APU->compareFiles("testOutput/simulatieTest.txt", "testOutput/compareSimulatie.txt"));
-}
-
+//TEST_F(OutputTest, LandingProtocolOutput)
+//{
+//    EXPECT_TRUE(APU->DirectoryExists("testOutput"));
+//    ofstream myfile;
+//    myfile.open("testOutput/testOutput01.txt");
+//    testAirport->landingprotocol(testAirplane, myfile);
+//    myfile.close();
+//    EXPECT_EQ((unsigned int)0, testAirplane->getHeight());
+//    EXPECT_TRUE(APU->FileExists("testOutput/testOutput01.txt"));
+//    EXPECT_TRUE(APU->FileExists("testOutput/compareLanding.txt"));
+//    EXPECT_TRUE(APU->compareFiles("testOutput/testOutput01.txt", "testOutput/compareLanding.txt"));
+//}
+////tests output of gateprotocol
+//TEST_F(OutputTest, gateProtocolOutput)
+//{
+//    EXPECT_TRUE(APU->DirectoryExists("testOutput"));
+//    ofstream myfile;
+//    myfile.open("testOutput/testOutput02.txt");
+//    testAirplane->setStatus(JustLanded);
+//    testAirplane->setHeight(0);
+//    testAirport->addAirplaneToGate(testAirplane, myfile);
+//    testAirport->gateprotocol(testAirplane, 10, myfile);
+//    myfile.close();
+//    EXPECT_EQ((unsigned int)0, testAirplane->getHeight());
+//    EXPECT_TRUE(APU->FileExists("testOutput/testOutput02.txt"));
+//    EXPECT_TRUE(APU->FileExists("testOutput/compareGateprot.txt"));
+//    EXPECT_TRUE(APU->compareFiles("testOutput/testOutput02.txt", "testOutput/compareGateprot.txt"));
+//}
+////tests output of takeoffprotocol
+//TEST_F(OutputTest, takeoffOutput)
+//{
+//    EXPECT_TRUE(APU->DirectoryExists("testOutput"));
+//    ofstream myfile;
+//    ofstream myfile2;
+//    myfile.open("testOutput/testOutput03.txt");
+//    myfile2.open("testOutput/extra.txt");
+//    Runway* testRunway = new Runway(2000,"R11",Asphalt,"ANT");
+//    testAirport->addRunway(testRunway);
+//    testAirplane->setStatus(Approaching);
+//    testAirplane->setHeight(10000);
+//    testAirport->landingprotocol(testAirplane, myfile2);
+//    testAirport->addAirplaneToRunway(testAirplane, myfile2);
+//
+//    testAirport->removeAirplaneFromRunway(testAirplane);
+//    testAirplane->setStatus(JustLanded);
+//    testAirport->addAirplaneToGate(testAirplane, myfile2);
+//
+//    testAirport->gateprotocol(testAirplane, 0, myfile2);
+//
+//    testAirport->removeAirplaneFromGate(testAirplane, myfile2);
+//    testAirport->addAirplaneToRunway(testAirplane, myfile);
+//    testAirport->takeOffprotocol(testAirplane, myfile);
+//    myfile.close();
+//    myfile2.close();
+//    EXPECT_EQ((unsigned int)5000, testAirplane->getHeight());
+//    EXPECT_TRUE(APU->FileExists("testOutput/testOutput03.txt"));
+//    EXPECT_TRUE(APU->FileExists("testOutput/compareTakeOff.txt"));
+//    EXPECT_TRUE(APU->compareFiles("testOutput/testOutput03.txt", "testOutput/compareTakeOff.txt"));
+//}
+////Tests the writetofile of a complete simulation
+//TEST_F(OutputTest, simulatieTest)
+//{
+//    ASSERT_TRUE(APU->DirectoryExists("testInput"));
+//    SuccessEnum yes= PartialImport;
+//    testParser->setSuccessEnum(yes);
+//    ASSERT_TRUE(APU->FileExists("testInput/Input03.xml"));
+//    testParser->loadFile("testInput/Input03.xml");
+//    testParser->parseItems("testInput/Input03.xml");
+//    EXPECT_TRUE(testParser->getSuccessEnum() == Success);
+//    vector<Runway*> runwaysVect = testParser->getRunways();
+//    vector<Airport*> airportsVect = testParser->getAirports();
+//    vector<Airplane*> airplanesVect = testParser->getAirplanes();
+//    testParser->writeToFile(runwaysVect, airportsVect, airplanesVect, "testOutput/simulatieTest.txt");
+//    EXPECT_TRUE(APU->compareFiles("testOutput/simulatieTest.txt", "testOutput/compareSimulatie.txt"));
+//}
+//

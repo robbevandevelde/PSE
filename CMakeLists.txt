@@ -83,7 +83,7 @@ set(DEBUG_SOURCE_FILES
         testInput/Input05.xml
         Tests/OutputTests/OutputTest.cpp
         InputFiles/luchthaven.xml
-        )
+        Tests/DomainTests/SimulatorTest.cpp)
 
 add_executable(pse ${SOURCE_FILES})
 
