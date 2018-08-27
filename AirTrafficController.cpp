@@ -141,7 +141,11 @@ const string &AirTrafficController::getName()
     REQUIRE(this->properlyInitialised(), "AirtrafficController wasn't properly initialised when calling getName");
     return _name;
 }
-
+/*
+ * Asks for permition to go to runway
+ * @param airplane ostream
+ * @return none
+ */
 void AirTrafficController::takeOffClearance(Airplane* airplane, std::ostream& out) {
     REQUIRE(this->properlyInitialised(),
             "AirtrafficController wasn't properly initialised when calling takeOffClearance");

@@ -7,13 +7,6 @@
 #include "DesignByContract.h"
 #include "Airport.h"
 
-/** TO DO: ATC MEER MACHT GEVEN (Controles)
- *
- */
-
-//TODO: NIET GEBRUIKTE FUNCTIES WEGHALEN
-//TODO: WACHT SYSTEEM MET RUNWAYS AANPASSEN (OP DE RUNWAY ZELF IPV IN EEN WACHT VECTOR)
-
 
 /*Constructor van de airport
  *@param unsigned int gatesize, string name, string iata, string callsign
@@ -99,7 +92,7 @@ void Airport::gateprotocol(Airplane *airplane, unsigned int passengers, std::ost
 
 
 /*Zoekt naar een lege niet gebruikte runway spot om geg vliegtuig aan toe te voegen
- *@param Airplane* airplane
+ *@param Airplane* airplane, ostream element
  *@return niks
  */
 void Airport::addAirplaneToRunway(Airplane *airplane, std::ostream& out)
@@ -170,7 +163,7 @@ void Airport::addAirplaneToRunway(Airplane *airplane, std::ostream& out)
     }
 }
 
-/*zoekt naar de geg vliegtuig in de runways en removed die
+/*zoekt naar de geg vliegtuig in de runways en removed deze
  *@param Airplane* airplane
  *@return niks
  */
@@ -207,7 +200,7 @@ void Airport::addAirplaneToGate(Airplane *airplane, std::ostream& out)
     }
 }
 
-/*zoekt naar de gegeven airplane in de gate en removed die
+/*zoekt naar de gegeven airplane in de gate en removed deze
  *@param Airplane* airplane
  *@return geen
  */
@@ -610,16 +603,26 @@ bool Airport::validRunwayForPlane(Airplane *airplane, Runway* runway)
         return false;
     }
 }
-
+/*
+ * Kijkt of er een airplane in een van de 2 runways zit
+ * @param airplane
+ * @return bool
+ */
 bool Airport::isAirplaneInWaitPoint(Airplane *airplane) {
+    REQUIRE(this->properlyInitialised(), "Airport wasn't properly initialised when calling validRunwayForPlane()");
     if(this->getWaitpoint1() == airplane || this->getWaitpoint2() == airplane){
         return true;
     } else {
         return false;
     }
 }
-
+/*
+ * Zet de airplane in het wachpunt
+ * @param airplane en ostream
+ * @return niks
+ */
 void Airport::collisionSolverAirStart(Airplane *airplane, std::ostream &out) {
+    REQUIRE(this->properlyInitialised(), "Airport wasn't properly initialised when calling validRunwayForPlane()");
     if(airplane->getHeight() == 5000) {
         if (getWaitpoint1() == NULL) {
             setWaitpoint1(airplane);
@@ -643,8 +646,13 @@ void Airport::collisionSolverAirStart(Airplane *airplane, std::ostream &out) {
         }
     }
 }
-
+/*
+ * haalt airplane uit waitpoint en laat deze decenden
+ * @param airplane
+ * @return niks
+ */
 void Airport::collisionSolverAirEnd(Airplane *airplane, std::ostream &out) {
+    REQUIRE(this->properlyInitialised(), "Airport wasn't properly initialised when calling validRunwayForPlane()");
     if (getController()->landingprotocol(airplane)) {
         if (getWaitpoint1() == airplane) {
             removeWaitpoint1();
@@ -658,14 +666,24 @@ void Airport::collisionSolverAirEnd(Airplane *airplane, std::ostream &out) {
         }
     }
 }
-
+/*
+ * Als er ander vliegtuig op RW zit gaat airplane niet op runway mogen
+ * @param airplane
+ * @return niks
+ */
 void Airport::collisionSolverRunwayStart(Airplane *airplane, std::ostream &out) {
+    REQUIRE(this->properlyInitialised(), "Airport wasn't properly initialised when calling validRunwayForPlane()");
     _comm->ATC_Airplane_Wait_At_Runway_Comm(_controller, airplane, out);
     addRunwayWait(airplane);
     airplane->setStatus(WaitingAtRunway);
 }
-
+/*
+ * laat airplane toe aan runway
+ * @param airplane
+ * @return niks
+ */
 void Airport::collissionSolverRunwayEnd(Airplane *airplane) {
+    REQUIRE(this->properlyInitialised(), "Airport wasn't properly initialised when calling validRunwayForPlane()");
     for(unsigned int i=0;i< getRunways().size();i++){
         if(validRunwayForPlane(airplane,getRunways()[i])){
             if(!getRunways()[i]->isGoingToBeUsed()){
@@ -676,8 +694,13 @@ void Airport::collissionSolverRunwayEnd(Airplane *airplane) {
         }
     }
 }
-
+/*
+ * laat het vliegtuig volledig landen
+ * @param airplane
+ * @return niks
+ */
 void Airport::landingSequence(Airplane *airplane, std::ostream &out) {
+    REQUIRE(this->properlyInitialised(), "Airport wasn't properly initialised when calling validRunwayForPlane()");
     REQUIRE(airplane->getStatus() == Approaching || airplane->getStatus() == FinalApproach,
             "Aircontrole failure, aircraft isn't in the air");
     if (airplane->getHeight() == 10000) {
@@ -714,8 +737,13 @@ void Airport::landingSequence(Airplane *airplane, std::ostream &out) {
         out << "--------------------------------------------------------------------------" << std::endl;
     }
 }
-
+/*
+ * unloads passengers and fuels
+ * @param  airplane
+ * @return nothing
+ */
 void Airport::completeGateProtocol(Airplane* airplane, std::ostream & out){
+    REQUIRE(this->properlyInitialised(), "Airport wasn't properly initialised when calling validRunwayForPlane()");
     REQUIRE(airplane->getStatus() == JustLanded || airplane->getStatus() == StandingAtGate, "Complete Gate protocol failure");
     REQUIRE(airplane->getHeight() == 0, "GateProtocol failure");
     if(!airplane->isFueled()){
@@ -725,8 +753,13 @@ void Airport::completeGateProtocol(Airplane* airplane, std::ostream & out){
         _controller->takeOffClearance(airplane, out);
     }
 }
-
+/*
+ * lets the plane leave the airport
+ * @param airplane
+ * @return niks
+ */
 void Airport::takeOffSequence(Airplane *airplane, std::ostream &out) {
+    REQUIRE(this->properlyInitialised(), "Airport wasn't properly initialised when calling validRunwayForPlane()");
     REQUIRE(airplane->getStatus() == Departure, "Departure failure");
     for (unsigned int i = 0; i < getRunways().size();i++) {
         if(getRunways()[i]->getAirplane() == airplane){
@@ -752,6 +785,11 @@ void Airport::takeOffSequence(Airplane *airplane, std::ostream &out) {
     }
 }
 
+/*
+ * lets plane do emergency landing
+ * @param airplane
+ * @return none
+ */
 void Airport::emergencySequence(Airplane* airplane, std::ostream& out) {
     REQUIRE(this->properlyInitialised(), "Airport wasn't properly initialised");
     if (!airplane->isControle()) {
@@ -810,12 +848,21 @@ void Airport::emergencySequence(Airplane* airplane, std::ostream& out) {
         }
     }
 }
-
+/*
+ * returns gates
+ * @param none
+ * @return gates vector
+ */
 vector<Gate *> &Airport::getGates() {
     REQUIRE(this->properlyInitialised(), "Not properly initialised");
     return _gates;
 }
 
+/*
+ * checkss if the plane is removed from the gate
+ * @param airplane
+ *@return Bool
+ */
 bool Airport::isAirplaneRemovedFromGate(Airplane *airplane) {
     REQUIRE(this->properlyInitialised(), "Not properly initialised");
     for(unsigned int x = 0;x < _gates.size();x++){
@@ -825,7 +872,11 @@ bool Airport::isAirplaneRemovedFromGate(Airplane *airplane) {
     }
     return true;
 }
-
+/*
+ * checks if airplane is removed from runway
+ * @param airplane
+ * @return bool
+ */
 bool Airport::isAirplaneRemovedFromRunway(Airplane *airplane) {
     REQUIRE(this->properlyInitialised(), "Not properly initialised");
     for(unsigned int x = 0;x < _runways.size();x++){
@@ -835,7 +886,11 @@ bool Airport::isAirplaneRemovedFromRunway(Airplane *airplane) {
     }
     return true;
 }
-
+/*
+ * returns runwaywaitvector
+ * @param none
+ * @return vector runwaywait
+ */
 const vector<Airplane *> &Airport::getRunwayWait(){
     REQUIRE(this->properlyInitialised(), "Airport wasn't properly initialised");
     return _RunwayWait;

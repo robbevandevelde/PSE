@@ -11,17 +11,21 @@
 
 using namespace std;
 
-
-
-/**
-Auxiliary functions for file manipulation.
-*/
+/*
+ * checks if the directory exists
+ * @param directory name
+ * @return bool
+ */
 bool AirportUtils::DirectoryExists(const std::string dirname) {
     REQUIRE(this->properlyInitialised(), "AirportUtils wasn't properly initialised when calling directoryExists()");
     struct stat st;
     return stat(dirname.c_str(), &st) == 0;
 }
-
+/*
+ * checks if the file exists
+ * @param filename
+ * @return bool
+ */
 bool AirportUtils::FileExists(const std::string filename) {
     REQUIRE(this->properlyInitialised(), "Flightplan wasn't properly initialised when calling fileExists()");
     struct stat st;
@@ -35,14 +39,22 @@ bool AirportUtils::FileExists(const std::string filename) {
         return false;
     }
 }
-
+/*
+ * check if a given file is empty
+ * @param filename
+ * @return bool
+ */
 bool AirportUtils::FileIsEmpty(const std::string filename) {
     REQUIRE(this->properlyInitialised(), "AirportUtils wasn't properly initialised when calling FileIsempty()");
     struct stat st;
     if (stat(filename.c_str(), &st) != 0) return true; // File does not exist; thus it is empty
     return st.st_size == 0;
 }
-
+/*
+ * compares 2 files
+ * @param 2 files
+ * @return bool
+ */
 bool AirportUtils::compareFiles(const std::string leftFileName, const std::string rightFileName)
     {
         REQUIRE(this->properlyInitialised(), "AirportUtils wasn't properly initialised when calling compareFiles()");
@@ -82,7 +94,11 @@ bool AirportUtils::compareFiles(const std::string leftFileName, const std::strin
         return equal;  //open your out file and enjoy
     }
 
-
+/*
+ * int to string
+ * @param int
+ * @return the string version of the int
+ */
 string AirportUtils::to_string( int x ) {
     REQUIRE(this->properlyInitialised(), "AirportUtils wasn't properly initialised when calling to_string()");
     int length = snprintf( NULL, 0, "%d", x );

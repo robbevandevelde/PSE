@@ -54,9 +54,9 @@ bool Airplane::properlyInitialised()
     return _initcheck == this;
 }
 
-/*Set de status
- *@param string status
- *@return niks void functie
+/*return de fuel
+ *@param geen
+ *@return unsigned integer fuel
  */
 unsigned int Airplane::getFuel()
 {
@@ -64,8 +64,8 @@ unsigned int Airplane::getFuel()
     return _fuel;
 }
 
-/*Set de status
- *@param string status
+/*Set Fuel
+ *@param uns int fuel
  *@return niks void functie
  */
 void Airplane::setFuel(unsigned int _fuel)
@@ -97,7 +97,7 @@ void Airplane::setPassengers(unsigned int _passengers)
 }
 
 /*Get de number van de airplane
- *@param string number
+ *@param geen
  *@return string number van de airplane
  */
 const std::string &Airplane::getNumber()
@@ -202,9 +202,9 @@ void Airplane::setHeight(unsigned int _height)
     ENSURE(getHeight() == _height,"setHeight() failure");
 }
 
-/*get de height van de airplane
+/*get de type van de airplane
  *@param geen
- *@return string type van airplane
+ *@return enum type van airplane
  */
 unsigned int Airplane::getType()
 {
@@ -213,7 +213,7 @@ unsigned int Airplane::getType()
 }
 
 /*set de type van de airplane
- *@param string type
+ *@param enum type
  *@return niks
  */
 void Airplane::setType(unsigned int type)
@@ -226,7 +226,7 @@ void Airplane::setType(unsigned int type)
 
 /*get de engine van de airplane
  *@param geen
- *@return string engine van de airplane
+ *@return enum engine van de airplane
  */
 unsigned int Airplane::getEngine()
 {
@@ -235,7 +235,7 @@ unsigned int Airplane::getEngine()
 }
 
 /*set de engine van de airplane
- *@param string engine
+ *@param enum engine
  *@return geen
  */
 void Airplane::setEngine(unsigned int engine)

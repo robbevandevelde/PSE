@@ -19,13 +19,20 @@ private:
     std::vector<Airplane*> _airplanes;
     Airport* _airport;
 public:
+
+    //    ENSURE(properlyInitialised(), "Constructor must end");
     Simulator(const vector<Runway *> &_runways, const vector<Airplane *> &_airplanes, Airport *_airport);
 
     bool properlyInitialised();
 
+    //    REQUIRE(this->properlyInitialised(), "Simulator wasn't properly initialised when calling Simulate()");
     void Simulate(std::ostream &out = std::cout);
+
+    //    REQUIRE(this->properlyInitialised(), "Simulator wasn't properly initialised when calling addRunways()");
+    //    ENSURE(_airport->getAmountRunways() == _runways.size(), "Runway size dont match");
     void addRunways();
 
+    REQUIRE(this->properlyInitialised(), "Simulator wasn't properly initialised when calling Simulate()");
     void doStep(ostream &out);
 };
 

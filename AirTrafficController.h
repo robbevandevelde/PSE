@@ -23,11 +23,16 @@ private:
     std::string _name;
 
 public:
+    //    ENSURE(properlyInitialised(), "Constructor must end");
+    //    ENSURE(getAirport() == _airport && getName() == _name, "AirTraffic controller failure");
     AirTrafficController(Airport *_airport, const std::string &_name);
 
     bool properlyInitialised();
+
     //    REQUIRE(this->properlyInitialised(), "AirTrafficController wasn't properly initialised when calling landingprotocol()");
+    //    REQUIRE(airplane->getHeight() == 10000, "Airplane must be at 10000 ft");
     bool landingprotocol(Airplane* airplane, std::ostream& out = std::cout);
+
     //    REQUIRE(this->properlyInitialised(), "AirTrafficController wasn't properly initialised when calling takeoffprotocol");
     bool takeoffprotocol(Airplane* airplane, std::ostream& out = std::cout);
     //    REQUIRE(this->properlyInitialised(), "AirTrafficController wasn't properly initialised when calling emergencyprotocol");

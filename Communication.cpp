@@ -16,7 +16,11 @@ Communication::Communication() {
 bool Communication::properlyInitialised() {
     return _initcheck == this;
 }
-
+/*
+ * translates string to nato string
+ * @param string
+ * @return string
+ */
 std::string Communication::NATOtranslator(const std::string string) {
     REQUIRE(this->properlyInitialised(), "NATOTranslator initialise error");
     std::string string1 = "";
@@ -132,7 +136,11 @@ std::string Communication::NATOtranslator(const std::string string) {
     }
     return string1;
 }
-
+/*
+ * communication for planes of 10000 ft altitude
+ * @param atc airplane ostream
+ * @reutn none
+ */
 void Communication::ATC_Airplane_10000ft_Comm(AirTrafficController *airTrafficController, Airplane *airplane,
                                               std::ostream &out) {
 
@@ -157,7 +165,11 @@ void Communication::ATC_Airplane_10000ft_Comm(AirTrafficController *airTrafficCo
     out << "--------------------------------------------------------------------------" << std::endl;
 
 }
-
+/*
+ * communication for waiting pattern
+ * @param atc, arplane, ostream
+ * @return none
+ */
 void Communication::ATC_Airplane_WaitPattern_Comm(AirTrafficController *airTrafficController, Airplane *airplane,
                                                   std::ostream &out) {
 
@@ -176,7 +188,11 @@ void Communication::ATC_Airplane_WaitPattern_Comm(AirTrafficController *airTraff
     out << "--------------------------------------------------------------------------" << std::endl;
 
 }
-
+/*
+ * communication for planes at 5000 ft altitude
+ * @param atc, airplane, ostream
+ * @return none
+ */
 void Communication::ATC_Airplane_5000ft_Comm(AirTrafficController *airTrafficController, Airplane *airplane,
                                              std::ostream &out) {
     REQUIRE(this->properlyInitialised(), "Initialise error");
@@ -193,7 +209,11 @@ void Communication::ATC_Airplane_5000ft_Comm(AirTrafficController *airTrafficCon
     out << "--------------------------------------------------------------------------" << std::endl;
 
 }
-
+/*
+ * communication for planes of 3000 ft altitude
+ * @param atc, airplane, ostream
+ * @return None
+ */
 void Communication::ATC_Airplane_3000ft_Comm(AirTrafficController *airTrafficController, Airplane *airplane,
                                              std::ostream &out) {
     REQUIRE(this->properlyInitialised(), "Initialise error");
@@ -230,7 +250,10 @@ void Communication::ATC_Airplane_3000ft_Comm(AirTrafficController *airTrafficCon
     }
     out << "--------------------------------------------------------------------------" << std::endl;
 }
-
+/*
+ * communication with plane after landing
+ * @param atc, airplane, ostream
+ */
 void Communication::ATC_Airplane_After_Landing_Comm(AirTrafficController *airTrafficController, Airplane *airplane,
                                                     std::ostream &out) {
     REQUIRE(this->properlyInitialised(), "Initialise error");
@@ -251,7 +274,11 @@ void Communication::ATC_Airplane_After_Landing_Comm(AirTrafficController *airTra
     out << "$ Proceed to an empty gate. " << std::endl;
     out << "--------------------------------------------------------------------------" << std::endl;
 }
-
+/*
+ * gate communications
+ * @param atc, airplane, ostream
+ * @return none
+ */
 void Communication::ATC_Airplane_At_Gate_Comm(AirTrafficController *airTrafficController, Airplane *airplane, std::ostream &out) {
     REQUIRE(this->properlyInitialised(), "Initialise error");
 
@@ -273,7 +300,11 @@ void Communication::ATC_Airplane_At_Gate_Comm(AirTrafficController *airTrafficCo
         << airplane->getCallsign() << "." << std::endl;
     out << "--------------------------------------------------------------------------" << std::endl;
 }
-
+/*
+ * communication at gate after ifr
+ * @param atc, airplane, ostream
+ * @return none
+ */
 void
 Communication::ATC_Airplane_At_Gate_After_IFR_Comm(AirTrafficController *airTrafficController, Airplane *airplane, std::ostream &out) {
     REQUIRE(this->properlyInitialised(), "Initialise error");
@@ -297,7 +328,12 @@ Communication::ATC_Airplane_At_Gate_After_IFR_Comm(AirTrafficController *airTraf
     out << "$ Pushback approved, " << airplane->getCallsign() << "." << std::endl;
     out << "--------------------------------------------------------------------------" << std::endl;
 }
-
+/*
+ * communication at airplane of gate
+ * @param atc, airplane, ostream
+ * @return none
+ */
+void
 void Communication::ATC_Airplane_Of_Gate_Comm(AirTrafficController *airTrafficController, Airplane *airplane, std::ostream &out) {
     REQUIRE(this->properlyInitialised(), "Initialise error");
     unsigned int counter = 1;
@@ -308,7 +344,12 @@ void Communication::ATC_Airplane_Of_Gate_Comm(AirTrafficController *airTrafficCo
     out << "$ Proceed to your runway." << std::endl;
     out << "--------------------------------------------------------------------------" << std::endl;
 }
-
+/*
+ * communication at runwaywait
+ * @param atc, airplane, ostream
+ * @return none
+ */
+void
 void Communication::ATC_Airplane_Wait_At_Runway_Comm(AirTrafficController *airTrafficController, Airplane *airplane, std::ostream &out) {
     REQUIRE(this->properlyInitialised(), "Initialise error");
 
@@ -327,7 +368,12 @@ void Communication::ATC_Airplane_Wait_At_Runway_Comm(AirTrafficController *airTr
     out << "$ Holding position, " << airplane->getCallsign() << "." << std::endl;
     out << "--------------------------------------------------------------------------" << std::endl;
 }
-
+/*
+ * communication for permition at runway
+ * @param atc, airplane, ostream
+ * @return none
+ */
+void
 void Communication::ATC_Airplane_Enter_Permission_Granted_Runway_Comm(AirTrafficController *airTrafficController,
                                                                       Airplane *airplane, std::ostream &out) {
     REQUIRE(this->properlyInitialised(), "Initialise error");
@@ -359,7 +405,11 @@ void Communication::ATC_Airplane_Enter_Permission_Granted_Runway_Comm(AirTraffic
     }
     out << "--------------------------------------------------------------------------" << std::endl;
 }
-
+/*
+ * communication for permition takeoff
+ * @param atc, airplane, ostream
+ * @return none
+ */
 void
 Communication::ATC_Airplane_Enter_TakeOff_Permission_Granted_Runway_Comm(AirTrafficController *airTrafficController,
                                                                          Airplane *airplane, std::ostream &out) {
@@ -398,7 +448,11 @@ Communication::ATC_Airplane_Enter_TakeOff_Permission_Granted_Runway_Comm(AirTraf
     }
     out << "--------------------------------------------------------------------------" << std::endl;
 }
-
+/*
+ * communication for airplane takeoff permition
+ * @param atc, airplane, ostream
+ * @return none
+ */
 void Communication::ATC_Airplane_TakeOff_Permission_Granted_Runway_Comm(AirTrafficController *airTrafficController,
                                                                         Airplane *airplane, std::ostream &out) {
     REQUIRE(this->properlyInitialised(), "Initialise error");
@@ -424,7 +478,11 @@ void Communication::ATC_Airplane_TakeOff_Permission_Granted_Runway_Comm(AirTraff
     }
     out << "--------------------------------------------------------------------------" << std::endl;
 }
-
+/*
+ * communication for emergency at 3000 ft altitude
+ * @param atc, airplane, ostream
+ * @return none
+ */
 void
 Communication::ATC_Airplane_More_Than_3000ft_Emergency(AirTrafficController *airTrafficController, Airplane *airplane, std::ostream &out) {
     REQUIRE(this->properlyInitialised(), "Initialise error");
@@ -442,7 +500,11 @@ Communication::ATC_Airplane_More_Than_3000ft_Emergency(AirTrafficController *air
     out << "--------------------------------------------------------------------------" << std::endl;
 
 }
-
+/*
+ * communication for emergency below 3000 ft altitude
+ * @param atc, airplane, ostream
+ * @return none
+ */
 void
 Communication::ATC_Airplane_Less_Than_3000ft_Emergency(AirTrafficController *airTrafficController, Airplane *airplane, std::ostream &out) {
     REQUIRE(this->properlyInitialised(), "Initialise error");

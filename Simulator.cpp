@@ -58,9 +58,14 @@ void Simulator::Simulate(std::ostream &out)
         doStep(out);
     }
 }
-
+/*
+ * does extra step within function
+ * @param ostream
+ * @return none
+ */
 void Simulator::doStep(ostream &out)
 {
+    REQUIRE(this->properlyInitialised(), "Simulator wasn't properly initialised when calling Simulate()");
     for (unsigned int x = 0; x < _airplanes.size(); x++) {
         if (_airport->isAirplaneInWaitPoint(_airplanes[x])) {
             //end of a collision
