@@ -54,6 +54,15 @@ void Simulator::Simulate(std::ostream &out)
     while (!_airplanes.empty()) {
         doStep(out);
     }
+
+}
+
+
+
+vector<Airplane *> &Simulator::getAirplanes() {
+    REQUIRE(this->properlyInitialised(), "Simulator wasn't properly initialised when calling getAirplanes()");
+
+    return _airplanes;
 }
 /*
  * does extra step within function

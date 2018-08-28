@@ -39,7 +39,7 @@ Airplane::Airplane(std::string number,std::string callsign, std::string model,
     _controle=false;
     ENSURE(!_fueled, "Fueled must be false");
     ENSURE(properlyInitialised(), "Constructor must end");
-    ENSURE(_height == 0 || _height == 10000, "Height must be either 0 or 10000");
+    ENSURE(getHeight() == 0 || getHeight() == 10000, "Height must be either 0 or 10000");
     ENSURE(getNumber() == number && getCallsign() == callsign && getModel() == model && getStatus() == status &&
            getPassengers() == passengers && getFuel() == fuel && getType() == type && getEngine() == engine &&
            getSize() == size && getFlightplan() == flightp, "Airplane constructor failure");

@@ -66,6 +66,6 @@ TEST_F(GatesTest, airplaneTest)
     testGate->addAirplane(testAirplane2);
     EXPECT_TRUE(testGate->isOccupied());
 //    EXPECT_EQ(testAirplane2->getStatus(), StandingAtGate);
-    EXPECT_EQ(true, testGate->getAirplane()->properlyInitialised());
+    EXPECT_TRUE(testGate->getAirplane()->properlyInitialised());
     EXPECT_EQ("127", testGate->getAirplane()->getNumber());
 }

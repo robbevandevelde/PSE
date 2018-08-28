@@ -4,6 +4,7 @@
 
 
 #include <gtest/gtest.h>
+#include <fstream>
 #include "../../Airplane.h"
 
 class AirplaneTest: public ::testing::Test {
@@ -37,6 +38,25 @@ TEST_F(AirplaneTest, InitTest)
     EXPECT_TRUE(testAirplane->properlyInitialised());
     EXPECT_TRUE(testFlightplan->properlyInitialised());
 
+}
+TEST_F(AirplaneTest, Ascend)
+{
+    ofstream myfile;
+    myfile.open("testOutput/Output03.txt");
+    testAirplane->setHeight(5000);
+    testAirplane->ascend(myfile);
+    EXPECT_TRUE(testAirplane->getHeight() > 5000);
+    myfile.close();
+}
+
+TEST_F(AirplaneTest, descend)
+{
+    ofstream myfile;
+    myfile.open("testOutput/Output03.txt");
+    testAirplane->setHeight(5000);
+    testAirplane->descend(myfile);
+    EXPECT_TRUE(testAirplane->getHeight() < 5000);
+    myfile.close();
 }
 //tests the constructed values
 TEST_F(AirplaneTest, DefaultconstructorTests)

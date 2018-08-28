@@ -6,7 +6,6 @@
 #ifndef PSE_AIRPORT_H
 #define PSE_AIRPORT_H
 
-//TODO: PRIVATE VARIABLES IN CONTRACTEN WEG DOEN KAK LEMAW XDDDDDDDDDDD
 
 #include <vector>
 #include <sstream>
@@ -195,6 +194,9 @@ public:
     void takeOffSequence(Airplane* airplane, std::ostream &out);
     //    REQUIRE(this->properlyInitialised(), "Airport wasn't properly initialised");
     //    REQUIRE(airplane->getFuel() == 0, "Fuel isn't empty");
+    //    REQUIRE(airplane->getStatus() == Approaching ||airplane->getStatus() == EmergencyLanding||
+    //      airplane->getStatus() == EmergencyControle1|| airplane->getStatus() == EmergencyControle2 ||
+    //      airplane->getStatus() == EmergencyControle2 || airplane->getStatus() == JustLanded, "Must be in the air or just landed");
     //    ENSURE(airplane->getStatus() == EmergencyLandingOutside, "Emergencylanding outside failure");
     //    ENSURE(isAirplaneInRunway(airplane), "Emergency landing failure");
     void emergencySequence(Airplane* airplane, std::ostream& out);

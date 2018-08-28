@@ -42,7 +42,7 @@ TEST_F(RunwayTest, Initcheck)
     EXPECT_EQ("ANR", testRunway->getAirport());
 }
 
-TEST_F(RunwayTest, aiport)
+TEST_F(RunwayTest, airport)
 {
     EXPECT_EQ("ANR", testRunway->getAirport());
     testRunway->setAirport("newairport");

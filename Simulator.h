@@ -36,7 +36,12 @@ public:
 
     //    REQUIRE(this->properlyInitialised(), "Simulator wasn't properly initialised when calling Simulate()");
     void doStep(ostream &out);
+
+    //    REQUIRE(this->properlyInitialised(), "Simulator wasn't properly initialised when calling getAirplanes()");
+    vector<Airplane *> &getAirplanes();
+
 };
+
 
 
 #endif //PSE_SIMULATOR_H

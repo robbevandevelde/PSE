@@ -4,6 +4,7 @@
 
 #include <gtest/gtest.h>
 #include "../../Simulator.h"
+#include "../../Parsers/LuchthavenParser.h"
 
 class SimulatorTest: public ::testing::Test {
 protected:
@@ -14,24 +15,19 @@ protected:
     // should define it if you need to initialize the variables.
     // Otherwise, this can be skipped.
     virtual void SetUp() {
-        string naam = "route";
-        testFlightplan = new Flightplan(naam, 5, 6, 7);
-        testRunway1 = new Runway(3000, "Alpha", Asphalt, "Zaventem");
-        testRunway2 = new Runway(500,"Bravo", Grass, "Zaventem");
-        vector<Runway*> runways;
-        runways.push_back(testRunway1);
-        runways.push_back(testRunway2);
-        testAirplane1 = new Airplane("Klein", "Propeller", "EF11",Approaching,50,50,Airline, Propeller, Small,testFlightplan);
-        testAirplane1->setHeight(10000);
-        testAirplane2 = new Airplane("Medium", "Jet","EFEF", Approaching, 50,50, Airline,Jet, Medium,testFlightplan);
-        vector<Airplane*> airplanes;
-        airplanes.push_back(testAirplane1);
-        airplanes.push_back(testAirplane2);
-        testAirport = new Airport(2, "Zaventem", "f444", "Echo");
-        john = new AirTrafficController(testAirport, "John");
-        testAirport->assignController(john);
-        testSimulator  = new Simulator(runways, airplanes, testAirport);
-        testSimulator->addRunways();
+        testParser = new LuchthavenParser();
+        if(testParser->loadFile("InputFiles/luchthaven.xml")) {
+            testParser->parseItems("InputFiles/luchthaven.xml");
+
+            vector<Runway *> runwaysVect = testParser->getRunways();
+            vector<Airport *> airportsVect = testParser->getAirports();
+            vector<Airplane *> airplanesVect = testParser->getAirplanes();
+            testParser->writeToFile(runwaysVect, airportsVect, airplanesVect, "OutputFiles/simulatie.txt");
+            AirTrafficController *Alain = new AirTrafficController(airportsVect[0], "Alain Clement");
+            airportsVect[0]->assignController(Alain);
+
+            testSimulator = new Simulator(runwaysVect, airplanesVect, airportsVect[0]);
+        }
     }
 
     // virtual void TearDown() will be called after each test is run.
@@ -39,17 +35,21 @@ protected:
     // you don't have to provide it.
     virtual void TearDown() {
     }
-
-    // Declares the variables your tests want to use.
+    LuchthavenParser* testParser;
     Simulator* testSimulator;
-    Flightplan* testFlightplan;
-    Airplane* testAirplane1;
-    Airplane* testAirplane2;
-    Runway* testRunway1;
-    Runway* testRunway2;
-    Airport* testAirport;
-    AirTrafficController* john;
+    // Declares the variables your tests want to use.
+
 };
 TEST_F(SimulatorTest, initCheck) {
-    EXPECT_EQ(testAirplane1->getStatus(), Approaching);
+    ofstream myfile;
+    myfile.open("testOutput/Output03.txt");
+    testSimulator->doStep(myfile);
+
+    EXPECT_TRUE(testSimulator->getAirplanes()[1]->getHeight() < 10000);
+    testSimulator->doStep(myfile);
+
+    EXPECT_TRUE(testSimulator->getAirplanes()[2]->getHeight() < 10000);
+
+    myfile.close();
+
 }
