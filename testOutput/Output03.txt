@@ -1,0 +1,16 @@
+[1] [John]
+$ SIERRA MIKE ALFA LIMA LIMA PAPA ROMEO OSCAR PAPA ECHO LIMA LIMA ECHO ROMEO , hold south on the eighty radial, except further clearance.
+[2] [Small Propeller]
+$ Holding south on the eighty radial SIERRA MIKE ALFA LIMA LIMA PAPA ROMEO OSCAR PAPA ECHO LIMA LIMA ECHO ROMEO .
+--------------------------------------------------------------------------
+[1] [John]
+$ SIERRA MIKE ALFA LIMA LIMA PAPA ROMEO OSCAR PAPA ECHO LIMA LIMA ECHO ROMEO , hold south on the eighty radial, except further clearance.
+[2] [Small Propeller]
+$ Holding south on the eighty radial SIERRA MIKE ALFA LIMA LIMA PAPA ROMEO OSCAR PAPA ECHO LIMA LIMA ECHO ROMEO .
+--------------------------------------------------------------------------
+[1] [John]
+$ SIERRA MIKE ALFA LIMA LIMA PAPA ROMEO OSCAR PAPA ECHO LIMA LIMA ECHO ROMEO , hold south on the eighty radial, except further clearance.
+[2] [Small Propeller]
+$ Holding south on the eighty radial SIERRA MIKE ALFA LIMA LIMA PAPA ROMEO OSCAR PAPA ECHO LIMA LIMA ECHO ROMEO .
+--------------------------------------------------------------------------
+Small Propeller has to ascend to 10000 ft. again

@@ -44,7 +44,8 @@ set(SOURCE_FILES
         Simulator.cpp
         Simulator.h
         InputFiles/luchthaven.xml
-        Communication.cpp Communication.h)
+        Communication.h
+        Communication.cpp)
 
 set(DEBUG_SOURCE_FILES
         Parsers/AirplaneParser.cpp
@@ -83,7 +84,9 @@ set(DEBUG_SOURCE_FILES
         testInput/Input05.xml
         Tests/OutputTests/OutputTest.cpp
         InputFiles/luchthaven.xml
-        Tests/DomainTests/SimulatorTest.cpp)
+        Tests/DomainTests/SimulatorTest.cpp
+        Communication.h
+        Communication.cpp)
 
 add_executable(pse ${SOURCE_FILES})
 

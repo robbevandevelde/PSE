@@ -664,7 +664,7 @@ void Airport::collisionSolverAirStart(Airplane *airplane, std::ostream &out)
 void Airport::collisionSolverAirEnd(Airplane *airplane, std::ostream &out)
 {
     REQUIRE(this->properlyInitialised(), "Airport wasn't properly initialised when calling collisionSolverAirEnd()");
-    if (getController()->landingprotocol(airplane)) {
+    if (getController()->landingprotocol(airplane, out)) {
         if (getWaitpoint1() == airplane) {
             removeWaitpoint1();
             airplane->setStatus(Approaching);
@@ -725,11 +725,11 @@ void Airport::landingSequence(Airplane *airplane, std::ostream &out)
     REQUIRE(airplane->getStatus() == Approaching || airplane->getStatus() == FinalApproach,
             "Aircontrole failure, aircraft isn't in the air");
     if (airplane->getHeight() == 10000) {
-        getController()->landingprotocol(airplane);
+        getController()->landingprotocol(airplane, out);
         airplane->descend(out);
         out << "--------------------------------------------------------------------------" << std::endl;
     } else if (airplane->getHeight() == 5000) {
-        if (getController()->landingprotocol(airplane)) {
+        if (getController()->landingprotocol(airplane, out)) {
             _comm->ATC_Airplane_5000ft_Comm(_controller, airplane, out);
             airplane->descend(out);
             out << "--------------------------------------------------------------------------" << std::endl;
@@ -738,7 +738,7 @@ void Airport::landingSequence(Airplane *airplane, std::ostream &out)
             collisionSolverAirStart(airplane, out);
         }
     } else if (airplane->getHeight() == 3000) {
-        if (getController()->landingprotocol(airplane)) {
+        if (getController()->landingprotocol(airplane, out)) {
             _comm->ATC_Airplane_3000ft_Comm(_controller, airplane, out);
             airplane->setStatus(FinalApproach);
             goingToBeUsedRunway(airplane);

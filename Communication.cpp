@@ -343,7 +343,6 @@ Communication::ATC_Airplane_At_Gate_After_IFR_Comm(AirTrafficController *airTraf
  * @param atc, airplane, ostream
  * @return none
  */
-void
 void Communication::ATC_Airplane_Of_Gate_Comm(AirTrafficController *airTrafficController, Airplane *airplane, std::ostream &out) {
     REQUIRE(this->properlyInitialised(), "Initialise error");
     REQUIRE(airTrafficController != NULL && airplane != NULL, "ATC and airplane can't be NULL");
@@ -360,7 +359,6 @@ void Communication::ATC_Airplane_Of_Gate_Comm(AirTrafficController *airTrafficCo
  * @param atc, airplane, ostream
  * @return none
  */
-void
 void Communication::ATC_Airplane_Wait_At_Runway_Comm(AirTrafficController *airTrafficController, Airplane *airplane, std::ostream &out) {
     REQUIRE(this->properlyInitialised(), "Initialise error");
     REQUIRE(airTrafficController != NULL && airplane != NULL, "ATC and airplane can't be NULL");
@@ -385,7 +383,7 @@ void Communication::ATC_Airplane_Wait_At_Runway_Comm(AirTrafficController *airTr
  * @param atc, airplane, ostream
  * @return none
  */
-void
+
 void Communication::ATC_Airplane_Enter_Permission_Granted_Runway_Comm(AirTrafficController *airTrafficController,
                                                                       Airplane *airplane, std::ostream &out) {
     REQUIRE(this->properlyInitialised(), "Initialise error");

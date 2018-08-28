@@ -1,0 +1,51 @@
+Small Propeller descended to 5000 ft.
+--------------------------------------------------------------------------
+Allahu akbar descended to 5000 ft.
+--------------------------------------------------------------------------
+[1] [John]
+$ SIERRA MIKE ALFA LIMA LIMA PAPA ROMEO OSCAR PAPA ECHO LIMA LIMA ECHO ROMEO , hold south on the eighty radial, except further clearance.
+[2] [Small Propeller]
+$ Holding south on the eighty radial SIERRA MIKE ALFA LIMA LIMA PAPA ROMEO OSCAR PAPA ECHO LIMA LIMA ECHO ROMEO .
+--------------------------------------------------------------------------
+[1] [John]
+$ ALFA LIMA LIMA ALFA HOTEL UNIFORM ALFA KILO BRAVO ALFA ROMEO , hold south on the eighty radial, except further clearance.
+[2] [Allahu akbar]
+$ Holding south on the eighty radial ALFA LIMA LIMA ALFA HOTEL UNIFORM ALFA KILO BRAVO ALFA ROMEO .
+--------------------------------------------------------------------------
+Allahu akbar descended to 4000 ft.
+Allahu akbar descended to 3000 ft.
+[1] [John]
+$ SIERRA MIKE ALFA LIMA LIMA PAPA ROMEO OSCAR PAPA ECHO LIMA LIMA ECHO ROMEO , hold south on the eighty radial, except further clearance.
+[2] [Small Propeller]
+$ Holding south on the eighty radial SIERRA MIKE ALFA LIMA LIMA PAPA ROMEO OSCAR PAPA ECHO LIMA LIMA ECHO ROMEO .
+--------------------------------------------------------------------------
+Small Propeller has to ascend to 10000 ft. again
+[1] [John]
+$ ALFA LIMA LIMA ALFA HOTEL UNIFORM ALFA KILO BRAVO ALFA ROMEO , hold south on the eighty radial, except further clearance.
+[2] [Allahu akbar]
+$ Holding south on the eighty radial ALFA LIMA LIMA ALFA HOTEL UNIFORM ALFA KILO BRAVO ALFA ROMEO .
+--------------------------------------------------------------------------
+[1] [Small Propeller]
+$ John, SIERRA MIKE ALFA LIMA LIMA PAPA ROMEO OSCAR PAPA ECHO LIMA LIMA ECHO ROMEO , arriving at Antwerp Airport.
+[2] [John]
+$ SIERRA MIKE ALFA LIMA LIMA PAPA ROMEO OSCAR PAPA ECHO LIMA LIMA ECHO ROMEO , radar contact, descend and maintain five thousand feet.
+[3] [Small Propeller]
+$ Descend and maintain five thousand feet, SIERRA MIKE ALFA LIMA LIMA PAPA ROMEO OSCAR PAPA ECHO LIMA LIMA ECHO ROMEO .
+--------------------------------------------------------------------------
+Small Propeller descended to 9000 ft.
+--------------------------------------------------------------------------
+[1] [Allahu akbar]
+$ John, ALFA LIMA LIMA ALFA HOTEL UNIFORM ALFA KILO BRAVO ALFA ROMEO , arriving at Antwerp Airport.
+[2] [John]
+$ ALFA LIMA LIMA ALFA HOTEL UNIFORM ALFA KILO BRAVO ALFA ROMEO , radar contact, descend and maintain five thousand feet.
+[3] [Allahu akbar]
+$ Descend and maintain five thousand feet, ALFA LIMA LIMA ALFA HOTEL UNIFORM ALFA KILO BRAVO ALFA ROMEO .
+--------------------------------------------------------------------------
+Allahu akbar descended to 9000 ft.
+--------------------------------------------------------------------------
+Small Propeller descended to 8000 ft.
+--------------------------------------------------------------------------
+Small Propeller descended to 7000 ft.
+--------------------------------------------------------------------------
+Small Propeller descended to 6000 ft.
+--------------------------------------------------------------------------
