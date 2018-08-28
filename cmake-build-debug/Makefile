@@ -253,6 +253,36 @@ AirportUtils.cpp.s:
 	$(MAKE) -f CMakeFiles/pse_debug.dir/build.make CMakeFiles/pse_debug.dir/AirportUtils.cpp.s
 .PHONY : AirportUtils.cpp.s
 
+Communication.o: Communication.cpp.o
+
+.PHONY : Communication.o
+
+# target to build an object file
+Communication.cpp.o:
+	$(MAKE) -f CMakeFiles/pse_debug.dir/build.make CMakeFiles/pse_debug.dir/Communication.cpp.o
+	$(MAKE) -f CMakeFiles/pse.dir/build.make CMakeFiles/pse.dir/Communication.cpp.o
+.PHONY : Communication.cpp.o
+
+Communication.i: Communication.cpp.i
+
+.PHONY : Communication.i
+
+# target to preprocess a source file
+Communication.cpp.i:
+	$(MAKE) -f CMakeFiles/pse_debug.dir/build.make CMakeFiles/pse_debug.dir/Communication.cpp.i
+	$(MAKE) -f CMakeFiles/pse.dir/build.make CMakeFiles/pse.dir/Communication.cpp.i
+.PHONY : Communication.cpp.i
+
+Communication.s: Communication.cpp.s
+
+.PHONY : Communication.s
+
+# target to generate assembly for a file
+Communication.cpp.s:
+	$(MAKE) -f CMakeFiles/pse_debug.dir/build.make CMakeFiles/pse_debug.dir/Communication.cpp.s
+	$(MAKE) -f CMakeFiles/pse.dir/build.make CMakeFiles/pse.dir/Communication.cpp.s
+.PHONY : Communication.cpp.s
+
 Flightplan.o: Flightplan.cpp.o
 
 .PHONY : Flightplan.o
@@ -550,194 +580,221 @@ TestMain.cpp.s:
 	$(MAKE) -f CMakeFiles/pse_debug.dir/build.make CMakeFiles/pse_debug.dir/TestMain.cpp.s
 .PHONY : TestMain.cpp.s
 
-Tests/AirplaneTest.o: Tests/AirplaneTest.cpp.o
+Tests/DomainTests/AirplaneTest.o: Tests/DomainTests/AirplaneTest.cpp.o
 
-.PHONY : Tests/AirplaneTest.o
-
-# target to build an object file
-Tests/AirplaneTest.cpp.o:
-	$(MAKE) -f CMakeFiles/pse_debug.dir/build.make CMakeFiles/pse_debug.dir/Tests/AirplaneTest.cpp.o
-.PHONY : Tests/AirplaneTest.cpp.o
-
-Tests/AirplaneTest.i: Tests/AirplaneTest.cpp.i
-
-.PHONY : Tests/AirplaneTest.i
-
-# target to preprocess a source file
-Tests/AirplaneTest.cpp.i:
-	$(MAKE) -f CMakeFiles/pse_debug.dir/build.make CMakeFiles/pse_debug.dir/Tests/AirplaneTest.cpp.i
-.PHONY : Tests/AirplaneTest.cpp.i
-
-Tests/AirplaneTest.s: Tests/AirplaneTest.cpp.s
-
-.PHONY : Tests/AirplaneTest.s
-
-# target to generate assembly for a file
-Tests/AirplaneTest.cpp.s:
-	$(MAKE) -f CMakeFiles/pse_debug.dir/build.make CMakeFiles/pse_debug.dir/Tests/AirplaneTest.cpp.s
-.PHONY : Tests/AirplaneTest.cpp.s
-
-Tests/AirportTest.o: Tests/AirportTest.cpp.o
-
-.PHONY : Tests/AirportTest.o
+.PHONY : Tests/DomainTests/AirplaneTest.o
 
 # target to build an object file
-Tests/AirportTest.cpp.o:
-	$(MAKE) -f CMakeFiles/pse_debug.dir/build.make CMakeFiles/pse_debug.dir/Tests/AirportTest.cpp.o
-.PHONY : Tests/AirportTest.cpp.o
+Tests/DomainTests/AirplaneTest.cpp.o:
+	$(MAKE) -f CMakeFiles/pse_debug.dir/build.make CMakeFiles/pse_debug.dir/Tests/DomainTests/AirplaneTest.cpp.o
+.PHONY : Tests/DomainTests/AirplaneTest.cpp.o
 
-Tests/AirportTest.i: Tests/AirportTest.cpp.i
+Tests/DomainTests/AirplaneTest.i: Tests/DomainTests/AirplaneTest.cpp.i
 
-.PHONY : Tests/AirportTest.i
+.PHONY : Tests/DomainTests/AirplaneTest.i
 
 # target to preprocess a source file
-Tests/AirportTest.cpp.i:
-	$(MAKE) -f CMakeFiles/pse_debug.dir/build.make CMakeFiles/pse_debug.dir/Tests/AirportTest.cpp.i
-.PHONY : Tests/AirportTest.cpp.i
+Tests/DomainTests/AirplaneTest.cpp.i:
+	$(MAKE) -f CMakeFiles/pse_debug.dir/build.make CMakeFiles/pse_debug.dir/Tests/DomainTests/AirplaneTest.cpp.i
+.PHONY : Tests/DomainTests/AirplaneTest.cpp.i
 
-Tests/AirportTest.s: Tests/AirportTest.cpp.s
+Tests/DomainTests/AirplaneTest.s: Tests/DomainTests/AirplaneTest.cpp.s
 
-.PHONY : Tests/AirportTest.s
+.PHONY : Tests/DomainTests/AirplaneTest.s
 
 # target to generate assembly for a file
-Tests/AirportTest.cpp.s:
-	$(MAKE) -f CMakeFiles/pse_debug.dir/build.make CMakeFiles/pse_debug.dir/Tests/AirportTest.cpp.s
-.PHONY : Tests/AirportTest.cpp.s
+Tests/DomainTests/AirplaneTest.cpp.s:
+	$(MAKE) -f CMakeFiles/pse_debug.dir/build.make CMakeFiles/pse_debug.dir/Tests/DomainTests/AirplaneTest.cpp.s
+.PHONY : Tests/DomainTests/AirplaneTest.cpp.s
 
-Tests/FlightplanTest.o: Tests/FlightplanTest.cpp.o
+Tests/DomainTests/AirportTest.o: Tests/DomainTests/AirportTest.cpp.o
 
-.PHONY : Tests/FlightplanTest.o
+.PHONY : Tests/DomainTests/AirportTest.o
 
 # target to build an object file
-Tests/FlightplanTest.cpp.o:
-	$(MAKE) -f CMakeFiles/pse_debug.dir/build.make CMakeFiles/pse_debug.dir/Tests/FlightplanTest.cpp.o
-.PHONY : Tests/FlightplanTest.cpp.o
+Tests/DomainTests/AirportTest.cpp.o:
+	$(MAKE) -f CMakeFiles/pse_debug.dir/build.make CMakeFiles/pse_debug.dir/Tests/DomainTests/AirportTest.cpp.o
+.PHONY : Tests/DomainTests/AirportTest.cpp.o
 
-Tests/FlightplanTest.i: Tests/FlightplanTest.cpp.i
+Tests/DomainTests/AirportTest.i: Tests/DomainTests/AirportTest.cpp.i
 
-.PHONY : Tests/FlightplanTest.i
+.PHONY : Tests/DomainTests/AirportTest.i
 
 # target to preprocess a source file
-Tests/FlightplanTest.cpp.i:
-	$(MAKE) -f CMakeFiles/pse_debug.dir/build.make CMakeFiles/pse_debug.dir/Tests/FlightplanTest.cpp.i
-.PHONY : Tests/FlightplanTest.cpp.i
+Tests/DomainTests/AirportTest.cpp.i:
+	$(MAKE) -f CMakeFiles/pse_debug.dir/build.make CMakeFiles/pse_debug.dir/Tests/DomainTests/AirportTest.cpp.i
+.PHONY : Tests/DomainTests/AirportTest.cpp.i
 
-Tests/FlightplanTest.s: Tests/FlightplanTest.cpp.s
+Tests/DomainTests/AirportTest.s: Tests/DomainTests/AirportTest.cpp.s
 
-.PHONY : Tests/FlightplanTest.s
+.PHONY : Tests/DomainTests/AirportTest.s
 
 # target to generate assembly for a file
-Tests/FlightplanTest.cpp.s:
-	$(MAKE) -f CMakeFiles/pse_debug.dir/build.make CMakeFiles/pse_debug.dir/Tests/FlightplanTest.cpp.s
-.PHONY : Tests/FlightplanTest.cpp.s
+Tests/DomainTests/AirportTest.cpp.s:
+	$(MAKE) -f CMakeFiles/pse_debug.dir/build.make CMakeFiles/pse_debug.dir/Tests/DomainTests/AirportTest.cpp.s
+.PHONY : Tests/DomainTests/AirportTest.cpp.s
 
-Tests/GatesTest.o: Tests/GatesTest.cpp.o
+Tests/DomainTests/FlightplanTest.o: Tests/DomainTests/FlightplanTest.cpp.o
 
-.PHONY : Tests/GatesTest.o
+.PHONY : Tests/DomainTests/FlightplanTest.o
 
 # target to build an object file
-Tests/GatesTest.cpp.o:
-	$(MAKE) -f CMakeFiles/pse_debug.dir/build.make CMakeFiles/pse_debug.dir/Tests/GatesTest.cpp.o
-.PHONY : Tests/GatesTest.cpp.o
+Tests/DomainTests/FlightplanTest.cpp.o:
+	$(MAKE) -f CMakeFiles/pse_debug.dir/build.make CMakeFiles/pse_debug.dir/Tests/DomainTests/FlightplanTest.cpp.o
+.PHONY : Tests/DomainTests/FlightplanTest.cpp.o
 
-Tests/GatesTest.i: Tests/GatesTest.cpp.i
+Tests/DomainTests/FlightplanTest.i: Tests/DomainTests/FlightplanTest.cpp.i
 
-.PHONY : Tests/GatesTest.i
+.PHONY : Tests/DomainTests/FlightplanTest.i
 
 # target to preprocess a source file
-Tests/GatesTest.cpp.i:
-	$(MAKE) -f CMakeFiles/pse_debug.dir/build.make CMakeFiles/pse_debug.dir/Tests/GatesTest.cpp.i
-.PHONY : Tests/GatesTest.cpp.i
+Tests/DomainTests/FlightplanTest.cpp.i:
+	$(MAKE) -f CMakeFiles/pse_debug.dir/build.make CMakeFiles/pse_debug.dir/Tests/DomainTests/FlightplanTest.cpp.i
+.PHONY : Tests/DomainTests/FlightplanTest.cpp.i
 
-Tests/GatesTest.s: Tests/GatesTest.cpp.s
+Tests/DomainTests/FlightplanTest.s: Tests/DomainTests/FlightplanTest.cpp.s
 
-.PHONY : Tests/GatesTest.s
+.PHONY : Tests/DomainTests/FlightplanTest.s
 
 # target to generate assembly for a file
-Tests/GatesTest.cpp.s:
-	$(MAKE) -f CMakeFiles/pse_debug.dir/build.make CMakeFiles/pse_debug.dir/Tests/GatesTest.cpp.s
-.PHONY : Tests/GatesTest.cpp.s
+Tests/DomainTests/FlightplanTest.cpp.s:
+	$(MAKE) -f CMakeFiles/pse_debug.dir/build.make CMakeFiles/pse_debug.dir/Tests/DomainTests/FlightplanTest.cpp.s
+.PHONY : Tests/DomainTests/FlightplanTest.cpp.s
 
-Tests/LuchthavenParserTest.o: Tests/LuchthavenParserTest.cpp.o
+Tests/DomainTests/GatesTest.o: Tests/DomainTests/GatesTest.cpp.o
 
-.PHONY : Tests/LuchthavenParserTest.o
+.PHONY : Tests/DomainTests/GatesTest.o
 
 # target to build an object file
-Tests/LuchthavenParserTest.cpp.o:
-	$(MAKE) -f CMakeFiles/pse_debug.dir/build.make CMakeFiles/pse_debug.dir/Tests/LuchthavenParserTest.cpp.o
-.PHONY : Tests/LuchthavenParserTest.cpp.o
+Tests/DomainTests/GatesTest.cpp.o:
+	$(MAKE) -f CMakeFiles/pse_debug.dir/build.make CMakeFiles/pse_debug.dir/Tests/DomainTests/GatesTest.cpp.o
+.PHONY : Tests/DomainTests/GatesTest.cpp.o
 
-Tests/LuchthavenParserTest.i: Tests/LuchthavenParserTest.cpp.i
+Tests/DomainTests/GatesTest.i: Tests/DomainTests/GatesTest.cpp.i
 
-.PHONY : Tests/LuchthavenParserTest.i
+.PHONY : Tests/DomainTests/GatesTest.i
 
 # target to preprocess a source file
-Tests/LuchthavenParserTest.cpp.i:
-	$(MAKE) -f CMakeFiles/pse_debug.dir/build.make CMakeFiles/pse_debug.dir/Tests/LuchthavenParserTest.cpp.i
-.PHONY : Tests/LuchthavenParserTest.cpp.i
+Tests/DomainTests/GatesTest.cpp.i:
+	$(MAKE) -f CMakeFiles/pse_debug.dir/build.make CMakeFiles/pse_debug.dir/Tests/DomainTests/GatesTest.cpp.i
+.PHONY : Tests/DomainTests/GatesTest.cpp.i
 
-Tests/LuchthavenParserTest.s: Tests/LuchthavenParserTest.cpp.s
+Tests/DomainTests/GatesTest.s: Tests/DomainTests/GatesTest.cpp.s
 
-.PHONY : Tests/LuchthavenParserTest.s
+.PHONY : Tests/DomainTests/GatesTest.s
 
 # target to generate assembly for a file
-Tests/LuchthavenParserTest.cpp.s:
-	$(MAKE) -f CMakeFiles/pse_debug.dir/build.make CMakeFiles/pse_debug.dir/Tests/LuchthavenParserTest.cpp.s
-.PHONY : Tests/LuchthavenParserTest.cpp.s
+Tests/DomainTests/GatesTest.cpp.s:
+	$(MAKE) -f CMakeFiles/pse_debug.dir/build.make CMakeFiles/pse_debug.dir/Tests/DomainTests/GatesTest.cpp.s
+.PHONY : Tests/DomainTests/GatesTest.cpp.s
 
-Tests/OutputTest.o: Tests/OutputTest.cpp.o
+Tests/DomainTests/RunwayTest.o: Tests/DomainTests/RunwayTest.cpp.o
 
-.PHONY : Tests/OutputTest.o
+.PHONY : Tests/DomainTests/RunwayTest.o
 
 # target to build an object file
-Tests/OutputTest.cpp.o:
-	$(MAKE) -f CMakeFiles/pse_debug.dir/build.make CMakeFiles/pse_debug.dir/Tests/OutputTest.cpp.o
-.PHONY : Tests/OutputTest.cpp.o
+Tests/DomainTests/RunwayTest.cpp.o:
+	$(MAKE) -f CMakeFiles/pse_debug.dir/build.make CMakeFiles/pse_debug.dir/Tests/DomainTests/RunwayTest.cpp.o
+.PHONY : Tests/DomainTests/RunwayTest.cpp.o
 
-Tests/OutputTest.i: Tests/OutputTest.cpp.i
+Tests/DomainTests/RunwayTest.i: Tests/DomainTests/RunwayTest.cpp.i
 
-.PHONY : Tests/OutputTest.i
+.PHONY : Tests/DomainTests/RunwayTest.i
 
 # target to preprocess a source file
-Tests/OutputTest.cpp.i:
-	$(MAKE) -f CMakeFiles/pse_debug.dir/build.make CMakeFiles/pse_debug.dir/Tests/OutputTest.cpp.i
-.PHONY : Tests/OutputTest.cpp.i
+Tests/DomainTests/RunwayTest.cpp.i:
+	$(MAKE) -f CMakeFiles/pse_debug.dir/build.make CMakeFiles/pse_debug.dir/Tests/DomainTests/RunwayTest.cpp.i
+.PHONY : Tests/DomainTests/RunwayTest.cpp.i
 
-Tests/OutputTest.s: Tests/OutputTest.cpp.s
+Tests/DomainTests/RunwayTest.s: Tests/DomainTests/RunwayTest.cpp.s
 
-.PHONY : Tests/OutputTest.s
+.PHONY : Tests/DomainTests/RunwayTest.s
 
 # target to generate assembly for a file
-Tests/OutputTest.cpp.s:
-	$(MAKE) -f CMakeFiles/pse_debug.dir/build.make CMakeFiles/pse_debug.dir/Tests/OutputTest.cpp.s
-.PHONY : Tests/OutputTest.cpp.s
+Tests/DomainTests/RunwayTest.cpp.s:
+	$(MAKE) -f CMakeFiles/pse_debug.dir/build.make CMakeFiles/pse_debug.dir/Tests/DomainTests/RunwayTest.cpp.s
+.PHONY : Tests/DomainTests/RunwayTest.cpp.s
 
-Tests/RunwayTest.o: Tests/RunwayTest.cpp.o
+Tests/DomainTests/SimulatorTest.o: Tests/DomainTests/SimulatorTest.cpp.o
 
-.PHONY : Tests/RunwayTest.o
+.PHONY : Tests/DomainTests/SimulatorTest.o
 
 # target to build an object file
-Tests/RunwayTest.cpp.o:
-	$(MAKE) -f CMakeFiles/pse_debug.dir/build.make CMakeFiles/pse_debug.dir/Tests/RunwayTest.cpp.o
-.PHONY : Tests/RunwayTest.cpp.o
+Tests/DomainTests/SimulatorTest.cpp.o:
+	$(MAKE) -f CMakeFiles/pse_debug.dir/build.make CMakeFiles/pse_debug.dir/Tests/DomainTests/SimulatorTest.cpp.o
+.PHONY : Tests/DomainTests/SimulatorTest.cpp.o
 
-Tests/RunwayTest.i: Tests/RunwayTest.cpp.i
+Tests/DomainTests/SimulatorTest.i: Tests/DomainTests/SimulatorTest.cpp.i
 
-.PHONY : Tests/RunwayTest.i
+.PHONY : Tests/DomainTests/SimulatorTest.i
 
 # target to preprocess a source file
-Tests/RunwayTest.cpp.i:
-	$(MAKE) -f CMakeFiles/pse_debug.dir/build.make CMakeFiles/pse_debug.dir/Tests/RunwayTest.cpp.i
-.PHONY : Tests/RunwayTest.cpp.i
+Tests/DomainTests/SimulatorTest.cpp.i:
+	$(MAKE) -f CMakeFiles/pse_debug.dir/build.make CMakeFiles/pse_debug.dir/Tests/DomainTests/SimulatorTest.cpp.i
+.PHONY : Tests/DomainTests/SimulatorTest.cpp.i
 
-Tests/RunwayTest.s: Tests/RunwayTest.cpp.s
+Tests/DomainTests/SimulatorTest.s: Tests/DomainTests/SimulatorTest.cpp.s
 
-.PHONY : Tests/RunwayTest.s
+.PHONY : Tests/DomainTests/SimulatorTest.s
 
 # target to generate assembly for a file
-Tests/RunwayTest.cpp.s:
-	$(MAKE) -f CMakeFiles/pse_debug.dir/build.make CMakeFiles/pse_debug.dir/Tests/RunwayTest.cpp.s
-.PHONY : Tests/RunwayTest.cpp.s
+Tests/DomainTests/SimulatorTest.cpp.s:
+	$(MAKE) -f CMakeFiles/pse_debug.dir/build.make CMakeFiles/pse_debug.dir/Tests/DomainTests/SimulatorTest.cpp.s
+.PHONY : Tests/DomainTests/SimulatorTest.cpp.s
+
+Tests/InputTests/LuchthavenParserTest.o: Tests/InputTests/LuchthavenParserTest.cpp.o
+
+.PHONY : Tests/InputTests/LuchthavenParserTest.o
+
+# target to build an object file
+Tests/InputTests/LuchthavenParserTest.cpp.o:
+	$(MAKE) -f CMakeFiles/pse_debug.dir/build.make CMakeFiles/pse_debug.dir/Tests/InputTests/LuchthavenParserTest.cpp.o
+.PHONY : Tests/InputTests/LuchthavenParserTest.cpp.o
+
+Tests/InputTests/LuchthavenParserTest.i: Tests/InputTests/LuchthavenParserTest.cpp.i
+
+.PHONY : Tests/InputTests/LuchthavenParserTest.i
+
+# target to preprocess a source file
+Tests/InputTests/LuchthavenParserTest.cpp.i:
+	$(MAKE) -f CMakeFiles/pse_debug.dir/build.make CMakeFiles/pse_debug.dir/Tests/InputTests/LuchthavenParserTest.cpp.i
+.PHONY : Tests/InputTests/LuchthavenParserTest.cpp.i
+
+Tests/InputTests/LuchthavenParserTest.s: Tests/InputTests/LuchthavenParserTest.cpp.s
+
+.PHONY : Tests/InputTests/LuchthavenParserTest.s
+
+# target to generate assembly for a file
+Tests/InputTests/LuchthavenParserTest.cpp.s:
+	$(MAKE) -f CMakeFiles/pse_debug.dir/build.make CMakeFiles/pse_debug.dir/Tests/InputTests/LuchthavenParserTest.cpp.s
+.PHONY : Tests/InputTests/LuchthavenParserTest.cpp.s
+
+Tests/OutputTests/OutputTest.o: Tests/OutputTests/OutputTest.cpp.o
+
+.PHONY : Tests/OutputTests/OutputTest.o
+
+# target to build an object file
+Tests/OutputTests/OutputTest.cpp.o:
+	$(MAKE) -f CMakeFiles/pse_debug.dir/build.make CMakeFiles/pse_debug.dir/Tests/OutputTests/OutputTest.cpp.o
+.PHONY : Tests/OutputTests/OutputTest.cpp.o
+
+Tests/OutputTests/OutputTest.i: Tests/OutputTests/OutputTest.cpp.i
+
+.PHONY : Tests/OutputTests/OutputTest.i
+
+# target to preprocess a source file
+Tests/OutputTests/OutputTest.cpp.i:
+	$(MAKE) -f CMakeFiles/pse_debug.dir/build.make CMakeFiles/pse_debug.dir/Tests/OutputTests/OutputTest.cpp.i
+.PHONY : Tests/OutputTests/OutputTest.cpp.i
+
+Tests/OutputTests/OutputTest.s: Tests/OutputTests/OutputTest.cpp.s
+
+.PHONY : Tests/OutputTests/OutputTest.s
+
+# target to generate assembly for a file
+Tests/OutputTests/OutputTest.cpp.s:
+	$(MAKE) -f CMakeFiles/pse_debug.dir/build.make CMakeFiles/pse_debug.dir/Tests/OutputTests/OutputTest.cpp.s
+.PHONY : Tests/OutputTests/OutputTest.cpp.s
 
 TinyXML/tinystr.o: TinyXML/tinystr.cpp.o
 
@@ -908,6 +965,9 @@ help:
 	@echo "... AirportUtils.o"
 	@echo "... AirportUtils.i"
 	@echo "... AirportUtils.s"
+	@echo "... Communication.o"
+	@echo "... Communication.i"
+	@echo "... Communication.s"
 	@echo "... Flightplan.o"
 	@echo "... Flightplan.i"
 	@echo "... Flightplan.s"
@@ -938,27 +998,30 @@ help:
 	@echo "... TestMain.o"
 	@echo "... TestMain.i"
 	@echo "... TestMain.s"
-	@echo "... Tests/AirplaneTest.o"
-	@echo "... Tests/AirplaneTest.i"
-	@echo "... Tests/AirplaneTest.s"
-	@echo "... Tests/AirportTest.o"
-	@echo "... Tests/AirportTest.i"
-	@echo "... Tests/AirportTest.s"
-	@echo "... Tests/FlightplanTest.o"
-	@echo "... Tests/FlightplanTest.i"
-	@echo "... Tests/FlightplanTest.s"
-	@echo "... Tests/GatesTest.o"
-	@echo "... Tests/GatesTest.i"
-	@echo "... Tests/GatesTest.s"
-	@echo "... Tests/LuchthavenParserTest.o"
-	@echo "... Tests/LuchthavenParserTest.i"
-	@echo "... Tests/LuchthavenParserTest.s"
-	@echo "... Tests/OutputTest.o"
-	@echo "... Tests/OutputTest.i"
-	@echo "... Tests/OutputTest.s"
-	@echo "... Tests/RunwayTest.o"
-	@echo "... Tests/RunwayTest.i"
-	@echo "... Tests/RunwayTest.s"
+	@echo "... Tests/DomainTests/AirplaneTest.o"
+	@echo "... Tests/DomainTests/AirplaneTest.i"
+	@echo "... Tests/DomainTests/AirplaneTest.s"
+	@echo "... Tests/DomainTests/AirportTest.o"
+	@echo "... Tests/DomainTests/AirportTest.i"
+	@echo "... Tests/DomainTests/AirportTest.s"
+	@echo "... Tests/DomainTests/FlightplanTest.o"
+	@echo "... Tests/DomainTests/FlightplanTest.i"
+	@echo "... Tests/DomainTests/FlightplanTest.s"
+	@echo "... Tests/DomainTests/GatesTest.o"
+	@echo "... Tests/DomainTests/GatesTest.i"
+	@echo "... Tests/DomainTests/GatesTest.s"
+	@echo "... Tests/DomainTests/RunwayTest.o"
+	@echo "... Tests/DomainTests/RunwayTest.i"
+	@echo "... Tests/DomainTests/RunwayTest.s"
+	@echo "... Tests/DomainTests/SimulatorTest.o"
+	@echo "... Tests/DomainTests/SimulatorTest.i"
+	@echo "... Tests/DomainTests/SimulatorTest.s"
+	@echo "... Tests/InputTests/LuchthavenParserTest.o"
+	@echo "... Tests/InputTests/LuchthavenParserTest.i"
+	@echo "... Tests/InputTests/LuchthavenParserTest.s"
+	@echo "... Tests/OutputTests/OutputTest.o"
+	@echo "... Tests/OutputTests/OutputTest.i"
+	@echo "... Tests/OutputTests/OutputTest.s"
 	@echo "... TinyXML/tinystr.o"
 	@echo "... TinyXML/tinystr.i"
 	@echo "... TinyXML/tinystr.s"

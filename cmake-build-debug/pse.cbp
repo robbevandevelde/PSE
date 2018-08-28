@@ -164,6 +164,14 @@
 		<Unit filename="/home/uauser/Desktop/PSE/AirportUtils.h">
 			<Option target="pse_debug"/>
 		</Unit>
+		<Unit filename="/home/uauser/Desktop/PSE/Communication.cpp">
+			<Option target="pse_debug"/>
+			<Option target="pse"/>
+		</Unit>
+		<Unit filename="/home/uauser/Desktop/PSE/Communication.h">
+			<Option target="pse_debug"/>
+			<Option target="pse"/>
+		</Unit>
 		<Unit filename="/home/uauser/Desktop/PSE/DesignByContract.h">
 			<Option target="pse_debug"/>
 		</Unit>
@@ -180,6 +188,10 @@
 			<Option target="pse"/>
 		</Unit>
 		<Unit filename="/home/uauser/Desktop/PSE/Gate.h">
+			<Option target="pse_debug"/>
+			<Option target="pse"/>
+		</Unit>
+		<Unit filename="/home/uauser/Desktop/PSE/InputFiles/luchthaven.xml">
 			<Option target="pse_debug"/>
 			<Option target="pse"/>
 		</Unit>
@@ -242,25 +254,28 @@
 		<Unit filename="/home/uauser/Desktop/PSE/TestMain.cpp">
 			<Option target="pse_debug"/>
 		</Unit>
-		<Unit filename="/home/uauser/Desktop/PSE/Tests/AirplaneTest.cpp">
+		<Unit filename="/home/uauser/Desktop/PSE/Tests/DomainTests/AirplaneTest.cpp">
 			<Option target="pse_debug"/>
 		</Unit>
-		<Unit filename="/home/uauser/Desktop/PSE/Tests/AirportTest.cpp">
+		<Unit filename="/home/uauser/Desktop/PSE/Tests/DomainTests/AirportTest.cpp">
 			<Option target="pse_debug"/>
 		</Unit>
-		<Unit filename="/home/uauser/Desktop/PSE/Tests/FlightplanTest.cpp">
+		<Unit filename="/home/uauser/Desktop/PSE/Tests/DomainTests/FlightplanTest.cpp">
 			<Option target="pse_debug"/>
 		</Unit>
-		<Unit filename="/home/uauser/Desktop/PSE/Tests/GatesTest.cpp">
+		<Unit filename="/home/uauser/Desktop/PSE/Tests/DomainTests/GatesTest.cpp">
 			<Option target="pse_debug"/>
 		</Unit>
-		<Unit filename="/home/uauser/Desktop/PSE/Tests/LuchthavenParserTest.cpp">
+		<Unit filename="/home/uauser/Desktop/PSE/Tests/DomainTests/RunwayTest.cpp">
 			<Option target="pse_debug"/>
 		</Unit>
-		<Unit filename="/home/uauser/Desktop/PSE/Tests/OutputTest.cpp">
+		<Unit filename="/home/uauser/Desktop/PSE/Tests/DomainTests/SimulatorTest.cpp">
 			<Option target="pse_debug"/>
 		</Unit>
-		<Unit filename="/home/uauser/Desktop/PSE/Tests/RunwayTest.cpp">
+		<Unit filename="/home/uauser/Desktop/PSE/Tests/InputTests/LuchthavenParserTest.cpp">
+			<Option target="pse_debug"/>
+		</Unit>
+		<Unit filename="/home/uauser/Desktop/PSE/Tests/OutputTests/OutputTest.cpp">
 			<Option target="pse_debug"/>
 		</Unit>
 		<Unit filename="/home/uauser/Desktop/PSE/TinyXML/tinystr.cpp">

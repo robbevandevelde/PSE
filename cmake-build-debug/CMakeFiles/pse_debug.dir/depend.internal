@@ -18,6 +18,7 @@ CMakeFiles/pse_debug.dir/Airport.cpp.o
  /home/uauser/Desktop/PSE/Airplane.h
  /home/uauser/Desktop/PSE/Airport.cpp
  /home/uauser/Desktop/PSE/Airport.h
+ /home/uauser/Desktop/PSE/Communication.h
  /home/uauser/Desktop/PSE/DesignByContract.h
  /home/uauser/Desktop/PSE/Flightplan.h
  /home/uauser/Desktop/PSE/Gate.h
@@ -25,6 +26,16 @@ CMakeFiles/pse_debug.dir/Airport.cpp.o
 CMakeFiles/pse_debug.dir/AirportUtils.cpp.o
  /home/uauser/Desktop/PSE/AirportUtils.cpp
  /home/uauser/Desktop/PSE/AirportUtils.h
+CMakeFiles/pse_debug.dir/Communication.cpp.o
+ /home/uauser/Desktop/PSE/AirTrafficController.h
+ /home/uauser/Desktop/PSE/Airplane.h
+ /home/uauser/Desktop/PSE/Airport.h
+ /home/uauser/Desktop/PSE/Communication.cpp
+ /home/uauser/Desktop/PSE/Communication.h
+ /home/uauser/Desktop/PSE/DesignByContract.h
+ /home/uauser/Desktop/PSE/Flightplan.h
+ /home/uauser/Desktop/PSE/Gate.h
+ /home/uauser/Desktop/PSE/Runway.h
 CMakeFiles/pse_debug.dir/Flightplan.cpp.o
  /home/uauser/Desktop/PSE/DesignByContract.h
  /home/uauser/Desktop/PSE/Flightplan.cpp
@@ -118,7 +129,7 @@ CMakeFiles/pse_debug.dir/TestMain.cpp.o
  ../gtest/include/gtest/internal/gtest-tuple.h
  ../gtest/include/gtest/internal/gtest-type-util.h
  /home/uauser/Desktop/PSE/TestMain.cpp
-CMakeFiles/pse_debug.dir/Tests/AirplaneTest.cpp.o
+CMakeFiles/pse_debug.dir/Tests/DomainTests/AirplaneTest.cpp.o
  ../gtest/include/gtest/gtest-death-test.h
  ../gtest/include/gtest/gtest-message.h
  ../gtest/include/gtest/gtest-param-test.h
@@ -141,8 +152,8 @@ CMakeFiles/pse_debug.dir/Tests/AirplaneTest.cpp.o
  /home/uauser/Desktop/PSE/Airplane.h
  /home/uauser/Desktop/PSE/DesignByContract.h
  /home/uauser/Desktop/PSE/Flightplan.h
- /home/uauser/Desktop/PSE/Tests/AirplaneTest.cpp
-CMakeFiles/pse_debug.dir/Tests/AirportTest.cpp.o
+ /home/uauser/Desktop/PSE/Tests/DomainTests/AirplaneTest.cpp
+CMakeFiles/pse_debug.dir/Tests/DomainTests/AirportTest.cpp.o
  ../gtest/include/gtest/gtest-death-test.h
  ../gtest/include/gtest/gtest-message.h
  ../gtest/include/gtest/gtest-param-test.h
@@ -167,8 +178,9 @@ CMakeFiles/pse_debug.dir/Tests/AirportTest.cpp.o
  /home/uauser/Desktop/PSE/Airport.h
  /home/uauser/Desktop/PSE/DesignByContract.h
  /home/uauser/Desktop/PSE/Flightplan.h
- /home/uauser/Desktop/PSE/Tests/AirportTest.cpp
-CMakeFiles/pse_debug.dir/Tests/FlightplanTest.cpp.o
+ /home/uauser/Desktop/PSE/Runway.h
+ /home/uauser/Desktop/PSE/Tests/DomainTests/AirportTest.cpp
+CMakeFiles/pse_debug.dir/Tests/DomainTests/FlightplanTest.cpp.o
  ../gtest/include/gtest/gtest-death-test.h
  ../gtest/include/gtest/gtest-message.h
  ../gtest/include/gtest/gtest-param-test.h
@@ -190,8 +202,8 @@ CMakeFiles/pse_debug.dir/Tests/FlightplanTest.cpp.o
  ../gtest/include/gtest/internal/gtest-type-util.h
  /home/uauser/Desktop/PSE/DesignByContract.h
  /home/uauser/Desktop/PSE/Flightplan.h
- /home/uauser/Desktop/PSE/Tests/FlightplanTest.cpp
-CMakeFiles/pse_debug.dir/Tests/GatesTest.cpp.o
+ /home/uauser/Desktop/PSE/Tests/DomainTests/FlightplanTest.cpp
+CMakeFiles/pse_debug.dir/Tests/DomainTests/GatesTest.cpp.o
  ../gtest/include/gtest/gtest-death-test.h
  ../gtest/include/gtest/gtest-message.h
  ../gtest/include/gtest/gtest-param-test.h
@@ -215,8 +227,61 @@ CMakeFiles/pse_debug.dir/Tests/GatesTest.cpp.o
  /home/uauser/Desktop/PSE/DesignByContract.h
  /home/uauser/Desktop/PSE/Flightplan.h
  /home/uauser/Desktop/PSE/Gate.h
- /home/uauser/Desktop/PSE/Tests/GatesTest.cpp
-CMakeFiles/pse_debug.dir/Tests/LuchthavenParserTest.cpp.o
+ /home/uauser/Desktop/PSE/Tests/DomainTests/GatesTest.cpp
+CMakeFiles/pse_debug.dir/Tests/DomainTests/RunwayTest.cpp.o
+ ../gtest/include/gtest/gtest-death-test.h
+ ../gtest/include/gtest/gtest-message.h
+ ../gtest/include/gtest/gtest-param-test.h
+ ../gtest/include/gtest/gtest-printers.h
+ ../gtest/include/gtest/gtest-test-part.h
+ ../gtest/include/gtest/gtest-typed-test.h
+ ../gtest/include/gtest/gtest.h
+ ../gtest/include/gtest/gtest_pred_impl.h
+ ../gtest/include/gtest/gtest_prod.h
+ ../gtest/include/gtest/internal/gtest-death-test-internal.h
+ ../gtest/include/gtest/internal/gtest-filepath.h
+ ../gtest/include/gtest/internal/gtest-internal.h
+ ../gtest/include/gtest/internal/gtest-linked_ptr.h
+ ../gtest/include/gtest/internal/gtest-param-util-generated.h
+ ../gtest/include/gtest/internal/gtest-param-util.h
+ ../gtest/include/gtest/internal/gtest-port.h
+ ../gtest/include/gtest/internal/gtest-string.h
+ ../gtest/include/gtest/internal/gtest-tuple.h
+ ../gtest/include/gtest/internal/gtest-type-util.h
+ /home/uauser/Desktop/PSE/Airplane.h
+ /home/uauser/Desktop/PSE/DesignByContract.h
+ /home/uauser/Desktop/PSE/Flightplan.h
+ /home/uauser/Desktop/PSE/Runway.h
+ /home/uauser/Desktop/PSE/Tests/DomainTests/RunwayTest.cpp
+CMakeFiles/pse_debug.dir/Tests/DomainTests/SimulatorTest.cpp.o
+ ../gtest/include/gtest/gtest-death-test.h
+ ../gtest/include/gtest/gtest-message.h
+ ../gtest/include/gtest/gtest-param-test.h
+ ../gtest/include/gtest/gtest-printers.h
+ ../gtest/include/gtest/gtest-test-part.h
+ ../gtest/include/gtest/gtest-typed-test.h
+ ../gtest/include/gtest/gtest.h
+ ../gtest/include/gtest/gtest_pred_impl.h
+ ../gtest/include/gtest/gtest_prod.h
+ ../gtest/include/gtest/internal/gtest-death-test-internal.h
+ ../gtest/include/gtest/internal/gtest-filepath.h
+ ../gtest/include/gtest/internal/gtest-internal.h
+ ../gtest/include/gtest/internal/gtest-linked_ptr.h
+ ../gtest/include/gtest/internal/gtest-param-util-generated.h
+ ../gtest/include/gtest/internal/gtest-param-util.h
+ ../gtest/include/gtest/internal/gtest-port.h
+ ../gtest/include/gtest/internal/gtest-string.h
+ ../gtest/include/gtest/internal/gtest-tuple.h
+ ../gtest/include/gtest/internal/gtest-type-util.h
+ /home/uauser/Desktop/PSE/AirTrafficController.h
+ /home/uauser/Desktop/PSE/Airplane.h
+ /home/uauser/Desktop/PSE/Airport.h
+ /home/uauser/Desktop/PSE/DesignByContract.h
+ /home/uauser/Desktop/PSE/Flightplan.h
+ /home/uauser/Desktop/PSE/Runway.h
+ /home/uauser/Desktop/PSE/Simulator.h
+ /home/uauser/Desktop/PSE/Tests/DomainTests/SimulatorTest.cpp
+CMakeFiles/pse_debug.dir/Tests/InputTests/LuchthavenParserTest.cpp.o
  ../gtest/include/gtest/gtest-death-test.h
  ../gtest/include/gtest/gtest-message.h
  ../gtest/include/gtest/gtest-param-test.h
@@ -247,10 +312,10 @@ CMakeFiles/pse_debug.dir/Tests/LuchthavenParserTest.cpp.o
  /home/uauser/Desktop/PSE/Parsers/LuchthavenParser.h
  /home/uauser/Desktop/PSE/Parsers/RunwayParser.h
  /home/uauser/Desktop/PSE/Runway.h
- /home/uauser/Desktop/PSE/Tests/LuchthavenParserTest.cpp
+ /home/uauser/Desktop/PSE/Tests/InputTests/LuchthavenParserTest.cpp
  /home/uauser/Desktop/PSE/TinyXML/tinystr.h
  /home/uauser/Desktop/PSE/TinyXML/tinyxml.h
-CMakeFiles/pse_debug.dir/Tests/OutputTest.cpp.o
+CMakeFiles/pse_debug.dir/Tests/OutputTests/OutputTest.cpp.o
  ../gtest/include/gtest/gtest-death-test.h
  ../gtest/include/gtest/gtest-message.h
  ../gtest/include/gtest/gtest-param-test.h
@@ -281,34 +346,10 @@ CMakeFiles/pse_debug.dir/Tests/OutputTest.cpp.o
  /home/uauser/Desktop/PSE/Parsers/LuchthavenParser.h
  /home/uauser/Desktop/PSE/Parsers/RunwayParser.h
  /home/uauser/Desktop/PSE/Runway.h
- /home/uauser/Desktop/PSE/Tests/OutputTest.cpp
+ /home/uauser/Desktop/PSE/Simulator.h
+ /home/uauser/Desktop/PSE/Tests/OutputTests/OutputTest.cpp
  /home/uauser/Desktop/PSE/TinyXML/tinystr.h
  /home/uauser/Desktop/PSE/TinyXML/tinyxml.h
-CMakeFiles/pse_debug.dir/Tests/RunwayTest.cpp.o
- ../gtest/include/gtest/gtest-death-test.h
- ../gtest/include/gtest/gtest-message.h
- ../gtest/include/gtest/gtest-param-test.h
- ../gtest/include/gtest/gtest-printers.h
- ../gtest/include/gtest/gtest-test-part.h
- ../gtest/include/gtest/gtest-typed-test.h
- ../gtest/include/gtest/gtest.h
- ../gtest/include/gtest/gtest_pred_impl.h
- ../gtest/include/gtest/gtest_prod.h
- ../gtest/include/gtest/internal/gtest-death-test-internal.h
- ../gtest/include/gtest/internal/gtest-filepath.h
- ../gtest/include/gtest/internal/gtest-internal.h
- ../gtest/include/gtest/internal/gtest-linked_ptr.h
- ../gtest/include/gtest/internal/gtest-param-util-generated.h
- ../gtest/include/gtest/internal/gtest-param-util.h
- ../gtest/include/gtest/internal/gtest-port.h
- ../gtest/include/gtest/internal/gtest-string.h
- ../gtest/include/gtest/internal/gtest-tuple.h
- ../gtest/include/gtest/internal/gtest-type-util.h
- /home/uauser/Desktop/PSE/Airplane.h
- /home/uauser/Desktop/PSE/DesignByContract.h
- /home/uauser/Desktop/PSE/Flightplan.h
- /home/uauser/Desktop/PSE/Runway.h
- /home/uauser/Desktop/PSE/Tests/RunwayTest.cpp
 CMakeFiles/pse_debug.dir/TinyXML/tinystr.cpp.o
  /home/uauser/Desktop/PSE/TinyXML/tinystr.cpp
  /home/uauser/Desktop/PSE/TinyXML/tinystr.h

@@ -369,124 +369,124 @@ CMakeFiles/pse_debug.dir/Runway.cpp.o.provides: CMakeFiles/pse_debug.dir/Runway.
 CMakeFiles/pse_debug.dir/Runway.cpp.o.provides.build: CMakeFiles/pse_debug.dir/Runway.cpp.o
 
 
-CMakeFiles/pse_debug.dir/Tests/RunwayTest.cpp.o: CMakeFiles/pse_debug.dir/flags.make
-CMakeFiles/pse_debug.dir/Tests/RunwayTest.cpp.o: ../Tests/RunwayTest.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/uauser/Desktop/PSE/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Building CXX object CMakeFiles/pse_debug.dir/Tests/RunwayTest.cpp.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/pse_debug.dir/Tests/RunwayTest.cpp.o -c /home/uauser/Desktop/PSE/Tests/RunwayTest.cpp
+CMakeFiles/pse_debug.dir/Tests/DomainTests/RunwayTest.cpp.o: CMakeFiles/pse_debug.dir/flags.make
+CMakeFiles/pse_debug.dir/Tests/DomainTests/RunwayTest.cpp.o: ../Tests/DomainTests/RunwayTest.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/uauser/Desktop/PSE/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Building CXX object CMakeFiles/pse_debug.dir/Tests/DomainTests/RunwayTest.cpp.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/pse_debug.dir/Tests/DomainTests/RunwayTest.cpp.o -c /home/uauser/Desktop/PSE/Tests/DomainTests/RunwayTest.cpp
 
-CMakeFiles/pse_debug.dir/Tests/RunwayTest.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/pse_debug.dir/Tests/RunwayTest.cpp.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/uauser/Desktop/PSE/Tests/RunwayTest.cpp > CMakeFiles/pse_debug.dir/Tests/RunwayTest.cpp.i
+CMakeFiles/pse_debug.dir/Tests/DomainTests/RunwayTest.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/pse_debug.dir/Tests/DomainTests/RunwayTest.cpp.i"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/uauser/Desktop/PSE/Tests/DomainTests/RunwayTest.cpp > CMakeFiles/pse_debug.dir/Tests/DomainTests/RunwayTest.cpp.i
 
-CMakeFiles/pse_debug.dir/Tests/RunwayTest.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/pse_debug.dir/Tests/RunwayTest.cpp.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/uauser/Desktop/PSE/Tests/RunwayTest.cpp -o CMakeFiles/pse_debug.dir/Tests/RunwayTest.cpp.s
+CMakeFiles/pse_debug.dir/Tests/DomainTests/RunwayTest.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/pse_debug.dir/Tests/DomainTests/RunwayTest.cpp.s"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/uauser/Desktop/PSE/Tests/DomainTests/RunwayTest.cpp -o CMakeFiles/pse_debug.dir/Tests/DomainTests/RunwayTest.cpp.s
 
-CMakeFiles/pse_debug.dir/Tests/RunwayTest.cpp.o.requires:
+CMakeFiles/pse_debug.dir/Tests/DomainTests/RunwayTest.cpp.o.requires:
 
-.PHONY : CMakeFiles/pse_debug.dir/Tests/RunwayTest.cpp.o.requires
+.PHONY : CMakeFiles/pse_debug.dir/Tests/DomainTests/RunwayTest.cpp.o.requires
 
-CMakeFiles/pse_debug.dir/Tests/RunwayTest.cpp.o.provides: CMakeFiles/pse_debug.dir/Tests/RunwayTest.cpp.o.requires
-	$(MAKE) -f CMakeFiles/pse_debug.dir/build.make CMakeFiles/pse_debug.dir/Tests/RunwayTest.cpp.o.provides.build
-.PHONY : CMakeFiles/pse_debug.dir/Tests/RunwayTest.cpp.o.provides
+CMakeFiles/pse_debug.dir/Tests/DomainTests/RunwayTest.cpp.o.provides: CMakeFiles/pse_debug.dir/Tests/DomainTests/RunwayTest.cpp.o.requires
+	$(MAKE) -f CMakeFiles/pse_debug.dir/build.make CMakeFiles/pse_debug.dir/Tests/DomainTests/RunwayTest.cpp.o.provides.build
+.PHONY : CMakeFiles/pse_debug.dir/Tests/DomainTests/RunwayTest.cpp.o.provides
 
-CMakeFiles/pse_debug.dir/Tests/RunwayTest.cpp.o.provides.build: CMakeFiles/pse_debug.dir/Tests/RunwayTest.cpp.o
-
-
-CMakeFiles/pse_debug.dir/Tests/AirplaneTest.cpp.o: CMakeFiles/pse_debug.dir/flags.make
-CMakeFiles/pse_debug.dir/Tests/AirplaneTest.cpp.o: ../Tests/AirplaneTest.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/uauser/Desktop/PSE/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_15) "Building CXX object CMakeFiles/pse_debug.dir/Tests/AirplaneTest.cpp.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/pse_debug.dir/Tests/AirplaneTest.cpp.o -c /home/uauser/Desktop/PSE/Tests/AirplaneTest.cpp
-
-CMakeFiles/pse_debug.dir/Tests/AirplaneTest.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/pse_debug.dir/Tests/AirplaneTest.cpp.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/uauser/Desktop/PSE/Tests/AirplaneTest.cpp > CMakeFiles/pse_debug.dir/Tests/AirplaneTest.cpp.i
-
-CMakeFiles/pse_debug.dir/Tests/AirplaneTest.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/pse_debug.dir/Tests/AirplaneTest.cpp.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/uauser/Desktop/PSE/Tests/AirplaneTest.cpp -o CMakeFiles/pse_debug.dir/Tests/AirplaneTest.cpp.s
-
-CMakeFiles/pse_debug.dir/Tests/AirplaneTest.cpp.o.requires:
-
-.PHONY : CMakeFiles/pse_debug.dir/Tests/AirplaneTest.cpp.o.requires
-
-CMakeFiles/pse_debug.dir/Tests/AirplaneTest.cpp.o.provides: CMakeFiles/pse_debug.dir/Tests/AirplaneTest.cpp.o.requires
-	$(MAKE) -f CMakeFiles/pse_debug.dir/build.make CMakeFiles/pse_debug.dir/Tests/AirplaneTest.cpp.o.provides.build
-.PHONY : CMakeFiles/pse_debug.dir/Tests/AirplaneTest.cpp.o.provides
-
-CMakeFiles/pse_debug.dir/Tests/AirplaneTest.cpp.o.provides.build: CMakeFiles/pse_debug.dir/Tests/AirplaneTest.cpp.o
+CMakeFiles/pse_debug.dir/Tests/DomainTests/RunwayTest.cpp.o.provides.build: CMakeFiles/pse_debug.dir/Tests/DomainTests/RunwayTest.cpp.o
 
 
-CMakeFiles/pse_debug.dir/Tests/AirportTest.cpp.o: CMakeFiles/pse_debug.dir/flags.make
-CMakeFiles/pse_debug.dir/Tests/AirportTest.cpp.o: ../Tests/AirportTest.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/uauser/Desktop/PSE/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_16) "Building CXX object CMakeFiles/pse_debug.dir/Tests/AirportTest.cpp.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/pse_debug.dir/Tests/AirportTest.cpp.o -c /home/uauser/Desktop/PSE/Tests/AirportTest.cpp
+CMakeFiles/pse_debug.dir/Tests/DomainTests/AirplaneTest.cpp.o: CMakeFiles/pse_debug.dir/flags.make
+CMakeFiles/pse_debug.dir/Tests/DomainTests/AirplaneTest.cpp.o: ../Tests/DomainTests/AirplaneTest.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/uauser/Desktop/PSE/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_15) "Building CXX object CMakeFiles/pse_debug.dir/Tests/DomainTests/AirplaneTest.cpp.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/pse_debug.dir/Tests/DomainTests/AirplaneTest.cpp.o -c /home/uauser/Desktop/PSE/Tests/DomainTests/AirplaneTest.cpp
 
-CMakeFiles/pse_debug.dir/Tests/AirportTest.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/pse_debug.dir/Tests/AirportTest.cpp.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/uauser/Desktop/PSE/Tests/AirportTest.cpp > CMakeFiles/pse_debug.dir/Tests/AirportTest.cpp.i
+CMakeFiles/pse_debug.dir/Tests/DomainTests/AirplaneTest.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/pse_debug.dir/Tests/DomainTests/AirplaneTest.cpp.i"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/uauser/Desktop/PSE/Tests/DomainTests/AirplaneTest.cpp > CMakeFiles/pse_debug.dir/Tests/DomainTests/AirplaneTest.cpp.i
 
-CMakeFiles/pse_debug.dir/Tests/AirportTest.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/pse_debug.dir/Tests/AirportTest.cpp.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/uauser/Desktop/PSE/Tests/AirportTest.cpp -o CMakeFiles/pse_debug.dir/Tests/AirportTest.cpp.s
+CMakeFiles/pse_debug.dir/Tests/DomainTests/AirplaneTest.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/pse_debug.dir/Tests/DomainTests/AirplaneTest.cpp.s"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/uauser/Desktop/PSE/Tests/DomainTests/AirplaneTest.cpp -o CMakeFiles/pse_debug.dir/Tests/DomainTests/AirplaneTest.cpp.s
 
-CMakeFiles/pse_debug.dir/Tests/AirportTest.cpp.o.requires:
+CMakeFiles/pse_debug.dir/Tests/DomainTests/AirplaneTest.cpp.o.requires:
 
-.PHONY : CMakeFiles/pse_debug.dir/Tests/AirportTest.cpp.o.requires
+.PHONY : CMakeFiles/pse_debug.dir/Tests/DomainTests/AirplaneTest.cpp.o.requires
 
-CMakeFiles/pse_debug.dir/Tests/AirportTest.cpp.o.provides: CMakeFiles/pse_debug.dir/Tests/AirportTest.cpp.o.requires
-	$(MAKE) -f CMakeFiles/pse_debug.dir/build.make CMakeFiles/pse_debug.dir/Tests/AirportTest.cpp.o.provides.build
-.PHONY : CMakeFiles/pse_debug.dir/Tests/AirportTest.cpp.o.provides
+CMakeFiles/pse_debug.dir/Tests/DomainTests/AirplaneTest.cpp.o.provides: CMakeFiles/pse_debug.dir/Tests/DomainTests/AirplaneTest.cpp.o.requires
+	$(MAKE) -f CMakeFiles/pse_debug.dir/build.make CMakeFiles/pse_debug.dir/Tests/DomainTests/AirplaneTest.cpp.o.provides.build
+.PHONY : CMakeFiles/pse_debug.dir/Tests/DomainTests/AirplaneTest.cpp.o.provides
 
-CMakeFiles/pse_debug.dir/Tests/AirportTest.cpp.o.provides.build: CMakeFiles/pse_debug.dir/Tests/AirportTest.cpp.o
-
-
-CMakeFiles/pse_debug.dir/Tests/GatesTest.cpp.o: CMakeFiles/pse_debug.dir/flags.make
-CMakeFiles/pse_debug.dir/Tests/GatesTest.cpp.o: ../Tests/GatesTest.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/uauser/Desktop/PSE/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_17) "Building CXX object CMakeFiles/pse_debug.dir/Tests/GatesTest.cpp.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/pse_debug.dir/Tests/GatesTest.cpp.o -c /home/uauser/Desktop/PSE/Tests/GatesTest.cpp
-
-CMakeFiles/pse_debug.dir/Tests/GatesTest.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/pse_debug.dir/Tests/GatesTest.cpp.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/uauser/Desktop/PSE/Tests/GatesTest.cpp > CMakeFiles/pse_debug.dir/Tests/GatesTest.cpp.i
-
-CMakeFiles/pse_debug.dir/Tests/GatesTest.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/pse_debug.dir/Tests/GatesTest.cpp.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/uauser/Desktop/PSE/Tests/GatesTest.cpp -o CMakeFiles/pse_debug.dir/Tests/GatesTest.cpp.s
-
-CMakeFiles/pse_debug.dir/Tests/GatesTest.cpp.o.requires:
-
-.PHONY : CMakeFiles/pse_debug.dir/Tests/GatesTest.cpp.o.requires
-
-CMakeFiles/pse_debug.dir/Tests/GatesTest.cpp.o.provides: CMakeFiles/pse_debug.dir/Tests/GatesTest.cpp.o.requires
-	$(MAKE) -f CMakeFiles/pse_debug.dir/build.make CMakeFiles/pse_debug.dir/Tests/GatesTest.cpp.o.provides.build
-.PHONY : CMakeFiles/pse_debug.dir/Tests/GatesTest.cpp.o.provides
-
-CMakeFiles/pse_debug.dir/Tests/GatesTest.cpp.o.provides.build: CMakeFiles/pse_debug.dir/Tests/GatesTest.cpp.o
+CMakeFiles/pse_debug.dir/Tests/DomainTests/AirplaneTest.cpp.o.provides.build: CMakeFiles/pse_debug.dir/Tests/DomainTests/AirplaneTest.cpp.o
 
 
-CMakeFiles/pse_debug.dir/Tests/LuchthavenParserTest.cpp.o: CMakeFiles/pse_debug.dir/flags.make
-CMakeFiles/pse_debug.dir/Tests/LuchthavenParserTest.cpp.o: ../Tests/LuchthavenParserTest.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/uauser/Desktop/PSE/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_18) "Building CXX object CMakeFiles/pse_debug.dir/Tests/LuchthavenParserTest.cpp.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/pse_debug.dir/Tests/LuchthavenParserTest.cpp.o -c /home/uauser/Desktop/PSE/Tests/LuchthavenParserTest.cpp
+CMakeFiles/pse_debug.dir/Tests/DomainTests/AirportTest.cpp.o: CMakeFiles/pse_debug.dir/flags.make
+CMakeFiles/pse_debug.dir/Tests/DomainTests/AirportTest.cpp.o: ../Tests/DomainTests/AirportTest.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/uauser/Desktop/PSE/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_16) "Building CXX object CMakeFiles/pse_debug.dir/Tests/DomainTests/AirportTest.cpp.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/pse_debug.dir/Tests/DomainTests/AirportTest.cpp.o -c /home/uauser/Desktop/PSE/Tests/DomainTests/AirportTest.cpp
 
-CMakeFiles/pse_debug.dir/Tests/LuchthavenParserTest.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/pse_debug.dir/Tests/LuchthavenParserTest.cpp.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/uauser/Desktop/PSE/Tests/LuchthavenParserTest.cpp > CMakeFiles/pse_debug.dir/Tests/LuchthavenParserTest.cpp.i
+CMakeFiles/pse_debug.dir/Tests/DomainTests/AirportTest.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/pse_debug.dir/Tests/DomainTests/AirportTest.cpp.i"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/uauser/Desktop/PSE/Tests/DomainTests/AirportTest.cpp > CMakeFiles/pse_debug.dir/Tests/DomainTests/AirportTest.cpp.i
 
-CMakeFiles/pse_debug.dir/Tests/LuchthavenParserTest.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/pse_debug.dir/Tests/LuchthavenParserTest.cpp.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/uauser/Desktop/PSE/Tests/LuchthavenParserTest.cpp -o CMakeFiles/pse_debug.dir/Tests/LuchthavenParserTest.cpp.s
+CMakeFiles/pse_debug.dir/Tests/DomainTests/AirportTest.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/pse_debug.dir/Tests/DomainTests/AirportTest.cpp.s"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/uauser/Desktop/PSE/Tests/DomainTests/AirportTest.cpp -o CMakeFiles/pse_debug.dir/Tests/DomainTests/AirportTest.cpp.s
 
-CMakeFiles/pse_debug.dir/Tests/LuchthavenParserTest.cpp.o.requires:
+CMakeFiles/pse_debug.dir/Tests/DomainTests/AirportTest.cpp.o.requires:
 
-.PHONY : CMakeFiles/pse_debug.dir/Tests/LuchthavenParserTest.cpp.o.requires
+.PHONY : CMakeFiles/pse_debug.dir/Tests/DomainTests/AirportTest.cpp.o.requires
 
-CMakeFiles/pse_debug.dir/Tests/LuchthavenParserTest.cpp.o.provides: CMakeFiles/pse_debug.dir/Tests/LuchthavenParserTest.cpp.o.requires
-	$(MAKE) -f CMakeFiles/pse_debug.dir/build.make CMakeFiles/pse_debug.dir/Tests/LuchthavenParserTest.cpp.o.provides.build
-.PHONY : CMakeFiles/pse_debug.dir/Tests/LuchthavenParserTest.cpp.o.provides
+CMakeFiles/pse_debug.dir/Tests/DomainTests/AirportTest.cpp.o.provides: CMakeFiles/pse_debug.dir/Tests/DomainTests/AirportTest.cpp.o.requires
+	$(MAKE) -f CMakeFiles/pse_debug.dir/build.make CMakeFiles/pse_debug.dir/Tests/DomainTests/AirportTest.cpp.o.provides.build
+.PHONY : CMakeFiles/pse_debug.dir/Tests/DomainTests/AirportTest.cpp.o.provides
 
-CMakeFiles/pse_debug.dir/Tests/LuchthavenParserTest.cpp.o.provides.build: CMakeFiles/pse_debug.dir/Tests/LuchthavenParserTest.cpp.o
+CMakeFiles/pse_debug.dir/Tests/DomainTests/AirportTest.cpp.o.provides.build: CMakeFiles/pse_debug.dir/Tests/DomainTests/AirportTest.cpp.o
+
+
+CMakeFiles/pse_debug.dir/Tests/DomainTests/GatesTest.cpp.o: CMakeFiles/pse_debug.dir/flags.make
+CMakeFiles/pse_debug.dir/Tests/DomainTests/GatesTest.cpp.o: ../Tests/DomainTests/GatesTest.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/uauser/Desktop/PSE/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_17) "Building CXX object CMakeFiles/pse_debug.dir/Tests/DomainTests/GatesTest.cpp.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/pse_debug.dir/Tests/DomainTests/GatesTest.cpp.o -c /home/uauser/Desktop/PSE/Tests/DomainTests/GatesTest.cpp
+
+CMakeFiles/pse_debug.dir/Tests/DomainTests/GatesTest.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/pse_debug.dir/Tests/DomainTests/GatesTest.cpp.i"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/uauser/Desktop/PSE/Tests/DomainTests/GatesTest.cpp > CMakeFiles/pse_debug.dir/Tests/DomainTests/GatesTest.cpp.i
+
+CMakeFiles/pse_debug.dir/Tests/DomainTests/GatesTest.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/pse_debug.dir/Tests/DomainTests/GatesTest.cpp.s"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/uauser/Desktop/PSE/Tests/DomainTests/GatesTest.cpp -o CMakeFiles/pse_debug.dir/Tests/DomainTests/GatesTest.cpp.s
+
+CMakeFiles/pse_debug.dir/Tests/DomainTests/GatesTest.cpp.o.requires:
+
+.PHONY : CMakeFiles/pse_debug.dir/Tests/DomainTests/GatesTest.cpp.o.requires
+
+CMakeFiles/pse_debug.dir/Tests/DomainTests/GatesTest.cpp.o.provides: CMakeFiles/pse_debug.dir/Tests/DomainTests/GatesTest.cpp.o.requires
+	$(MAKE) -f CMakeFiles/pse_debug.dir/build.make CMakeFiles/pse_debug.dir/Tests/DomainTests/GatesTest.cpp.o.provides.build
+.PHONY : CMakeFiles/pse_debug.dir/Tests/DomainTests/GatesTest.cpp.o.provides
+
+CMakeFiles/pse_debug.dir/Tests/DomainTests/GatesTest.cpp.o.provides.build: CMakeFiles/pse_debug.dir/Tests/DomainTests/GatesTest.cpp.o
+
+
+CMakeFiles/pse_debug.dir/Tests/InputTests/LuchthavenParserTest.cpp.o: CMakeFiles/pse_debug.dir/flags.make
+CMakeFiles/pse_debug.dir/Tests/InputTests/LuchthavenParserTest.cpp.o: ../Tests/InputTests/LuchthavenParserTest.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/uauser/Desktop/PSE/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_18) "Building CXX object CMakeFiles/pse_debug.dir/Tests/InputTests/LuchthavenParserTest.cpp.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/pse_debug.dir/Tests/InputTests/LuchthavenParserTest.cpp.o -c /home/uauser/Desktop/PSE/Tests/InputTests/LuchthavenParserTest.cpp
+
+CMakeFiles/pse_debug.dir/Tests/InputTests/LuchthavenParserTest.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/pse_debug.dir/Tests/InputTests/LuchthavenParserTest.cpp.i"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/uauser/Desktop/PSE/Tests/InputTests/LuchthavenParserTest.cpp > CMakeFiles/pse_debug.dir/Tests/InputTests/LuchthavenParserTest.cpp.i
+
+CMakeFiles/pse_debug.dir/Tests/InputTests/LuchthavenParserTest.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/pse_debug.dir/Tests/InputTests/LuchthavenParserTest.cpp.s"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/uauser/Desktop/PSE/Tests/InputTests/LuchthavenParserTest.cpp -o CMakeFiles/pse_debug.dir/Tests/InputTests/LuchthavenParserTest.cpp.s
+
+CMakeFiles/pse_debug.dir/Tests/InputTests/LuchthavenParserTest.cpp.o.requires:
+
+.PHONY : CMakeFiles/pse_debug.dir/Tests/InputTests/LuchthavenParserTest.cpp.o.requires
+
+CMakeFiles/pse_debug.dir/Tests/InputTests/LuchthavenParserTest.cpp.o.provides: CMakeFiles/pse_debug.dir/Tests/InputTests/LuchthavenParserTest.cpp.o.requires
+	$(MAKE) -f CMakeFiles/pse_debug.dir/build.make CMakeFiles/pse_debug.dir/Tests/InputTests/LuchthavenParserTest.cpp.o.provides.build
+.PHONY : CMakeFiles/pse_debug.dir/Tests/InputTests/LuchthavenParserTest.cpp.o.provides
+
+CMakeFiles/pse_debug.dir/Tests/InputTests/LuchthavenParserTest.cpp.o.provides.build: CMakeFiles/pse_debug.dir/Tests/InputTests/LuchthavenParserTest.cpp.o
 
 
 CMakeFiles/pse_debug.dir/AirportUtils.cpp.o: CMakeFiles/pse_debug.dir/flags.make
@@ -609,52 +609,100 @@ CMakeFiles/pse_debug.dir/Simulator.cpp.o.provides: CMakeFiles/pse_debug.dir/Simu
 CMakeFiles/pse_debug.dir/Simulator.cpp.o.provides.build: CMakeFiles/pse_debug.dir/Simulator.cpp.o
 
 
-CMakeFiles/pse_debug.dir/Tests/FlightplanTest.cpp.o: CMakeFiles/pse_debug.dir/flags.make
-CMakeFiles/pse_debug.dir/Tests/FlightplanTest.cpp.o: ../Tests/FlightplanTest.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/uauser/Desktop/PSE/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_24) "Building CXX object CMakeFiles/pse_debug.dir/Tests/FlightplanTest.cpp.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/pse_debug.dir/Tests/FlightplanTest.cpp.o -c /home/uauser/Desktop/PSE/Tests/FlightplanTest.cpp
+CMakeFiles/pse_debug.dir/Tests/DomainTests/FlightplanTest.cpp.o: CMakeFiles/pse_debug.dir/flags.make
+CMakeFiles/pse_debug.dir/Tests/DomainTests/FlightplanTest.cpp.o: ../Tests/DomainTests/FlightplanTest.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/uauser/Desktop/PSE/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_24) "Building CXX object CMakeFiles/pse_debug.dir/Tests/DomainTests/FlightplanTest.cpp.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/pse_debug.dir/Tests/DomainTests/FlightplanTest.cpp.o -c /home/uauser/Desktop/PSE/Tests/DomainTests/FlightplanTest.cpp
 
-CMakeFiles/pse_debug.dir/Tests/FlightplanTest.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/pse_debug.dir/Tests/FlightplanTest.cpp.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/uauser/Desktop/PSE/Tests/FlightplanTest.cpp > CMakeFiles/pse_debug.dir/Tests/FlightplanTest.cpp.i
+CMakeFiles/pse_debug.dir/Tests/DomainTests/FlightplanTest.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/pse_debug.dir/Tests/DomainTests/FlightplanTest.cpp.i"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/uauser/Desktop/PSE/Tests/DomainTests/FlightplanTest.cpp > CMakeFiles/pse_debug.dir/Tests/DomainTests/FlightplanTest.cpp.i
 
-CMakeFiles/pse_debug.dir/Tests/FlightplanTest.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/pse_debug.dir/Tests/FlightplanTest.cpp.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/uauser/Desktop/PSE/Tests/FlightplanTest.cpp -o CMakeFiles/pse_debug.dir/Tests/FlightplanTest.cpp.s
+CMakeFiles/pse_debug.dir/Tests/DomainTests/FlightplanTest.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/pse_debug.dir/Tests/DomainTests/FlightplanTest.cpp.s"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/uauser/Desktop/PSE/Tests/DomainTests/FlightplanTest.cpp -o CMakeFiles/pse_debug.dir/Tests/DomainTests/FlightplanTest.cpp.s
 
-CMakeFiles/pse_debug.dir/Tests/FlightplanTest.cpp.o.requires:
+CMakeFiles/pse_debug.dir/Tests/DomainTests/FlightplanTest.cpp.o.requires:
 
-.PHONY : CMakeFiles/pse_debug.dir/Tests/FlightplanTest.cpp.o.requires
+.PHONY : CMakeFiles/pse_debug.dir/Tests/DomainTests/FlightplanTest.cpp.o.requires
 
-CMakeFiles/pse_debug.dir/Tests/FlightplanTest.cpp.o.provides: CMakeFiles/pse_debug.dir/Tests/FlightplanTest.cpp.o.requires
-	$(MAKE) -f CMakeFiles/pse_debug.dir/build.make CMakeFiles/pse_debug.dir/Tests/FlightplanTest.cpp.o.provides.build
-.PHONY : CMakeFiles/pse_debug.dir/Tests/FlightplanTest.cpp.o.provides
+CMakeFiles/pse_debug.dir/Tests/DomainTests/FlightplanTest.cpp.o.provides: CMakeFiles/pse_debug.dir/Tests/DomainTests/FlightplanTest.cpp.o.requires
+	$(MAKE) -f CMakeFiles/pse_debug.dir/build.make CMakeFiles/pse_debug.dir/Tests/DomainTests/FlightplanTest.cpp.o.provides.build
+.PHONY : CMakeFiles/pse_debug.dir/Tests/DomainTests/FlightplanTest.cpp.o.provides
 
-CMakeFiles/pse_debug.dir/Tests/FlightplanTest.cpp.o.provides.build: CMakeFiles/pse_debug.dir/Tests/FlightplanTest.cpp.o
+CMakeFiles/pse_debug.dir/Tests/DomainTests/FlightplanTest.cpp.o.provides.build: CMakeFiles/pse_debug.dir/Tests/DomainTests/FlightplanTest.cpp.o
 
 
-CMakeFiles/pse_debug.dir/Tests/OutputTest.cpp.o: CMakeFiles/pse_debug.dir/flags.make
-CMakeFiles/pse_debug.dir/Tests/OutputTest.cpp.o: ../Tests/OutputTest.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/uauser/Desktop/PSE/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_25) "Building CXX object CMakeFiles/pse_debug.dir/Tests/OutputTest.cpp.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/pse_debug.dir/Tests/OutputTest.cpp.o -c /home/uauser/Desktop/PSE/Tests/OutputTest.cpp
+CMakeFiles/pse_debug.dir/Tests/OutputTests/OutputTest.cpp.o: CMakeFiles/pse_debug.dir/flags.make
+CMakeFiles/pse_debug.dir/Tests/OutputTests/OutputTest.cpp.o: ../Tests/OutputTests/OutputTest.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/uauser/Desktop/PSE/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_25) "Building CXX object CMakeFiles/pse_debug.dir/Tests/OutputTests/OutputTest.cpp.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/pse_debug.dir/Tests/OutputTests/OutputTest.cpp.o -c /home/uauser/Desktop/PSE/Tests/OutputTests/OutputTest.cpp
 
-CMakeFiles/pse_debug.dir/Tests/OutputTest.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/pse_debug.dir/Tests/OutputTest.cpp.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/uauser/Desktop/PSE/Tests/OutputTest.cpp > CMakeFiles/pse_debug.dir/Tests/OutputTest.cpp.i
+CMakeFiles/pse_debug.dir/Tests/OutputTests/OutputTest.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/pse_debug.dir/Tests/OutputTests/OutputTest.cpp.i"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/uauser/Desktop/PSE/Tests/OutputTests/OutputTest.cpp > CMakeFiles/pse_debug.dir/Tests/OutputTests/OutputTest.cpp.i
 
-CMakeFiles/pse_debug.dir/Tests/OutputTest.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/pse_debug.dir/Tests/OutputTest.cpp.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/uauser/Desktop/PSE/Tests/OutputTest.cpp -o CMakeFiles/pse_debug.dir/Tests/OutputTest.cpp.s
+CMakeFiles/pse_debug.dir/Tests/OutputTests/OutputTest.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/pse_debug.dir/Tests/OutputTests/OutputTest.cpp.s"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/uauser/Desktop/PSE/Tests/OutputTests/OutputTest.cpp -o CMakeFiles/pse_debug.dir/Tests/OutputTests/OutputTest.cpp.s
 
-CMakeFiles/pse_debug.dir/Tests/OutputTest.cpp.o.requires:
+CMakeFiles/pse_debug.dir/Tests/OutputTests/OutputTest.cpp.o.requires:
 
-.PHONY : CMakeFiles/pse_debug.dir/Tests/OutputTest.cpp.o.requires
+.PHONY : CMakeFiles/pse_debug.dir/Tests/OutputTests/OutputTest.cpp.o.requires
 
-CMakeFiles/pse_debug.dir/Tests/OutputTest.cpp.o.provides: CMakeFiles/pse_debug.dir/Tests/OutputTest.cpp.o.requires
-	$(MAKE) -f CMakeFiles/pse_debug.dir/build.make CMakeFiles/pse_debug.dir/Tests/OutputTest.cpp.o.provides.build
-.PHONY : CMakeFiles/pse_debug.dir/Tests/OutputTest.cpp.o.provides
+CMakeFiles/pse_debug.dir/Tests/OutputTests/OutputTest.cpp.o.provides: CMakeFiles/pse_debug.dir/Tests/OutputTests/OutputTest.cpp.o.requires
+	$(MAKE) -f CMakeFiles/pse_debug.dir/build.make CMakeFiles/pse_debug.dir/Tests/OutputTests/OutputTest.cpp.o.provides.build
+.PHONY : CMakeFiles/pse_debug.dir/Tests/OutputTests/OutputTest.cpp.o.provides
 
-CMakeFiles/pse_debug.dir/Tests/OutputTest.cpp.o.provides.build: CMakeFiles/pse_debug.dir/Tests/OutputTest.cpp.o
+CMakeFiles/pse_debug.dir/Tests/OutputTests/OutputTest.cpp.o.provides.build: CMakeFiles/pse_debug.dir/Tests/OutputTests/OutputTest.cpp.o
+
+
+CMakeFiles/pse_debug.dir/Tests/DomainTests/SimulatorTest.cpp.o: CMakeFiles/pse_debug.dir/flags.make
+CMakeFiles/pse_debug.dir/Tests/DomainTests/SimulatorTest.cpp.o: ../Tests/DomainTests/SimulatorTest.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/uauser/Desktop/PSE/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_26) "Building CXX object CMakeFiles/pse_debug.dir/Tests/DomainTests/SimulatorTest.cpp.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/pse_debug.dir/Tests/DomainTests/SimulatorTest.cpp.o -c /home/uauser/Desktop/PSE/Tests/DomainTests/SimulatorTest.cpp
+
+CMakeFiles/pse_debug.dir/Tests/DomainTests/SimulatorTest.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/pse_debug.dir/Tests/DomainTests/SimulatorTest.cpp.i"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/uauser/Desktop/PSE/Tests/DomainTests/SimulatorTest.cpp > CMakeFiles/pse_debug.dir/Tests/DomainTests/SimulatorTest.cpp.i
+
+CMakeFiles/pse_debug.dir/Tests/DomainTests/SimulatorTest.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/pse_debug.dir/Tests/DomainTests/SimulatorTest.cpp.s"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/uauser/Desktop/PSE/Tests/DomainTests/SimulatorTest.cpp -o CMakeFiles/pse_debug.dir/Tests/DomainTests/SimulatorTest.cpp.s
+
+CMakeFiles/pse_debug.dir/Tests/DomainTests/SimulatorTest.cpp.o.requires:
+
+.PHONY : CMakeFiles/pse_debug.dir/Tests/DomainTests/SimulatorTest.cpp.o.requires
+
+CMakeFiles/pse_debug.dir/Tests/DomainTests/SimulatorTest.cpp.o.provides: CMakeFiles/pse_debug.dir/Tests/DomainTests/SimulatorTest.cpp.o.requires
+	$(MAKE) -f CMakeFiles/pse_debug.dir/build.make CMakeFiles/pse_debug.dir/Tests/DomainTests/SimulatorTest.cpp.o.provides.build
+.PHONY : CMakeFiles/pse_debug.dir/Tests/DomainTests/SimulatorTest.cpp.o.provides
+
+CMakeFiles/pse_debug.dir/Tests/DomainTests/SimulatorTest.cpp.o.provides.build: CMakeFiles/pse_debug.dir/Tests/DomainTests/SimulatorTest.cpp.o
+
+
+CMakeFiles/pse_debug.dir/Communication.cpp.o: CMakeFiles/pse_debug.dir/flags.make
+CMakeFiles/pse_debug.dir/Communication.cpp.o: ../Communication.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/uauser/Desktop/PSE/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_27) "Building CXX object CMakeFiles/pse_debug.dir/Communication.cpp.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/pse_debug.dir/Communication.cpp.o -c /home/uauser/Desktop/PSE/Communication.cpp
+
+CMakeFiles/pse_debug.dir/Communication.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/pse_debug.dir/Communication.cpp.i"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/uauser/Desktop/PSE/Communication.cpp > CMakeFiles/pse_debug.dir/Communication.cpp.i
+
+CMakeFiles/pse_debug.dir/Communication.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/pse_debug.dir/Communication.cpp.s"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/uauser/Desktop/PSE/Communication.cpp -o CMakeFiles/pse_debug.dir/Communication.cpp.s
+
+CMakeFiles/pse_debug.dir/Communication.cpp.o.requires:
+
+.PHONY : CMakeFiles/pse_debug.dir/Communication.cpp.o.requires
+
+CMakeFiles/pse_debug.dir/Communication.cpp.o.provides: CMakeFiles/pse_debug.dir/Communication.cpp.o.requires
+	$(MAKE) -f CMakeFiles/pse_debug.dir/build.make CMakeFiles/pse_debug.dir/Communication.cpp.o.provides.build
+.PHONY : CMakeFiles/pse_debug.dir/Communication.cpp.o.provides
+
+CMakeFiles/pse_debug.dir/Communication.cpp.o.provides.build: CMakeFiles/pse_debug.dir/Communication.cpp.o
 
 
 # Object files for target pse_debug
@@ -672,18 +720,20 @@ pse_debug_OBJECTS = \
 "CMakeFiles/pse_debug.dir/Airport.cpp.o" \
 "CMakeFiles/pse_debug.dir/TestMain.cpp.o" \
 "CMakeFiles/pse_debug.dir/Runway.cpp.o" \
-"CMakeFiles/pse_debug.dir/Tests/RunwayTest.cpp.o" \
-"CMakeFiles/pse_debug.dir/Tests/AirplaneTest.cpp.o" \
-"CMakeFiles/pse_debug.dir/Tests/AirportTest.cpp.o" \
-"CMakeFiles/pse_debug.dir/Tests/GatesTest.cpp.o" \
-"CMakeFiles/pse_debug.dir/Tests/LuchthavenParserTest.cpp.o" \
+"CMakeFiles/pse_debug.dir/Tests/DomainTests/RunwayTest.cpp.o" \
+"CMakeFiles/pse_debug.dir/Tests/DomainTests/AirplaneTest.cpp.o" \
+"CMakeFiles/pse_debug.dir/Tests/DomainTests/AirportTest.cpp.o" \
+"CMakeFiles/pse_debug.dir/Tests/DomainTests/GatesTest.cpp.o" \
+"CMakeFiles/pse_debug.dir/Tests/InputTests/LuchthavenParserTest.cpp.o" \
 "CMakeFiles/pse_debug.dir/AirportUtils.cpp.o" \
 "CMakeFiles/pse_debug.dir/Flightplan.cpp.o" \
 "CMakeFiles/pse_debug.dir/Gate.cpp.o" \
 "CMakeFiles/pse_debug.dir/AirTrafficController.cpp.o" \
 "CMakeFiles/pse_debug.dir/Simulator.cpp.o" \
-"CMakeFiles/pse_debug.dir/Tests/FlightplanTest.cpp.o" \
-"CMakeFiles/pse_debug.dir/Tests/OutputTest.cpp.o"
+"CMakeFiles/pse_debug.dir/Tests/DomainTests/FlightplanTest.cpp.o" \
+"CMakeFiles/pse_debug.dir/Tests/OutputTests/OutputTest.cpp.o" \
+"CMakeFiles/pse_debug.dir/Tests/DomainTests/SimulatorTest.cpp.o" \
+"CMakeFiles/pse_debug.dir/Communication.cpp.o"
 
 # External object files for target pse_debug
 pse_debug_EXTERNAL_OBJECTS =
@@ -701,21 +751,23 @@ pse_debug: CMakeFiles/pse_debug.dir/Airplane.cpp.o
 pse_debug: CMakeFiles/pse_debug.dir/Airport.cpp.o
 pse_debug: CMakeFiles/pse_debug.dir/TestMain.cpp.o
 pse_debug: CMakeFiles/pse_debug.dir/Runway.cpp.o
-pse_debug: CMakeFiles/pse_debug.dir/Tests/RunwayTest.cpp.o
-pse_debug: CMakeFiles/pse_debug.dir/Tests/AirplaneTest.cpp.o
-pse_debug: CMakeFiles/pse_debug.dir/Tests/AirportTest.cpp.o
-pse_debug: CMakeFiles/pse_debug.dir/Tests/GatesTest.cpp.o
-pse_debug: CMakeFiles/pse_debug.dir/Tests/LuchthavenParserTest.cpp.o
+pse_debug: CMakeFiles/pse_debug.dir/Tests/DomainTests/RunwayTest.cpp.o
+pse_debug: CMakeFiles/pse_debug.dir/Tests/DomainTests/AirplaneTest.cpp.o
+pse_debug: CMakeFiles/pse_debug.dir/Tests/DomainTests/AirportTest.cpp.o
+pse_debug: CMakeFiles/pse_debug.dir/Tests/DomainTests/GatesTest.cpp.o
+pse_debug: CMakeFiles/pse_debug.dir/Tests/InputTests/LuchthavenParserTest.cpp.o
 pse_debug: CMakeFiles/pse_debug.dir/AirportUtils.cpp.o
 pse_debug: CMakeFiles/pse_debug.dir/Flightplan.cpp.o
 pse_debug: CMakeFiles/pse_debug.dir/Gate.cpp.o
 pse_debug: CMakeFiles/pse_debug.dir/AirTrafficController.cpp.o
 pse_debug: CMakeFiles/pse_debug.dir/Simulator.cpp.o
-pse_debug: CMakeFiles/pse_debug.dir/Tests/FlightplanTest.cpp.o
-pse_debug: CMakeFiles/pse_debug.dir/Tests/OutputTest.cpp.o
+pse_debug: CMakeFiles/pse_debug.dir/Tests/DomainTests/FlightplanTest.cpp.o
+pse_debug: CMakeFiles/pse_debug.dir/Tests/OutputTests/OutputTest.cpp.o
+pse_debug: CMakeFiles/pse_debug.dir/Tests/DomainTests/SimulatorTest.cpp.o
+pse_debug: CMakeFiles/pse_debug.dir/Communication.cpp.o
 pse_debug: CMakeFiles/pse_debug.dir/build.make
 pse_debug: CMakeFiles/pse_debug.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/uauser/Desktop/PSE/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_26) "Linking CXX executable pse_debug"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/uauser/Desktop/PSE/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_28) "Linking CXX executable pse_debug"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/pse_debug.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -736,18 +788,20 @@ CMakeFiles/pse_debug.dir/requires: CMakeFiles/pse_debug.dir/Airplane.cpp.o.requi
 CMakeFiles/pse_debug.dir/requires: CMakeFiles/pse_debug.dir/Airport.cpp.o.requires
 CMakeFiles/pse_debug.dir/requires: CMakeFiles/pse_debug.dir/TestMain.cpp.o.requires
 CMakeFiles/pse_debug.dir/requires: CMakeFiles/pse_debug.dir/Runway.cpp.o.requires
-CMakeFiles/pse_debug.dir/requires: CMakeFiles/pse_debug.dir/Tests/RunwayTest.cpp.o.requires
-CMakeFiles/pse_debug.dir/requires: CMakeFiles/pse_debug.dir/Tests/AirplaneTest.cpp.o.requires
-CMakeFiles/pse_debug.dir/requires: CMakeFiles/pse_debug.dir/Tests/AirportTest.cpp.o.requires
-CMakeFiles/pse_debug.dir/requires: CMakeFiles/pse_debug.dir/Tests/GatesTest.cpp.o.requires
-CMakeFiles/pse_debug.dir/requires: CMakeFiles/pse_debug.dir/Tests/LuchthavenParserTest.cpp.o.requires
+CMakeFiles/pse_debug.dir/requires: CMakeFiles/pse_debug.dir/Tests/DomainTests/RunwayTest.cpp.o.requires
+CMakeFiles/pse_debug.dir/requires: CMakeFiles/pse_debug.dir/Tests/DomainTests/AirplaneTest.cpp.o.requires
+CMakeFiles/pse_debug.dir/requires: CMakeFiles/pse_debug.dir/Tests/DomainTests/AirportTest.cpp.o.requires
+CMakeFiles/pse_debug.dir/requires: CMakeFiles/pse_debug.dir/Tests/DomainTests/GatesTest.cpp.o.requires
+CMakeFiles/pse_debug.dir/requires: CMakeFiles/pse_debug.dir/Tests/InputTests/LuchthavenParserTest.cpp.o.requires
 CMakeFiles/pse_debug.dir/requires: CMakeFiles/pse_debug.dir/AirportUtils.cpp.o.requires
 CMakeFiles/pse_debug.dir/requires: CMakeFiles/pse_debug.dir/Flightplan.cpp.o.requires
 CMakeFiles/pse_debug.dir/requires: CMakeFiles/pse_debug.dir/Gate.cpp.o.requires
 CMakeFiles/pse_debug.dir/requires: CMakeFiles/pse_debug.dir/AirTrafficController.cpp.o.requires
 CMakeFiles/pse_debug.dir/requires: CMakeFiles/pse_debug.dir/Simulator.cpp.o.requires
-CMakeFiles/pse_debug.dir/requires: CMakeFiles/pse_debug.dir/Tests/FlightplanTest.cpp.o.requires
-CMakeFiles/pse_debug.dir/requires: CMakeFiles/pse_debug.dir/Tests/OutputTest.cpp.o.requires
+CMakeFiles/pse_debug.dir/requires: CMakeFiles/pse_debug.dir/Tests/DomainTests/FlightplanTest.cpp.o.requires
+CMakeFiles/pse_debug.dir/requires: CMakeFiles/pse_debug.dir/Tests/OutputTests/OutputTest.cpp.o.requires
+CMakeFiles/pse_debug.dir/requires: CMakeFiles/pse_debug.dir/Tests/DomainTests/SimulatorTest.cpp.o.requires
+CMakeFiles/pse_debug.dir/requires: CMakeFiles/pse_debug.dir/Communication.cpp.o.requires
 
 .PHONY : CMakeFiles/pse_debug.dir/requires
 
