@@ -168,7 +168,7 @@ void AirTrafficController::takeOffClearance(Airplane* airplane, std::ostream& ou
 
                     _comm->ATC_Airplane_At_Gate_After_IFR_Comm(this, airplane, out);
 
-                    _airport->taxiToRunway(airplane);
+                    _airport->taxiToRunway(airplane, out);
                     checker = false;
                     break;
                 }

@@ -27,14 +27,16 @@ protected:
 
         testAirplane1 = new Airplane("556", "F16", "Win100", Approaching, 50, 50, Airline, Jet, Medium, testFlightplan);
         testAirplane2 = new Airplane("6969", "HI99", "Wallonie", Approaching, 50,50 ,Airline, Jet, Medium, testFlightplan);
-        testAirplane3 = new Airplane("420", "Allahu akbar", "Winchester", Approaching, 50, 50, Airline, Propeller, Small, testFlightplan);
+        testAirplane3 = new Airplane("420", "Yeet", "Winchester", Approaching, 50, 50, Airline, Propeller, Small, testFlightplan);
 
         testRunway = new Runway(500, "Alpha", Grass, "Zaventem");
 
         testRunway1 = new Runway(2000, "Bravo", Asphalt, "Zaventem");
 
         testRunway2 = new Runway(9000, "Charlie", Asphalt, "Zaventem");
-
+        testAirport->addRunway(testRunway);
+        testAirport->addRunway(testRunway1);
+        testAirport->addRunway(testRunway2);
     }
 
     // virtual void TearDown() will be called after each test is run.
@@ -102,19 +104,19 @@ TEST_F(AirportTest, LandingProtocol)
 
     testAirport->landingSequence(testAirplane, myfile);
     //changed to approaching from final approach
-    EXPECT_EQ(Approaching, testAirplane->getStatus());
+    EXPECT_EQ(FinalApproach, testAirplane->getStatus());
+
+    EXPECT_TRUE(testAirplane->getStatus() < 3000);
 
     testAirport->landingSequence(testAirplane, myfile);
     testAirport->landingSequence(testAirplane, myfile);
+    testAirport->landingSequence(testAirplane, myfile);
 
-//fails
-//    EXPECT_TRUE(testAirport->isAirplaneInRunway(testAirplane));
+    EXPECT_TRUE(testAirport->isAirplaneInRunway(testAirplane));
 
-//is still approaching
-//    EXPECT_EQ(JustLanded, testAirplane->getStatus());
+    EXPECT_EQ(JustLanded, testAirplane->getStatus());
 
-    // is 8000
-//    EXPECT_EQ((unsigned int)0, testAirplane->getHeight());
+    EXPECT_EQ((unsigned int)0, testAirplane->getHeight());
 
 
     testAirport->removeAirplaneFromRunway(testAirplane);
@@ -214,7 +216,7 @@ TEST_F(AirportTest, TakeoffProtocol)
 
     EXPECT_DEATH(testAirport->takeOffSequence(testAirplane3, myfile),"Airplane isn't on a runway");
 
-    testAirport->addAirplaneToRunway(testAirplane3);
+    testAirport->addAirplaneToRunway(testAirplane3,myfile);
 
 //is false
 //    EXPECT_TRUE(testAirport->isAirplaneInRunway(testAirplane3));

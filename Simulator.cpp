@@ -71,7 +71,7 @@ void Simulator::doStep(ostream &out)
         else if(_airport->isAirplaneInRunwayWait(_airplanes[x])){
             //End of a collision
             _airport->_comm->ATC_Airplane_TakeOff_Permission_Granted_Runway_Comm(_airport->getController(),_airplanes[x], out);
-            _airport->collissionSolverRunwayEnd(_airplanes[x]);
+            _airport->collissionSolverRunwayEnd(_airplanes[x], out);
         }
 
         else if(_airplanes[x]->getFuel() == 0) {
@@ -87,8 +87,8 @@ void Simulator::doStep(ostream &out)
                 //Airplane should be "JustLanded" or "EmergencyLanding"
 
             else if (_airplanes[x]->getStatus() == JustLanded) {
-                _airport->taxiToGate(_airplanes[x]);
-                _airport->gateprotocol(_airplanes[x], 0);
+                _airport->taxiToGate(_airplanes[x], out);
+                _airport->gateprotocol(_airplanes[x], 0, out);
                 out << "--------------------------------------------------------------------------"<< endl;
             }
                 //Begin gate procedure

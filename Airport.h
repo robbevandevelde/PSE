@@ -67,9 +67,9 @@ public:
     //    ENSURE(airplane->getPassengers() == passengers, "Boarded passengers don't match with given amount");
     void gateprotocol(Airplane* airplane, unsigned int passengers, std::ostream& out = std::cout);
     //    REQUIRE(this->properlyInitialised(), "Airport wasn't properly initialised when calling taxiToGate");
-    void taxiToGate(Airplane *airplane);
+    void taxiToGate(Airplane *airplane, std::ostream &out);
     //    REQUIRE(this->properlyInitialised(), "Airport wasn't properly initialised when calling taxiToRunway");
-    void taxiToRunway(Airplane *airplane);
+    void taxiToRunway(Airplane *airplane,std::ostream &out);
     //    REQUIRE(this->properlyInitialised(),"Airport wasn't properly initialised when calling addAirplaneToGate()");
     //    REQUIRE(airplane->getStatus() == JustLanded, "Airplane has to be standing at the runway in order to taxi");
     //    REQUIRE(getGates().size() == _gatesize, "Amount of gates don't match with the given amount of gates");
@@ -179,7 +179,7 @@ public:
     //    REQUIRE(this->properlyInitialised(), "Airport wasn't properly initialised when calling collisionSolverRunwayEnd()");
     //    ENSURE(isAirplaneInRunway(airplane),"Collisionsolver failure");
     //    ENSURE(isAirplaneInRunwayWait(airplane), "Collisionsolver failure");
-    void collissionSolverRunwayEnd(Airplane *airplane);
+    void collissionSolverRunwayEnd(Airplane *airplane,std::ostream &out);
     //    REQUIRE(this->properlyInitialised(), "Airport wasn't properly initialised when calling landingSequence()");
     //    REQUIRE(airplane->getStatus() == Approaching || airplane->getStatus() == FinalApproach,"Aircontrole failure, aircraft isn't in the air");
     void landingSequence(Airplane *airplane, std::ostream &out);

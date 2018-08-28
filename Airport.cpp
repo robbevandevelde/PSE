@@ -325,22 +325,22 @@ void Airport::addRunway(Runway *runway)
  *@param Airplane* airplane
  *@return geen
  */
-void Airport::taxiToRunway(Airplane *airplane)
+void Airport::taxiToRunway(Airplane *airplane, std::ostream &out)
 {
     REQUIRE(this->properlyInitialised(), "Airport wasn't properly initialised when calling taxiToRunway()");
-    removeAirplaneFromGate(airplane);
-    addAirplaneToRunway(airplane);
+    removeAirplaneFromGate(airplane, out);
+    addAirplaneToRunway(airplane, out);
 }
 
 /*remove geg airplane van runway en add die aan een gate
  *@param Airplane* airplane
  *@return geen
  */
-void Airport::taxiToGate(Airplane *airplane)
+void Airport::taxiToGate(Airplane *airplane,std::ostream &out)
 {
     REQUIRE(this->properlyInitialised(), "Airport wasn't properly initialised when calling taxiToGate()");
     removeAirplaneFromRunway(airplane);
-    addAirplaneToGate(airplane);
+    addAirplaneToGate(airplane, out);
 }
 
 /*checkt of dat er een runway niet gebruikt wordt
@@ -568,7 +568,7 @@ void Airport::emergencyControle(Airplane *airplane,std::ostream& out)
         out << airplane->getCallsign() << " may proceed to an empty gate" << std::endl;
         airplane->setStatus(JustLanded);
         ENSURE(airplane->getStatus() == JustLanded, "Aiplane status failure");
-        this->taxiToGate(airplane);
+        this->taxiToGate(airplane, out);
         ENSURE(this->isAirplaneInGate(airplane),"Airplane to gate failure");
         this->gateprotocol(airplane, 0);
     }
@@ -698,7 +698,7 @@ void Airport::collisionSolverRunwayStart(Airplane *airplane, std::ostream &out)
  *@param airplane, cout
  *@return niks
  */
-void Airport::collissionSolverRunwayEnd(Airplane *airplane)
+void Airport::collissionSolverRunwayEnd(Airplane *airplane,std::ostream &out)
 {
     REQUIRE(this->properlyInitialised(), "Airport wasn't properly initialised when calling collisionSolverRunwayEnd()");
 
@@ -707,7 +707,7 @@ void Airport::collissionSolverRunwayEnd(Airplane *airplane)
             if(!getRunways()[i]->isGoingToBeUsed()){
                 airplane->setStatus(Departure);
                 removeRunwayWait(airplane);
-                taxiToRunway(airplane);
+                taxiToRunway(airplane, out);
                 ENSURE(isAirplaneInRunway(airplane),"Collisionsolver failure");
                 break;
             }
@@ -751,7 +751,7 @@ void Airport::landingSequence(Airplane *airplane, std::ostream &out)
         }
     }
     else if (airplane->getHeight() == 0) {
-        addAirplaneToRunway(airplane);
+        addAirplaneToRunway(airplane, out);
     }
     else if (airplane->getHeight() != 0) {
         airplane->descend(out);
@@ -802,7 +802,7 @@ void Airport::takeOffSequence(Airplane *airplane, std::ostream &out)
                 break;
             }
             else if(airplane->getHeight() < 5000){
-                airplane->ascend();
+                airplane->ascend(out);
                 out << "--------------------------------------------------------------------------" << std::endl;
                 break;
             }
@@ -821,7 +821,7 @@ void Airport::emergencySequence(Airplane* airplane, std::ostream& out)
     REQUIRE(airplane->getFuel() == 0, "Fuel isn't empty");
     if (!airplane->isControle()) {
         airplane->setStatus(EmergencyLanding);
-        if (getController()->emergencyprotocol(airplane)) {
+        if (getController()->emergencyprotocol(airplane,out)) {
             for (unsigned int l = 0; l < getRunways().size(); l++) {
                 //There is a free valid runway for the emergency landing
                 if (validRunwayForPlane(airplane, getRunways()[l])) {
@@ -865,7 +865,7 @@ void Airport::emergencySequence(Airplane* airplane, std::ostream& out)
         }
     }
     if (airplane->getHeight() == 0 && airplane->getStatus() == EmergencyLanding) {
-        addAirplaneToRunway(airplane);
+        addAirplaneToRunway(airplane, out);
         ENSURE(isAirplaneInRunway(airplane), "Emergency landing failure");
     }else if(airplane->getStatus() == EmergencyControle1 ||airplane->getStatus() == EmergencyControle2){
         emergencyControle(airplane,out);

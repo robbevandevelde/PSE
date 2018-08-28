@@ -30,7 +30,7 @@ protected:
         string name = "LAX";
         testFlightplan = new Flightplan(name, 15, 45, 1);
         testAirplane = new Airplane("32", "callsign", "model", Approaching, 50, 500, Airline, Jet,Medium, testFlightplan);
-
+        APU = new AirportUtils();
     }
 
     // virtual void TearDown() will be called after each test is run.
