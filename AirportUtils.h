@@ -26,8 +26,6 @@ public:
     bool FileIsEmpty(const std::string filename);
 
     //    REQUIRE(this->properlyInitialised(), "AirportUtils wasn't properly initialised when calling compareFiles()");
-    //    ENSURE(line== line2, "Lines are not equal");
-    //    ENSURE(line!= line2, "Lines are equal");
     bool compareFiles(const std::string leftFileName, const std::string rightFileName);
 
     std::string to_string(int i);

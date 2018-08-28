@@ -79,11 +79,9 @@ bool AirportUtils::compareFiles(const std::string leftFileName, const std::strin
             getline(rightFile,line2);
             if(line ==line2){
                 equal = true;
-                ENSURE(line== line2, "Lines are not equal");
             }
             else{
                 equal = false;
-                ENSURE(line!= line2, "Lines are equal");
                 break;
             }
         }
