@@ -179,7 +179,7 @@ public:
     //    REQUIRE(this->properlyInitialised(), "Airport wasn't properly initialised when calling collisionSolverRunwayEnd()");
     //    ENSURE(isAirplaneInRunway(airplane),"Collisionsolver failure");
     //    ENSURE(isAirplaneInRunwayWait(airplane), "Collisionsolver failure");
-    void collissionSolverRunwayEnd(Airplane *airplane,std::ostream &out);
+    void collisionSolverRunwayEnd(Airplane *airplane, std::ostream &out);
     //    REQUIRE(this->properlyInitialised(), "Airport wasn't properly initialised when calling landingSequence()");
     //    REQUIRE(airplane->getStatus() == Approaching || airplane->getStatus() == FinalApproach,"Aircontrole failure, aircraft isn't in the air");
     void landingSequence(Airplane *airplane, std::ostream &out);

@@ -71,7 +71,7 @@ void Simulator::doStep(ostream &out)
         else if(_airport->isAirplaneInRunwayWait(_airplanes[x])){
             //End of a collision
             _airport->_comm->ATC_Airplane_TakeOff_Permission_Granted_Runway_Comm(_airport->getController(),_airplanes[x], out);
-            _airport->collissionSolverRunwayEnd(_airplanes[x], out);
+            _airport->collisionSolverRunwayEnd(_airplanes[x], out);
         }
 
         else if(_airplanes[x]->getFuel() == 0) {

@@ -698,9 +698,12 @@ void Airport::collisionSolverRunwayStart(Airplane *airplane, std::ostream &out)
  *@param airplane, cout
  *@return niks
  */
-void Airport::collissionSolverRunwayEnd(Airplane *airplane,std::ostream &out)
+void Airport::collisionSolverRunwayEnd(Airplane *airplane, std::ostream &out)
 {
     REQUIRE(this->properlyInitialised(), "Airport wasn't properly initialised when calling collisionSolverRunwayEnd()");
+    REQUIRE(airplane->getHeight() == 0, "Airplane must be on the ground");
+    REQUIRE(airplane->getStatus() == WaitingAtRunway, "Airplane must be waiting at runway");
+    REQUIRE(isAirplaneInRunwayWait(airplane), "Airplane must be waiting at runway");
 
     for(unsigned int i=0;i< getRunways().size();i++){
         if(validRunwayForPlane(airplane,getRunways()[i])){
@@ -819,6 +822,9 @@ void Airport::emergencySequence(Airplane* airplane, std::ostream& out)
 {
     REQUIRE(this->properlyInitialised(), "Airport wasn't properly initialised");
     REQUIRE(airplane->getFuel() == 0, "Fuel isn't empty");
+    REQUIRE(airplane->getStatus() == Approaching ||airplane->getStatus() == EmergencyLanding||
+            airplane->getStatus() == EmergencyControle1|| airplane->getStatus() == EmergencyControle2 ||
+            airplane->getStatus() == EmergencyControle2 || airplane->getStatus() == JustLanded, "Must be in the air or just landed");
     if (!airplane->isControle()) {
         airplane->setStatus(EmergencyLanding);
         if (getController()->emergencyprotocol(airplane,out)) {
@@ -862,6 +868,10 @@ void Airport::emergencySequence(Airplane* airplane, std::ostream& out)
                     }
                 }
             }
+        }
+        else {
+            airplane->setStatus(EmergencyLandingOutside);
+            ENSURE(airplane->getStatus() == EmergencyLandingOutside, "Emergencylanding); ");
         }
     }
     if (airplane->getHeight() == 0 && airplane->getStatus() == EmergencyLanding) {

@@ -118,8 +118,9 @@ TEST_F(AirportTest, LandingProtocol)
 
     EXPECT_EQ((unsigned int)0, testAirplane->getHeight());
 
-
     testAirport->removeAirplaneFromRunway(testAirplane);
+
+    EXPECT_FALSE(testAirport->isAirplaneInRunway(testAirplane));
 
     myfile.close();
 }
@@ -129,47 +130,69 @@ TEST_F(AirportTest, emergencyLandingProtocol)
     ofstream myfile;
     myfile.open("testOutput/Output04.txt");
 
-    testAirplane2->setStatus(JustLanded);
-    EXPECT_DEATH(testAirport->landingSequence(testAirplane2, myfile),"Aircontrole failure, aircraft isn't in the air");
-
-    testAirplane2->setStatus(Approaching);
-
-    EXPECT_EQ(Approaching, testAirplane->getStatus());
-
-    testAirplane2->setHeight(5000);
-
-    EXPECT_EQ((unsigned int)5000, testAirplane2->getHeight());
+    testAirplane2->setFuel(1000);
+    EXPECT_DEATH(testAirport->emergencySequence(testAirplane2, myfile),"Fuel isn't empty");
 
     testAirplane2->setFuel(0);
 
     EXPECT_EQ((unsigned int) 0, testAirplane2->getFuel());
 
-    testAirport->landingSequence(testAirplane2, myfile);
-    testAirport->landingSequence(testAirplane2, myfile);
-    testAirport->landingSequence(testAirplane2, myfile);
-    testAirport->landingSequence(testAirplane2, myfile);
-    testAirport->landingSequence(testAirplane2, myfile);
-    testAirport->landingSequence(testAirplane2, myfile);
-//fails
-//    EXPECT_TRUE(testAirport->isAirplaneInRunway(testAirplane2));
+    testAirplane2->setStatus(Departure);
 
-//     is still approaching
-//    EXPECT_EQ(EmergencyLanding, testAirplane2->getStatus());
+    EXPECT_DEATH(testAirport->emergencySequence(testAirplane2, myfile),"Must be in the air or just landed");
 
-    // is still 7000
-    //EXPECT_EQ((unsigned int)0, testAirplane2->getHeight());
+    testAirplane2->setStatus(Approaching);
+
+    EXPECT_EQ(Approaching, testAirplane->getStatus());
+
+    testAirplane2->setHeight(3000);
+
+    EXPECT_EQ((unsigned int)3000, testAirplane2->getHeight());
+
+    testAirplane2->setFuel(0);
+
+    EXPECT_EQ((unsigned int) 0, testAirplane2->getFuel());
+
+    //3000 checkmark
+    testAirport->emergencySequence(testAirplane2, myfile);
+
+    EXPECT_EQ(EmergencyLanding, testAirplane2->getStatus());
+
+    EXPECT_TRUE(testAirplane2->getHeight() < 3000);
+
+    testAirport->emergencySequence(testAirplane2, myfile);
+
+    testAirport->emergencySequence(testAirplane2, myfile);
+
+    testAirport->emergencySequence(testAirplane2, myfile);
+
+    EXPECT_TRUE(testAirport->isAirplaneInRunway(testAirplane2));
+
+    EXPECT_EQ(EmergencyControle1, testAirplane2->getStatus());
+
+    EXPECT_EQ((unsigned int)0, testAirplane2->getHeight());
 
     testAirport->removeAirplaneFromRunway(testAirplane2);
+
+    EXPECT_FALSE(testAirport->isAirplaneInRunway(testAirplane2));
 
     myfile.close();
 }
 
 TEST_F(AirportTest,emergencylandingprotocol2){
+
     ofstream myfile;
     myfile.open("testOutput/Output04.txt");
 
-    testAirplane2->setStatus(JustLanded);
-    EXPECT_DEATH(testAirport->landingSequence(testAirplane2, myfile),"Aircontrole failure, aircraft isn't in the air");
+    testAirplane2->setFuel(1000);
+    EXPECT_DEATH(testAirport->emergencySequence(testAirplane2, myfile),"Fuel isn't empty");
+
+    testAirplane2->setFuel(0);
+
+    EXPECT_EQ((unsigned int) 0, testAirplane2->getFuel());
+
+    testAirplane2->setStatus(Departure);
+    EXPECT_DEATH(testAirport->emergencySequence(testAirplane2, myfile),"Must be in the air or just landed");
 
     testAirplane2->setStatus(Approaching);
 
@@ -177,22 +200,18 @@ TEST_F(AirportTest,emergencylandingprotocol2){
 
     testAirplane2->setHeight(2000);
 
-    EXPECT_EQ((unsigned int)2000, testAirplane2->getHeight());
+    EXPECT_EQ((unsigned int) 2000, testAirplane2->getHeight());
+    testAirport->removeAirplaneFromRunway(testAirplane2);
 
-    testAirplane2->setFuel(0);
-
-    EXPECT_EQ((unsigned int) 0, testAirplane2->getFuel());
-
-    testAirport->landingSequence(testAirplane2, myfile);
-    testAirport->landingSequence(testAirplane2, myfile);
+    testAirport->emergencySequence(testAirplane2, myfile);
 
     EXPECT_FALSE(testAirport->isAirplaneInRunway(testAirplane2));
-//is still approaching
-//    EXPECT_EQ(EmergencyLandingOutside, testAirplane2->getStatus());
 
-    //is 8000
-    //EXPECT_EQ((unsigned int)0, testAirplane2->getHeight());
-    testAirport->removeAirplaneFromRunway(testAirplane2);
+    EXPECT_EQ(EmergencyLandingOutside, testAirplane2->getStatus());
+
+    EXPECT_EQ((unsigned int) 1000, testAirplane2->getHeight());
+
+    EXPECT_FALSE(testAirport->isAirplaneInRunway(testAirplane2));
 
 }
 
@@ -218,25 +237,25 @@ TEST_F(AirportTest, TakeoffProtocol)
 
     testAirport->addAirplaneToRunway(testAirplane3,myfile);
 
-//is false
-//    EXPECT_TRUE(testAirport->isAirplaneInRunway(testAirplane3));
-//fails cause previous test isnt correct
-//    testAirport->takeOffSequence(testAirplane3, myfile);
+    EXPECT_TRUE(testAirport->isAirplaneInRunway(testAirplane3));
 
-//    EXPECT_TRUE(testAirplane3->getHeight() != 0);
-//
-//    testAirport->takeOffSequence(testAirplane3, myfile);
-//    testAirport->takeOffSequence(testAirplane3, myfile);
-//    testAirport->takeOffSequence(testAirplane3, myfile);
-//    testAirport->takeOffSequence(testAirplane3, myfile);
-//
-//    EXPECT_EQ((unsigned int) 5000, testAirplane3->getHeight());
-//
-//    EXPECT_EQ(InTheAir, testAirplane3->getStatus());
-//
-//    EXPECT_FALSE(testAirport->isAirplaneInRunway(testAirplane3));
-//
-//    testAirport->removeAirplaneFromRunway(testAirplane3);
+    testAirport->takeOffSequence(testAirplane3, myfile);
+
+    EXPECT_TRUE(testAirplane3->getHeight() != 0);
+
+    testAirport->takeOffSequence(testAirplane3, myfile);
+    testAirport->takeOffSequence(testAirplane3, myfile);
+    testAirport->takeOffSequence(testAirplane3, myfile);
+    testAirport->takeOffSequence(testAirplane3, myfile);
+    testAirport->takeOffSequence(testAirplane3, myfile);
+
+    EXPECT_EQ((unsigned int) 5000, testAirplane3->getHeight());
+
+    EXPECT_EQ(InTheAir, testAirplane3->getStatus());
+
+    testAirport->removeAirplaneFromRunway(testAirplane3);
+
+    EXPECT_FALSE(testAirport->isAirplaneInRunway(testAirplane3));
 
     myfile.close();
 }
@@ -255,42 +274,44 @@ TEST_F(AirportTest, CompleteGateProtocol)
     EXPECT_EQ(JustLanded,testAirplane->getStatus());
 
     testAirplane->setHeight(500);
-//doesnt die with that error
-//    EXPECT_DEATH(testAirport->gateprotocol(testAirplane, 0, myfile),"Failure");
+
+    EXPECT_DEATH(testAirport->gateprotocol(testAirplane, 0, myfile),"Airplane must be on the ground");
 
     testAirplane->setHeight(3000);
     testAirplane->setStatus(Approaching);
     testAirport->landingSequence(testAirplane, myfile);
     testAirport->landingSequence(testAirplane, myfile);
     testAirport->landingSequence(testAirplane, myfile);
-//actual 10000
-//    EXPECT_EQ((unsigned int)0, testAirplane->getHeight());
+    EXPECT_EQ((unsigned int)0, testAirplane->getHeight());
 
-//    testAirport->landingSequence(testAirplane, myfile);
-//
-//    testAirport->taxiToGate(testAirplane);
-//
-//    testAirport->gateprotocol(testAirplane, 0, myfile);
-//
-//    EXPECT_EQ((unsigned int) 0,testAirplane->getPassengers());
-//
-//    EXPECT_EQ(StandingAtGate,testAirplane->getStatus());
-//
-//    EXPECT_FALSE(testAirplane->isFueled());
-//
-//    testAirport->gateprotocol(testAirplane, 0, myfile);
-//
-//    EXPECT_EQ((unsigned int) 1000,testAirplane->getFuel());
-//
-//    EXPECT_TRUE(testAirplane->isFueled());
-//
-//    testAirport->gateprotocol(testAirplane, 50, myfile);
-//
-//    EXPECT_EQ((unsigned int) 50, testAirplane->getPassengers());
-//
-//    EXPECT_EQ(StandingAtGate, testAirplane->getStatus());
-//
-//    testAirport->removeAirplaneFromGate(testAirplane,myfile);
+    testAirport->landingSequence(testAirplane, myfile);
+
+    testAirport->taxiToGate(testAirplane, myfile);
+
+    testAirport->gateprotocol(testAirplane, 0, myfile);
+
+    EXPECT_EQ((unsigned int) 0,testAirplane->getPassengers());
+
+    EXPECT_EQ(StandingAtGate,testAirplane->getStatus());
+
+    EXPECT_FALSE(testAirplane->isFueled());
+
+    testAirport->gateprotocol(testAirplane, 0, myfile);
+
+    EXPECT_EQ((unsigned int) 1000,testAirplane->getFuel());
+
+    EXPECT_TRUE(testAirplane->isFueled());
+
+    testAirport->gateprotocol(testAirplane, 50, myfile);
+
+    EXPECT_EQ((unsigned int) 50, testAirplane->getPassengers());
+
+    EXPECT_EQ(StandingAtGate, testAirplane->getStatus());
+
+    testAirport->removeAirplaneFromGate(testAirplane,myfile);
+
+    EXPECT_FALSE(testAirport->isAirplaneInRunway(testAirplane));
+
     myfile.close();
 }
 //Tests the airplane to runway function
@@ -309,54 +330,54 @@ TEST_F(AirportTest, AirplaneToRunAir)
 
     testAirplane->setHeight(3000);
 
-    //doesnt die with that error
-//    EXPECT_DEATH(testAirport->addAirplaneToRunway(testAirplane,myfile), "Airplane must be on the ground");
+    testAirplane->setStatus(Approaching);
+
+    EXPECT_DEATH(testAirport->addAirplaneToRunway(testAirplane,myfile), "Invalid status for runway");
+
     testAirplane->setStatus(Approaching);
     testAirport->landingSequence(testAirplane, myfile);
     testAirport->landingSequence(testAirplane, myfile);
     testAirport->landingSequence(testAirplane, myfile);
+    testAirport->landingSequence(testAirplane, myfile);
 
-    //??
-//    testAirport->addAirplaneToRunway(testAirplane);
-//
-//    EXPECT_TRUE(testAirport->isAirplaneInRunway(testAirplane));
-//
-//
-//    testAirport->removeAirplaneFromRunway(testAirplane);
+    EXPECT_TRUE(testAirport->isAirplaneInRunway(testAirplane));
+
+
+    testAirport->removeAirplaneFromRunway(testAirplane);
     myfile.close();
 }
 //Tests the airplane to runway function
 //fails in every way possible
-//TEST_F(AirportTest, AirplaneToRunDeparture)
-//{
-//    ofstream myfile;
-//    myfile.open("testOutput/Output03.txt");
-//
-//    testAirplane->setStatus(StandingAtGate);
-//    EXPECT_DEATH(testAirport->addAirplaneToRunway(testAirplane,myfile), "Invalid status for runway");
-//
-//    testAirplane->setStatus(StandingAtGate);
-//    EXPECT_DEATH(testAirport->addAirplaneToRunway(testAirplane,myfile), "Invalid status for runway");
-//
-//    testAirplane->setStatus(StandingAtGate);
-//    EXPECT_DEATH(testAirport->addAirplaneToRunway(testAirplane,myfile), "Invalid status for runway");
-//
-//    testAirplane->setHeight(5000000);
-//    EXPECT_DEATH(testAirport->addAirplaneToRunway(testAirplane,myfile), "Airplane must be on the ground");
-//
-//    testAirplane->setStatus(Departure);
-//    testAirplane->setHeight(0);
-//    testAirport->addAirplaneToRunway(testAirplane);
-//
-//    EXPECT_TRUE(testAirport->isAirplaneInRunway(testAirplane));
-//
-//    testAirport->removeAirplaneFromRunway(testAirplane);
-//    myfile.close();
-//}
+TEST_F(AirportTest, AirplaneToRunDeparture)
+{
+    ofstream myfile;
+    myfile.open("testOutput/Output03.txt");
+
+    testAirplane->setStatus(StandingAtGate);
+    EXPECT_DEATH(testAirport->addAirplaneToRunway(testAirplane,myfile), "Invalid status for runway");
+
+    testAirplane->setHeight(5000000);
+
+    testAirplane->setStatus(Departure);
+    EXPECT_DEATH(testAirport->addAirplaneToRunway(testAirplane,myfile), "Airplane must be on the ground");
+
+    testAirplane->setStatus(Departure);
+    testAirplane->setHeight(0);
+    testAirport->addAirplaneToRunway(testAirplane, myfile);
+
+    EXPECT_TRUE(testAirport->isAirplaneInRunway(testAirplane));
+
+    testAirport->removeAirplaneFromRunway(testAirplane);
+
+    EXPECT_FALSE(testAirport->isAirplaneInRunway(testAirplane));
+
+    myfile.close();
+}
 //Tests the added controller
 TEST_F(AirportTest, Controller)
 {
     EXPECT_EQ("John", testAirport->getController()->getName());
+    EXPECT_EQ(John, testAirport->getController());
 }
 //Tests the landing protocol with expected death
 TEST_F(AirportTest, landingDeathtest)
@@ -379,25 +400,7 @@ TEST_F(AirportTest,  gateprotDeathtest)
     EXPECT_DEATH(testAirport->gateprotocol(testAirplane, 20), "Failure");
     myfile.close();
 }
-//Tests the takeoff protocol with expected death
-TEST_F(AirportTest,  takeOffDeathtest)
-{
-    testAirplane->setStatus(Approaching);
-    ofstream myfile;
-    myfile.open("testOutput/Output01.txt");
-//    EXPECT_DEATH(testAirport->takeOffprotocol(testAirplane, myfile), "Airplane must be departure");
-    myfile.close();
-}
-//Tests the takeoff protocol with expected death
-TEST_F(AirportTest,  takeOffDeathtest2)
-{
-    testAirplane->setStatus(Departure);
-    testAirplane->setHeight(50);
-    ofstream myfile;
-    myfile.open("testOutput/Output01.txt");
-//    EXPECT_DEATH(testAirport->takeOffprotocol(testAirplane, myfile), "Airplane must be on the ground");
-    myfile.close();
-}
+
 //Tests the airplane to gate with expected death
 TEST_F(AirportTest,  apl2gtDeathtest)
 {
@@ -450,31 +453,80 @@ TEST_F(AirportTest, WaitPointTests)
     testAirport->landingSequence(testAirplane,myfile);
 
     //is not true, rest fails cause of this
-//    EXPECT_TRUE(testAirport->isAirplaneInRunway(testAirplane));
+    EXPECT_TRUE(testAirport->isAirplaneInRunway(testAirplane));
 
-//    testAirport->taxiToGate(testAirplane);
-//
-//    //Runway clear
-//    testAirport->collisionSolverAirEnd(testAirplane3, myfile);
-//
-//    testAirport->landingSequence(testAirplane3, myfile);
-//    testAirport->landingSequence(testAirplane3, myfile);
-//    //added to runway
-//    testAirport->landingSequence(testAirplane3, myfile);
-//
-//    EXPECT_TRUE(testAirport->isAirplaneInRunway(testAirplane3));
+    testAirport->taxiToGate(testAirplane, myfile);
+
+    EXPECT_TRUE(testAirport->isAirplaneInGate(testAirplane));
+
+    testAirport->removeAirplaneFromGate(testAirplane, myfile);
+
+    EXPECT_FALSE(testAirport->isAirplaneInRunway(testAirplane));
+    //Runway clear
+    testAirport->collisionSolverAirEnd(testAirplane3, myfile);
+
+    EXPECT_TRUE(testAirport->getWaitpoint2() == NULL);
+    testAirport->landingSequence(testAirplane3, myfile);
+    testAirport->landingSequence(testAirplane3, myfile);
+    //added to runway
+    testAirport->landingSequence(testAirplane3, myfile);
+
+    EXPECT_TRUE(testAirport->isAirplaneInRunway(testAirplane3));
+    testAirport->removeAirplaneFromRunway(testAirplane3);
+    EXPECT_FALSE(testAirport->isAirplaneInRunway(testAirplane3));
 
     myfile.close();
 
 }
 TEST_F(AirportTest, collisiontest)
 {
-    testAirplane->setHeight(5000);
-    //testAirplane->setStatus(Departure);
     ofstream myfile;
     myfile.open("OutputFiles/testoutputx.txt");
-    testAirport->collisionSolverAirStart(testAirplane, myfile);
+
+    testAirplane->setStatus(Approaching);
+    testAirplane->setHeight(3000);
+
+    EXPECT_DEATH(testAirport->collisionSolverRunwayEnd(testAirplane,myfile), "Airplane must be on the ground");
+
+    testAirport->landingSequence(testAirplane,myfile);
+    testAirport->landingSequence(testAirplane,myfile);
+    testAirport->landingSequence(testAirplane,myfile);
+    testAirport->landingSequence(testAirplane,myfile);
+    EXPECT_TRUE(testAirport->isAirplaneInRunway(testAirplane));
+
+    EXPECT_DEATH(testAirport->collisionSolverRunwayEnd(testAirplane, myfile), "Airplane must be waiting at runway");
+
+    testAirport->taxiToGate(testAirplane, myfile);
+    testAirport->completeGateProtocol(testAirplane,myfile);
+
+    EXPECT_TRUE(testAirport->isAirplaneInGate(testAirplane));
+
+    testAirplane3->setStatus(Approaching);
+    testAirplane3->setHeight(3000);
+    testAirport->landingSequence(testAirplane3,myfile);
+    testAirport->landingSequence(testAirplane3,myfile);
+    testAirport->landingSequence(testAirplane3,myfile);
+    testAirport->landingSequence(testAirplane3,myfile);
+
+    testAirport->completeGateProtocol(testAirplane,myfile);
+    testAirport->completeGateProtocol(testAirplane,myfile);
+
+    EXPECT_TRUE(testAirport->isAirplaneInRunwayWait(testAirplane));
+
+    testAirport->taxiToGate(testAirplane3, myfile);
+
+    EXPECT_TRUE(testAirport->isAirplaneInGate(testAirplane3));
+
+    testAirport->collisionSolverRunwayEnd(testAirplane, myfile);
+    EXPECT_FALSE(testAirport->isAirplaneInRunwayWait(testAirplane));
+    EXPECT_TRUE(testAirport->isAirplaneInRunway(testAirplane));
+
+
+    testAirport->removeAirplaneFromGate(testAirplane3, myfile);
+    testAirport->removeAirplaneFromRunway(testAirplane);
+    EXPECT_FALSE(testAirport->isAirplaneInRunway(testAirplane));
+    EXPECT_FALSE(testAirport->isAirplaneInGate(testAirplane3));
     myfile.close();
-    EXPECT_EQ(Approaching, testAirplane->getStatus());
+
 }
 
