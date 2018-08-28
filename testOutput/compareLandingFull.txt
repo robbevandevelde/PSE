@@ -1,0 +1,34 @@
+[1] [callsign]
+$ John, CHARLIE ALFA LIMA LIMA SIERRA INDIA GOLF NOVEMBER , arriving at Antwerp Airport.
+[2] [John]
+$ CHARLIE ALFA LIMA LIMA SIERRA INDIA GOLF NOVEMBER , radar contact, descend and maintain five thousand feet.
+[3] [callsign]
+$ Descend and maintain five thousand feet, CHARLIE ALFA LIMA LIMA SIERRA INDIA GOLF NOVEMBER .
+--------------------------------------------------------------------------
+callsign descended to 9000 ft.
+--------------------------------------------------------------------------
+callsign descended to 8000 ft.
+--------------------------------------------------------------------------
+callsign descended to 7000 ft.
+--------------------------------------------------------------------------
+callsign descended to 6000 ft.
+--------------------------------------------------------------------------
+callsign descended to 5000 ft.
+--------------------------------------------------------------------------
+[1] [John]
+$ CHARLIE ALFA LIMA LIMA SIERRA INDIA GOLF NOVEMBER , hold south on the eighty radial, except further clearance.
+[2] [callsign]
+$ Holding south on the eighty radial CHARLIE ALFA LIMA LIMA SIERRA INDIA GOLF NOVEMBER .
+--------------------------------------------------------------------------
+[1] [John]
+$ CHARLIE ALFA LIMA LIMA SIERRA INDIA GOLF NOVEMBER , hold south on the eighty radial, except further clearance.
+[2] [callsign]
+$ Holding south on the eighty radial CHARLIE ALFA LIMA LIMA SIERRA INDIA GOLF NOVEMBER .
+--------------------------------------------------------------------------
+callsign descended to 4000 ft.
+callsign descended to 3000 ft.
+[1] [John]
+$ CHARLIE ALFA LIMA LIMA SIERRA INDIA GOLF NOVEMBER , hold south on the eighty radial, except further clearance.
+[2] [callsign]
+$ Holding south on the eighty radial CHARLIE ALFA LIMA LIMA SIERRA INDIA GOLF NOVEMBER .
+--------------------------------------------------------------------------

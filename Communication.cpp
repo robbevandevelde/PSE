@@ -279,7 +279,7 @@ void Communication::ATC_Airplane_After_Landing_Comm(AirTrafficController *airTra
     counter++;
 
     out << "[" << counter << "] " << "[" << airTrafficController->getName() << "]" << std::endl;
-    out << "$ Proceed to an empty gate. " << std::endl;
+    out << "$ Proceed to an empty gate." << std::endl;
     out << "--------------------------------------------------------------------------" << std::endl;
 }
 /*

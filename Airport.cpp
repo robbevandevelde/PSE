@@ -769,9 +769,9 @@ void Airport::completeGateProtocol(Airplane* airplane, std::ostream & out)
     REQUIRE(airplane->getStatus() == JustLanded || airplane->getStatus() == StandingAtGate, "Complete Gate protocol failure");
     REQUIRE(airplane->getHeight() == 0, "GateProtocol failure");
     if(!airplane->isFueled()){
-        gateprotocol(airplane,50);
+        gateprotocol(airplane,50, out);
     } else {
-        gateprotocol(airplane, 50);
+        gateprotocol(airplane, 50, out);
         _controller->takeOffClearance(airplane, out);
     }
 }

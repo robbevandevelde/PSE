@@ -1,16 +1,11 @@
 [1] [John]
-$ SIERRA MIKE ALFA LIMA LIMA PAPA ROMEO OSCAR PAPA ECHO LIMA LIMA ECHO ROMEO , hold south on the eighty radial, except further clearance.
+$ SIERRA MIKE ALFA LIMA LIMA PAPA ROMEO OSCAR PAPA ECHO LIMA LIMA ECHO ROMEO  cleared ILS approach runway Alpha.
 [2] [Small Propeller]
-$ Holding south on the eighty radial SIERRA MIKE ALFA LIMA LIMA PAPA ROMEO OSCAR PAPA ECHO LIMA LIMA ECHO ROMEO .
+$ Cleared ILS approach runway Alpha SIERRA MIKE ALFA LIMA LIMA PAPA ROMEO OSCAR PAPA ECHO LIMA LIMA ECHO ROMEO .
 --------------------------------------------------------------------------
-[1] [John]
-$ SIERRA MIKE ALFA LIMA LIMA PAPA ROMEO OSCAR PAPA ECHO LIMA LIMA ECHO ROMEO , hold south on the eighty radial, except further clearance.
-[2] [Small Propeller]
-$ Holding south on the eighty radial SIERRA MIKE ALFA LIMA LIMA PAPA ROMEO OSCAR PAPA ECHO LIMA LIMA ECHO ROMEO .
+Small Propeller descended to 2000 ft.
 --------------------------------------------------------------------------
-[1] [John]
-$ SIERRA MIKE ALFA LIMA LIMA PAPA ROMEO OSCAR PAPA ECHO LIMA LIMA ECHO ROMEO , hold south on the eighty radial, except further clearance.
-[2] [Small Propeller]
-$ Holding south on the eighty radial SIERRA MIKE ALFA LIMA LIMA PAPA ROMEO OSCAR PAPA ECHO LIMA LIMA ECHO ROMEO .
+Small Propeller descended to 1000 ft.
 --------------------------------------------------------------------------
-Small Propeller has to ascend to 10000 ft. again
+Small Propeller descended to 0 ft.
+--------------------------------------------------------------------------

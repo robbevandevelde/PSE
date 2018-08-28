@@ -1,9 +1,23 @@
-This is John you may proceed to an empty runway
-callsign is taxiing to runway R11
+[1] [callsign]
+$ callsign is ready to taxi.
+[2] [John]
+$ Proceed to your runway.
+--------------------------------------------------------------------------
+callsign is taxiing to runway Bravo
+[1] [callsign]
+$ John, callsign, holding short at Bravo.
+[2] [John]
+$ callsign, runway Bravo cleared to take-off
+[3] [callsign]
+$ Runway Bravo cleared for take-off, callsign.
 --------------------------------------------------------------------------
 callsign ascended to 1000 ft.
+--------------------------------------------------------------------------
 callsign ascended to 2000 ft.
+--------------------------------------------------------------------------
 callsign ascended to 3000 ft.
+--------------------------------------------------------------------------
 callsign ascended to 4000 ft.
+--------------------------------------------------------------------------
 callsign ascended to 5000 ft.
-callsign has left Antwerp Airport
+--------------------------------------------------------------------------
