@@ -1,0 +1,188 @@
+[1] [Propeller]
+$ John, PAPA ROMEO OSCAR PAPA ECHO LIMA LIMA ECHO ROMEO , arriving at Zaventem.
+[2] [John]
+$ PAPA ROMEO OSCAR PAPA ECHO LIMA LIMA ECHO ROMEO , radar contact, descend and maintain five thousand feet.
+[3] [Propeller]
+$ Descend and maintain five thousand feet, PAPA ROMEO OSCAR PAPA ECHO LIMA LIMA ECHO ROMEO .
+--------------------------------------------------------------------------
+Propeller descended to 9000 ft.
+--------------------------------------------------------------------------
+[1] [Jet]
+$ John, JULIETT ECHO TANGO , arriving at Zaventem.
+[2] [John]
+$ JULIETT ECHO TANGO , radar contact, descend and maintain five thousand feet.
+[3] [Jet]
+$ Descend and maintain five thousand feet, JULIETT ECHO TANGO .
+--------------------------------------------------------------------------
+Jet descended to 9000 ft.
+--------------------------------------------------------------------------
+Propeller descended to 8000 ft.
+--------------------------------------------------------------------------
+Jet descended to 8000 ft.
+--------------------------------------------------------------------------
+Propeller descended to 7000 ft.
+--------------------------------------------------------------------------
+Jet descended to 7000 ft.
+--------------------------------------------------------------------------
+Propeller descended to 6000 ft.
+--------------------------------------------------------------------------
+Jet descended to 6000 ft.
+--------------------------------------------------------------------------
+Propeller descended to 5000 ft.
+--------------------------------------------------------------------------
+Jet descended to 5000 ft.
+--------------------------------------------------------------------------
+[1] [John]
+$ PAPA ROMEO OSCAR PAPA ECHO LIMA LIMA ECHO ROMEO  descend and maintain three thousand feet.
+[2] [Propeller]
+$ Descend and maintain three thousand feet PAPA ROMEO OSCAR PAPA ECHO LIMA LIMA ECHO ROMEO .
+--------------------------------------------------------------------------
+Propeller descended to 4000 ft.
+--------------------------------------------------------------------------
+[1] [John]
+$ JULIETT ECHO TANGO  descend and maintain three thousand feet.
+[2] [Jet]
+$ Descend and maintain three thousand feet JULIETT ECHO TANGO .
+--------------------------------------------------------------------------
+Jet descended to 4000 ft.
+--------------------------------------------------------------------------
+Propeller descended to 3000 ft.
+--------------------------------------------------------------------------
+Jet descended to 3000 ft.
+--------------------------------------------------------------------------
+[1] [John]
+$ PAPA ROMEO OSCAR PAPA ECHO LIMA LIMA ECHO ROMEO  cleared ILS approach runway Bravo.
+[2] [Propeller]
+$ Cleared ILS approach runway Bravo PAPA ROMEO OSCAR PAPA ECHO LIMA LIMA ECHO ROMEO .
+--------------------------------------------------------------------------
+Propeller descended to 2000 ft.
+--------------------------------------------------------------------------
+[1] [John]
+$ JULIETT ECHO TANGO  cleared ILS approach runway Alpha.
+[2] [Jet]
+$ Cleared ILS approach runway Alpha JULIETT ECHO TANGO .
+--------------------------------------------------------------------------
+Jet descended to 2000 ft.
+--------------------------------------------------------------------------
+Propeller descended to 1000 ft.
+--------------------------------------------------------------------------
+Jet descended to 1000 ft.
+--------------------------------------------------------------------------
+Propeller descended to 0 ft.
+--------------------------------------------------------------------------
+Jet descended to 0 ft.
+--------------------------------------------------------------------------
+Propeller is landing at Zaventem on runway Bravo
+--------------------------------------------------------------------------
+Propeller has landed at Zaventem on runway Bravo
+--------------------------------------------------------------------------
+[1] [Propeller]
+$ John, PAPA ROMEO OSCAR PAPA ECHO LIMA LIMA ECHO ROMEO  , runway Bravo vacated.
+[2] [John]
+$ Proceed to an empty gate.
+--------------------------------------------------------------------------
+Jet is landing at Zaventem on runway Alpha
+--------------------------------------------------------------------------
+Jet has landed at Zaventem on runway Alpha
+--------------------------------------------------------------------------
+[1] [Jet]
+$ John, JULIETT ECHO TANGO  , runway Alpha vacated.
+[2] [John]
+$ Proceed to an empty gate.
+--------------------------------------------------------------------------
+Propeller is taxiing to Gate 1
+Propeller is standing at Gate 1
+50 exited Propeller at Gate 1 of Zaventem
+Propeller has been checked for technical malfunctions
+--------------------------------------------------------------------------
+Jet is taxiing to Gate 2
+Jet is standing at Gate 2
+50 exited Jet at Gate 2 of Zaventem
+Jet has been checked for technical malfunctions
+--------------------------------------------------------------------------
+Propeller has been refueled
+Jet has been refueled
+50 boarded Propeller at Gate 1 of Zaventem
+--------------------------------------------------------------------------
+[1] [Propeller]
+$ John, Propeller, requesting IFR clearancy.
+[2] [John]
+$ Propeller, John, cleared to destination, maintain five thousand, expect flight level one zero zero - ten minutes after departure.
+[3] [Propeller]
+$ Cleared to destination, initial altitude five thousand, expecting one zero zero in ten, Propeller.
+--------------------------------------------------------------------------
+[1] [Propeller]
+$ John, Propeller at gate 1, requesting pushback.
+[2] [John]
+$ Propeller, John, pushback approved
+[3] [Propeller]
+$ Pushback approved, Propeller.
+--------------------------------------------------------------------------
+Propeller is standing at Gate 1
+[1] [Propeller]
+$ Propeller is ready to taxi.
+[2] [John]
+$ Proceed to your runway.
+--------------------------------------------------------------------------
+Propeller is taxiing to runway Bravo
+50 boarded Jet at Gate 2 of Zaventem
+--------------------------------------------------------------------------
+[1] [Jet]
+$ John, Jet, requesting IFR clearancy.
+[2] [John]
+$ Jet, John, cleared to destination, maintain five thousand, expect flight level one zero zero - ten minutes after departure.
+[3] [Jet]
+$ Cleared to destination, initial altitude five thousand, expecting one zero zero in ten, Jet.
+--------------------------------------------------------------------------
+[1] [Jet]
+$ John, Jet at gate 1, requesting pushback.
+[2] [John]
+$ Jet, John, pushback approved
+[3] [Jet]
+$ Pushback approved, Jet.
+--------------------------------------------------------------------------
+Jet is standing at Gate 2
+[1] [Jet]
+$ Jet is ready to taxi.
+[2] [John]
+$ Proceed to your runway.
+--------------------------------------------------------------------------
+Jet is taxiing to runway Alpha
+[1] [Propeller]
+$ John, Propeller, holding short at Bravo.
+[2] [John]
+$ Propeller, runway Bravo cleared to take-off
+[3] [Propeller]
+$ Runway Bravo cleared for take-off, Propeller.
+--------------------------------------------------------------------------
+Propeller ascended to 1000 ft.
+--------------------------------------------------------------------------
+[1] [Jet]
+$ John, Jet, holding short at Alpha.
+[2] [John]
+$ Jet, runway Alpha cleared to take-off
+[3] [Jet]
+$ Runway Alpha cleared for take-off, Jet.
+--------------------------------------------------------------------------
+Jet ascended to 1000 ft.
+--------------------------------------------------------------------------
+Propeller ascended to 2000 ft.
+--------------------------------------------------------------------------
+Jet ascended to 2000 ft.
+--------------------------------------------------------------------------
+Propeller ascended to 3000 ft.
+--------------------------------------------------------------------------
+Jet ascended to 3000 ft.
+--------------------------------------------------------------------------
+Propeller ascended to 4000 ft.
+--------------------------------------------------------------------------
+Jet ascended to 4000 ft.
+--------------------------------------------------------------------------
+Propeller ascended to 5000 ft.
+--------------------------------------------------------------------------
+Jet ascended to 5000 ft.
+--------------------------------------------------------------------------
+Propeller has left Zaventem
+--------------------------------------------------------------------------
+Jet has left Zaventem
+--------------------------------------------------------------------------

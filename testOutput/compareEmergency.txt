@@ -1,0 +1,301 @@
+[1] [Small Propeller]
+$ Mayday mayday mayday, John, Small Propeller out of fuel, performing emergency landing, 50 passengers on board.
+[2] [John]
+$ Small Propeller, roger mayday, squawk seven seven zero zero, cleared ILS landing.
+--------------------------------------------------------------------------
+Small Propeller descended to 4000 ft.
+--------------------------------------------------------------------------
+F16 descended to 5000 ft.
+--------------------------------------------------------------------------
+HI99 descended to 5000 ft.
+--------------------------------------------------------------------------
+[1] [John]
+$ WHISKEY TWO , hold south on the eighty radial, except further clearance.
+[2] [W2]
+$ Holding south on the eighty radial WHISKEY TWO .
+--------------------------------------------------------------------------
+Small Propeller descended to 3000 ft.
+--------------------------------------------------------------------------
+[1] [John]
+$ FOXTROT ONE SIX  descend and maintain three thousand feet.
+[2] [F16]
+$ Descend and maintain three thousand feet FOXTROT ONE SIX .
+--------------------------------------------------------------------------
+F16 descended to 4000 ft.
+--------------------------------------------------------------------------
+[1] [John]
+$ HOTEL INDIA NINE NINE  descend and maintain three thousand feet.
+[2] [HI99]
+$ Descend and maintain three thousand feet HOTEL INDIA NINE NINE .
+--------------------------------------------------------------------------
+HI99 descended to 4000 ft.
+--------------------------------------------------------------------------
+Small Propeller descended to 2000 ft.
+--------------------------------------------------------------------------
+F16 descended to 3000 ft.
+--------------------------------------------------------------------------
+HI99 descended to 3000 ft.
+--------------------------------------------------------------------------
+Small Propeller descended to 1000 ft.
+--------------------------------------------------------------------------
+[1] [John]
+$ FOXTROT ONE SIX  cleared ILS approach runway Bravo.
+[2] [F16]
+$ Cleared ILS approach runway Bravo FOXTROT ONE SIX .
+--------------------------------------------------------------------------
+F16 descended to 2000 ft.
+--------------------------------------------------------------------------
+[1] [John]
+$ HOTEL INDIA NINE NINE  cleared ILS approach runway Charlie.
+[2] [HI99]
+$ Cleared ILS approach runway Charlie HOTEL INDIA NINE NINE .
+--------------------------------------------------------------------------
+HI99 descended to 2000 ft.
+--------------------------------------------------------------------------
+Small Propeller descended to 0 ft.
+--------------------------------------------------------------------------
+F16 descended to 1000 ft.
+--------------------------------------------------------------------------
+HI99 descended to 1000 ft.
+--------------------------------------------------------------------------
+Small Propeller is landing at Zaventem on runway Alpha
+Small Propeller has landed at Zaventem on runway Alpha
+Small Propeller wait for an emergency controle
+F16 descended to 0 ft.
+--------------------------------------------------------------------------
+HI99 descended to 0 ft.
+--------------------------------------------------------------------------
+Small Propeller has been checked for technical malfunctions
+F16 is landing at Zaventem on runway Bravo
+--------------------------------------------------------------------------
+F16 has landed at Zaventem on runway Bravo
+--------------------------------------------------------------------------
+[1] [F16]
+$ John, FOXTROT ONE SIX  , runway Bravo vacated.
+[2] [John]
+$ Proceed to an empty gate.
+--------------------------------------------------------------------------
+HI99 is landing at Zaventem on runway Charlie
+--------------------------------------------------------------------------
+HI99 has landed at Zaventem on runway Charlie
+--------------------------------------------------------------------------
+[1] [HI99]
+$ John, HOTEL INDIA NINE NINE  , runway Charlie vacated.
+[2] [John]
+$ Proceed to an empty gate.
+--------------------------------------------------------------------------
+Small Propeller has been refueled
+Small Propeller may proceed to an empty gate
+Small Propeller is taxiing to Gate 1
+Small Propeller is standing at Gate 1
+50 exited Small Propeller at Gate 1 of Zaventem
+Small Propeller has been checked for technical malfunctions
+F16 is taxiing to Gate 2
+F16 is standing at Gate 2
+50 exited F16 at Gate 2 of Zaventem
+F16 has been checked for technical malfunctions
+--------------------------------------------------------------------------
+HI99 is taxiing to Gate 3
+HI99 is standing at Gate 3
+50 exited HI99 at Gate 3 of Zaventem
+HI99 has been checked for technical malfunctions
+--------------------------------------------------------------------------
+W2 descended to 4000 ft.
+Small Propeller has been refueled
+F16 has been refueled
+HI99 has been refueled
+W2 descended to 3000 ft.
+--------------------------------------------------------------------------
+50 boarded Small Propeller at Gate 1 of Zaventem
+--------------------------------------------------------------------------
+[1] [Small Propeller]
+$ John, Small Propeller, requesting IFR clearancy.
+[2] [John]
+$ Small Propeller, John, cleared to destination, maintain five thousand, expect flight level one zero zero - ten minutes after departure.
+[3] [Small Propeller]
+$ Cleared to destination, initial altitude five thousand, expecting one zero zero in ten, Small Propeller.
+--------------------------------------------------------------------------
+[1] [Small Propeller]
+$ John, Small Propeller at gate 1, requesting pushback.
+[2] [John]
+$ Small Propeller, John, pushback approved
+[3] [Small Propeller]
+$ Pushback approved, Small Propeller.
+--------------------------------------------------------------------------
+Small Propeller is standing at Gate 1
+[1] [Small Propeller]
+$ Small Propeller is ready to taxi.
+[2] [John]
+$ Proceed to your runway.
+--------------------------------------------------------------------------
+Small Propeller is taxiing to runway Alpha
+50 boarded F16 at Gate 2 of Zaventem
+--------------------------------------------------------------------------
+[1] [F16]
+$ John, F16, requesting IFR clearancy.
+[2] [John]
+$ F16, John, cleared to destination, maintain five thousand, expect flight level one zero zero - ten minutes after departure.
+[3] [F16]
+$ Cleared to destination, initial altitude five thousand, expecting one zero zero in ten, F16.
+--------------------------------------------------------------------------
+[1] [F16]
+$ John, F16 at gate 1, requesting pushback.
+[2] [John]
+$ F16, John, pushback approved
+[3] [F16]
+$ Pushback approved, F16.
+--------------------------------------------------------------------------
+F16 is standing at Gate 2
+[1] [F16]
+$ F16 is ready to taxi.
+[2] [John]
+$ Proceed to your runway.
+--------------------------------------------------------------------------
+F16 is taxiing to runway Bravo
+50 boarded HI99 at Gate 3 of Zaventem
+--------------------------------------------------------------------------
+[1] [HI99]
+$ John, HI99, requesting IFR clearancy.
+[2] [John]
+$ HI99, John, cleared to destination, maintain five thousand, expect flight level one zero zero - ten minutes after departure.
+[3] [HI99]
+$ Cleared to destination, initial altitude five thousand, expecting one zero zero in ten, HI99.
+--------------------------------------------------------------------------
+[1] [HI99]
+$ John, HI99 at gate 1, requesting pushback.
+[2] [John]
+$ HI99, John, pushback approved
+[3] [HI99]
+$ Pushback approved, HI99.
+--------------------------------------------------------------------------
+HI99 is standing at Gate 3
+[1] [HI99]
+$ HI99 is ready to taxi.
+[2] [John]
+$ Proceed to your runway.
+--------------------------------------------------------------------------
+HI99 is taxiing to runway Charlie
+[1] [John]
+$ WHISKEY TWO , hold south on the eighty radial, except further clearance.
+[2] [W2]
+$ Holding south on the eighty radial WHISKEY TWO .
+--------------------------------------------------------------------------
+[1] [Small Propeller]
+$ John, Small Propeller, holding short at Alpha.
+[2] [John]
+$ Small Propeller, runway Alpha cleared to take-off
+[3] [Small Propeller]
+$ Runway Alpha cleared for take-off, Small Propeller.
+--------------------------------------------------------------------------
+Small Propeller ascended to 1000 ft.
+--------------------------------------------------------------------------
+[1] [F16]
+$ John, F16, holding short at Bravo.
+[2] [John]
+$ F16, runway Bravo cleared to take-off
+[3] [F16]
+$ Runway Bravo cleared for take-off, F16.
+--------------------------------------------------------------------------
+F16 ascended to 1000 ft.
+--------------------------------------------------------------------------
+[1] [HI99]
+$ John, HI99, holding short at Charlie.
+[2] [John]
+$ HI99, runway Charlie cleared to take-off
+[3] [HI99]
+$ Runway Charlie cleared for take-off, HI99.
+--------------------------------------------------------------------------
+HI99 ascended to 1000 ft.
+--------------------------------------------------------------------------
+Small Propeller ascended to 2000 ft.
+--------------------------------------------------------------------------
+F16 ascended to 2000 ft.
+--------------------------------------------------------------------------
+HI99 ascended to 2000 ft.
+--------------------------------------------------------------------------
+Small Propeller ascended to 3000 ft.
+--------------------------------------------------------------------------
+F16 ascended to 3000 ft.
+--------------------------------------------------------------------------
+HI99 ascended to 3000 ft.
+--------------------------------------------------------------------------
+Small Propeller ascended to 4000 ft.
+--------------------------------------------------------------------------
+F16 ascended to 4000 ft.
+--------------------------------------------------------------------------
+HI99 ascended to 4000 ft.
+--------------------------------------------------------------------------
+Small Propeller ascended to 5000 ft.
+--------------------------------------------------------------------------
+F16 ascended to 5000 ft.
+--------------------------------------------------------------------------
+HI99 ascended to 5000 ft.
+--------------------------------------------------------------------------
+Small Propeller has left Zaventem
+--------------------------------------------------------------------------
+F16 has left Zaventem
+--------------------------------------------------------------------------
+HI99 has left Zaventem
+--------------------------------------------------------------------------
+W2 descended to 2000 ft.
+W2 descended to 1000 ft.
+--------------------------------------------------------------------------
+W2 descended to 0 ft.
+--------------------------------------------------------------------------
+W2 is landing at Zaventem on runway Alpha
+--------------------------------------------------------------------------
+W2 has landed at Zaventem on runway Alpha
+--------------------------------------------------------------------------
+[1] [W2]
+$ John, WHISKEY TWO  , runway Alpha vacated.
+[2] [John]
+$ Proceed to an empty gate.
+--------------------------------------------------------------------------
+W2 is taxiing to Gate 1
+W2 is standing at Gate 1
+50 exited W2 at Gate 1 of Zaventem
+W2 has been checked for technical malfunctions
+--------------------------------------------------------------------------
+W2 has been refueled
+50 boarded W2 at Gate 1 of Zaventem
+--------------------------------------------------------------------------
+[1] [W2]
+$ John, W2, requesting IFR clearancy.
+[2] [John]
+$ W2, John, cleared to destination, maintain five thousand, expect flight level one zero zero - ten minutes after departure.
+[3] [W2]
+$ Cleared to destination, initial altitude five thousand, expecting one zero zero in ten, W2.
+--------------------------------------------------------------------------
+[1] [W2]
+$ John, W2 at gate 1, requesting pushback.
+[2] [John]
+$ W2, John, pushback approved
+[3] [W2]
+$ Pushback approved, W2.
+--------------------------------------------------------------------------
+W2 is standing at Gate 1
+[1] [W2]
+$ W2 is ready to taxi.
+[2] [John]
+$ Proceed to your runway.
+--------------------------------------------------------------------------
+W2 is taxiing to runway Alpha
+[1] [W2]
+$ John, W2, holding short at Alpha.
+[2] [John]
+$ W2, runway Alpha cleared to take-off
+[3] [W2]
+$ Runway Alpha cleared for take-off, W2.
+--------------------------------------------------------------------------
+W2 ascended to 1000 ft.
+--------------------------------------------------------------------------
+W2 ascended to 2000 ft.
+--------------------------------------------------------------------------
+W2 ascended to 3000 ft.
+--------------------------------------------------------------------------
+W2 ascended to 4000 ft.
+--------------------------------------------------------------------------
+W2 ascended to 5000 ft.
+--------------------------------------------------------------------------
+W2 has left Zaventem
+--------------------------------------------------------------------------

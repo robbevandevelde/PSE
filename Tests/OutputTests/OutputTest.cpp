@@ -191,3 +191,49 @@ TEST_F(OutputTest, fullSimulation)
     EXPECT_TRUE(APU->compareFiles("testOutput/testOutput05.txt", "testOutput/compareFullSimulation.txt"));
     myfile.close();
 }
+TEST_F(OutputTest, emergencySimulation){
+    ofstream myfile;
+    myfile.open("testOutput/testOutput06.txt");
+    Airport *airport = new Airport(10, "Zaventem", "f444", "Echo");
+
+    AirTrafficController *John = new AirTrafficController(airport, "John");
+    airport->assignController(John);
+
+    std::string naam = "LAX";
+    Flightplan *fl = new Flightplan(naam, 5, 6, 7);
+
+    Airplane *airplane = new Airplane("Small", "Small Propeller", "Winchester", Approaching, 50, 50, Airline, Propeller, Small, fl);
+    airplane->setHeight(5000);
+    airplane->setFuel(0);
+    Airplane *airplane1 = new Airplane("556", "F16", "Win100", Approaching, 50, 50, Airline, Jet, Medium, fl);
+    airplane1->setHeight(6000);
+    Airplane *airplane2 = new Airplane("6969", "HI99", "Wallonie", Approaching, 50,50 ,Airline, Jet, Medium, fl);
+    airplane2->setHeight(6000);
+    Airplane *airplane3 = new Airplane("420", "W2", "Winchester", Approaching, 50, 50, Airline, Propeller, Small, fl);
+    airplane3->setHeight(5000);
+
+    Runway *runway = new Runway(500, "Alpha", Grass, "Zaventem");
+
+    Runway *runway1 = new Runway(2000, "Bravo", Asphalt, "Zaventem");
+
+    Runway *runway2 = new Runway(9000, "Charlie", Asphalt, "Zaventem");
+
+    vector<Runway *> runways;
+
+    runways.push_back(runway);
+    runways.push_back(runway1);
+    runways.push_back(runway2);
+
+    vector<Airplane *> airplanes;
+    airplanes.push_back(airplane);
+    airplanes.push_back(airplane1);
+    airplanes.push_back(airplane2);
+    airplanes.push_back(airplane3);
+
+    Simulator *sim = new Simulator(runways, airplanes, airport);
+    sim->addRunways();
+    sim->Simulate(myfile);
+    EXPECT_TRUE(APU->compareFiles("testOutput/testOutput06.txt", "testOutput/compareEmergency.txt"));
+    myfile.close();
+
+}

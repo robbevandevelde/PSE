@@ -570,7 +570,7 @@ void Airport::emergencyControle(Airplane *airplane,std::ostream& out)
         ENSURE(airplane->getStatus() == JustLanded, "Aiplane status failure");
         this->taxiToGate(airplane, out);
         ENSURE(this->isAirplaneInGate(airplane),"Airplane to gate failure");
-        this->gateprotocol(airplane, 0);
+        this->gateprotocol(airplane, 0, out);
     }
 }
 
